@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A696C4D81AC1A5D900A860AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A696C4D71AC1A5D900A860AD /* main.m */; };
+		A696C4DB1AC1A5D900A860AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A696C4DA1AC1A5D900A860AD /* AppDelegate.m */; };
+		A696C4DE1AC1A5D900A860AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A696C4DD1AC1A5D900A860AD /* ViewController.m */; };
+		A696C4E11AC1A5D900A860AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A696C4DF1AC1A5D900A860AD /* Main.storyboard */; };
+		A696C4E31AC1A5D900A860AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A696C4E21AC1A5D900A860AD /* Images.xcassets */; };
+		A696C4E61AC1A5D900A860AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A696C4E41AC1A5D900A860AD /* LaunchScreen.xib */; };
+		A696C4F21AC1A5D900A860AD /* BeautyHouse_iphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A696C4F11AC1A5D900A860AD /* BeautyHouse_iphoneTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A696C4EC1AC1A5D900A860AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A696C4CA1AC1A5D900A860AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A696C4D11AC1A5D900A860AD;
+			remoteInfo = BeautyHouse_iphone;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A696C4D21AC1A5D900A860AD /* BeautyHouse_iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautyHouse_iphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A696C4D61AC1A5D900A860AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A696C4D71AC1A5D900A860AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A696C4D91AC1A5D900A860AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A696C4DA1AC1A5D900A860AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A696C4DC1AC1A5D900A860AD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A696C4DD1AC1A5D900A860AD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A696C4E01AC1A5D900A860AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A696C4E21AC1A5D900A860AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A696C4E51AC1A5D900A860AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A696C4EB1AC1A5D900A860AD /* BeautyHouse_iphoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeautyHouse_iphoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A696C4F01AC1A5D900A860AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A696C4F11AC1A5D900A860AD /* BeautyHouse_iphoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyHouse_iphoneTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A696C4CF1AC1A5D900A860AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A696C4E81AC1A5D900A860AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A696C4C91AC1A5D900A860AD = {
+			isa = PBXGroup;
+			children = (
+				A696C4D41AC1A5D900A860AD /* BeautyHouse_iphone */,
+				A696C4EE1AC1A5D900A860AD /* BeautyHouse_iphoneTests */,
+				A696C4D31AC1A5D900A860AD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A696C4D31AC1A5D900A860AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A696C4D21AC1A5D900A860AD /* BeautyHouse_iphone.app */,
+				A696C4EB1AC1A5D900A860AD /* BeautyHouse_iphoneTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A696C4D41AC1A5D900A860AD /* BeautyHouse_iphone */ = {
+			isa = PBXGroup;
+			children = (
+				A696C4D91AC1A5D900A860AD /* AppDelegate.h */,
+				A696C4DA1AC1A5D900A860AD /* AppDelegate.m */,
+				A696C4DC1AC1A5D900A860AD /* ViewController.h */,
+				A696C4DD1AC1A5D900A860AD /* ViewController.m */,
+				A696C4DF1AC1A5D900A860AD /* Main.storyboard */,
+				A696C4E21AC1A5D900A860AD /* Images.xcassets */,
+				A696C4E41AC1A5D900A860AD /* LaunchScreen.xib */,
+				A696C4D51AC1A5D900A860AD /* Supporting Files */,
+			);
+			path = BeautyHouse_iphone;
+			sourceTree = "<group>";
+		};
+		A696C4D51AC1A5D900A860AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A696C4D61AC1A5D900A860AD /* Info.plist */,
+				A696C4D71AC1A5D900A860AD /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A696C4EE1AC1A5D900A860AD /* BeautyHouse_iphoneTests */ = {
+			isa = PBXGroup;
+			children = (
+				A696C4F11AC1A5D900A860AD /* BeautyHouse_iphoneTests.m */,
+				A696C4EF1AC1A5D900A860AD /* Supporting Files */,
+			);
+			path = BeautyHouse_iphoneTests;
+			sourceTree = "<group>";
+		};
+		A696C4EF1AC1A5D900A860AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A696C4F01AC1A5D900A860AD /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A696C4D11AC1A5D900A860AD /* BeautyHouse_iphone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A696C4F51AC1A5D900A860AD /* Build configuration list for PBXNativeTarget "BeautyHouse_iphone" */;
+			buildPhases = (
+				A696C4CE1AC1A5D900A860AD /* Sources */,
+				A696C4CF1AC1A5D900A860AD /* Frameworks */,
+				A696C4D01AC1A5D900A860AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BeautyHouse_iphone;
+			productName = BeautyHouse_iphone;
+			productReference = A696C4D21AC1A5D900A860AD /* BeautyHouse_iphone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A696C4EA1AC1A5D900A860AD /* BeautyHouse_iphoneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A696C4F81AC1A5D900A860AD /* Build configuration list for PBXNativeTarget "BeautyHouse_iphoneTests" */;
+			buildPhases = (
+				A696C4E71AC1A5D900A860AD /* Sources */,
+				A696C4E81AC1A5D900A860AD /* Frameworks */,
+				A696C4E91AC1A5D900A860AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A696C4ED1AC1A5D900A860AD /* PBXTargetDependency */,
+			);
+			name = BeautyHouse_iphoneTests;
+			productName = BeautyHouse_iphoneTests;
+			productReference = A696C4EB1AC1A5D900A860AD /* BeautyHouse_iphoneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A696C4CA1AC1A5D900A860AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = lixiang;
+				TargetAttributes = {
+					A696C4D11AC1A5D900A860AD = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					A696C4EA1AC1A5D900A860AD = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = A696C4D11AC1A5D900A860AD;
+					};
+				};
+			};
+			buildConfigurationList = A696C4CD1AC1A5D900A860AD /* Build configuration list for PBXProject "BeautyHouse_iphone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A696C4C91AC1A5D900A860AD;
+			productRefGroup = A696C4D31AC1A5D900A860AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A696C4D11AC1A5D900A860AD /* BeautyHouse_iphone */,
+				A696C4EA1AC1A5D900A860AD /* BeautyHouse_iphoneTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A696C4D01AC1A5D900A860AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A696C4E11AC1A5D900A860AD /* Main.storyboard in Resources */,
+				A696C4E61AC1A5D900A860AD /* LaunchScreen.xib in Resources */,
+				A696C4E31AC1A5D900A860AD /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A696C4E91AC1A5D900A860AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A696C4CE1AC1A5D900A860AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A696C4DE1AC1A5D900A860AD /* ViewController.m in Sources */,
+				A696C4DB1AC1A5D900A860AD /* AppDelegate.m in Sources */,
+				A696C4D81AC1A5D900A860AD /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A696C4E71AC1A5D900A860AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A696C4F21AC1A5D900A860AD /* BeautyHouse_iphoneTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A696C4ED1AC1A5D900A860AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A696C4D11AC1A5D900A860AD /* BeautyHouse_iphone */;
+			targetProxy = A696C4EC1AC1A5D900A860AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A696C4DF1AC1A5D900A860AD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A696C4E01AC1A5D900A860AD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A696C4E41AC1A5D900A860AD /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A696C4E51AC1A5D900A860AD /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A696C4F31AC1A5D900A860AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A696C4F41AC1A5D900A860AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A696C4F61AC1A5D900A860AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BeautyHouse_iphone/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A696C4F71AC1A5D900A860AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BeautyHouse_iphone/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A696C4F91AC1A5D900A860AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BeautyHouse_iphoneTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeautyHouse_iphone.app/BeautyHouse_iphone";
+			};
+			name = Debug;
+		};
+		A696C4FA1AC1A5D900A860AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BeautyHouse_iphoneTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeautyHouse_iphone.app/BeautyHouse_iphone";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A696C4CD1AC1A5D900A860AD /* Build configuration list for PBXProject "BeautyHouse_iphone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A696C4F31AC1A5D900A860AD /* Debug */,
+				A696C4F41AC1A5D900A860AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A696C4F51AC1A5D900A860AD /* Build configuration list for PBXNativeTarget "BeautyHouse_iphone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A696C4F61AC1A5D900A860AD /* Debug */,
+				A696C4F71AC1A5D900A860AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A696C4F81AC1A5D900A860AD /* Build configuration list for PBXNativeTarget "BeautyHouse_iphoneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A696C4F91AC1A5D900A860AD /* Debug */,
+				A696C4FA1AC1A5D900A860AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A696C4CA1AC1A5D900A860AD /* Project object */;
+}
