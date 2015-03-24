@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vju-xh-OOy">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Kuk-mz-KIg">
+            <objects>
+                <tabBarController id="vju-xh-OOy" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Su9-eX-hgn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="J7m-Bf-WBS" kind="relationship" relationship="viewControllers" id="BMN-TF-u5y"/>
+                        <segue destination="4GZ-gX-xBz" kind="relationship" relationship="viewControllers" id="iiZ-4x-VHA"/>
+                        <segue destination="NES-Xk-eHW" kind="relationship" relationship="viewControllers" id="j0f-JK-9M0"/>
+                        <segue destination="Jnx-rs-Oa6" kind="relationship" relationship="viewControllers" id="u2v-JE-0N8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OWI-5T-e7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-977" y="417"/>
+        </scene>
+        <!--美宅宝-->
+        <scene sceneID="zpd-De-TYZ">
+            <objects>
+                <tableViewController id="96z-0y-XiZ" customClass="HomeTableVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="284" sectionHeaderHeight="22" sectionFooterHeight="22" id="kBk-Xb-972">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeBntCell_Identifier" rowHeight="286" id="Sgg-RA-lKV" customClass="HomeBtnCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sgg-RA-lKV" id="yOU-Pc-mcg">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FiT-CJ-OWd" userLabel="Button1" customClass="HomeButton">
+                                            <rect key="frame" x="0.0" y="14" width="106" height="90"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="fbv-Sr-KQ5"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BIK-cz-l6x" userLabel="Button2" customClass="HomeButton">
+                                            <rect key="frame" x="107" y="14" width="106" height="90"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="auQ-HD-Q3E"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="e0u-GB-hP8" userLabel="Button3" customClass="HomeButton">
+                                            <rect key="frame" x="214" y="14" width="106" height="90"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="fbT-01-vpr"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BIz-5t-hLS" userLabel="Button4" customClass="HomeButton">
+                                            <rect key="frame" x="0.0" y="105" width="106" height="90"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="Idp-Hk-REh"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DZU-A5-w1t" userLabel="Button5" customClass="HomeButton">
+                                            <rect key="frame" x="107" y="105" width="106" height="90"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="RR8-87-wlE"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wta-Cn-N93" userLabel="Button6" customClass="HomeButton">
+                                            <rect key="frame" x="214" y="105" width="106" height="90"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="pqN-UL-yL1"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fSW-du-w3n" userLabel="Button7" customClass="HomeButton">
+                                            <rect key="frame" x="0.0" y="196" width="106" height="90"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="89e-XL-QDb"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="G6V-FO-Bf4" userLabel="Button8" customClass="HomeButton">
+                                            <rect key="frame" x="107" y="196" width="106" height="90"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="igs-UM-wU8"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6bi-bm-I0P" userLabel="Button9" customClass="HomeButton">
+                                            <rect key="frame" x="214" y="196" width="106" height="90"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="jIq-aG-Ab9"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="96z-0y-XiZ" id="oxL-UD-mKk"/>
+                            <outlet property="delegate" destination="96z-0y-XiZ" id="Y1S-Xa-9UA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="美宅宝" id="Z3z-8C-IzQ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bMH-ol-cRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="247" y="-430"/>
+        </scene>
+        <!--订单-->
+        <scene sceneID="iEP-xH-QDf">
+            <objects>
+                <navigationController id="4GZ-gX-xBz" customClass="BaseNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="订单" image="tab_orders.png" id="MTA-U6-gwQ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hJp-7J-BCY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="IDO-9y-ZaG" kind="relationship" relationship="rootViewController" id="At2-fM-GO1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2hu-wV-brK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-340" y="244"/>
+        </scene>
+        <!--My OrderVC-->
+        <scene sceneID="Nfz-zg-mVZ">
+            <objects>
+                <viewController id="IDO-9y-ZaG" customClass="MyOrderVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bvh-er-bHy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UYe-WE-7da"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="An9-dd-JZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="183" y="236"/>
+        </scene>
+        <!--我的-->
+        <scene sceneID="Soo-lR-rCu">
+            <objects>
+                <navigationController id="Jnx-rs-Oa6" customClass="BaseNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的" image="tab_owner.png" id="MQ0-1W-yMV"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yno-Oe-5Gs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="miF-b5-iK0" kind="relationship" relationship="rootViewController" id="s7O-q6-Lhr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R0E-lc-KMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-370" y="1624"/>
+        </scene>
+        <!--My AccountVC-->
+        <scene sceneID="PkH-Ki-orQ">
+            <objects>
+                <viewController id="miF-b5-iK0" customClass="MyAccountVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="48t-ZX-S8U">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Kq4-Kn-l8Z"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6e-U2-4dK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="208" y="1605"/>
+        </scene>
+        <!--会员-->
+        <scene sceneID="I9f-gN-4eY">
+            <objects>
+                <navigationController id="NES-Xk-eHW" customClass="BaseNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="会员" image="tab_member.png" id="AUl-o0-rj4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C7v-eo-0NW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vYQ-mW-38y" kind="relationship" relationship="rootViewController" id="kxN-hb-0mG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pST-it-aK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-345" y="912"/>
+        </scene>
+        <!--Member CenterVC-->
+        <scene sceneID="m0E-ur-U6B">
+            <objects>
+                <viewController id="vYQ-mW-38y" customClass="MemberCenterVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hSb-lu-qMj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XtV-hX-8b3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6nI-H5-MQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="192" y="917"/>
+        </scene>
+        <!--首页-->
+        <scene sceneID="H8i-ay-pRR">
+            <objects>
+                <navigationController id="J7m-Bf-WBS" customClass="BaseNavigationController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="首页" image="tab_home.png" id="4Ht-wm-MS6"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Pf-9v-oi3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="96z-0y-XiZ" kind="relationship" relationship="rootViewController" id="r45-Hr-glf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fb7-oV-86j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-340" y="-466"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tab_home.png" width="20" height="19"/>
+        <image name="tab_member.png" width="20" height="19"/>
+        <image name="tab_orders.png" width="20" height="19"/>
+        <image name="tab_owner.png" width="20" height="19"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
