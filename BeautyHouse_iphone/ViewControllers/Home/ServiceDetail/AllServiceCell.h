@@ -10,12 +10,23 @@
 #import "MzbService.h"
 #import "AllServiceButton.h"
 
+@protocol AllServiceCellDelegate <NSObject>
+
+- (void)AllServiceCellButtonPressed:(id)sender andMzbService:(MzbService *)aService;
+
+@end
+
+
 @interface AllServiceCell : UITableViewCell
+
+@property (assign, nonatomic) id<AllServiceCellDelegate>delegate;
 
 @property (weak, nonatomic) IBOutlet AllServiceButton *button1;
 @property (weak, nonatomic) IBOutlet AllServiceButton *button2;
 
 @property (strong, nonatomic) MzbService *childService1;
 @property (strong, nonatomic) MzbService *childService2;
+
+- (IBAction)buttonPressed:(id)sender;
 
 @end

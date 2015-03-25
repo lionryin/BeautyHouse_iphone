@@ -793,11 +793,8 @@
 				A696C4D81AC1A5D900A860AD /* main.m in Sources */,
 				A696C5231AC1A8D900A860AD /* BaseTVC.m in Sources */,
 				A696C5921AC1A91900A860AD /* NurseVC.m in Sources */,
-
 				B0735C161AC25BEF005A3E82 /* GoldenIconActivityVC.m in Sources */,
-
 				A66C50B81AC272D1003E146F /* AllServiceButton.m in Sources */,
-
 				A696C55C1AC1A8F400A860AD /* AFURLSessionManager.m in Sources */,
 				B0735C221AC25C9C005A3E82 /* AvailableCitiesVC.m in Sources */,
 				A696C58A1AC1A91900A860AD /* CleanerVC.m in Sources */,
@@ -938,7 +935,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BeautyHouse_iphone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -953,7 +950,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BeautyHouse_iphone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

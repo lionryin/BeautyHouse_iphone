@@ -207,8 +207,11 @@
             [self.navigationController pushViewController:clearnerVC animated:YES];
         }
     }
-    else if ([aService.serviceParentId isEqualToString:@"23333"]){
+    else if ([aService.serviceParentId isEqualToString:@"49313730143"]){//综合保姆
         
+        NurseVC *nurseVc = [[NurseVC alloc] initWithNibName:@"NurseVC" bundle:nil];
+        nurseVc.serviceInfo = aService;
+        [self.navigationController pushViewController:nurseVc animated:YES];
     }
     else{//更多服务
         if ([aService.serviceId isEqualToString:@"80069561635"]) {//全部服务
@@ -217,7 +220,6 @@
             [self.navigationController pushViewController:allServiceVC animated:YES];
         }
     }
-   
     
 }
 

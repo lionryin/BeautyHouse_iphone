@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AllServiceVC : UIViewController<UITableViewDataSource, UITableViewDelegate>
+#import "AllServiceCell.h"
+
+@interface AllServiceVC : UIViewController<UITableViewDataSource, UITableViewDelegate, AllServiceCellDelegate>
 
 @end

@@ -20,6 +20,18 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)buttonPressed:(id)sender{
+    UIButton *button = (UIButton *)sender;
+    
+    if (button.tag == 1) {
+        [self.delegate AllServiceCellButtonPressed:sender andMzbService:_childService1];
+    }
+    else if (button.tag == 2){
+        [self.delegate AllServiceCellButtonPressed:sender andMzbService:_childService2];
+    }
+    
+}
+
 - (void)layoutSubviews{
     
     [_button1 setTitle:_childService1.serviceName forState:UIControlStateNormal];
@@ -30,7 +42,7 @@
     
     if (_childService2) {
         [_button2 setHidden:NO];
-        [_button2 setTitle:_childService1.serviceName forState:UIControlStateNormal];
+        [_button2 setTitle:_childService2.serviceName forState:UIControlStateNormal];
         
         NSString *imageUrl2 = [NSString stringWithFormat:@"%@%@",imageURLPrefix,_childService2.servicePhoto];
         
