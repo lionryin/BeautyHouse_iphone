@@ -9,6 +9,12 @@
 #import "MyAccountVC.h"
 #import "MyAccountTVC.h"
 
+#import "GoldenIconActivityVC.h"
+#import "AccountDetailVC.h"
+#import "ShareToFriendsVC.h"
+#import "FeedBackVC.h"
+#import "AvailableCitiesVC.h"
+#import "MoreSettingVC.h"
 
 @interface MyAccountVC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -31,7 +37,21 @@
     self.tableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.tableHeaderView = [self tableHeaderView];
     [self.view addSubview:self.tableView];
+}
+
+
+- (UIView *)tableHeaderView{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 148)];
+    view.backgroundColor = [UIColor clearColor];
+    
+    UIImageView *bgIV=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, view.frame.size.width, 128)];
+    [bgIV setImage:[UIImage imageNamed:@"mybgpic"]];
+    
+    [view addSubview:bgIV];
+
+    return view;
 }
 
 #pragma mark - UITableView DataSource
@@ -101,6 +121,9 @@
     
 }
 
+
+
+
 #pragma mark - UITableView Delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -112,6 +135,53 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+            {
+                
+            }
+                break;
+            case 1:
+            {
+                
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }else{
+        switch (indexPath.row) {
+            case 0:
+            {
+                
+            }
+                break;
+            case 1:
+            {
+                
+            }
+                break;
+            case 2:
+            {
+                
+            }
+                break;
+            case 3:
+            {
+                
+            }
+                break;
+            default:
+                break;
+        }
+    }
+
+    
+    
+    
 }
 
 
@@ -120,7 +190,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
     if (section == 0) {
-        return 120;
+        return 0.1;
     }else{
         return 20;
     }

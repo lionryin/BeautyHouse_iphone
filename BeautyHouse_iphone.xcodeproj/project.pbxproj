@@ -76,6 +76,13 @@
 		B0735C0D1AC25350005A3E82 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C0A1AC25350005A3E82 /* icon_home.png */; };
 		B0735C0E1AC25350005A3E82 /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C0B1AC25350005A3E82 /* icon_time.png */; };
 		B0735C111AC25495005A3E82 /* MyAccountTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C101AC25495005A3E82 /* MyAccountTVC.m */; };
+		B0735C131AC25AA4005A3E82 /* mybgpic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C121AC25AA4005A3E82 /* mybgpic@2x.png */; };
+		B0735C161AC25BEF005A3E82 /* GoldenIconActivityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C151AC25BEF005A3E82 /* GoldenIconActivityVC.m */; };
+		B0735C191AC25C0D005A3E82 /* AccountDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C181AC25C0D005A3E82 /* AccountDetailVC.m */; };
+		B0735C1C1AC25C32005A3E82 /* ShareToFriendsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C1B1AC25C32005A3E82 /* ShareToFriendsVC.m */; };
+		B0735C1F1AC25C44005A3E82 /* FeedBackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C1E1AC25C44005A3E82 /* FeedBackVC.m */; };
+		B0735C221AC25C9C005A3E82 /* AvailableCitiesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C211AC25C9C005A3E82 /* AvailableCitiesVC.m */; };
+		B0735C251AC25CB1005A3E82 /* MoreSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C241AC25CB1005A3E82 /* MoreSettingVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +216,19 @@
 		B0735C0B1AC25350005A3E82 /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_time.png; path = BeautyHouse_iphone/Res/icon_time.png; sourceTree = SOURCE_ROOT; };
 		B0735C0F1AC25495005A3E82 /* MyAccountTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountTVC.h; sourceTree = "<group>"; };
 		B0735C101AC25495005A3E82 /* MyAccountTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountTVC.m; sourceTree = "<group>"; };
+		B0735C121AC25AA4005A3E82 /* mybgpic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mybgpic@2x.png"; path = "BeautyHouse_iphone/Res/mybgpic@2x.png"; sourceTree = SOURCE_ROOT; };
+		B0735C141AC25BEF005A3E82 /* GoldenIconActivityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldenIconActivityVC.h; sourceTree = "<group>"; };
+		B0735C151AC25BEF005A3E82 /* GoldenIconActivityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoldenIconActivityVC.m; sourceTree = "<group>"; };
+		B0735C171AC25C0D005A3E82 /* AccountDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDetailVC.h; sourceTree = "<group>"; };
+		B0735C181AC25C0D005A3E82 /* AccountDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailVC.m; sourceTree = "<group>"; };
+		B0735C1A1AC25C32005A3E82 /* ShareToFriendsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareToFriendsVC.h; sourceTree = "<group>"; };
+		B0735C1B1AC25C32005A3E82 /* ShareToFriendsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareToFriendsVC.m; sourceTree = "<group>"; };
+		B0735C1D1AC25C44005A3E82 /* FeedBackVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackVC.h; sourceTree = "<group>"; };
+		B0735C1E1AC25C44005A3E82 /* FeedBackVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackVC.m; sourceTree = "<group>"; };
+		B0735C201AC25C9C005A3E82 /* AvailableCitiesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailableCitiesVC.h; sourceTree = "<group>"; };
+		B0735C211AC25C9C005A3E82 /* AvailableCitiesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailableCitiesVC.m; sourceTree = "<group>"; };
+		B0735C231AC25CB1005A3E82 /* MoreSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreSettingVC.h; sourceTree = "<group>"; };
+		B0735C241AC25CB1005A3E82 /* MoreSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreSettingVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,6 +431,7 @@
 				B0735C091AC25350005A3E82 /* icon_adress.png */,
 				B0735C0A1AC25350005A3E82 /* icon_home.png */,
 				B0735C0B1AC25350005A3E82 /* icon_time.png */,
+				B0735C121AC25AA4005A3E82 /* mybgpic@2x.png */,
 			);
 			path = MyOrder;
 			sourceTree = "<group>";
@@ -466,6 +487,18 @@
 				A696C5A01AC1A93E00A860AD /* MyAccountVC.m */,
 				B0735C0F1AC25495005A3E82 /* MyAccountTVC.h */,
 				B0735C101AC25495005A3E82 /* MyAccountTVC.m */,
+				B0735C141AC25BEF005A3E82 /* GoldenIconActivityVC.h */,
+				B0735C151AC25BEF005A3E82 /* GoldenIconActivityVC.m */,
+				B0735C171AC25C0D005A3E82 /* AccountDetailVC.h */,
+				B0735C181AC25C0D005A3E82 /* AccountDetailVC.m */,
+				B0735C1A1AC25C32005A3E82 /* ShareToFriendsVC.h */,
+				B0735C1B1AC25C32005A3E82 /* ShareToFriendsVC.m */,
+				B0735C1D1AC25C44005A3E82 /* FeedBackVC.h */,
+				B0735C1E1AC25C44005A3E82 /* FeedBackVC.m */,
+				B0735C201AC25C9C005A3E82 /* AvailableCitiesVC.h */,
+				B0735C211AC25C9C005A3E82 /* AvailableCitiesVC.m */,
+				B0735C231AC25CB1005A3E82 /* MoreSettingVC.h */,
+				B0735C241AC25CB1005A3E82 /* MoreSettingVC.m */,
 			);
 			path = MyAccount;
 			sourceTree = "<group>";
@@ -657,6 +690,7 @@
 				A696C58D1AC1A91900A860AD /* CurtainCareVC.xib in Resources */,
 				A696C5AE1AC1A97200A860AD /* tab_orders@2x.png in Resources */,
 				A696C5891AC1A91900A860AD /* RMDateSelectionViewController.xib in Resources */,
+				B0735C131AC25AA4005A3E82 /* mybgpic@2x.png in Resources */,
 				A696C5AF1AC1A97200A860AD /* tab_owner@2x.png in Resources */,
 				B0735C0C1AC25350005A3E82 /* icon_adress.png in Resources */,
 				A696C5B31AC1A98300A860AD /* ad_a_1.jpg in Resources */,
@@ -708,18 +742,24 @@
 				A696C4D81AC1A5D900A860AD /* main.m in Sources */,
 				A696C5231AC1A8D900A860AD /* BaseTVC.m in Sources */,
 				A696C5921AC1A91900A860AD /* NurseVC.m in Sources */,
+				B0735C161AC25BEF005A3E82 /* GoldenIconActivityVC.m in Sources */,
 				A696C55C1AC1A8F400A860AD /* AFURLSessionManager.m in Sources */,
+				B0735C221AC25C9C005A3E82 /* AvailableCitiesVC.m in Sources */,
 				A696C58A1AC1A91900A860AD /* CleanerVC.m in Sources */,
 				A696C55B1AC1A8F400A860AD /* AFURLResponseSerialization.m in Sources */,
 				A696C5241AC1A8D900A860AD /* BaseViewController.m in Sources */,
+				B0735C251AC25CB1005A3E82 /* MoreSettingVC.m in Sources */,
 				A696C5221AC1A8D900A860AD /* BaseNavigationController.m in Sources */,
 				A696C5901AC1A91900A860AD /* NewHouseCareVC.m in Sources */,
 				B0735C111AC25495005A3E82 /* MyAccountTVC.m in Sources */,
 				A696C59C1AC1A93300A860AD /* MemberCenterJoinTVC.m in Sources */,
 				A696C55A1AC1A8F400A860AD /* AFURLRequestSerialization.m in Sources */,
+				B0735C191AC25C0D005A3E82 /* AccountDetailVC.m in Sources */,
 				A696C5631AC1A8F400A860AD /* UIRefreshControl+AFNetworking.m in Sources */,
 				A696C5A61AC1A94C00A860AD /* MyOrderTVC.m in Sources */,
 				A696C5611AC1A8F400A860AD /* UIImageView+AFNetworking.m in Sources */,
+				B0735C1C1AC25C32005A3E82 /* ShareToFriendsVC.m in Sources */,
+				B0735C1F1AC25C44005A3E82 /* FeedBackVC.m in Sources */,
 				A696C5571AC1A8F400A860AD /* AFNetworkReachabilityManager.m in Sources */,
 				A696C52D1AC1A8E800A860AD /* MzbService.m in Sources */,
 				A696C59D1AC1A93300A860AD /* MemberCenterPrivilegeTVC.m in Sources */,
