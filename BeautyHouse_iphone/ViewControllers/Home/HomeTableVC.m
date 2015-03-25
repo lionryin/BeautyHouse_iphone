@@ -14,6 +14,7 @@
 #import "CleanerVC.h"
 #import "CurtainCareVC.h"
 #import "NurseVC.h"
+#import "AllServiceVC.h"
 
 
 
@@ -206,12 +207,14 @@
             [self.navigationController pushViewController:clearnerVC animated:YES];
         }
     }
-    else if ([aService.serviceParentId isEqualToString:@""]){
+    else if ([aService.serviceParentId isEqualToString:@"23333"]){
         
     }
     else{//更多服务
         if ([aService.serviceId isEqualToString:@"80069561635"]) {//全部服务
+            AllServiceVC *allServiceVC = [[AllServiceVC alloc] initWithNibName:@"AllServiceVC" bundle:nil];
             
+            [self.navigationController pushViewController:allServiceVC animated:YES];
         }
     }
    

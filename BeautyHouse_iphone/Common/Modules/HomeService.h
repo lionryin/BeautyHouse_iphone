@@ -22,4 +22,7 @@
 //获取主页广告
 - (void)getHomeAdWithBlock:(void (^)(NSString *result, NSArray *resultInfo, NSError *error))block;
 
+//获取全部服务
+- (void)getAllServiceWithBlock:(void (^)(NSString *result, NSArray *resultInfo, NSError *error))block;
+
 @end

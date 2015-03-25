@@ -113,4 +113,84 @@
     }];
 }
 
+- (void)getAllServiceWithBlock:(void (^)(NSString *result, NSArray *resultInfo, NSError *error))block{
+    AFHTTPRequestOperation *opration = [MZBWebService getAllServiceCategroyParent];
+    [opration start];
+    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSData* data = [[NSData alloc] initWithBytes:[responseObject bytes] length:[responseObject length]];
+        NSString* resultStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        //NSLog(@"%@",resultStr);
+        
+        MyPaser *parser = [[MyPaser alloc] initWithContent:resultStr];
+        [parser BeginToParse];
+        
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@"%@",dic);
+        
+        ////////
+        NSString *serviceResult = [dic objectForKey:@"result"];
+        NSLog(@"serviceResult:%@",serviceResult);
+        
+        NSArray *serviceResultInfo = [dic objectForKey:@"resultInfo"];
+        
+        NSMutableArray *resultMutInfo = [[NSMutableArray alloc] init];
+        for (int i = 0; i<serviceResultInfo.count; i++) {
+            MzbService *mzbService = [[MzbService alloc] init];
+            NSDictionary *serviceDic = [serviceResultInfo objectAtIndex:i];
+            
+            mzbService.serviceId = [serviceDic objectForKey:@"id"];
+            mzbService.serviceName = [serviceDic objectForKey:@"serviceName"];
+            mzbService.servicePhoto = [serviceDic objectForKey:@"servicePhoto"];
+            mzbService.serviceParentId = [serviceDic objectForKey:@"parentId"];
+            mzbService.serviceDescription = [serviceDic objectForKey:@"description"];
+            mzbService.serviceSign = [serviceDic objectForKey:@"sign"];
+            mzbService.serviceUrllink = [serviceDic objectForKey:@"urllink"];
+            mzbService.servicePriceDescription = [serviceDic objectForKey:@"priceDescription"];
+            mzbService.servicePrice = [serviceDic objectForKey:@"price"];
+            
+            NSArray *childList = [serviceDic objectForKey:@"childServiceCategoryList"];
+            
+            if (childList != nil ) {
+                NSMutableArray *childArray = [[NSMutableArray alloc] init];
+                for (int j = 0; j < childList.count; j++) {
+                    MzbService *childService = [[MzbService alloc] init];
+                    NSDictionary *childServiceDic = [childList objectAtIndex:j];
+                    
+                    childService.serviceId = [childServiceDic objectForKey:@"id"];
+                    childService.serviceName = [childServiceDic objectForKey:@"serviceName"];
+                    childService.servicePhoto = [childServiceDic objectForKey:@"servicePhoto"];
+                    childService.serviceParentId = [childServiceDic objectForKey:@"parentId"];
+                    childService.serviceDescription = [childServiceDic objectForKey:@"description"];
+                    childService.serviceSign = [childServiceDic objectForKey:@"sign"];
+                    childService.serviceUrllink = [childServiceDic objectForKey:@"urllink"];
+                    childService.servicePriceDescription = [childServiceDic objectForKey:@"priceDescription"];
+                    childService.servicePrice = [childServiceDic objectForKey:@"price"];
+                    childService.childServiceCategoryList = [childServiceDic objectForKey:@"childServiceCategoryList"];
+                    
+                    [childArray addObject:childService];
+                }
+                mzbService.childServiceCategoryList = childArray;
+            }
+            
+            [resultMutInfo addObject:mzbService];
+            
+            //NSLog(@"********\n[id:%@ \n serviceName:%@ \n servicePhoto:%@ \n parentId:%@ \n description:%@ \n sign:%@ \n urllink:%@ \n priceDescription:%@ \n price:%@]",mzbService.serviceId,mzbService.serviceName,mzbService.servicePhoto,mzbService.serviceParentId,mzbService.serviceDescription,mzbService.serviceSign,mzbService.serviceUrllink,mzbService.servicePriceDescription,mzbService.servicePrice);
+            
+            
+        }
+        
+        if (block) {
+            block(serviceResult, resultMutInfo, nil);
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //NSLog(@"%@",[error description]);
+        block(nil, nil, error);
+    }];
+
+}
+
 @end
