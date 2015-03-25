@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"金币活动";
     // Do any additional setup after loading the view.
 }
 

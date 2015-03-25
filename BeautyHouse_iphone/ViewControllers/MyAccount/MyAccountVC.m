@@ -140,12 +140,15 @@
         switch (indexPath.row) {
             case 0:
             {
+                GoldenIconActivityVC *goldenIcon = [GoldenIconActivityVC new];
+                [self.navigationController pushViewController:goldenIcon animated:YES];
                 
             }
                 break;
             case 1:
             {
-                
+                AccountDetailVC *detailVC =[AccountDetailVC new];
+                [self.navigationController pushViewController:detailVC animated:YES];
             }
                 break;
                 
@@ -156,22 +159,26 @@
         switch (indexPath.row) {
             case 0:
             {
-                
+                ShareToFriendsVC *friendVC =[ShareToFriendsVC new];
+                [self.navigationController pushViewController:friendVC animated:YES];
             }
                 break;
             case 1:
             {
-                
+                FeedBackVC *feedBackVC =[FeedBackVC new];
+                [self.navigationController pushViewController:feedBackVC animated:YES];
             }
                 break;
             case 2:
             {
-                
+                AvailableCitiesVC *availableCities = [AvailableCitiesVC new];
+                [self.navigationController pushViewController:availableCities animated:YES];
             }
                 break;
             case 3:
             {
-                
+                MoreSettingVC *moreSetting =[MoreSettingVC new];
+                [self.navigationController pushViewController:moreSetting animated:YES];
             }
                 break;
             default:

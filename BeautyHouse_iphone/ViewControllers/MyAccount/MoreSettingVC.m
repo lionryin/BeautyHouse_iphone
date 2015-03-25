@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"更多设置";
     // Do any additional setup after loading the view.
 }
 
