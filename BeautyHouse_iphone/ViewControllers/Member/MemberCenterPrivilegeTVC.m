@@ -13,7 +13,17 @@
 @end
 
 
+@interface MemberCenterPrivilegeTVC ()
+@property (nonatomic, strong) UIImageView *lImageView;
+@property (nonatomic, strong) UILabel *lTitle;
+@property (nonatomic, strong) UILabel *lDetail;
 
+@property (nonatomic, strong) UIImageView *rImageView;
+@property (nonatomic, strong) UILabel *rTitle;
+@property (nonatomic, strong) UILabel *rDetail;
+
+
+@end
 
 @implementation MemberCenterPrivilegeTVC
 
@@ -22,6 +32,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
+        self.lImageView = [[UIImageView alloc]initWithFrame:CGRectMake(30, 30, 50, 50)];
         
     }
     

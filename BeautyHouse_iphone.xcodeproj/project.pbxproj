@@ -407,9 +407,9 @@
 			isa = PBXGroup;
 			children = (
 				A696C50E1AC1A73500A860AD /* Home */,
+				A696C5111AC1A73500A860AD /* MyOrder */,
 				A696C50F1AC1A73500A860AD /* Member */,
 				A696C5101AC1A73500A860AD /* MyAccount */,
-				A696C5111AC1A73500A860AD /* MyOrder */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -437,12 +437,12 @@
 		A696C50F1AC1A73500A860AD /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				A696C59A1AC1A93300A860AD /* MemberCenterVC.h */,
+				A696C59B1AC1A93300A860AD /* MemberCenterVC.m */,
 				A696C5961AC1A93300A860AD /* MemberCenterJoinTVC.h */,
 				A696C5971AC1A93300A860AD /* MemberCenterJoinTVC.m */,
 				A696C5981AC1A93300A860AD /* MemberCenterPrivilegeTVC.h */,
 				A696C5991AC1A93300A860AD /* MemberCenterPrivilegeTVC.m */,
-				A696C59A1AC1A93300A860AD /* MemberCenterVC.h */,
-				A696C59B1AC1A93300A860AD /* MemberCenterVC.m */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -459,10 +459,10 @@
 		A696C5111AC1A73500A860AD /* MyOrder */ = {
 			isa = PBXGroup;
 			children = (
-				A696C5A21AC1A94C00A860AD /* MyOrderTVC.h */,
-				A696C5A31AC1A94C00A860AD /* MyOrderTVC.m */,
 				A696C5A41AC1A94C00A860AD /* MyOrderVC.h */,
 				A696C5A51AC1A94C00A860AD /* MyOrderVC.m */,
+				A696C5A21AC1A94C00A860AD /* MyOrderTVC.h */,
+				A696C5A31AC1A94C00A860AD /* MyOrderTVC.m */,
 			);
 			path = MyOrder;
 			sourceTree = "<group>";
@@ -896,6 +896,7 @@
 				A696C4F71AC1A5D900A860AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A696C4F81AC1A5D900A860AD /* Build configuration list for PBXNativeTarget "BeautyHouse_iphoneTests" */ = {
 			isa = XCConfigurationList;
@@ -904,6 +905,7 @@
 				A696C4FA1AC1A5D900A860AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
