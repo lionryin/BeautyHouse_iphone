@@ -18,6 +18,10 @@
 @property (nonatomic, strong) UIButton *complaintBtn;
 @property (nonatomic, strong) UIButton *cancelBtn;
 
+@property (nonatomic, strong)UIView  *verticalLine1;
+@property (nonatomic, strong)UIView  *verticalLine2;
+@property (nonatomic, strong)UIView  *verticalLine3;
+
 @end
 
 @implementation MyOrderTVC
@@ -47,6 +51,9 @@
         [self.contentView addSubview:self.complaintBtn];
         
         
+        self.verticalLine1 = [[UIView alloc]initWithFrame:CGRectMake(0, 40, 300, 1)];
+        self.verticalLine1.backgroundColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:1.0];
+        [self.contentView addSubview:self.verticalLine1];
         
         UIImageView *secondIV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 45, 30, 30)];
         [secondIV setImage:[UIImage imageNamed:@"icon_time"]];
@@ -58,6 +65,9 @@
         self.time.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:self.time];
         
+        self.verticalLine2 = [[UIView alloc]initWithFrame:CGRectMake(0, 80, 300, 1)];
+        self.verticalLine2.backgroundColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:1.0];
+        [self.contentView addSubview:self.verticalLine2];
         
         UIImageView *thirdIV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 30, 30)];
         [thirdIV setImage:[UIImage imageNamed:@"icon_adress"]];
@@ -70,6 +80,9 @@
         [self.contentView addSubview:self.address];
         
         
+        self.verticalLine3 = [[UIView alloc]initWithFrame:CGRectMake(0, 120, 300, 1)];
+        self.verticalLine3.backgroundColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:1.0];
+        [self.contentView addSubview:self.verticalLine3];
         
         self.status = [[UILabel alloc]initWithFrame:CGRectMake(10, 135, 160, 25)];
         self.status.font = [UIFont systemFontOfSize:14];
