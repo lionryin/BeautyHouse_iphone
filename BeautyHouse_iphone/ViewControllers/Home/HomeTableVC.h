@@ -13,5 +13,6 @@
 ///test sync test sync
 
 @property (strong, nonatomic) NSArray *serviceInfos;
+@property (strong, nonatomic) NSArray *adInfos;
 
 @end

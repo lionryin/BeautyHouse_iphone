@@ -11,9 +11,9 @@
 @implementation MZBWebService
 
 
-+ (AFHTTPRequestOperation *)MZBWebService:(NSString *)body
-{
-    NSURL* WebURL = [NSURL URLWithString:@"http://218.244.143.58/houseWs/ws/houseWs?wsdl"];
++ (AFHTTPRequestOperation *)MZBWebService:(NSString *)body{
+    
+    NSURL* WebURL = [NSURL URLWithString:MZBWebURL];
     NSMutableURLRequest* req = [[NSMutableURLRequest alloc] init];
     [req setURL:WebURL];
     [req setHTTPMethod:@"POST"];
@@ -50,6 +50,14 @@
     return [MZBWebService MZBWebService:params];
 }
 
++ (AFHTTPRequestOperation *)getHomeAppAdConfigure{
+    
+    return [MZBWebService MZBWebService:@"<ws:getHomeAppAdConfigure/>"];
+}
+
++ (AFHTTPRequestOperation *)getAllServiceCategroyParent{
+    return [MZBWebService MZBWebService:@"<ws:getAllServiceCategroyParent/>"];
+}
 
 
 

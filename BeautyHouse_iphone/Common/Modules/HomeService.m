@@ -29,7 +29,7 @@
         
         ////////
         NSString *serviceResult = [dic objectForKey:@"result"];
-        NSLog(@"serviceResult:%@",serviceResult);
+        //NSLog(@"serviceResult:%@",serviceResult);
         
         NSArray *serviceResultInfo = [dic objectForKey:@"resultInfo"];
         
@@ -49,7 +49,7 @@
             mzbService.servicePrice = [serviceDic objectForKey:@"price"];
             mzbService.childServiceCategoryList = [serviceDic objectForKey:@"childServiceCategoryList"];
             
-            NSLog(@"********\n[id:%@ \n serviceName:%@ \n servicePhoto:%@ \n parentId:%@ \n description:%@ \n sign:%@ \n urllink:%@ \n priceDescription:%@ \n price:%@]",mzbService.serviceId,mzbService.serviceName,mzbService.servicePhoto,mzbService.serviceParentId,mzbService.serviceDescription,mzbService.serviceSign,mzbService.serviceUrllink,mzbService.servicePriceDescription,mzbService.servicePrice);
+            //NSLog(@"********\n[id:%@ \n serviceName:%@ \n servicePhoto:%@ \n parentId:%@ \n description:%@ \n sign:%@ \n urllink:%@ \n priceDescription:%@ \n price:%@]",mzbService.serviceId,mzbService.serviceName,mzbService.servicePhoto,mzbService.serviceParentId,mzbService.serviceDescription,mzbService.serviceSign,mzbService.serviceUrllink,mzbService.servicePriceDescription,mzbService.servicePrice);
             
             [resultMutInfo addObject:mzbService];
         }
@@ -63,8 +63,54 @@
         //NSLog(@"%@",[error description]);
         block(nil, nil, error);
     }];
-    
+}
 
+- (void)getHomeAdWithBlock:(void (^)(NSString *result, NSArray *resultInfo, NSError *error))block{
+    AFHTTPRequestOperation *opration = [MZBWebService getHomeAppAdConfigure];
+    [opration start];
+    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSData* data = [[NSData alloc] initWithBytes:[responseObject bytes] length:[responseObject length]];
+        NSString* resultStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        //NSLog(@"%@",resultStr);
+        
+        MyPaser *parser = [[MyPaser alloc] initWithContent:resultStr];
+        [parser BeginToParse];
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        //NSLog(@"%@",dic);
+        
+        ////////
+        NSString *serviceResult = [dic objectForKey:@"result"];
+        NSLog(@"serviceResult:%@",serviceResult);
+        
+        NSArray *serviceResultInfo = [dic objectForKey:@"resultInfo"];
+        
+        NSMutableArray *resultMutInfo = [[NSMutableArray alloc] init];
+        for (int i = 0; i<serviceResultInfo.count; i++) {
+            MzbAd *mzbAd = [[MzbAd alloc] init];
+            NSDictionary *adDic = [serviceResultInfo objectAtIndex:i];
+            
+            mzbAd.adId = [adDic objectForKey:@"id"];
+            mzbAd.adLinkUrl = [adDic objectForKey:@"adLinkUrl"];
+            mzbAd.adConfigType = [adDic objectForKey:@"configType"];
+            mzbAd.adDisplayIndex = [adDic objectForKey:@"displayIndex"];
+            mzbAd.adImageUrl = [adDic objectForKey:@"imageUrl"];
+            mzbAd.adIsVisible = [adDic objectForKey:@"isVisible"];
+            mzbAd.adMemo = [adDic objectForKey:@"memo"];
+            mzbAd.adTitle = [adDic objectForKey:@"title"];
+            
+            [resultMutInfo addObject:mzbAd];
+        }
+        
+        if (block) {
+            block(serviceResult, resultMutInfo, nil);
+        }
+
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, nil, error);
+    }];
 }
 
 @end

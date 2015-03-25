@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vju-xh-OOy">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
@@ -29,17 +30,17 @@
         <scene sceneID="zpd-De-TYZ">
             <objects>
                 <tableViewController id="96z-0y-XiZ" customClass="HomeTableVC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="284" sectionHeaderHeight="22" sectionFooterHeight="22" id="kBk-Xb-972">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="284" sectionHeaderHeight="22" sectionFooterHeight="22" id="kBk-Xb-972">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeBntCell_Identifier" rowHeight="286" id="Sgg-RA-lKV" customClass="HomeBtnCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeBntCell_Identifier" rowHeight="286" id="Sgg-RA-lKV" customClass="HomeBtnCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sgg-RA-lKV" id="yOU-Pc-mcg">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FiT-CJ-OWd" userLabel="Button1" customClass="HomeButton">
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FiT-CJ-OWd" userLabel="Button1" customClass="HomeButton">
                                             <rect key="frame" x="0.0" y="14" width="106" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
@@ -49,7 +50,7 @@
                                                 <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="fbv-Sr-KQ5"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BIK-cz-l6x" userLabel="Button2" customClass="HomeButton">
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BIK-cz-l6x" userLabel="Button2" customClass="HomeButton">
                                             <rect key="frame" x="107" y="14" width="106" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
@@ -59,7 +60,7 @@
                                                 <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="auQ-HD-Q3E"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="e0u-GB-hP8" userLabel="Button3" customClass="HomeButton">
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e0u-GB-hP8" userLabel="Button3" customClass="HomeButton">
                                             <rect key="frame" x="214" y="14" width="106" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
@@ -69,7 +70,7 @@
                                                 <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="fbT-01-vpr"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BIz-5t-hLS" userLabel="Button4" customClass="HomeButton">
+                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BIz-5t-hLS" userLabel="Button4" customClass="HomeButton">
                                             <rect key="frame" x="0.0" y="105" width="106" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
@@ -79,7 +80,7 @@
                                                 <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="Idp-Hk-REh"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DZU-A5-w1t" userLabel="Button5" customClass="HomeButton">
+                                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DZU-A5-w1t" userLabel="Button5" customClass="HomeButton">
                                             <rect key="frame" x="107" y="105" width="106" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
@@ -89,7 +90,7 @@
                                                 <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="RR8-87-wlE"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wta-Cn-N93" userLabel="Button6" customClass="HomeButton">
+                                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wta-Cn-N93" userLabel="Button6" customClass="HomeButton">
                                             <rect key="frame" x="214" y="105" width="106" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
@@ -99,7 +100,7 @@
                                                 <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="pqN-UL-yL1"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fSW-du-w3n" userLabel="Button7" customClass="HomeButton">
+                                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fSW-du-w3n" userLabel="Button7" customClass="HomeButton">
                                             <rect key="frame" x="0.0" y="196" width="106" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
@@ -109,7 +110,7 @@
                                                 <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="89e-XL-QDb"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="G6V-FO-Bf4" userLabel="Button8" customClass="HomeButton">
+                                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G6V-FO-Bf4" userLabel="Button8" customClass="HomeButton">
                                             <rect key="frame" x="107" y="196" width="106" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
@@ -119,7 +120,7 @@
                                                 <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="igs-UM-wU8"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6bi-bm-I0P" userLabel="Button9" customClass="HomeButton">
+                                        <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6bi-bm-I0P" userLabel="Button9" customClass="HomeButton">
                                             <rect key="frame" x="214" y="196" width="106" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">

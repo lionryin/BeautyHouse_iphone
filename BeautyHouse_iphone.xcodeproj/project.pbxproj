@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A66C50A91AC25313003E146F /* MzbAd.m in Sources */ = {isa = PBXBuildFile; fileRef = A66C50A81AC25313003E146F /* MzbAd.m */; };
 		A696C4D81AC1A5D900A860AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A696C4D71AC1A5D900A860AD /* main.m */; };
 		A696C4E31AC1A5D900A860AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A696C4E21AC1A5D900A860AD /* Images.xcassets */; };
 		A696C4F21AC1A5D900A860AD /* BeautyHouse_iphoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A696C4F11AC1A5D900A860AD /* BeautyHouse_iphoneTests.m */; };
@@ -100,6 +101,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A66C50A71AC25313003E146F /* MzbAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MzbAd.h; sourceTree = "<group>"; };
+		A66C50A81AC25313003E146F /* MzbAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MzbAd.m; sourceTree = "<group>"; };
 		A696C4D21AC1A5D900A860AD /* BeautyHouse_iphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautyHouse_iphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A696C4D61AC1A5D900A860AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A696C4D71AC1A5D900A860AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -361,6 +364,8 @@
 				A696C5281AC1A8E800A860AD /* MyOrderVO.m */,
 				A696C5291AC1A8E800A860AD /* MzbService.h */,
 				A696C52A1AC1A8E800A860AD /* MzbService.m */,
+				A66C50A71AC25313003E146F /* MzbAd.h */,
+				A66C50A81AC25313003E146F /* MzbAd.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -779,6 +784,7 @@
 				A696C5571AC1A8F400A860AD /* AFNetworkReachabilityManager.m in Sources */,
 				A696C52D1AC1A8E800A860AD /* MzbService.m in Sources */,
 				A696C59D1AC1A93300A860AD /* MemberCenterPrivilegeTVC.m in Sources */,
+				A66C50A91AC25313003E146F /* MzbAd.m in Sources */,
 				A696C5541AC1A8F400A860AD /* AFHTTPRequestOperation.m in Sources */,
 				A696C5881AC1A91900A860AD /* RMDateSelectionViewController.m in Sources */,
 				A696C5871AC1A91900A860AD /* HomeTableVC.m in Sources */,
@@ -899,7 +905,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BeautyHouse_iphone/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -911,7 +917,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BeautyHouse_iphone/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

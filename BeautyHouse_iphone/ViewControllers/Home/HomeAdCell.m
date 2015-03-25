@@ -7,6 +7,8 @@
 //
 
 #import "HomeAdCell.h"
+#import "MzbAd.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation HomeAdCell
 
@@ -66,7 +68,11 @@
     CGFloat x=0;
     for (int i = 0 ; i < imageArray.count; i++,x+=320) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, 0, 320, 160)];
-        imageView.image = [UIImage imageNamed:imageArray[i]];
+        //imageView.image = [UIImage imageNamed:imageArray[i]];
+        MzbAd *mzbAd = [imageArray objectAtIndex:i];
+          NSString *imageUrl = [NSString stringWithFormat:@"%@%@",imageURLPrefix,mzbAd.adImageUrl];
+        [imageView setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@""]];
+        
         [_imageScrollView addSubview:imageView];
     }
 }

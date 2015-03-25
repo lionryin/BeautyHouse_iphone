@@ -19,8 +19,6 @@
 
 @interface HomeTableVC ()
 
-@property (strong, nonatomic) NSMutableArray *adArray;
-
 @end
 
 @implementation HomeTableVC
@@ -40,7 +38,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    _adArray = [[NSMutableArray alloc] init];
+    _adInfos = [[NSArray alloc] init];
     _serviceInfos = [[NSArray alloc] init];
     
     HomeService *homeService = [[HomeService alloc] init];
@@ -54,6 +52,17 @@
             [self.tableView reloadData];
         }
         
+    }];
+    [homeService getHomeAdWithBlock:^(NSString *result, NSArray *resultInfo, NSError *error) {
+        if (error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else{
+            _adInfos = [resultInfo mutableCopy];
+            [self.tableView reloadData];
+        }
+
     }];
     
     
@@ -120,7 +129,7 @@
             cell = [[HomeAdCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier1];
         }
         
-        ((HomeAdCell *)cell).adArray = @[@"ad_a_1.jpg",@"ad_a_2.jpg",@"ad_a_3.jpg"];
+        ((HomeAdCell *)cell).adArray = _adInfos;
         
         return cell;
         
