@@ -152,7 +152,7 @@
     if (indexPath.section == 0) {
         return 44;
     }
-    return 110;
+    return 100;
     
 }
 
