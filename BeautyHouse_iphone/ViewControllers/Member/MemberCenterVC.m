@@ -65,26 +65,26 @@
         self.privilegeList = [[NSMutableArray alloc] init];
     }
     MemberPrivilegeVO *privilegeVO1 = [[MemberPrivilegeVO alloc]init];
-    privilegeVO1.imageName = @"";
+    privilegeVO1.imageName = @"join_04";
     privilegeVO1.title = @"充值赠送";
     privilegeVO1.detail = @"充得多,返的多";
     [self.privilegeList addObject:privilegeVO1];
     
     
     MemberPrivilegeVO *privilegeVO2 = [[MemberPrivilegeVO alloc]init];
-    privilegeVO2.imageName = @"";
+    privilegeVO2.imageName = @"join_05";
     privilegeVO2.title = @"专属管家";
     privilegeVO2.detail = @"7x24小时,1对1服务";
     [self.privilegeList addObject:privilegeVO2];
     
     MemberPrivilegeVO *privilegeVO3 = [[MemberPrivilegeVO alloc]init];
-    privilegeVO3.imageName = @"";
+    privilegeVO3.imageName = @"join_06";
     privilegeVO3.title = @"一卡通用";
     privilegeVO3.detail = @"一卡在手,家务无忧";
     [self.privilegeList addObject:privilegeVO3];
     
     MemberPrivilegeVO *privilegeVO4 = [[MemberPrivilegeVO alloc]init];
-    privilegeVO4.imageName = @"";
+    privilegeVO4.imageName = @"join_07";
     privilegeVO4.title = @"会员支付";
     privilegeVO4.detail = @"安全,便捷,方便";
     [self.privilegeList addObject:privilegeVO4];
@@ -113,6 +113,8 @@
         if (cell == nil) {
             cell = [[MemberCenterJoinTVC alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuse];
             cell.delegate = self;
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         JoinMemberVO *memberVO = [self.memberList objectAtIndex:indexPath.row];
         [cell updateCellWithJoinMemberVO:memberVO];
@@ -125,7 +127,16 @@
         MemberCenterPrivilegeTVC *cell = [tableView dequeueReusableCellWithIdentifier:reuse];
         if (cell == nil) {
             cell = [[MemberCenterPrivilegeTVC alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuse];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
         }
+        
+        NSUInteger row = indexPath.row;
+        
+        MemberPrivilegeVO *lVO = [self.privilegeList objectAtIndex:2*row];
+        MemberPrivilegeVO *rVO = [self.privilegeList objectAtIndex:2*row+1];
+        
+        [cell updateCellWithLPrivilegeVO:lVO andRPrivilegeVO:rVO];
         
         
         return cell;
@@ -141,7 +152,7 @@
     if (indexPath.section == 0) {
         return 44;
     }
-    return 100;
+    return 110;
     
 }
 

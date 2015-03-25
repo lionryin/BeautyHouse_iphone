@@ -19,4 +19,9 @@
 
 @interface MemberCenterPrivilegeTVC : BaseTVC
 
+
+- (void)updateCellWithLPrivilegeVO:(MemberPrivilegeVO *)lVO andRPrivilegeVO:(MemberPrivilegeVO *)rVO;
+
+
+
 @end

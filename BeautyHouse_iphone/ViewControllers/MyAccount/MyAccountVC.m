@@ -112,7 +112,7 @@
     }
     
     cell.textLabel.text = str;
-    
+    cell.textLabel.textColor = [UIColor darkGrayColor];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     

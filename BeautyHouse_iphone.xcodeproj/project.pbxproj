@@ -83,6 +83,10 @@
 		B0735C1F1AC25C44005A3E82 /* FeedBackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C1E1AC25C44005A3E82 /* FeedBackVC.m */; };
 		B0735C221AC25C9C005A3E82 /* AvailableCitiesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C211AC25C9C005A3E82 /* AvailableCitiesVC.m */; };
 		B0735C251AC25CB1005A3E82 /* MoreSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C241AC25CB1005A3E82 /* MoreSettingVC.m */; };
+		B0735C2A1AC273C4005A3E82 /* join_04.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C261AC273C4005A3E82 /* join_04.png */; };
+		B0735C2B1AC273C4005A3E82 /* join_05.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C271AC273C4005A3E82 /* join_05.png */; };
+		B0735C2C1AC273C4005A3E82 /* join_06.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C281AC273C4005A3E82 /* join_06.png */; };
+		B0735C2D1AC273C4005A3E82 /* join_07.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C291AC273C4005A3E82 /* join_07.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,6 +233,10 @@
 		B0735C211AC25C9C005A3E82 /* AvailableCitiesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailableCitiesVC.m; sourceTree = "<group>"; };
 		B0735C231AC25CB1005A3E82 /* MoreSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreSettingVC.h; sourceTree = "<group>"; };
 		B0735C241AC25CB1005A3E82 /* MoreSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreSettingVC.m; sourceTree = "<group>"; };
+		B0735C261AC273C4005A3E82 /* join_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_04.png; path = BeautyHouse_iphone/Res/join_04.png; sourceTree = SOURCE_ROOT; };
+		B0735C271AC273C4005A3E82 /* join_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_05.png; path = BeautyHouse_iphone/Res/join_05.png; sourceTree = SOURCE_ROOT; };
+		B0735C281AC273C4005A3E82 /* join_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_06.png; path = BeautyHouse_iphone/Res/join_06.png; sourceTree = SOURCE_ROOT; };
+		B0735C291AC273C4005A3E82 /* join_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_07.png; path = BeautyHouse_iphone/Res/join_07.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,6 +440,10 @@
 				B0735C0A1AC25350005A3E82 /* icon_home.png */,
 				B0735C0B1AC25350005A3E82 /* icon_time.png */,
 				B0735C121AC25AA4005A3E82 /* mybgpic@2x.png */,
+				B0735C261AC273C4005A3E82 /* join_04.png */,
+				B0735C271AC273C4005A3E82 /* join_05.png */,
+				B0735C281AC273C4005A3E82 /* join_06.png */,
+				B0735C291AC273C4005A3E82 /* join_07.png */,
 			);
 			path = MyOrder;
 			sourceTree = "<group>";
@@ -686,15 +698,19 @@
 				A696C5BD1AC1A9BE00A860AD /* time.png in Resources */,
 				A696C5931AC1A91900A860AD /* NurseVC.xib in Resources */,
 				A696C58F1AC1A91900A860AD /* FloorCareVC.xib in Resources */,
+				B0735C2B1AC273C4005A3E82 /* join_05.png in Resources */,
 				A696C5BA1AC1A9BE00A860AD /* arrow_right_gray.png in Resources */,
+				B0735C2D1AC273C4005A3E82 /* join_07.png in Resources */,
 				A696C58D1AC1A91900A860AD /* CurtainCareVC.xib in Resources */,
 				A696C5AE1AC1A97200A860AD /* tab_orders@2x.png in Resources */,
 				A696C5891AC1A91900A860AD /* RMDateSelectionViewController.xib in Resources */,
 				B0735C131AC25AA4005A3E82 /* mybgpic@2x.png in Resources */,
 				A696C5AF1AC1A97200A860AD /* tab_owner@2x.png in Resources */,
 				B0735C0C1AC25350005A3E82 /* icon_adress.png in Resources */,
+				B0735C2A1AC273C4005A3E82 /* join_04.png in Resources */,
 				A696C5B31AC1A98300A860AD /* ad_a_1.jpg in Resources */,
 				A696C5B41AC1A98300A860AD /* ad_a_2.jpg in Resources */,
+				B0735C2C1AC273C4005A3E82 /* join_06.png in Resources */,
 				A696C5AD1AC1A97200A860AD /* tab_member@2x.png in Resources */,
 				A696C5911AC1A91900A860AD /* NewHouseCareVC.xib in Resources */,
 				A696C5131AC1A73500A860AD /* Main.storyboard in Resources */,
