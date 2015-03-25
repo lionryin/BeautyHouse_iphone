@@ -113,6 +113,7 @@
     
     cell.textLabel.text = str;
     cell.textLabel.textColor = [UIColor darkGrayColor];
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     
