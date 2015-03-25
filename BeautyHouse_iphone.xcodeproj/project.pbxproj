@@ -75,6 +75,7 @@
 		B0735C0C1AC25350005A3E82 /* icon_adress.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C091AC25350005A3E82 /* icon_adress.png */; };
 		B0735C0D1AC25350005A3E82 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C0A1AC25350005A3E82 /* icon_home.png */; };
 		B0735C0E1AC25350005A3E82 /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C0B1AC25350005A3E82 /* icon_time.png */; };
+		B0735C111AC25495005A3E82 /* MyAccountTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C101AC25495005A3E82 /* MyAccountTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +207,8 @@
 		B0735C091AC25350005A3E82 /* icon_adress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_adress.png; path = BeautyHouse_iphone/Res/icon_adress.png; sourceTree = SOURCE_ROOT; };
 		B0735C0A1AC25350005A3E82 /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_home.png; path = BeautyHouse_iphone/Res/icon_home.png; sourceTree = SOURCE_ROOT; };
 		B0735C0B1AC25350005A3E82 /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_time.png; path = BeautyHouse_iphone/Res/icon_time.png; sourceTree = SOURCE_ROOT; };
+		B0735C0F1AC25495005A3E82 /* MyAccountTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountTVC.h; sourceTree = "<group>"; };
+		B0735C101AC25495005A3E82 /* MyAccountTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -461,6 +464,8 @@
 			children = (
 				A696C59F1AC1A93E00A860AD /* MyAccountVC.h */,
 				A696C5A01AC1A93E00A860AD /* MyAccountVC.m */,
+				B0735C0F1AC25495005A3E82 /* MyAccountTVC.h */,
+				B0735C101AC25495005A3E82 /* MyAccountTVC.m */,
 			);
 			path = MyAccount;
 			sourceTree = "<group>";
@@ -709,6 +714,7 @@
 				A696C5241AC1A8D900A860AD /* BaseViewController.m in Sources */,
 				A696C5221AC1A8D900A860AD /* BaseNavigationController.m in Sources */,
 				A696C5901AC1A91900A860AD /* NewHouseCareVC.m in Sources */,
+				B0735C111AC25495005A3E82 /* MyAccountTVC.m in Sources */,
 				A696C59C1AC1A93300A860AD /* MemberCenterJoinTVC.m in Sources */,
 				A696C55A1AC1A8F400A860AD /* AFURLRequestSerialization.m in Sources */,
 				A696C5631AC1A8F400A860AD /* UIRefreshControl+AFNetworking.m in Sources */,
