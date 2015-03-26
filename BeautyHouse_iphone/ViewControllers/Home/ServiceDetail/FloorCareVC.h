@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MzbService.h"
+#import "RMDateSelectionViewController.h"
 
-@interface FloorCareVC : UIViewController
+@interface FloorCareVC : UIViewController<RMDateSelectionViewControllerDelegate>
 
 @property (strong, nonatomic) MzbService *serviceInfo;
 

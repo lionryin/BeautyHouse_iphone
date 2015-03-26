@@ -35,7 +35,15 @@
 }
 
 - (IBAction)timeButtonPressed:(id)sender{
+    RMDateSelectionViewController *dateSelectionVC = [RMDateSelectionViewController dateSelectionController];
+    dateSelectionVC.delegate = self;
+    [dateSelectionVC show];
     
+    //After -[RMDateSelectionViewController show] or -[RMDateSelectionViewController showFromViewController:] has been called you can access the actual UIDatePicker via the datePicker property
+    dateSelectionVC.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    dateSelectionVC.datePicker.minimumDate = [NSDate date];
+    dateSelectionVC.datePicker.minuteInterval = 10;
+    dateSelectionVC.datePicker.date = [NSDate dateWithTimeIntervalSinceReferenceDate:0];
 }
 
 - (IBAction)addressButtonPressed:(id)sender{
@@ -47,5 +55,21 @@
 - (IBAction)submitButtonPressed:(id)sender{
     
 }
+
+#pragma mark - RMDAteSelectionViewController Delegates
+- (void)dateSelectionViewController:(RMDateSelectionViewController *)vc didSelectDate:(NSDate *)aDate {
+    
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    formatter.dateFormat=@"yy-MM-dd eee HH:mm";
+    NSString *timeStr=[formatter stringFromDate:aDate];
+    NSLog(@"Successfully selected date: %@", timeStr);
+    
+    self.timeTF.text = timeStr;
+}
+
+- (void)dateSelectionViewControllerDidCancel:(RMDateSelectionViewController *)vc {
+    NSLog(@"Date selection was canceled");
+}
+
 
 @end
