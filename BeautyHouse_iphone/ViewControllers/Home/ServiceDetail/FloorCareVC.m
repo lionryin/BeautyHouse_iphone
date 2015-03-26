@@ -8,6 +8,7 @@
 
 #import "FloorCareVC.h"
 #import "ServiceIntroductionVC.h"
+#import "ChooseAddressVC.h"
 
 @interface FloorCareVC ()
 
@@ -47,7 +48,9 @@
 }
 
 - (IBAction)addressButtonPressed:(id)sender{
+    ChooseAddressVC *chooseAddressVC = [[ChooseAddressVC alloc] init];
     
+    [self.navigationController pushViewController:chooseAddressVC animated:YES];
 }
 - (IBAction)moreDemondButtonPressed:(id)sender{
     

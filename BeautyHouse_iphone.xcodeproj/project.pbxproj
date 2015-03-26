@@ -79,6 +79,19 @@
 		A696C5BB1AC1A9BE00A860AD /* nav_back.png in Resources */ = {isa = PBXBuildFile; fileRef = A696C5B71AC1A9BE00A860AD /* nav_back.png */; };
 		A696C5BC1AC1A9BE00A860AD /* s_phone.png in Resources */ = {isa = PBXBuildFile; fileRef = A696C5B81AC1A9BE00A860AD /* s_phone.png */; };
 		A696C5BD1AC1A9BE00A860AD /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = A696C5B91AC1A9BE00A860AD /* time.png */; };
+		A6B6A8961AC4359500B12F04 /* AddAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B6A8941AC4359500B12F04 /* AddAddressVC.m */; };
+		A6B6A8971AC4359500B12F04 /* AddAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A8951AC4359500B12F04 /* AddAddressVC.xib */; };
+		A6B6A89B1AC436C600B12F04 /* icon_category.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A8981AC436C600B12F04 /* icon_category.png */; };
+		A6B6A89C1AC436C600B12F04 /* icon_adress.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A8991AC436C600B12F04 /* icon_adress.png */; };
+		A6B6A89D1AC436C600B12F04 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A89A1AC436C600B12F04 /* icon_home.png */; };
+		A6B6A8A01AC43ECF00B12F04 /* QuyuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B6A89F1AC43ECF00B12F04 /* QuyuVC.m */; };
+		A6CB3FAE1AC3E23B00C65C47 /* ChooseAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CB3FAD1AC3E23B00C65C47 /* ChooseAddressVC.m */; };
+		A6CB3FB21AC3E34300C65C47 /* AddAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FB11AC3E34300C65C47 /* AddAddressCell.xib */; };
+		A6CB3FB61AC3E43800C65C47 /* ChooseAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CB3FB41AC3E43800C65C47 /* ChooseAddressCell.m */; };
+		A6CB3FB71AC3E43800C65C47 /* ChooseAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FB51AC3E43800C65C47 /* ChooseAddressCell.xib */; };
+		A6CB3FB91AC3E7BB00C65C47 /* selected_Address.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FB81AC3E7BB00C65C47 /* selected_Address.png */; };
+		A6CB3FBD1AC3E82D00C65C47 /* unselected_Address.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FBB1AC3E82D00C65C47 /* unselected_Address.png */; };
+		A6CB3FBF1AC3EB5000C65C47 /* add_Address.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FBE1AC3EB5000C65C47 /* add_Address.png */; };
 		B0735C0C1AC25350005A3E82 /* icon_adress.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C091AC25350005A3E82 /* icon_adress.png */; };
 		B0735C0D1AC25350005A3E82 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C0A1AC25350005A3E82 /* icon_home.png */; };
 		B0735C0E1AC25350005A3E82 /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C0B1AC25350005A3E82 /* icon_time.png */; };
@@ -233,6 +246,23 @@
 		A696C5B71AC1A9BE00A860AD /* nav_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_back.png; sourceTree = "<group>"; };
 		A696C5B81AC1A9BE00A860AD /* s_phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s_phone.png; sourceTree = "<group>"; };
 		A696C5B91AC1A9BE00A860AD /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time.png; sourceTree = "<group>"; };
+		A6B6A8931AC4359500B12F04 /* AddAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressVC.h; sourceTree = "<group>"; };
+		A6B6A8941AC4359500B12F04 /* AddAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAddressVC.m; sourceTree = "<group>"; };
+		A6B6A8951AC4359500B12F04 /* AddAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAddressVC.xib; sourceTree = "<group>"; };
+		A6B6A8981AC436C600B12F04 /* icon_category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_category.png; sourceTree = "<group>"; };
+		A6B6A8991AC436C600B12F04 /* icon_adress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_adress.png; sourceTree = "<group>"; };
+		A6B6A89A1AC436C600B12F04 /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_home.png; sourceTree = "<group>"; };
+		A6B6A89E1AC43ECF00B12F04 /* QuyuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuyuVC.h; sourceTree = "<group>"; };
+		A6B6A89F1AC43ECF00B12F04 /* QuyuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuyuVC.m; sourceTree = "<group>"; };
+		A6CB3FAC1AC3E23B00C65C47 /* ChooseAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseAddressVC.h; sourceTree = "<group>"; };
+		A6CB3FAD1AC3E23B00C65C47 /* ChooseAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseAddressVC.m; sourceTree = "<group>"; };
+		A6CB3FB11AC3E34300C65C47 /* AddAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAddressCell.xib; sourceTree = "<group>"; };
+		A6CB3FB31AC3E43800C65C47 /* ChooseAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseAddressCell.h; sourceTree = "<group>"; };
+		A6CB3FB41AC3E43800C65C47 /* ChooseAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseAddressCell.m; sourceTree = "<group>"; };
+		A6CB3FB51AC3E43800C65C47 /* ChooseAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseAddressCell.xib; sourceTree = "<group>"; };
+		A6CB3FB81AC3E7BB00C65C47 /* selected_Address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_Address.png; sourceTree = "<group>"; };
+		A6CB3FBB1AC3E82D00C65C47 /* unselected_Address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unselected_Address.png; sourceTree = "<group>"; };
+		A6CB3FBE1AC3EB5000C65C47 /* add_Address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_Address.png; sourceTree = "<group>"; };
 		B0735C091AC25350005A3E82 /* icon_adress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_adress.png; path = BeautyHouse_iphone/Res/icon_adress.png; sourceTree = SOURCE_ROOT; };
 		B0735C0A1AC25350005A3E82 /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_home.png; path = BeautyHouse_iphone/Res/icon_home.png; sourceTree = SOURCE_ROOT; };
 		B0735C0B1AC25350005A3E82 /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_time.png; path = BeautyHouse_iphone/Res/icon_time.png; sourceTree = SOURCE_ROOT; };
@@ -435,7 +465,13 @@
 		A696C5091AC1A73500A860AD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A6B6A8981AC436C600B12F04 /* icon_category.png */,
+				A6B6A8991AC436C600B12F04 /* icon_adress.png */,
+				A6B6A89A1AC436C600B12F04 /* icon_home.png */,
 				A66C50AA1AC262A0003E146F /* mybgpic.png */,
+				A6CB3FBE1AC3EB5000C65C47 /* add_Address.png */,
+				A6CB3FB81AC3E7BB00C65C47 /* selected_Address.png */,
+				A6CB3FBB1AC3E82D00C65C47 /* unselected_Address.png */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -491,6 +527,7 @@
 				A696C56A1AC1A91900A860AD /* HomeButton.m */,
 				A696C56B1AC1A91900A860AD /* HomeTableVC.h */,
 				A696C56C1AC1A91900A860AD /* HomeTableVC.m */,
+				A6CB3FAB1AC3DE2500C65C47 /* Others */,
 				A696C56D1AC1A91900A860AD /* RMDateSelectionVC */,
 				A696C5711AC1A91900A860AD /* ServiceDetail */,
 				A696C5811AC1A91900A860AD /* ServiceIntroductionVC.h */,
@@ -637,6 +674,24 @@
 			path = ServiceDetail;
 			sourceTree = "<group>";
 		};
+		A6CB3FAB1AC3DE2500C65C47 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				A6CB3FAC1AC3E23B00C65C47 /* ChooseAddressVC.h */,
+				A6CB3FAD1AC3E23B00C65C47 /* ChooseAddressVC.m */,
+				A6CB3FB31AC3E43800C65C47 /* ChooseAddressCell.h */,
+				A6CB3FB41AC3E43800C65C47 /* ChooseAddressCell.m */,
+				A6CB3FB51AC3E43800C65C47 /* ChooseAddressCell.xib */,
+				A6CB3FB11AC3E34300C65C47 /* AddAddressCell.xib */,
+				A6B6A8931AC4359500B12F04 /* AddAddressVC.h */,
+				A6B6A8941AC4359500B12F04 /* AddAddressVC.m */,
+				A6B6A8951AC4359500B12F04 /* AddAddressVC.xib */,
+				A6B6A89E1AC43ECF00B12F04 /* QuyuVC.h */,
+				A6B6A89F1AC43ECF00B12F04 /* QuyuVC.m */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -721,9 +776,12 @@
 				A696C5B51AC1A98300A860AD /* ad_a_3.jpg in Resources */,
 				B0735C0D1AC25350005A3E82 /* icon_home.png in Resources */,
 				A696C4E31AC1A5D900A860AD /* Images.xcassets in Resources */,
+				A6B6A89B1AC436C600B12F04 /* icon_category.png in Resources */,
+				A6B6A8971AC4359500B12F04 /* AddAddressVC.xib in Resources */,
 				A696C5951AC1A91900A860AD /* ServiceIntroductionVC.xib in Resources */,
 				A696C58B1AC1A91900A860AD /* CleanerVC.xib in Resources */,
 				A696C5BB1AC1A9BE00A860AD /* nav_back.png in Resources */,
+				A6CB3FB71AC3E43800C65C47 /* ChooseAddressCell.xib in Resources */,
 				A696C5AC1AC1A97200A860AD /* tab_home@2x.png in Resources */,
 				A66C50B51AC2686C003E146F /* AllServiceCell.xib in Resources */,
 				A696C5BD1AC1A9BE00A860AD /* time.png in Resources */,
@@ -731,6 +789,8 @@
 				A696C58F1AC1A91900A860AD /* FloorCareVC.xib in Resources */,
 				B0735C2B1AC273C4005A3E82 /* join_05.png in Resources */,
 				A696C5BA1AC1A9BE00A860AD /* arrow_right_gray.png in Resources */,
+				A6CB3FB91AC3E7BB00C65C47 /* selected_Address.png in Resources */,
+				A6B6A89D1AC436C600B12F04 /* icon_home.png in Resources */,
 				B0735C2D1AC273C4005A3E82 /* join_07.png in Resources */,
 				A696C58D1AC1A91900A860AD /* CurtainCareVC.xib in Resources */,
 				A66C50B01AC262EF003E146F /* AllServiceVC.xib in Resources */,
@@ -738,10 +798,14 @@
 				A696C5891AC1A91900A860AD /* RMDateSelectionViewController.xib in Resources */,
 				B0735C131AC25AA4005A3E82 /* mybgpic@2x.png in Resources */,
 				A696C5AF1AC1A97200A860AD /* tab_owner@2x.png in Resources */,
+				A6CB3FBD1AC3E82D00C65C47 /* unselected_Address.png in Resources */,
 				B0735C0C1AC25350005A3E82 /* icon_adress.png in Resources */,
 				B0735C2A1AC273C4005A3E82 /* join_04.png in Resources */,
 				A696C5B31AC1A98300A860AD /* ad_a_1.jpg in Resources */,
 				A66C50AB1AC262A0003E146F /* mybgpic.png in Resources */,
+				A6B6A89C1AC436C600B12F04 /* icon_adress.png in Resources */,
+				A6CB3FBF1AC3EB5000C65C47 /* add_Address.png in Resources */,
+				A6CB3FB21AC3E34300C65C47 /* AddAddressCell.xib in Resources */,
 				A696C5B41AC1A98300A860AD /* ad_a_2.jpg in Resources */,
 				B0735C2C1AC273C4005A3E82 /* join_06.png in Resources */,
 				A696C5AD1AC1A97200A860AD /* tab_member@2x.png in Resources */,
@@ -778,10 +842,12 @@
 				A696C5A71AC1A94C00A860AD /* MyOrderVC.m in Sources */,
 				A696C55D1AC1A8F400A860AD /* AFNetworkActivityIndicatorManager.m in Sources */,
 				A696C5A11AC1A93E00A860AD /* MyAccountVC.m in Sources */,
+				A6CB3FAE1AC3E23B00C65C47 /* ChooseAddressVC.m in Sources */,
 				A696C5551AC1A8F400A860AD /* AFHTTPRequestOperationManager.m in Sources */,
 				A696C5601AC1A8F400A860AD /* UIButton+AFNetworking.m in Sources */,
 				A696C55E1AC1A8F400A860AD /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				A696C58C1AC1A91900A860AD /* CurtainCareVC.m in Sources */,
+				A6B6A8961AC4359500B12F04 /* AddAddressVC.m in Sources */,
 				A696C5121AC1A73500A860AD /* AppDelegate.m in Sources */,
 				A66C50AF1AC262EF003E146F /* AllServiceVC.m in Sources */,
 				A696C5941AC1A91900A860AD /* ServiceIntroductionVC.m in Sources */,
@@ -807,12 +873,14 @@
 				A696C59C1AC1A93300A860AD /* MemberCenterJoinTVC.m in Sources */,
 				A696C55A1AC1A8F400A860AD /* AFURLRequestSerialization.m in Sources */,
 				B0735C191AC25C0D005A3E82 /* AccountDetailVC.m in Sources */,
+				A6B6A8A01AC43ECF00B12F04 /* QuyuVC.m in Sources */,
 				A696C5631AC1A8F400A860AD /* UIRefreshControl+AFNetworking.m in Sources */,
 				A696C5A61AC1A94C00A860AD /* MyOrderTVC.m in Sources */,
 				A696C5611AC1A8F400A860AD /* UIImageView+AFNetworking.m in Sources */,
 				B0735C1C1AC25C32005A3E82 /* ShareToFriendsVC.m in Sources */,
 				B0735C1F1AC25C44005A3E82 /* FeedBackVC.m in Sources */,
 				A696C5571AC1A8F400A860AD /* AFNetworkReachabilityManager.m in Sources */,
+				A6CB3FB61AC3E43800C65C47 /* ChooseAddressCell.m in Sources */,
 				A696C52D1AC1A8E800A860AD /* MzbService.m in Sources */,
 				A696C59D1AC1A93300A860AD /* MemberCenterPrivilegeTVC.m in Sources */,
 				A66C50A91AC25313003E146F /* MzbAd.m in Sources */,
