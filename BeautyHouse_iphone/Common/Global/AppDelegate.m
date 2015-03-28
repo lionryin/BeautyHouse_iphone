@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Common.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    if (!userDic) {
+        //对象：用户是否已经登陆,0未登陆，1登陆；用户名
+        userDic = @{UserIsLoginKey:@"0",UserPhoneNumberKey:@"",UserLoginId:@""};
+        
+        [[NSUserDefaults standardUserDefaults] setValue:userDic forKey:UserGlobalKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
+    
+    
+    
     return YES;
 }
 

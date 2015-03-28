@@ -61,6 +61,17 @@
     
 }
 
++ (AFHTTPRequestOperation *)login:(NSString *)jsonParam{
+    
+    NSString *params = [NSString stringWithFormat:@"<ws:login><registeredUserJson>%@</registeredUserJson></ws:login>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+}
+
+
+
+
+
 #pragma mark - Order
 + (AFHTTPRequestOperation *)getCurrentOrderListWithParameter:(NSString *)jsonParam{
     
@@ -71,8 +82,17 @@
 }
 
 
+
+
 #pragma mark - My Account
 
+
+
+
 #pragma mark - Member Center
+
+
+
+
 
 @end

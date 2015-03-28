@@ -56,6 +56,15 @@
  */
 + (AFHTTPRequestOperation *)getPhoneVerifyCode:(NSString *)jsonParam;
 
+/**
+ *@function 登录
+ *@param 由手机号和验证码封装的json字符串
+ */
++ (AFHTTPRequestOperation *)login:(NSString *)jsonParam;
+
+
+
+
 
 
 
@@ -67,8 +76,26 @@
 + (AFHTTPRequestOperation *)getCurrentOrderListWithParameter:(NSString *)jsonParam;
 
 
+
+
+
+
 #pragma mark - Member Center
 
+
+
+
+
+
+
 #pragma mark - My Account
+
+
+
+
+
+
+
+
 
 @end

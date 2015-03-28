@@ -70,9 +70,13 @@
 }
 
 - (void)loginAction:(id)sender{
-    LoginVC *loginVC = [[LoginVC alloc]init];
     
-    [self.navigationController pushViewController:loginVC animated:YES];
+    LoginVC *loginVC = [[LoginVC alloc]init];
+    UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
+    [self presentViewController:loginNC animated:YES completion:^{
+        
+    }];
+    //[self.navigationController pushViewController:loginVC animated:YES];
     
 }
 
