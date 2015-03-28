@@ -16,9 +16,12 @@
 #import "AvailableCitiesVC.h"
 #import "MoreSettingVC.h"
 
+#import "LoginVC.h"
+
 @interface MyAccountVC ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong)UITableView *tableView;
+@property (nonatomic,strong)UIButton *loginBtn;
 
 @end
 
@@ -50,8 +53,27 @@
     [bgIV setImage:[UIImage imageNamed:@"mybgpic"]];
     
     [view addSubview:bgIV];
+    
+    
+    self.loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.loginBtn setFrame:CGRectMake(100, 60, 80, 40)];
+    [self.loginBtn setTitle:@"登录" forState:UIControlStateNormal];
+    
+    [self.loginBtn addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:self.loginBtn];
+    
+    
+    
+    
 
     return view;
+}
+
+- (void)loginAction:(id)sender{
+    LoginVC *loginVC = [[LoginVC alloc]init];
+    
+    [self.navigationController pushViewController:loginVC animated:YES];
+    
 }
 
 #pragma mark - UITableView DataSource

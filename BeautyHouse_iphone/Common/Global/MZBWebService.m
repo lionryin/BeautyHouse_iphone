@@ -42,13 +42,6 @@
 }
 
 
-+ (AFHTTPRequestOperation *)getCurrentOrderListWithParameter:(NSString *)param{
-    
-    
-    NSString *params = [NSString stringWithFormat:@"<ws:getPageByOrderInfo><pageQueryJson>%@</pageQueryJson></ws:getPageByOrderInfo>",param];
-    
-    return [MZBWebService MZBWebService:params];
-}
 
 + (AFHTTPRequestOperation *)getHomeAppAdConfigure{
     
@@ -60,6 +53,26 @@
 }
 
 
+#pragma mark - Login
++ (AFHTTPRequestOperation *)getPhoneVerifyCode:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@"<ws:sendCode><registeredUserJson>%@</registeredUserJson></ws:sendCode>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+    
+}
 
+#pragma mark - Order
++ (AFHTTPRequestOperation *)getCurrentOrderListWithParameter:(NSString *)jsonParam{
+    
+    
+    NSString *params = [NSString stringWithFormat:@"<ws:getPageByOrderInfo><pageQueryJson>%@</pageQueryJson></ws:getPageByOrderInfo>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+}
+
+
+#pragma mark - My Account
+
+#pragma mark - Member Center
 
 @end

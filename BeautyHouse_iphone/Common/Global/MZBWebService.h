@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 #import "MyPaser.h"
+#import "Common.h"
 
 //#define imageURLPrefix @"http://218.244.143.58/beautiHouse/"
 //#define MZBWebURL @"http://218.244.143.58/houseWs/ws/houseWs?wsdl"
@@ -30,11 +31,7 @@
  */
 + (AFHTTPRequestOperation *)getHomePageServiceCategroy;
 
-/**
- 获取订单
- @param param 接口入参
- */
-+ (AFHTTPRequestOperation *)getCurrentOrderListWithParameter:(NSString *)param;
+
 
 /**
  获取主页广告
@@ -46,5 +43,32 @@
  */
 + (AFHTTPRequestOperation *)getAllServiceCategroyParent;
 
+
+
+
+
+
+#pragma mark - Login
+
+/**
+ *@function 获取验证码
+ *@param 由手机号封装的json字符串
+ */
++ (AFHTTPRequestOperation *)getPhoneVerifyCode:(NSString *)jsonParam;
+
+
+
+
+#pragma mark - Order
+/**
+ 获取订单
+ @param param 接口入参
+ */
++ (AFHTTPRequestOperation *)getCurrentOrderListWithParameter:(NSString *)jsonParam;
+
+
+#pragma mark - Member Center
+
+#pragma mark - My Account
 
 @end
