@@ -107,6 +107,7 @@
 		B0735C2B1AC273C4005A3E82 /* join_05.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C271AC273C4005A3E82 /* join_05.png */; };
 		B0735C2C1AC273C4005A3E82 /* join_06.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C281AC273C4005A3E82 /* join_06.png */; };
 		B0735C2D1AC273C4005A3E82 /* join_07.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C291AC273C4005A3E82 /* join_07.png */; };
+		B0F681EE1AC6740B008DBE63 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F681ED1AC6740B008DBE63 /* LoginVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -285,6 +286,8 @@
 		B0735C271AC273C4005A3E82 /* join_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_05.png; path = BeautyHouse_iphone/Res/join_05.png; sourceTree = SOURCE_ROOT; };
 		B0735C281AC273C4005A3E82 /* join_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_06.png; path = BeautyHouse_iphone/Res/join_06.png; sourceTree = SOURCE_ROOT; };
 		B0735C291AC273C4005A3E82 /* join_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_07.png; path = BeautyHouse_iphone/Res/join_07.png; sourceTree = SOURCE_ROOT; };
+		B0F681EC1AC6740B008DBE63 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		B0F681ED1AC6740B008DBE63 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -508,6 +511,7 @@
 		A696C50D1AC1A73500A860AD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B0F681EB1AC6736C008DBE63 /* Login */,
 				A696C50E1AC1A73500A860AD /* Home */,
 				A696C5111AC1A73500A860AD /* MyOrder */,
 				A696C50F1AC1A73500A860AD /* Member */,
@@ -692,6 +696,15 @@
 			path = Others;
 			sourceTree = "<group>";
 		};
+		B0F681EB1AC6736C008DBE63 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B0F681EC1AC6740B008DBE63 /* LoginVC.h */,
+				B0F681ED1AC6740B008DBE63 /* LoginVC.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -832,6 +845,7 @@
 			files = (
 				A696C5861AC1A91900A860AD /* HomeButton.m in Sources */,
 				A696C5591AC1A8F400A860AD /* AFURLConnectionOperation.m in Sources */,
+				B0F681EE1AC6740B008DBE63 /* LoginVC.m in Sources */,
 				A696C51A1AC1A8C200A860AD /* MyPaser.m in Sources */,
 				A696C5581AC1A8F400A860AD /* AFSecurityPolicy.m in Sources */,
 				A696C52C1AC1A8E800A860AD /* MyOrderVO.m in Sources */,
