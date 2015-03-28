@@ -85,6 +85,8 @@
 		A6B6A89C1AC436C600B12F04 /* adress.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A8991AC436C600B12F04 /* adress.png */; };
 		A6B6A89D1AC436C600B12F04 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A89A1AC436C600B12F04 /* home.png */; };
 		A6B6A8A01AC43ECF00B12F04 /* QuyuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B6A89F1AC43ECF00B12F04 /* QuyuVC.m */; };
+		A6BB684C1AC6848000DF1723 /* MoreDemandVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BB684A1AC6848000DF1723 /* MoreDemandVC.m */; };
+		A6BB684D1AC6848000DF1723 /* MoreDemandVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6BB684B1AC6848000DF1723 /* MoreDemandVC.xib */; };
 		A6CB3FAE1AC3E23B00C65C47 /* ChooseAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CB3FAD1AC3E23B00C65C47 /* ChooseAddressVC.m */; };
 		A6CB3FB21AC3E34300C65C47 /* AddAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FB11AC3E34300C65C47 /* AddAddressCell.xib */; };
 		A6CB3FB61AC3E43800C65C47 /* ChooseAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CB3FB41AC3E43800C65C47 /* ChooseAddressCell.m */; };
@@ -255,6 +257,9 @@
 		A6B6A89A1AC436C600B12F04 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		A6B6A89E1AC43ECF00B12F04 /* QuyuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuyuVC.h; sourceTree = "<group>"; };
 		A6B6A89F1AC43ECF00B12F04 /* QuyuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuyuVC.m; sourceTree = "<group>"; };
+		A6BB68491AC6848000DF1723 /* MoreDemandVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreDemandVC.h; sourceTree = "<group>"; };
+		A6BB684A1AC6848000DF1723 /* MoreDemandVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreDemandVC.m; sourceTree = "<group>"; };
+		A6BB684B1AC6848000DF1723 /* MoreDemandVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreDemandVC.xib; sourceTree = "<group>"; };
 		A6CB3FAC1AC3E23B00C65C47 /* ChooseAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseAddressVC.h; sourceTree = "<group>"; };
 		A6CB3FAD1AC3E23B00C65C47 /* ChooseAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseAddressVC.m; sourceTree = "<group>"; };
 		A6CB3FB11AC3E34300C65C47 /* AddAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAddressCell.xib; sourceTree = "<group>"; };
@@ -692,6 +697,9 @@
 				A6B6A8951AC4359500B12F04 /* AddAddressVC.xib */,
 				A6B6A89E1AC43ECF00B12F04 /* QuyuVC.h */,
 				A6B6A89F1AC43ECF00B12F04 /* QuyuVC.m */,
+				A6BB68491AC6848000DF1723 /* MoreDemandVC.h */,
+				A6BB684A1AC6848000DF1723 /* MoreDemandVC.m */,
+				A6BB684B1AC6848000DF1723 /* MoreDemandVC.xib */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -812,6 +820,7 @@
 				B0735C131AC25AA4005A3E82 /* mybgpic@2x.png in Resources */,
 				A696C5AF1AC1A97200A860AD /* tab_owner@2x.png in Resources */,
 				A6CB3FBD1AC3E82D00C65C47 /* unselected_Address.png in Resources */,
+				A6BB684D1AC6848000DF1723 /* MoreDemandVC.xib in Resources */,
 				B0735C0C1AC25350005A3E82 /* icon_adress.png in Resources */,
 				B0735C2A1AC273C4005A3E82 /* join_04.png in Resources */,
 				A696C5B31AC1A98300A860AD /* ad_a_1.jpg in Resources */,
@@ -890,6 +899,7 @@
 				A6B6A8A01AC43ECF00B12F04 /* QuyuVC.m in Sources */,
 				A696C5631AC1A8F400A860AD /* UIRefreshControl+AFNetworking.m in Sources */,
 				A696C5A61AC1A94C00A860AD /* MyOrderTVC.m in Sources */,
+				A6BB684C1AC6848000DF1723 /* MoreDemandVC.m in Sources */,
 				A696C5611AC1A8F400A860AD /* UIImageView+AFNetworking.m in Sources */,
 				B0735C1C1AC25C32005A3E82 /* ShareToFriendsVC.m in Sources */,
 				B0735C1F1AC25C44005A3E82 /* FeedBackVC.m in Sources */,

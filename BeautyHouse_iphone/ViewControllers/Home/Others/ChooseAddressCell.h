@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *xiaoquLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailAddress;
 
+@property (strong, nonatomic) NSDictionary *addressDic;
 
 @end

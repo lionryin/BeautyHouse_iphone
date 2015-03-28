@@ -28,7 +28,7 @@
     [self initMainUI];
     self.title = @"服务地址";
     
-    self.tableList = [[NSMutableArray alloc] initWithObjects:@"1",@"2", nil];
+    self.tableList = [[NSMutableArray alloc] init];
 }
 
 - (void)initMainUI{
@@ -72,6 +72,8 @@
         [tableView registerNib:nib forCellReuseIdentifier:ChooseAddressCellID];
         
         ChooseAddressCell *cell = [tableView dequeueReusableCellWithIdentifier:ChooseAddressCellID forIndexPath:indexPath];
+        
+        cell.addressDic = [self.tableList objectAtIndex:indexPath.row];
         
         return cell;
   
@@ -118,7 +120,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
+        
+        [self.delegate chooseAddressVCCellSelected:[self.tableList objectAtIndex:indexPath.row]];
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    }
+    else if (indexPath.section == 1) {
         AddAddressVC *addAddressVC = [[AddAddressVC alloc] initWithNibName:@"AddAddressVC" bundle:nil];
         addAddressVC.delegate = self;
         [self.navigationController pushViewController:addAddressVC animated:YES];
@@ -128,8 +136,12 @@
 #pragma mark - AddAddressVC delegate
 
 - (void)AddAddressVCAddAddressQuyu:(NSString *)quyu andXiaoqu:(NSString *)xiaoqu andDetailAddress:(NSString *)detailAddress{
-    NSString *quyuAndXiaoqu = [NSString stringWithFormat:@"%@ %@",quyu,xiaoqu];
+    NSString *xq = [NSString stringWithFormat:@"%@ %@",quyu,xiaoqu];
     
+    NSDictionary *dic = @{@"xq":xq, @"detail":detailAddress};
+    
+    [self.tableList addObject:dic];
+    [self.tableView reloadData];
     
 }
 

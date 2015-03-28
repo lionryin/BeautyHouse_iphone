@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ChooseAddressVCDelegate <NSObject>
+
+- (void)chooseAddressVCCellSelected:(NSDictionary *)dic;
+
+@end
+
 @interface ChooseAddressVC : UIViewController
+
+@property (assign, nonatomic) id<ChooseAddressVCDelegate>delegate;
 
 @end

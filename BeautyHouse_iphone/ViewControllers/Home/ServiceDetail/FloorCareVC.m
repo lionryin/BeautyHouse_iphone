@@ -9,8 +9,9 @@
 #import "FloorCareVC.h"
 #import "ServiceIntroductionVC.h"
 #import "ChooseAddressVC.h"
+#import "MoreDemandVC.h"
 
-@interface FloorCareVC ()
+@interface FloorCareVC ()<ChooseAddressVCDelegate, MoreDemandVCDelegate>
 
 @end
 
@@ -27,6 +28,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - IBAction
 - (IBAction)topButtonPressed:(id)sender{
@@ -49,12 +51,16 @@
 
 - (IBAction)addressButtonPressed:(id)sender{
     ChooseAddressVC *chooseAddressVC = [[ChooseAddressVC alloc] init];
-    
+    chooseAddressVC.delegate = self;
     [self.navigationController pushViewController:chooseAddressVC animated:YES];
 }
 - (IBAction)moreDemondButtonPressed:(id)sender{
-    
+    MoreDemandVC *moreDemandVC = [[MoreDemandVC alloc] initWithNibName:@"MoreDemandVC" bundle:nil];
+    moreDemandVC.delegate = self;
+    moreDemandVC.moreDemand = _moreDemondTF.text;
+    [self.navigationController pushViewController:moreDemandVC animated:YES];
 }
+
 - (IBAction)submitButtonPressed:(id)sender{
     
 }
@@ -74,5 +80,15 @@
     NSLog(@"Date selection was canceled");
 }
 
+#pragma mark - ChooseAddressVC delegate
+- (void)chooseAddressVCCellSelected:(NSDictionary *)dic{
+    
+    self.addressTF.text = [NSString stringWithFormat:@"%@ %@",[dic objectForKey:@"xq"],[dic objectForKey:@"detail"]];
+}
+
+#pragma mark - MoreDemandVC Delegate
+- (void)moreDemandVCGetDemand:(NSString *)demand{
+    self.moreDemondTF.text = demand;
+}
 
 @end

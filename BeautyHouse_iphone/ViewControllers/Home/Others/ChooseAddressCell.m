@@ -20,4 +20,9 @@
     // Configure the view for the selected state
 }
 
+- (void)layoutSubviews{
+    _xiaoquLabel.text = [_addressDic objectForKey:@"xq"];
+    _detailAddress.text = [_addressDic objectForKey:@"detail"];
+}
+
 @end
