@@ -81,9 +81,9 @@
 		A696C5BD1AC1A9BE00A860AD /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = A696C5B91AC1A9BE00A860AD /* time.png */; };
 		A6B6A8961AC4359500B12F04 /* AddAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B6A8941AC4359500B12F04 /* AddAddressVC.m */; };
 		A6B6A8971AC4359500B12F04 /* AddAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A8951AC4359500B12F04 /* AddAddressVC.xib */; };
-		A6B6A89B1AC436C600B12F04 /* icon_category.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A8981AC436C600B12F04 /* icon_category.png */; };
-		A6B6A89C1AC436C600B12F04 /* icon_adress.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A8991AC436C600B12F04 /* icon_adress.png */; };
-		A6B6A89D1AC436C600B12F04 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A89A1AC436C600B12F04 /* icon_home.png */; };
+		A6B6A89B1AC436C600B12F04 /* category.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A8981AC436C600B12F04 /* category.png */; };
+		A6B6A89C1AC436C600B12F04 /* adress.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A8991AC436C600B12F04 /* adress.png */; };
+		A6B6A89D1AC436C600B12F04 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A89A1AC436C600B12F04 /* home.png */; };
 		A6B6A8A01AC43ECF00B12F04 /* QuyuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B6A89F1AC43ECF00B12F04 /* QuyuVC.m */; };
 		A6CB3FAE1AC3E23B00C65C47 /* ChooseAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CB3FAD1AC3E23B00C65C47 /* ChooseAddressVC.m */; };
 		A6CB3FB21AC3E34300C65C47 /* AddAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FB11AC3E34300C65C47 /* AddAddressCell.xib */; };
@@ -249,9 +249,9 @@
 		A6B6A8931AC4359500B12F04 /* AddAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressVC.h; sourceTree = "<group>"; };
 		A6B6A8941AC4359500B12F04 /* AddAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAddressVC.m; sourceTree = "<group>"; };
 		A6B6A8951AC4359500B12F04 /* AddAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAddressVC.xib; sourceTree = "<group>"; };
-		A6B6A8981AC436C600B12F04 /* icon_category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_category.png; sourceTree = "<group>"; };
-		A6B6A8991AC436C600B12F04 /* icon_adress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_adress.png; sourceTree = "<group>"; };
-		A6B6A89A1AC436C600B12F04 /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_home.png; sourceTree = "<group>"; };
+		A6B6A8981AC436C600B12F04 /* category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = category.png; sourceTree = "<group>"; };
+		A6B6A8991AC436C600B12F04 /* adress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adress.png; sourceTree = "<group>"; };
+		A6B6A89A1AC436C600B12F04 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		A6B6A89E1AC43ECF00B12F04 /* QuyuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuyuVC.h; sourceTree = "<group>"; };
 		A6B6A89F1AC43ECF00B12F04 /* QuyuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuyuVC.m; sourceTree = "<group>"; };
 		A6CB3FAC1AC3E23B00C65C47 /* ChooseAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseAddressVC.h; sourceTree = "<group>"; };
@@ -465,9 +465,9 @@
 		A696C5091AC1A73500A860AD /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				A6B6A8981AC436C600B12F04 /* icon_category.png */,
-				A6B6A8991AC436C600B12F04 /* icon_adress.png */,
-				A6B6A89A1AC436C600B12F04 /* icon_home.png */,
+				A6B6A8981AC436C600B12F04 /* category.png */,
+				A6B6A8991AC436C600B12F04 /* adress.png */,
+				A6B6A89A1AC436C600B12F04 /* home.png */,
 				A66C50AA1AC262A0003E146F /* mybgpic.png */,
 				A6CB3FBE1AC3EB5000C65C47 /* add_Address.png */,
 				A6CB3FB81AC3E7BB00C65C47 /* selected_Address.png */,
@@ -776,7 +776,7 @@
 				A696C5B51AC1A98300A860AD /* ad_a_3.jpg in Resources */,
 				B0735C0D1AC25350005A3E82 /* icon_home.png in Resources */,
 				A696C4E31AC1A5D900A860AD /* Images.xcassets in Resources */,
-				A6B6A89B1AC436C600B12F04 /* icon_category.png in Resources */,
+				A6B6A89B1AC436C600B12F04 /* category.png in Resources */,
 				A6B6A8971AC4359500B12F04 /* AddAddressVC.xib in Resources */,
 				A696C5951AC1A91900A860AD /* ServiceIntroductionVC.xib in Resources */,
 				A696C58B1AC1A91900A860AD /* CleanerVC.xib in Resources */,
@@ -790,7 +790,7 @@
 				B0735C2B1AC273C4005A3E82 /* join_05.png in Resources */,
 				A696C5BA1AC1A9BE00A860AD /* arrow_right_gray.png in Resources */,
 				A6CB3FB91AC3E7BB00C65C47 /* selected_Address.png in Resources */,
-				A6B6A89D1AC436C600B12F04 /* icon_home.png in Resources */,
+				A6B6A89D1AC436C600B12F04 /* home.png in Resources */,
 				B0735C2D1AC273C4005A3E82 /* join_07.png in Resources */,
 				A696C58D1AC1A91900A860AD /* CurtainCareVC.xib in Resources */,
 				A66C50B01AC262EF003E146F /* AllServiceVC.xib in Resources */,
@@ -803,7 +803,7 @@
 				B0735C2A1AC273C4005A3E82 /* join_04.png in Resources */,
 				A696C5B31AC1A98300A860AD /* ad_a_1.jpg in Resources */,
 				A66C50AB1AC262A0003E146F /* mybgpic.png in Resources */,
-				A6B6A89C1AC436C600B12F04 /* icon_adress.png in Resources */,
+				A6B6A89C1AC436C600B12F04 /* adress.png in Resources */,
 				A6CB3FBF1AC3EB5000C65C47 /* add_Address.png in Resources */,
 				A6CB3FB21AC3E34300C65C47 /* AddAddressCell.xib in Resources */,
 				A696C5B41AC1A98300A860AD /* ad_a_2.jpg in Resources */,
@@ -1004,7 +1004,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
 				INFOPLIST_FILE = BeautyHouse_iphone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1019,7 +1019,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
 				INFOPLIST_FILE = BeautyHouse_iphone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -22,11 +22,11 @@
                     <rect key="frame" x="0.0" y="85" width="320" height="132"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_category.png" id="k10-m2-0xl">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="category.png" id="k10-m2-0xl">
                             <rect key="frame" x="4" y="12" width="30" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_adress.png" id="Wc5-1j-587">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adress.png" id="Wc5-1j-587">
                             <rect key="frame" x="8" y="55" width="22" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -78,7 +78,7 @@
                                 <outlet property="delegate" destination="-1" id="ltU-Vh-Rd4"/>
                             </connections>
                         </textField>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_home.png" id="8fU-Hw-Pj2">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home.png" id="8fU-Hw-Pj2">
                             <rect key="frame" x="8" y="101" width="22" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -105,10 +105,10 @@
         </view>
     </objects>
     <resources>
+        <image name="adress.png" width="35" height="35"/>
         <image name="arrow_right_gray.png" width="14" height="21"/>
-        <image name="icon_adress.png" width="35" height="35"/>
-        <image name="icon_category.png" width="32" height="32"/>
-        <image name="icon_home.png" width="35" height="35"/>
+        <image name="category.png" width="32" height="32"/>
+        <image name="home.png" width="35" height="35"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
