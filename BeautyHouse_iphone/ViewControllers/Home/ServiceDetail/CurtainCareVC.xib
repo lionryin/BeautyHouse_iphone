@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CurtainCareVC">
             <connections>
                 <outlet property="addressTF" destination="KRF-jI-J8K" id="zbS-t2-aop"/>
+                <outlet property="curtainNumTF" destination="Qx2-ng-eLp" id="ZgP-LN-eva"/>
                 <outlet property="moreDemondTF" destination="THK-u8-bbk" id="O27-6J-VON"/>
                 <outlet property="timeTF" destination="MC7-ar-Kxq" id="V9u-VO-Upf"/>
                 <outlet property="topButton" destination="9Ao-Zr-ngw" id="kgk-Uw-gIv"/>
@@ -108,12 +109,39 @@
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wfd-GM-OE0">
-                            <rect key="frame" x="0.0" y="0.0" width="304" height="50"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TaK-YW-EFl">
+                            <rect key="frame" x="228" y="5" width="60" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal">
+                            <inset key="imageEdgeInsets" minX="17" minY="7" maxX="18" maxY="8"/>
+                            <state key="normal" image="select_plus.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="slectPlusButtonPressed:" destination="-1" eventType="touchUpInside" id="Gpg-5l-Ive"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="副" minimumFontSize="17" id="hbw-BJ-z21">
+                            <rect key="frame" x="276" y="10" width="20" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" id="Qx2-ng-eLp">
+                            <rect key="frame" x="208" y="10" width="31" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="utC-Hn-6wM">
+                            <rect key="frame" x="160" y="5" width="60" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <inset key="imageEdgeInsets" minX="17" minY="7" maxX="18" maxY="8"/>
+                            <state key="normal" image="select_cut.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="slectCutButtonPressed:" destination="-1" eventType="touchUpInside" id="ecX-Q4-MxW"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -153,6 +181,8 @@
     </objects>
     <resources>
         <image name="arrow_right_gray.png" width="14" height="21"/>
+        <image name="select_cut.png" width="35" height="35"/>
+        <image name="select_plus.png" width="35" height="35"/>
         <image name="time.png" width="120" height="120"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
