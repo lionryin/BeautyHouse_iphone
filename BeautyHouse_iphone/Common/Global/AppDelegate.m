@@ -27,6 +27,13 @@
         [[NSUserDefaults standardUserDefaults] setValue:userDic forKey:UserGlobalKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+    
+    NSArray *addressArray = [[NSUserDefaults standardUserDefaults] arrayForKey:AddressGlobalKey];
+    if (!addressArray) {
+        addressArray = [[NSArray alloc] init];
+        [[NSUserDefaults standardUserDefaults] setValue:addressArray forKey:AddressGlobalKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 
     
     

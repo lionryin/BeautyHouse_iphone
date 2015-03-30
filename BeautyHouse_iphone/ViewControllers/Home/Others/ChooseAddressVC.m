@@ -9,6 +9,7 @@
 #import "ChooseAddressVC.h"
 #import "ChooseAddressCell.h"
 #import "AddAddressVC.h"
+#import "MZBWebService.h"
 
 #define ChooseAddressCellID  @"ChooseAddressCellID"
 #define AddAddressCellID  @"AddAddressCellID"
@@ -28,7 +29,8 @@
     [self initMainUI];
     self.title = @"服务地址";
     
-    self.tableList = [[NSMutableArray alloc] init];
+    NSArray *addressArray = [[NSUserDefaults standardUserDefaults] arrayForKey:AddressGlobalKey];
+    self.tableList = [addressArray mutableCopy];
 }
 
 - (void)initMainUI{
@@ -101,6 +103,9 @@
         
         [self.tableList removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [[NSUserDefaults standardUserDefaults] setValue:self.tableList forKey:AddressGlobalKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
 
     }
 }
@@ -142,6 +147,10 @@
     
     [self.tableList addObject:dic];
     [self.tableView reloadData];
+    
+    [[NSUserDefaults standardUserDefaults] setValue:self.tableList forKey:AddressGlobalKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
     
 }
 

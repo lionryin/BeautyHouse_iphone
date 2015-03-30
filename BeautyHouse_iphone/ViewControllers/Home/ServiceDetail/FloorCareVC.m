@@ -10,6 +10,7 @@
 #import "ServiceIntroductionVC.h"
 #import "ChooseAddressVC.h"
 #import "MoreDemandVC.h"
+#import "LoginVC.h"
 
 @interface FloorCareVC ()<ChooseAddressVCDelegate, MoreDemandVCDelegate>
 
@@ -50,9 +51,20 @@
 }
 
 - (IBAction)addressButtonPressed:(id)sender{
-    ChooseAddressVC *chooseAddressVC = [[ChooseAddressVC alloc] init];
-    chooseAddressVC.delegate = self;
-    [self.navigationController pushViewController:chooseAddressVC animated:YES];
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    NSString *userIsLogin = [userDic objectForKey:UserIsLoginKey];
+    
+    if ([userIsLogin isEqualToString:@"0"]) {//未登陆
+        LoginVC *loginVC = [[LoginVC alloc]init];
+        UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
+        [self presentViewController:loginNC animated:YES completion:nil];
+    }
+    else{
+        ChooseAddressVC *chooseAddressVC = [[ChooseAddressVC alloc] init];
+        chooseAddressVC.delegate = self;
+        [self.navigationController pushViewController:chooseAddressVC animated:YES];
+
+    }
 }
 - (IBAction)moreDemondButtonPressed:(id)sender{
     MoreDemandVC *moreDemandVC = [[MoreDemandVC alloc] initWithNibName:@"MoreDemandVC" bundle:nil];
