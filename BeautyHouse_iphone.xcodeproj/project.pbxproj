@@ -94,6 +94,7 @@
 		A6BB68591AC9359800DF1723 /* XiaohaopinVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BB68571AC9359800DF1723 /* XiaohaopinVC.m */; };
 		A6BB685A1AC9359800DF1723 /* XiaohaopinVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6BB68581AC9359800DF1723 /* XiaohaopinVC.xib */; };
 		A6BB685C1AC9376F00DF1723 /* progress_loading_image.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BB685B1AC9376F00DF1723 /* progress_loading_image.png */; };
+		A6BB685E1ACAD1E300DF1723 /* arrow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BB685D1ACAD1E300DF1723 /* arrow_down.png */; };
 		A6CB3FAE1AC3E23B00C65C47 /* ChooseAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CB3FAD1AC3E23B00C65C47 /* ChooseAddressVC.m */; };
 		A6CB3FB21AC3E34300C65C47 /* AddAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FB11AC3E34300C65C47 /* AddAddressCell.xib */; };
 		A6CB3FB61AC3E43800C65C47 /* ChooseAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CB3FB41AC3E43800C65C47 /* ChooseAddressCell.m */; };
@@ -285,6 +286,7 @@
 		A6BB68571AC9359800DF1723 /* XiaohaopinVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiaohaopinVC.m; sourceTree = "<group>"; };
 		A6BB68581AC9359800DF1723 /* XiaohaopinVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XiaohaopinVC.xib; sourceTree = "<group>"; };
 		A6BB685B1AC9376F00DF1723 /* progress_loading_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_loading_image.png; sourceTree = "<group>"; };
+		A6BB685D1ACAD1E300DF1723 /* arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down.png; sourceTree = "<group>"; };
 		A6CB3FAC1AC3E23B00C65C47 /* ChooseAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseAddressVC.h; sourceTree = "<group>"; };
 		A6CB3FAD1AC3E23B00C65C47 /* ChooseAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseAddressVC.m; sourceTree = "<group>"; };
 		A6CB3FB11AC3E34300C65C47 /* AddAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAddressCell.xib; sourceTree = "<group>"; };
@@ -518,6 +520,7 @@
 		A696C5091AC1A73500A860AD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A6BB685D1ACAD1E300DF1723 /* arrow_down.png */,
 				A6BB685B1AC9376F00DF1723 /* progress_loading_image.png */,
 				A6BB68521AC930BA00DF1723 /* select_hover_min.jpg */,
 				A6BB68531AC930BA00DF1723 /* select_min.jpg */,
@@ -920,6 +923,7 @@
 				A6CB3FBD1AC3E82D00C65C47 /* unselected_Address.png in Resources */,
 				A6BB68501AC9232100DF1723 /* select_cut.png in Resources */,
 				A6BB684D1AC6848000DF1723 /* MoreDemandVC.xib in Resources */,
+				A6BB685E1ACAD1E300DF1723 /* arrow_down.png in Resources */,
 				B0735C0C1AC25350005A3E82 /* icon_adress.png in Resources */,
 				B0735C2A1AC273C4005A3E82 /* join_04.png in Resources */,
 				A696C5B31AC1A98300A860AD /* ad_a_1.jpg in Resources */,
