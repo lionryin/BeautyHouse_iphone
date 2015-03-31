@@ -95,6 +95,10 @@
 		A6CB3FBD1AC3E82D00C65C47 /* unselected_Address.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FBB1AC3E82D00C65C47 /* unselected_Address.png */; };
 		A6CB3FBF1AC3EB5000C65C47 /* add_Address.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FBE1AC3EB5000C65C47 /* add_Address.png */; };
 		B01EC03E1ACA68660049FC7D /* MoreSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B01EC03D1ACA68660049FC7D /* MoreSettingVC.m */; };
+		B01EC0411ACA68EC0049FC7D /* UserProblemsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B01EC0401ACA68EC0049FC7D /* UserProblemsVC.m */; };
+		B01EC0441ACA69490049FC7D /* UserProtocolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B01EC0431ACA69490049FC7D /* UserProtocolVC.m */; };
+		B01EC0471ACA695F0049FC7D /* SoftwareUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B01EC0461ACA695F0049FC7D /* SoftwareUpdateVC.m */; };
+		B01EC04A1ACA697A0049FC7D /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B01EC0491ACA697A0049FC7D /* AboutVC.m */; };
 		B0735C0C1AC25350005A3E82 /* icon_adress.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C091AC25350005A3E82 /* icon_adress.png */; };
 		B0735C0D1AC25350005A3E82 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C0A1AC25350005A3E82 /* icon_home.png */; };
 		B0735C0E1AC25350005A3E82 /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C0B1AC25350005A3E82 /* icon_time.png */; };
@@ -271,6 +275,14 @@
 		A6CB3FBE1AC3EB5000C65C47 /* add_Address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_Address.png; sourceTree = "<group>"; };
 		B01EC03C1ACA68660049FC7D /* MoreSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreSettingVC.h; sourceTree = "<group>"; };
 		B01EC03D1ACA68660049FC7D /* MoreSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreSettingVC.m; sourceTree = "<group>"; };
+		B01EC03F1ACA68EC0049FC7D /* UserProblemsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProblemsVC.h; sourceTree = "<group>"; };
+		B01EC0401ACA68EC0049FC7D /* UserProblemsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProblemsVC.m; sourceTree = "<group>"; };
+		B01EC0421ACA69490049FC7D /* UserProtocolVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProtocolVC.h; sourceTree = "<group>"; };
+		B01EC0431ACA69490049FC7D /* UserProtocolVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProtocolVC.m; sourceTree = "<group>"; };
+		B01EC0451ACA695F0049FC7D /* SoftwareUpdateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoftwareUpdateVC.h; sourceTree = "<group>"; };
+		B01EC0461ACA695F0049FC7D /* SoftwareUpdateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoftwareUpdateVC.m; sourceTree = "<group>"; };
+		B01EC0481ACA697A0049FC7D /* AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVC.h; sourceTree = "<group>"; };
+		B01EC0491ACA697A0049FC7D /* AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVC.m; sourceTree = "<group>"; };
 		B0735C091AC25350005A3E82 /* icon_adress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_adress.png; path = BeautyHouse_iphone/Res/icon_adress.png; sourceTree = SOURCE_ROOT; };
 		B0735C0A1AC25350005A3E82 /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_home.png; path = BeautyHouse_iphone/Res/icon_home.png; sourceTree = SOURCE_ROOT; };
 		B0735C0B1AC25350005A3E82 /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_time.png; path = BeautyHouse_iphone/Res/icon_time.png; sourceTree = SOURCE_ROOT; };
@@ -708,6 +720,14 @@
 			children = (
 				B01EC03C1ACA68660049FC7D /* MoreSettingVC.h */,
 				B01EC03D1ACA68660049FC7D /* MoreSettingVC.m */,
+				B01EC03F1ACA68EC0049FC7D /* UserProblemsVC.h */,
+				B01EC0401ACA68EC0049FC7D /* UserProblemsVC.m */,
+				B01EC0421ACA69490049FC7D /* UserProtocolVC.h */,
+				B01EC0431ACA69490049FC7D /* UserProtocolVC.m */,
+				B01EC0451ACA695F0049FC7D /* SoftwareUpdateVC.h */,
+				B01EC0461ACA695F0049FC7D /* SoftwareUpdateVC.m */,
+				B01EC0481ACA697A0049FC7D /* AboutVC.h */,
+				B01EC0491ACA697A0049FC7D /* AboutVC.m */,
 			);
 			path = MoreSetting;
 			sourceTree = "<group>";
@@ -861,9 +881,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A696C5861AC1A91900A860AD /* HomeButton.m in Sources */,
+				B01EC04A1ACA697A0049FC7D /* AboutVC.m in Sources */,
 				A696C5591AC1A8F400A860AD /* AFURLConnectionOperation.m in Sources */,
 				B01EC03E1ACA68660049FC7D /* MoreSettingVC.m in Sources */,
 				B0F681EE1AC6740B008DBE63 /* LoginVC.m in Sources */,
+				B01EC0441ACA69490049FC7D /* UserProtocolVC.m in Sources */,
 				A696C51A1AC1A8C200A860AD /* MyPaser.m in Sources */,
 				A696C5581AC1A8F400A860AD /* AFSecurityPolicy.m in Sources */,
 				A696C52C1AC1A8E800A860AD /* MyOrderVO.m in Sources */,
@@ -899,6 +921,7 @@
 				A696C55B1AC1A8F400A860AD /* AFURLResponseSerialization.m in Sources */,
 				A696C5241AC1A8D900A860AD /* BaseViewController.m in Sources */,
 				A696C5221AC1A8D900A860AD /* BaseNavigationController.m in Sources */,
+				B01EC0411ACA68EC0049FC7D /* UserProblemsVC.m in Sources */,
 				A696C5901AC1A91900A860AD /* NewHouseCareVC.m in Sources */,
 				B0735C111AC25495005A3E82 /* MyAccountTVC.m in Sources */,
 				A696C59C1AC1A93300A860AD /* MemberCenterJoinTVC.m in Sources */,
@@ -910,6 +933,7 @@
 				A6BB684C1AC6848000DF1723 /* MoreDemandVC.m in Sources */,
 				A696C5611AC1A8F400A860AD /* UIImageView+AFNetworking.m in Sources */,
 				B0735C1C1AC25C32005A3E82 /* ShareToFriendsVC.m in Sources */,
+				B01EC0471ACA695F0049FC7D /* SoftwareUpdateVC.m in Sources */,
 				B0735C1F1AC25C44005A3E82 /* FeedBackVC.m in Sources */,
 				A696C5571AC1A8F400A860AD /* AFNetworkReachabilityManager.m in Sources */,
 				A6CB3FB61AC3E43800C65C47 /* ChooseAddressCell.m in Sources */,

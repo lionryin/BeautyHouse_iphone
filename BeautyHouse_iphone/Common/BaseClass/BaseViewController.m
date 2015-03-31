@@ -32,6 +32,9 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)initMainUI{}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

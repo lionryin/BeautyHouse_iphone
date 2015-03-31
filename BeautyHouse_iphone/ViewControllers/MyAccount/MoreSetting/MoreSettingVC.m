@@ -9,6 +9,11 @@
 #import "MoreSettingVC.h"
 #import "MyAccountTVC.h"
 
+#import "UserProblemsVC.h"
+#import "UserProtocolVC.h"
+#import "SoftwareUpdateVC.h"
+#import "AboutVC.h"
+
 
 @interface MoreSettingVC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -111,6 +116,9 @@
         switch (indexPath.row) {
             case 0:
             {
+                UserProblemsVC *vc =[UserProblemsVC new];
+                
+                [self.navigationController pushViewController:vc animated:YES];
 
                 
             }
@@ -118,6 +126,9 @@
             case 1:
             {
 
+                UserProtocolVC *vc =[UserProtocolVC new];
+                
+                [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
                 
@@ -129,10 +140,16 @@
             case 0:
             {
 
+                SoftwareUpdateVC *vc =[SoftwareUpdateVC new];
+                
+                [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             case 1:
             {
+                AboutVC *vc =[AboutVC new];
+                
+                [self.navigationController pushViewController:vc animated:YES];
 
             }
                 break;
