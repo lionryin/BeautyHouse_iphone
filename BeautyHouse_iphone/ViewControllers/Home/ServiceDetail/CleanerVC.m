@@ -23,7 +23,9 @@
 @property (nonatomic) NSInteger slectedXhpTag;
 @property (nonatomic) NSInteger slectedBjtcTag;
 
+@property (weak, nonatomic) IBOutlet UILabel *xhpLabel;
 @property (strong, nonatomic) NSString *xhp;
+@property (weak, nonatomic) IBOutlet UILabel *bjtcLabel;
 @property (strong, nonatomic) NSString *bjtc;
 @property (strong, nonatomic) NSString *moreDemand;
 
@@ -79,9 +81,11 @@
         _slectedXhpTag = imageViewtag;
         if ([content isEqualToString:@""]) {
             _xiaohaopinImageView.highlighted = NO;
+            _xhpLabel.text = @"消耗品";
         }
         else{
             _xiaohaopinImageView.highlighted = YES;
+            _xhpLabel.text = content;
         }
     }
     else if ([name isEqualToString:@"保洁套餐"]){
@@ -89,9 +93,11 @@
         _slectedBjtcTag = imageViewtag;
         if ([content isEqualToString:@""]) {
             _bjtcImageView.highlighted = NO;
+            _bjtcLabel.text = @"保洁套餐";
         }
         else{
             _bjtcImageView.highlighted = YES;
+            _bjtcLabel.text = content;
         }
 
     }

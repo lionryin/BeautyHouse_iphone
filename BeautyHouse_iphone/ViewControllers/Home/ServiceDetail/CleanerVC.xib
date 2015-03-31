@@ -9,10 +9,12 @@
             <connections>
                 <outlet property="addressTF" destination="KNn-rd-MoV" id="m02-jK-skQ"/>
                 <outlet property="bjtcImageView" destination="fed-Db-dxS" id="NSM-EN-CUp"/>
+                <outlet property="bjtcLabel" destination="4Kt-1f-QV7" id="l5t-oC-Bhz"/>
                 <outlet property="moreDemandImageView" destination="dWz-zb-eps" id="VdU-28-P9M"/>
                 <outlet property="timeTF" destination="jid-gv-eNb" id="wF9-0T-S2X"/>
                 <outlet property="topButton" destination="HcR-Ui-WVi" id="sM3-Gi-T0v"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="xhpLabel" destination="8cl-GO-FAv" id="mSt-JS-1rG"/>
                 <outlet property="xiaohaopinImageView" destination="vbd-tS-WR2" id="dJY-3Q-U6t"/>
             </connections>
         </placeholder>
@@ -92,7 +94,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select_plus.png" highlightedImage="select_hover_min.jpg" id="vbd-tS-WR2">
-                            <rect key="frame" x="36" y="22" width="25" height="25"/>
+                            <rect key="frame" x="36" y="16" width="25" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ff9-5d-R3T">
@@ -105,8 +107,8 @@
                                 <action selector="xiaohaopinButtonPressed:" destination="-1" eventType="touchUpInside" id="bER-i6-T6l"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消耗品" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8cl-GO-FAv">
-                            <rect key="frame" x="23" y="55" width="51" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消耗品" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8cl-GO-FAv">
+                            <rect key="frame" x="0.0" y="48" width="96" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -133,7 +135,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select_plus.png" highlightedImage="select_hover_min.jpg" id="fed-Db-dxS">
-                            <rect key="frame" x="36" y="22" width="25" height="25"/>
+                            <rect key="frame" x="36" y="16" width="25" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8gt-GE-2eN">
@@ -146,8 +148,8 @@
                                 <action selector="bjtcButtonPressed:" destination="-1" eventType="touchUpInside" id="4M1-Cw-IoZ"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="保洁套餐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Kt-1f-QV7">
-                            <rect key="frame" x="21" y="55" width="56" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="保洁套餐" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Kt-1f-QV7">
+                            <rect key="frame" x="0.0" y="48" width="96" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -161,7 +163,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select_plus.png" highlightedImage="select_hover_min.jpg" id="dWz-zb-eps">
-                            <rect key="frame" x="36" y="22" width="25" height="25"/>
+                            <rect key="frame" x="36" y="16" width="25" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ehm-pl-fcd">
@@ -175,7 +177,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个性需求" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g9t-jk-rmz">
-                            <rect key="frame" x="21" y="55" width="56" height="21"/>
+                            <rect key="frame" x="0.0" y="48" width="96" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
