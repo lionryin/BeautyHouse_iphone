@@ -94,6 +94,7 @@
 		A6CB3FB91AC3E7BB00C65C47 /* selected_Address.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FB81AC3E7BB00C65C47 /* selected_Address.png */; };
 		A6CB3FBD1AC3E82D00C65C47 /* unselected_Address.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FBB1AC3E82D00C65C47 /* unselected_Address.png */; };
 		A6CB3FBF1AC3EB5000C65C47 /* add_Address.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FBE1AC3EB5000C65C47 /* add_Address.png */; };
+		B01EC03E1ACA68660049FC7D /* MoreSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B01EC03D1ACA68660049FC7D /* MoreSettingVC.m */; };
 		B0735C0C1AC25350005A3E82 /* icon_adress.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C091AC25350005A3E82 /* icon_adress.png */; };
 		B0735C0D1AC25350005A3E82 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C0A1AC25350005A3E82 /* icon_home.png */; };
 		B0735C0E1AC25350005A3E82 /* icon_time.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C0B1AC25350005A3E82 /* icon_time.png */; };
@@ -104,7 +105,6 @@
 		B0735C1C1AC25C32005A3E82 /* ShareToFriendsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C1B1AC25C32005A3E82 /* ShareToFriendsVC.m */; };
 		B0735C1F1AC25C44005A3E82 /* FeedBackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C1E1AC25C44005A3E82 /* FeedBackVC.m */; };
 		B0735C221AC25C9C005A3E82 /* AvailableCitiesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C211AC25C9C005A3E82 /* AvailableCitiesVC.m */; };
-		B0735C251AC25CB1005A3E82 /* MoreSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0735C241AC25CB1005A3E82 /* MoreSettingVC.m */; };
 		B0735C2A1AC273C4005A3E82 /* join_04.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C261AC273C4005A3E82 /* join_04.png */; };
 		B0735C2B1AC273C4005A3E82 /* join_05.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C271AC273C4005A3E82 /* join_05.png */; };
 		B0735C2C1AC273C4005A3E82 /* join_06.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C281AC273C4005A3E82 /* join_06.png */; };
@@ -269,6 +269,8 @@
 		A6CB3FB81AC3E7BB00C65C47 /* selected_Address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_Address.png; sourceTree = "<group>"; };
 		A6CB3FBB1AC3E82D00C65C47 /* unselected_Address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unselected_Address.png; sourceTree = "<group>"; };
 		A6CB3FBE1AC3EB5000C65C47 /* add_Address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_Address.png; sourceTree = "<group>"; };
+		B01EC03C1ACA68660049FC7D /* MoreSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreSettingVC.h; sourceTree = "<group>"; };
+		B01EC03D1ACA68660049FC7D /* MoreSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreSettingVC.m; sourceTree = "<group>"; };
 		B0735C091AC25350005A3E82 /* icon_adress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_adress.png; path = BeautyHouse_iphone/Res/icon_adress.png; sourceTree = SOURCE_ROOT; };
 		B0735C0A1AC25350005A3E82 /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_home.png; path = BeautyHouse_iphone/Res/icon_home.png; sourceTree = SOURCE_ROOT; };
 		B0735C0B1AC25350005A3E82 /* icon_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_time.png; path = BeautyHouse_iphone/Res/icon_time.png; sourceTree = SOURCE_ROOT; };
@@ -285,8 +287,6 @@
 		B0735C1E1AC25C44005A3E82 /* FeedBackVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackVC.m; sourceTree = "<group>"; };
 		B0735C201AC25C9C005A3E82 /* AvailableCitiesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailableCitiesVC.h; sourceTree = "<group>"; };
 		B0735C211AC25C9C005A3E82 /* AvailableCitiesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailableCitiesVC.m; sourceTree = "<group>"; };
-		B0735C231AC25CB1005A3E82 /* MoreSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreSettingVC.h; sourceTree = "<group>"; };
-		B0735C241AC25CB1005A3E82 /* MoreSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreSettingVC.m; sourceTree = "<group>"; };
 		B0735C261AC273C4005A3E82 /* join_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_04.png; path = BeautyHouse_iphone/Res/join_04.png; sourceTree = SOURCE_ROOT; };
 		B0735C271AC273C4005A3E82 /* join_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_05.png; path = BeautyHouse_iphone/Res/join_05.png; sourceTree = SOURCE_ROOT; };
 		B0735C281AC273C4005A3E82 /* join_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_06.png; path = BeautyHouse_iphone/Res/join_06.png; sourceTree = SOURCE_ROOT; };
@@ -576,8 +576,7 @@
 				B0735C1E1AC25C44005A3E82 /* FeedBackVC.m */,
 				B0735C201AC25C9C005A3E82 /* AvailableCitiesVC.h */,
 				B0735C211AC25C9C005A3E82 /* AvailableCitiesVC.m */,
-				B0735C231AC25CB1005A3E82 /* MoreSettingVC.h */,
-				B0735C241AC25CB1005A3E82 /* MoreSettingVC.m */,
+				B01EC03B1ACA68660049FC7D /* MoreSetting */,
 			);
 			path = MyAccount;
 			sourceTree = "<group>";
@@ -702,6 +701,15 @@
 				A6BB684B1AC6848000DF1723 /* MoreDemandVC.xib */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		B01EC03B1ACA68660049FC7D /* MoreSetting */ = {
+			isa = PBXGroup;
+			children = (
+				B01EC03C1ACA68660049FC7D /* MoreSettingVC.h */,
+				B01EC03D1ACA68660049FC7D /* MoreSettingVC.m */,
+			);
+			path = MoreSetting;
 			sourceTree = "<group>";
 		};
 		B0F681EB1AC6736C008DBE63 /* Login */ = {
@@ -854,6 +862,7 @@
 			files = (
 				A696C5861AC1A91900A860AD /* HomeButton.m in Sources */,
 				A696C5591AC1A8F400A860AD /* AFURLConnectionOperation.m in Sources */,
+				B01EC03E1ACA68660049FC7D /* MoreSettingVC.m in Sources */,
 				B0F681EE1AC6740B008DBE63 /* LoginVC.m in Sources */,
 				A696C51A1AC1A8C200A860AD /* MyPaser.m in Sources */,
 				A696C5581AC1A8F400A860AD /* AFSecurityPolicy.m in Sources */,
@@ -889,7 +898,6 @@
 				A696C58A1AC1A91900A860AD /* CleanerVC.m in Sources */,
 				A696C55B1AC1A8F400A860AD /* AFURLResponseSerialization.m in Sources */,
 				A696C5241AC1A8D900A860AD /* BaseViewController.m in Sources */,
-				B0735C251AC25CB1005A3E82 /* MoreSettingVC.m in Sources */,
 				A696C5221AC1A8D900A860AD /* BaseNavigationController.m in Sources */,
 				A696C5901AC1A91900A860AD /* NewHouseCareVC.m in Sources */,
 				B0735C111AC25495005A3E82 /* MyAccountTVC.m in Sources */,
