@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"获取开通服务城市";
+    self.title = @"开通服务城市";
     // Do any additional setup after loading the view.
 }
 

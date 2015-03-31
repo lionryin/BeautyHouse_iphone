@@ -31,7 +31,6 @@
     [super viewDidLoad];
     self.title = @"我的";
     [self initMainUI];
-    // Do any additional setup after loading the view.
 }
 
 
@@ -41,6 +40,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.tableHeaderView = [self tableHeaderView];
+    self.tableView.tableFooterView = [self tableFooterView];
     [self.view addSubview:self.tableView];
 }
 
@@ -67,6 +67,28 @@
     
 
     return view;
+}
+
+- (UIView *)tableFooterView{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 60)];
+    view.backgroundColor = [UIColor clearColor];
+    
+    UIButton *exitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [exitBtn setFrame:CGRectMake(20, 0, 280, 40)];
+    [exitBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+    [exitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [exitBtn setBackgroundColor:[UIColor orangeColor]];
+    exitBtn.layer.cornerRadius = 4;
+    [exitBtn addTarget:self action:@selector(exitAction:) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:exitBtn];
+    
+    return view;
+}
+
+
+
+- (void)exitAction:(id)sender{
+    
 }
 
 - (void)loginAction:(id)sender{
@@ -237,6 +259,7 @@
     }
     return 0.01;
 }
+
 
 
 - (void)didReceiveMemoryWarning {

@@ -7,8 +7,12 @@
 //
 
 #import "MoreSettingVC.h"
+#import "MyAccountTVC.h"
 
-@interface MoreSettingVC ()
+
+@interface MoreSettingVC ()<UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic,strong)UITableView *tableView;
 
 @end
 
@@ -17,8 +21,146 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"更多设置";
-    // Do any additional setup after loading the view.
+    [self initMainUI];
 }
+
+
+
+- (void)initMainUI{
+    self.tableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self.view addSubview:self.tableView];
+}
+
+#pragma mark - UITableView DataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 2;
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *reuse = @"MyAccountTVC";
+    
+    MyAccountTVC *cell = [tableView dequeueReusableCellWithIdentifier:reuse];
+    if (cell == nil) {
+        cell = [[MyAccountTVC alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuse];
+    }
+    
+    NSString *str = nil;
+    
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+                str = @"常见问题";
+                break;
+            case 1:
+                str = @"用户协议";
+                break;
+                
+            default:
+                break;
+        }
+    }else{
+        switch (indexPath.row) {
+            case 0:
+                str = @"版本升级";
+                break;
+            case 1:
+                str = @"关于";
+                break;
+            default:
+                break;
+        }
+    }
+    
+    cell.textLabel.text = str;
+    cell.textLabel.textColor = [UIColor darkGrayColor];
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    
+    return cell;
+    
+    
+}
+
+
+
+
+#pragma mark - UITableView Delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    return 44.0;
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+            {
+
+                
+            }
+                break;
+            case 1:
+            {
+
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }else{
+        switch (indexPath.row) {
+            case 0:
+            {
+
+            }
+                break;
+            case 1:
+            {
+
+            }
+                break;
+            default:
+                break;
+        }
+    }
+    
+    
+    
+    
+}
+
+
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return 20;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    
+    return 0.01;
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
