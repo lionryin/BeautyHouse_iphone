@@ -89,6 +89,11 @@
 		A6BB684D1AC6848000DF1723 /* MoreDemandVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6BB684B1AC6848000DF1723 /* MoreDemandVC.xib */; };
 		A6BB68501AC9232100DF1723 /* select_cut.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BB684E1AC9232100DF1723 /* select_cut.png */; };
 		A6BB68511AC9232100DF1723 /* select_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BB684F1AC9232100DF1723 /* select_plus.png */; };
+		A6BB68541AC930BA00DF1723 /* select_hover_min.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6BB68521AC930BA00DF1723 /* select_hover_min.jpg */; };
+		A6BB68551AC930BA00DF1723 /* select_min.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6BB68531AC930BA00DF1723 /* select_min.jpg */; };
+		A6BB68591AC9359800DF1723 /* XiaohaopinVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BB68571AC9359800DF1723 /* XiaohaopinVC.m */; };
+		A6BB685A1AC9359800DF1723 /* XiaohaopinVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6BB68581AC9359800DF1723 /* XiaohaopinVC.xib */; };
+		A6BB685C1AC9376F00DF1723 /* progress_loading_image.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BB685B1AC9376F00DF1723 /* progress_loading_image.png */; };
 		A6CB3FAE1AC3E23B00C65C47 /* ChooseAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CB3FAD1AC3E23B00C65C47 /* ChooseAddressVC.m */; };
 		A6CB3FB21AC3E34300C65C47 /* AddAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FB11AC3E34300C65C47 /* AddAddressCell.xib */; };
 		A6CB3FB61AC3E43800C65C47 /* ChooseAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CB3FB41AC3E43800C65C47 /* ChooseAddressCell.m */; };
@@ -268,6 +273,12 @@
 		A6BB684B1AC6848000DF1723 /* MoreDemandVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreDemandVC.xib; sourceTree = "<group>"; };
 		A6BB684E1AC9232100DF1723 /* select_cut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_cut.png; sourceTree = "<group>"; };
 		A6BB684F1AC9232100DF1723 /* select_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_plus.png; sourceTree = "<group>"; };
+		A6BB68521AC930BA00DF1723 /* select_hover_min.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = select_hover_min.jpg; sourceTree = "<group>"; };
+		A6BB68531AC930BA00DF1723 /* select_min.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = select_min.jpg; sourceTree = "<group>"; };
+		A6BB68561AC9359800DF1723 /* XiaohaopinVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XiaohaopinVC.h; sourceTree = "<group>"; };
+		A6BB68571AC9359800DF1723 /* XiaohaopinVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiaohaopinVC.m; sourceTree = "<group>"; };
+		A6BB68581AC9359800DF1723 /* XiaohaopinVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XiaohaopinVC.xib; sourceTree = "<group>"; };
+		A6BB685B1AC9376F00DF1723 /* progress_loading_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_loading_image.png; sourceTree = "<group>"; };
 		A6CB3FAC1AC3E23B00C65C47 /* ChooseAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseAddressVC.h; sourceTree = "<group>"; };
 		A6CB3FAD1AC3E23B00C65C47 /* ChooseAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseAddressVC.m; sourceTree = "<group>"; };
 		A6CB3FB11AC3E34300C65C47 /* AddAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAddressCell.xib; sourceTree = "<group>"; };
@@ -489,6 +500,9 @@
 		A696C5091AC1A73500A860AD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A6BB685B1AC9376F00DF1723 /* progress_loading_image.png */,
+				A6BB68521AC930BA00DF1723 /* select_hover_min.jpg */,
+				A6BB68531AC930BA00DF1723 /* select_min.jpg */,
 				A6BB684E1AC9232100DF1723 /* select_cut.png */,
 				A6BB684F1AC9232100DF1723 /* select_plus.png */,
 				A6B6A8981AC436C600B12F04 /* category.png */,
@@ -717,6 +731,9 @@
 				A6BB68491AC6848000DF1723 /* MoreDemandVC.h */,
 				A6BB684A1AC6848000DF1723 /* MoreDemandVC.m */,
 				A6BB684B1AC6848000DF1723 /* MoreDemandVC.xib */,
+				A6BB68561AC9359800DF1723 /* XiaohaopinVC.h */,
+				A6BB68571AC9359800DF1723 /* XiaohaopinVC.m */,
+				A6BB68581AC9359800DF1723 /* XiaohaopinVC.xib */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -851,6 +868,7 @@
 				A66C50B01AC262EF003E146F /* AllServiceVC.xib in Resources */,
 				A696C5AE1AC1A97200A860AD /* tab_orders@2x.png in Resources */,
 				A696C5891AC1A91900A860AD /* RMDateSelectionViewController.xib in Resources */,
+				A6BB685C1AC9376F00DF1723 /* progress_loading_image.png in Resources */,
 				B0735C131AC25AA4005A3E82 /* mybgpic@2x.png in Resources */,
 				A696C5AF1AC1A97200A860AD /* tab_owner@2x.png in Resources */,
 				A6CB3FBD1AC3E82D00C65C47 /* unselected_Address.png in Resources */,
@@ -862,13 +880,16 @@
 				A66C50AB1AC262A0003E146F /* mybgpic.png in Resources */,
 				A6B6A89C1AC436C600B12F04 /* adress.png in Resources */,
 				A6CB3FBF1AC3EB5000C65C47 /* add_Address.png in Resources */,
+				A6BB68551AC930BA00DF1723 /* select_min.jpg in Resources */,
 				A6CB3FB21AC3E34300C65C47 /* AddAddressCell.xib in Resources */,
+				A6BB685A1AC9359800DF1723 /* XiaohaopinVC.xib in Resources */,
 				A696C5B41AC1A98300A860AD /* ad_a_2.jpg in Resources */,
 				B0735C2C1AC273C4005A3E82 /* join_06.png in Resources */,
 				A6BB68511AC9232100DF1723 /* select_plus.png in Resources */,
 				A696C5AD1AC1A97200A860AD /* tab_member@2x.png in Resources */,
 				A696C5911AC1A91900A860AD /* NewHouseCareVC.xib in Resources */,
 				A696C5131AC1A73500A860AD /* Main.storyboard in Resources */,
+				A6BB68541AC930BA00DF1723 /* select_hover_min.jpg in Resources */,
 				A696C5BC1AC1A9BE00A860AD /* s_phone.png in Resources */,
 				B0735C0E1AC25350005A3E82 /* icon_time.png in Resources */,
 			);
@@ -917,6 +938,7 @@
 				A696C52B1AC1A8E800A860AD /* HomeService.m in Sources */,
 				A66C50B41AC2686C003E146F /* AllServiceCell.m in Sources */,
 				A696C58E1AC1A91900A860AD /* FloorCareVC.m in Sources */,
+				A6BB68591AC9359800DF1723 /* XiaohaopinVC.m in Sources */,
 				A696C51B1AC1A8C200A860AD /* MZBWebService.m in Sources */,
 				A696C4D81AC1A5D900A860AD /* main.m in Sources */,
 				A696C5231AC1A8D900A860AD /* BaseTVC.m in Sources */,

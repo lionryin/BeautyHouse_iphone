@@ -8,11 +8,10 @@
 
 #import "FloorCareVC.h"
 #import "ServiceIntroductionVC.h"
-#import "ChooseAddressVC.h"
-#import "MoreDemandVC.h"
+
 #import "LoginVC.h"
 
-@interface FloorCareVC ()<ChooseAddressVCDelegate, MoreDemandVCDelegate>
+@interface FloorCareVC ()
 
 @end
 
