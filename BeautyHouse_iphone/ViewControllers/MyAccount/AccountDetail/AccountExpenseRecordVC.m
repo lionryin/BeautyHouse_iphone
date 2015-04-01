@@ -10,4 +10,11 @@
 
 @implementation AccountExpenseRecordVC
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"消费记录";
+    [self initMainUI];
+}
+
+
 @end

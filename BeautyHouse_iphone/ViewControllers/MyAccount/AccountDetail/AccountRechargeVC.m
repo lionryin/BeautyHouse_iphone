@@ -10,4 +10,11 @@
 
 @implementation AccountRechargeVC
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"在线充值";
+    [self initMainUI];
+}
+
+
 @end

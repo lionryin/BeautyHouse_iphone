@@ -10,4 +10,10 @@
 
 @implementation AccountRechargeRecordVC
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"充值记录";
+    [self initMainUI];
+}
+
 @end

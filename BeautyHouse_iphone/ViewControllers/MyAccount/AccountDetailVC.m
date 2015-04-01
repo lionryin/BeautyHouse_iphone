@@ -7,6 +7,12 @@
 //
 
 #import "AccountDetailVC.h"
+#import "AccountFamilyStewardVC.h"
+#import "AccountRechargeRecordVC.h"
+#import "AccountRechargeVC.h"
+#import "AccountExpenseRecordVC.h"
+
+
 
 @interface AccountDetailVC ()
 

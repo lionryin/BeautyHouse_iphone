@@ -10,4 +10,12 @@
 
 @implementation GoldenIconTradeRecordVC
 
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"金币交易记录";
+    [self initMainUI];
+}
+
+
 @end

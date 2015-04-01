@@ -10,4 +10,11 @@
 
 @implementation GoldenIconExchangeVC
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"兑换";
+    [self initMainUI];
+}
+
+
 @end

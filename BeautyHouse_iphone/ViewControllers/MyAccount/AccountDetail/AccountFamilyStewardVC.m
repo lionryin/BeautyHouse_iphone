@@ -10,4 +10,11 @@
 
 @implementation AccountFamilyStewardVC
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"家庭管家";
+    [self initMainUI];
+}
+
+
 @end
