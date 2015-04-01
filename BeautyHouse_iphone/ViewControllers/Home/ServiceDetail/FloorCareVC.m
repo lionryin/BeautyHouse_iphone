@@ -8,7 +8,7 @@
 
 #import "FloorCareVC.h"
 #import "ServiceIntroductionVC.h"
-
+#import "HomeService.h"
 #import "LoginVC.h"
 
 @interface FloorCareVC ()
@@ -74,7 +74,41 @@
 
 - (IBAction)submitButtonPressed:(id)sender{
     
+    if (self.timeTF.text.length <=0) {
+        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"预约时间不能为空" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        
+        [av show];
+        return;
+        
+    }else if (self.addressTF.text.length <= 0) {
+        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"服务地址不能为空" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [av show];
+        return;
+        
+    }else{
+        
+        HomeService *homeService = [[HomeService alloc] init];
+        
+        
+        [homeService saveOrdersWithParam:@"" andWithBlock:^(NSString *result, NSArray *resultInfo, NSError *error) {
+            
+            if (error) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+            else{
+            }
+            
+        }];
+
+    }
 }
+
+/*- (NSString *)spliceJsonParam{
+    
+    
+    return [NSString stringWithFormat:@"{\"registeredUserId\":\"%@\",\"serviceCategory\":{\"id\":\"04185118631\",\"childServiceCategoryList\":[]},\"serviceAddress\":{\"id\":\"39962496506\"},\"auntId\":\"1\",\"level\":\"一星\",\"ageInterval\":\"30~40\",\"sex\":\"女\"}",userID,];
+}*/
 
 #pragma mark - RMDAteSelectionViewController Delegates
 - (void)dateSelectionViewController:(RMDateSelectionViewController *)vc didSelectDate:(NSDate *)aDate {

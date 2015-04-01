@@ -52,6 +52,11 @@
     return [MZBWebService MZBWebService:@"<ws:getAllServiceCategroyParent/>"];
 }
 
++ (AFHTTPRequestOperation *)saveOrderInfo:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@"<ws:saveOrderInfo><orderInfoJson>%@</orderInfoJson></ws:saveOrderInfo>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+}
 
 #pragma mark - Login
 + (AFHTTPRequestOperation *)getPhoneVerifyCode:(NSString *)jsonParam{

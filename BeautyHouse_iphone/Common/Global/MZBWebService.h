@@ -43,7 +43,10 @@
  */
 + (AFHTTPRequestOperation *)getAllServiceCategroyParent;
 
-
+/**
+ 下单
+ */
++ (AFHTTPRequestOperation *)saveOrderInfo:(NSString *)jsonParam;
 
 
 

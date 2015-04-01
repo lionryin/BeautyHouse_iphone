@@ -25,5 +25,7 @@
 //获取全部服务
 - (void)getAllServiceWithBlock:(void (^)(NSString *result, NSArray *resultInfo, NSError *error))block;
 
+//提交订单
+- (void)saveOrdersWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSString *result, NSArray *resultInfo, NSError *error))block;
 
 @end
