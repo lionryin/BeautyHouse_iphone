@@ -86,7 +86,12 @@
     return [MZBWebService MZBWebService:params];
 }
 
-
++ (AFHTTPRequestOperation *)getHistoryOrderListWithParameter:(NSString *)jsonParam{
+    
+    NSString *params = [NSString stringWithFormat:@"<ws:getPageByOrderInfo><pageQueryJson>%@</pageQueryJson></ws:getPageByOrderInfo>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+}
 
 
 #pragma mark - My Account
@@ -96,8 +101,25 @@
 
 #pragma mark - Member Center
 
+/**
+ *@function 获取开通服务的城市
+ *@param param 接口入参
+ */
++ (AFHTTPRequestOperation *)getAvailableCitiesListWithParameter:(NSString *)jsonParam{
+    NSString *params = @"<ws:checkOpenRegionalInfo/>";
+    
+    return [MZBWebService MZBWebService:params];
+}
 
-
+/**
+ *@function 获取用户余额
+ *@param param 接口入参
+ */
++ (AFHTTPRequestOperation *)getUserBalanceWithParameter:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@"<ws:balanceOfUserQueries><registeredUserJson>%@</registeredUserJson></ws:balanceOfUserQueries>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+}
 
 
 @end

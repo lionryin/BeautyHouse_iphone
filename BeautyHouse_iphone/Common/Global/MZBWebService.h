@@ -73,12 +73,16 @@
 
 #pragma mark - Order
 /**
- 获取订单
- @param param 接口入参
+ *@function 获取当前订单列表
+ *@param param 接口入参
  */
 + (AFHTTPRequestOperation *)getCurrentOrderListWithParameter:(NSString *)jsonParam;
 
-
+/**
+ *@function 获取历史订单列表
+ *@param param 接口入参
+ */
++ (AFHTTPRequestOperation *)getHistoryOrderListWithParameter:(NSString *)jsonParam;
 
 
 
@@ -93,9 +97,18 @@
 
 #pragma mark - My Account
 
+/**
+ *@function 获取开通服务的城市
+ *@param param 接口入参
+ */
++ (AFHTTPRequestOperation *)getAvailableCitiesListWithParameter:(NSString *)jsonParam;
 
 
-
+/**
+ *@function 获取用户余额
+ *@param param 接口入参
+ */
++ (AFHTTPRequestOperation *)getUserBalanceWithParameter:(NSString *)jsonParam;
 
 
 
