@@ -28,4 +28,7 @@
 //提交订单
 - (void)saveOrdersWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSString *result, NSArray *resultInfo, NSError *error))block;
 
+//添加服务地址
+- (void)saveServiceAddressWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSString *result, NSError *error))block;
+
 @end

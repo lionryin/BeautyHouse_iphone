@@ -82,7 +82,7 @@
         
         ////////
         NSString *serviceResult = [dic objectForKey:@"result"];
-        NSLog(@"serviceResult:%@",serviceResult);
+        //NSLog(@"serviceResult:%@",serviceResult);
         
         NSArray *serviceResultInfo = [dic objectForKey:@"resultInfo"];
         
@@ -131,7 +131,7 @@
         
         ////////
         NSString *serviceResult = [dic objectForKey:@"result"];
-        NSLog(@"serviceResult:%@",serviceResult);
+        //NSLog(@"serviceResult:%@",serviceResult);
         
         NSArray *serviceResultInfo = [dic objectForKey:@"resultInfo"];
         
@@ -214,6 +214,36 @@
         //NSLog(@"%@",[error description]);
         block(nil, nil, error);
     }];
+}
+
+- (void)saveServiceAddressWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSString *result, NSError *error))block{
+    
+    AFHTTPRequestOperation *opration = [MZBWebService saveServiceAddress:jsonParam];
+    [opration start];
+    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSData* data = [[NSData alloc] initWithBytes:[responseObject bytes] length:[responseObject length]];
+        NSString* resultStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        //NSLog(@"%@",resultStr);
+        
+        MyPaser *parser = [[MyPaser alloc] initWithContent:resultStr];
+        [parser BeginToParse];
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        //NSLog(@"%@",dic);
+        
+        NSString *serviceResult = [dic objectForKey:@"result"];
+        NSLog(@"addAddressServiceResult:%@",serviceResult);
+        if (block) {
+            block(serviceResult,nil);
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //NSLog(@"%@",[error description]);
+        block(nil, error);
+    }];
+
 }
 
 @end

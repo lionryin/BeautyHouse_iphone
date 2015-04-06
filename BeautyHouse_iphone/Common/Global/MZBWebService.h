@@ -51,8 +51,10 @@
  */
 + (AFHTTPRequestOperation *)saveOrderInfo:(NSString *)jsonParam;
 
-
-
+/**
+ 添加服务地址
+ */
++ (AFHTTPRequestOperation *)saveServiceAddress:(NSString *)jsonParam;
 
 #pragma mark - Login
 

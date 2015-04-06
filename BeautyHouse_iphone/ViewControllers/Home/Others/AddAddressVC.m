@@ -8,6 +8,7 @@
 
 #import "AddAddressVC.h"
 #import "QuyuVC.h"
+#import "HomeService.h"
 
 @interface AddAddressVC ()<QuyuVCDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *quyuTF;
@@ -58,8 +59,31 @@
         [alert show];
     }
     else{
-        [self.delegate AddAddressVCAddAddressQuyu:_quyuTF.text andXiaoqu:_xiaoquTF.text andDetailAddress:_detailAddressTF.text];
-        [self.navigationController popViewControllerAnimated:YES];
+        NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+        NSString *userId = [userDic objectForKey:UserLoginId];
+        NSLog(@"userId:%@",userId);
+
+        NSString *params = [NSString stringWithFormat:@"{\"cellName\":\"%@ %@\",\"detailAddress\":\"%@\",\"registeredUserId\":\"%@\"}",_quyuTF.text,_xiaoquTF.text,_detailAddressTF.text,userId];
+        
+        HomeService *homeService = [[HomeService alloc] init];
+        [homeService saveServiceAddressWithParam:params andWithBlock:^(NSString *result, NSError *error) {
+            if (!error) {
+                NSLog(@"result:%@",result);
+ 
+                [self.delegate AddAddressVCAddAddressQuyu:_quyuTF.text andXiaoqu:_xiaoquTF.text andDetailAddress:_detailAddressTF.text];
+                
+                [self.navigationController popViewControllerAnimated:YES];
+               
+            }
+            else{
+                UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"网络不给力" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                [av show];
+            }
+            
+        }];
+        
+       // [self.delegate AddAddressVCAddAddressQuyu:_quyuTF.text andXiaoqu:_xiaoquTF.text andDetailAddress:_detailAddressTF.text];
+       //
     }
 }
 

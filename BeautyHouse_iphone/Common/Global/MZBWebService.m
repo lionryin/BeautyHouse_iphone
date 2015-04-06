@@ -58,6 +58,11 @@
     return [MZBWebService MZBWebService:params];
 }
 
++ (AFHTTPRequestOperation *)saveServiceAddress:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@"<ws:saveServiceAddress><serviceAddressJson>%@</serviceAddressJson></ws:saveServiceAddress>",jsonParam];
+    return [MZBWebService MZBWebService:params];
+}
+
 #pragma mark - Login
 + (AFHTTPRequestOperation *)getPhoneVerifyCode:(NSString *)jsonParam{
     NSString *params = [NSString stringWithFormat:@"<ws:sendCode><registeredUserJson>%@</registeredUserJson></ws:sendCode>",jsonParam];
