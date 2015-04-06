@@ -10,7 +10,7 @@
 
 @implementation MZBWebService
 
-
+#pragma mark - MZBWebService
 + (AFHTTPRequestOperation *)MZBWebService:(NSString *)body{
     
     NSURL* WebURL = [NSURL URLWithString:MZBWebURL];
@@ -35,6 +35,7 @@
 
 }
 
+#pragma mark - home
 + (AFHTTPRequestOperation *)getHomePageServiceCategroy
 {
     return [MZBWebService MZBWebService:@"<ws:getHomePageServiceCategroy/>"];
@@ -52,14 +53,21 @@
     return [MZBWebService MZBWebService:@"<ws:getAllServiceCategroyParent/>"];
 }
 
+#pragma mark - submit order
 + (AFHTTPRequestOperation *)saveOrderInfo:(NSString *)jsonParam{
     NSString *params = [NSString stringWithFormat:@"<ws:saveOrderInfo><orderInfoJson>%@</orderInfoJson></ws:saveOrderInfo>",jsonParam];
     
     return [MZBWebService MZBWebService:params];
 }
 
+#pragma mark - address
 + (AFHTTPRequestOperation *)saveServiceAddress:(NSString *)jsonParam{
     NSString *params = [NSString stringWithFormat:@"<ws:saveServiceAddress><serviceAddressJson>%@</serviceAddressJson></ws:saveServiceAddress>",jsonParam];
+    return [MZBWebService MZBWebService:params];
+}
+
++ (AFHTTPRequestOperation *)getAllServiceAddress:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@"<ws:getAllServiceAddress><serviceAddressJson>%@</serviceAddressJson></ws:getAllServiceAddress>",jsonParam];
     return [MZBWebService MZBWebService:params];
 }
 

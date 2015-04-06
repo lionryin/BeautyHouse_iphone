@@ -21,8 +21,10 @@
 }
 
 - (void)layoutSubviews{
-    _xiaoquLabel.text = [_addressDic objectForKey:@"xq"];
-    _detailAddress.text = [_addressDic objectForKey:@"detail"];
+    //_xiaoquLabel.text = [_addressDic objectForKey:@"xq"];
+    //_detailAddress.text = [_addressDic objectForKey:@"detail"];
+    _xiaoquLabel.text = _address.cellName;
+    _detailAddress.text = _address.detailAddress;
 }
 
 @end

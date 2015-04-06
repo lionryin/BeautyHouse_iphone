@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6694CBF1AD2AA0E00339A2B /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = A6694CBD1AD2AA0E00339A2B /* GTMBase64.m */; };
+		A6694CC21AD2B41900339A2B /* MzbAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = A6694CC11AD2B41900339A2B /* MzbAddress.m */; };
 		A66C50A91AC25313003E146F /* MzbAd.m in Sources */ = {isa = PBXBuildFile; fileRef = A66C50A81AC25313003E146F /* MzbAd.m */; };
 		A66C50AB1AC262A0003E146F /* mybgpic.png in Resources */ = {isa = PBXBuildFile; fileRef = A66C50AA1AC262A0003E146F /* mybgpic.png */; };
 		A66C50AF1AC262EF003E146F /* AllServiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A66C50AD1AC262EF003E146F /* AllServiceVC.m */; };
@@ -141,6 +143,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A6694CBC1AD2AA0E00339A2B /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		A6694CBD1AD2AA0E00339A2B /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		A6694CBE1AD2AA0E00339A2B /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		A6694CC01AD2B41900339A2B /* MzbAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MzbAddress.h; sourceTree = "<group>"; };
+		A6694CC11AD2B41900339A2B /* MzbAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MzbAddress.m; sourceTree = "<group>"; };
 		A66C50A71AC25313003E146F /* MzbAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MzbAd.h; sourceTree = "<group>"; };
 		A66C50A81AC25313003E146F /* MzbAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MzbAd.m; sourceTree = "<group>"; };
 		A66C50AA1AC262A0003E146F /* mybgpic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mybgpic.png; sourceTree = "<group>"; };
@@ -360,6 +367,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6694CBB1AD2AA0E00339A2B /* GTMBase64 */ = {
+			isa = PBXGroup;
+			children = (
+				A6694CBC1AD2AA0E00339A2B /* GTMBase64.h */,
+				A6694CBD1AD2AA0E00339A2B /* GTMBase64.m */,
+				A6694CBE1AD2AA0E00339A2B /* GTMDefines.h */,
+			);
+			path = GTMBase64;
+			sourceTree = "<group>";
+		};
 		A696C4C91AC1A5D900A860AD = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +483,8 @@
 				A696C52A1AC1A8E800A860AD /* MzbService.m */,
 				A66C50A71AC25313003E146F /* MzbAd.h */,
 				A66C50A81AC25313003E146F /* MzbAd.m */,
+				A6694CC01AD2B41900339A2B /* MzbAddress.h */,
+				A6694CC11AD2B41900339A2B /* MzbAddress.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -473,6 +492,7 @@
 		A696C5051AC1A73500A860AD /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				A6694CBB1AD2AA0E00339A2B /* GTMBase64 */,
 				A696C52E1AC1A8F300A860AD /* AFNetworking */,
 				A696C5421AC1A8F400A860AD /* UIKit+AFNetworking */,
 			);
@@ -965,6 +985,7 @@
 				B01EC03E1ACA68660049FC7D /* MoreSettingVC.m in Sources */,
 				B0F681EE1AC6740B008DBE63 /* LoginVC.m in Sources */,
 				B01EC0441ACA69490049FC7D /* UserProtocolVC.m in Sources */,
+				A6694CC21AD2B41900339A2B /* MzbAddress.m in Sources */,
 				B0A5D3571ACBAE0F00D60958 /* GoldenIconTradeRecordVC.m in Sources */,
 				A696C51A1AC1A8C200A860AD /* MyPaser.m in Sources */,
 				B0A5D35D1ACBAEC400D60958 /* AccountRechargeRecordVC.m in Sources */,
@@ -1002,6 +1023,7 @@
 				A66C50B81AC272D1003E146F /* AllServiceButton.m in Sources */,
 				A696C55C1AC1A8F400A860AD /* AFURLSessionManager.m in Sources */,
 				B0735C221AC25C9C005A3E82 /* AvailableCitiesVC.m in Sources */,
+				A6694CBF1AD2AA0E00339A2B /* GTMBase64.m in Sources */,
 				A696C58A1AC1A91900A860AD /* CleanerVC.m in Sources */,
 				A696C55B1AC1A8F400A860AD /* AFURLResponseSerialization.m in Sources */,
 				A696C5241AC1A8D900A860AD /* BaseViewController.m in Sources */,

@@ -56,6 +56,11 @@
  */
 + (AFHTTPRequestOperation *)saveServiceAddress:(NSString *)jsonParam;
 
+/**
+ 获取服务地址
+ */
++ (AFHTTPRequestOperation *)getAllServiceAddress:(NSString *)jsonParam;
+
 #pragma mark - Login
 
 /**

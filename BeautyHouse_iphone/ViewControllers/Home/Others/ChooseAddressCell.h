@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MzbAddress.h"
 
 @interface ChooseAddressCell : UITableViewCell
 
@@ -14,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailAddress;
 
 @property (strong, nonatomic) NSDictionary *addressDic;
+@property (strong, nonatomic) MzbAddress *address;
 
 @end

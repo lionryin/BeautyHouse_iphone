@@ -126,9 +126,9 @@
 }
 
 #pragma mark - ChooseAddressVC delegate
-- (void)chooseAddressVCCellSelected:(NSDictionary *)dic{
+- (void)chooseAddressVCCellSelected:(MzbAddress *)address{
     
-    self.addressTF.text = [NSString stringWithFormat:@"%@ %@",[dic objectForKey:@"xq"],[dic objectForKey:@"detail"]];
+    self.addressTF.text = [NSString stringWithFormat:@"%@ %@",address.cellName,address.detailAddress];
 }
 
 #pragma mark - MoreDemandVC Delegate

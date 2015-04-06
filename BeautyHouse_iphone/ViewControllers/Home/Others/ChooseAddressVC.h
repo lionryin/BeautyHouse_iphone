@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MzbAddress.h"
 
 @protocol ChooseAddressVCDelegate <NSObject>
 
-- (void)chooseAddressVCCellSelected:(NSDictionary *)dic;
+- (void)chooseAddressVCCellSelected:(MzbAddress *)address;
 
 @end
 

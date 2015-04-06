@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "MzbService.h"
 #import "MzbAd.h"
+#import "MzbAddress.h"
 
 @interface HomeService : NSObject
 
@@ -30,5 +31,9 @@
 
 //添加服务地址
 - (void)saveServiceAddressWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSString *result, NSError *error))block;
+
+//获取服务地址
+- (void)getAllServiceAddressWihtParam:(NSString *)jsonParam andWithBlock:(void (^)(NSString *result,NSArray *resultInfo, NSError *error))block;
+
 
 @end

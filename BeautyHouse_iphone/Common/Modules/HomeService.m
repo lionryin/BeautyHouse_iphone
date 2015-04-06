@@ -7,6 +7,7 @@
 //
 
 #import "HomeService.h"
+#import "GTMBase64.h"
 
 @implementation HomeService
 
@@ -238,10 +239,56 @@
             block(serviceResult,nil);
         }
         
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //NSLog(@"%@",[error description]);
         block(nil, error);
+    }];
+
+}
+
+- (void)getAllServiceAddressWihtParam:(NSString *)jsonParam andWithBlock:(void (^)(NSString *result, NSArray *resultInfo,  NSError *error))block{
+    AFHTTPRequestOperation *opration = [MZBWebService getAllServiceAddress:jsonParam];
+    [opration start];
+    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSData* data = [[NSData alloc] initWithBytes:[responseObject bytes] length:[responseObject length]];
+        NSLog(@"data:%@",data);
+        
+       NSString* resultStr = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        NSLog(@"%@",resultStr);
+        
+        MyPaser *parser = [[MyPaser alloc] initWithContent:resultStr];
+        [parser BeginToParse];
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@"%@",dic);
+        
+        NSString *serviceResult = [dic objectForKey:@"result"];
+        NSLog(@"getAllServiceAddressResult:%@",serviceResult);
+        
+        NSArray *serviceResultInfo = [dic objectForKey:@"resultInfo"];
+        NSMutableArray *resultMutInfo = [[NSMutableArray alloc] init];
+        for (int i = 0; i<serviceResultInfo.count; i++) {
+            MzbAddress *mzbAddress = [[MzbAddress alloc] init];
+            NSDictionary *adDic = [serviceResultInfo objectAtIndex:i];
+            
+            mzbAddress.cellName = [adDic objectForKey:@"cellName"];
+            mzbAddress.detailAddress = [adDic objectForKey:@"detailAddress"];
+            mzbAddress.addressID = [adDic objectForKey:@"id"];
+            mzbAddress.memo = [adDic objectForKey:@"memo"];
+            mzbAddress.regionalInfo = [adDic objectForKey:@"regionalInfo"];
+            mzbAddress.registeredUserId = [adDic objectForKey:@"registeredUserId"];
+            
+            [resultMutInfo addObject:mzbAddress];
+        }
+        
+        if (block) {
+            block(serviceResult, resultMutInfo, nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //NSLog(@"%@",[error description]);
+        block(nil, nil, error);
     }];
 
 }

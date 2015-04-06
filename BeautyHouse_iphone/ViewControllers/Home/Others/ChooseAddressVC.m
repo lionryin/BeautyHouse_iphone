@@ -9,7 +9,7 @@
 #import "ChooseAddressVC.h"
 #import "ChooseAddressCell.h"
 #import "AddAddressVC.h"
-#import "MZBWebService.h"
+#import "HomeService.h"
 
 #define ChooseAddressCellID  @"ChooseAddressCellID"
 #define AddAddressCellID  @"AddAddressCellID"
@@ -28,9 +28,9 @@
     // Do any additional setup after loading the view
     [self initMainUI];
     self.title = @"服务地址";
-    
-    NSArray *addressArray = [[NSUserDefaults standardUserDefaults] arrayForKey:AddressGlobalKey];
-    self.tableList = [addressArray mutableCopy];
+    [self getAllServiceAddress];
+    //NSArray *addressArray = [[NSUserDefaults standardUserDefaults] arrayForKey:AddressGlobalKey];
+    //self.tableList = [addressArray mutableCopy];
 }
 
 - (void)initMainUI{
@@ -48,6 +48,28 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - getAllServiceAddress
+- (void)getAllServiceAddress{
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    NSString *userId = [userDic objectForKey:UserLoginId];
+    NSLog(@"userId:%@",userId);
+    
+    HomeService *homeService = [[HomeService alloc] init];
+    [homeService getAllServiceAddressWihtParam:[NSString stringWithFormat:@"{\"registeredUserId\":\"%@\"}",userId] andWithBlock:^(NSString *result, NSArray *resultInfo, NSError *error) {
+        if (!error) {
+            for (MzbAddress *address in resultInfo) {
+                NSLog(@"%@\n%@\n%@\n%@\n%@\n%@\n",address.cellName,address.detailAddress,address.addressID,address.memo,address.regionalInfo,address.registeredUserId);
+            }
+            
+            self.tableList = [resultInfo mutableCopy];
+            [self.tableView reloadData];
+        }
+        else{
+            
+        }
+    }];
 }
 
 #pragma mark - UITableView DataSource
@@ -75,7 +97,8 @@
         
         ChooseAddressCell *cell = [tableView dequeueReusableCellWithIdentifier:ChooseAddressCellID forIndexPath:indexPath];
         
-        cell.addressDic = [self.tableList objectAtIndex:indexPath.row];
+        //cell.addressDic = [self.tableList objectAtIndex:indexPath.row];
+        cell.address = [self.tableList objectAtIndex:indexPath.row];
         
         return cell;
   
