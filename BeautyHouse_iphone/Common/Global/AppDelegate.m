@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "Common.h"
+#import "AFNetworkActivityIndicatorManager.h"
+
 
 @interface AppDelegate ()
 
@@ -18,6 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
     NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
     if (!userDic) {

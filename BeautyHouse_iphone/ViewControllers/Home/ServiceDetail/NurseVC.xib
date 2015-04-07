@@ -126,6 +126,24 @@
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="wgm-DY-67U">
+                            <rect key="frame" x="51" y="6" width="97" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="男"/>
+                                <segment title="女"/>
+                            </segments>
+                            <color key="tintColor" red="1" green="0.49803921569999998" blue="0.3167024101" alpha="1" colorSpace="calibratedRGB"/>
+                        </segmentedControl>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sNi-Cm-SRE">
+                            <rect key="frame" x="226" y="5" width="70" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="匹配阿姨">
+                                <color key="titleColor" red="1" green="0.49803921569999998" blue="0.3167024101" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>

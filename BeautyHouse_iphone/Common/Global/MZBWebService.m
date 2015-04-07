@@ -17,6 +17,7 @@
     NSMutableURLRequest* req = [[NSMutableURLRequest alloc] init];
     [req setURL:WebURL];
     [req setHTTPMethod:@"POST"];
+    
     [req addValue:@"application/soap+xml" forHTTPHeaderField:@"Content-Type"];
     NSMutableData* postbody = [[NSMutableData alloc] init];
     [postbody appendData:[[NSString stringWithFormat:@"<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.houseWs.ereal.com/\"><soapenv:Header/><soapenv:Body>"] dataUsingEncoding:NSUTF8StringEncoding]];

@@ -63,12 +63,13 @@
         NSString *userId = [userDic objectForKey:UserLoginId];
         NSLog(@"userId:%@",userId);
 
-        NSString *params = [NSString stringWithFormat:@"{\"cellName\":\"%@ %@\",\"detailAddress\":\"%@\",\"registeredUserId\":\"%@\"}",_quyuTF.text,_xiaoquTF.text,_detailAddressTF.text,userId];
+        NSString *params = [NSString stringWithFormat:@"{\"cellName\":\"%@ %@\",\"detailAddress\":\"%@\",\"registeredUserId\":\"%@\"}",_quyuTF.text ,_xiaoquTF.text,_detailAddressTF.text ,userId];
+        //NSString *params = [NSString stringWithFormat:@"{\"cellName\":\"%@ %@\",\"detailAddress\":\"%@\",\"registeredUserId\":\"%@\"}",[_quyuTF.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],[_xiaoquTF.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],[_detailAddressTF.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],userId];
         
         HomeService *homeService = [[HomeService alloc] init];
         [homeService saveServiceAddressWithParam:params andWithBlock:^(NSString *result, NSError *error) {
             if (!error) {
-                NSLog(@"result:%@",result);
+                NSLog(@"saveServiceAddressresult:%@",result);
  
                 [self.delegate AddAddressVCAddAddressQuyu:_quyuTF.text andXiaoqu:_xiaoquTF.text andDetailAddress:_detailAddressTF.text];
                 

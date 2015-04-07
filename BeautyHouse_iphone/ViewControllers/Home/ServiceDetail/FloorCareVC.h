@@ -11,10 +11,13 @@
 #import "RMDateSelectionViewController.h"
 #import "ChooseAddressVC.h"
 #import "MoreDemandVC.h"
+#import "MzbAddress.h"
 
 @interface FloorCareVC : UIViewController<RMDateSelectionViewControllerDelegate,ChooseAddressVCDelegate, MoreDemandVCDelegate>
 
 @property (strong, nonatomic) MzbService *serviceInfo;
+
+@property (strong, nonatomic) MzbAddress *mzbAddress;
 
 @property (weak, nonatomic) IBOutlet UIButton *topButton;
 @property (weak, nonatomic) IBOutlet UITextField *timeTF;

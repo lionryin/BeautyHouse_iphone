@@ -59,9 +59,9 @@
     HomeService *homeService = [[HomeService alloc] init];
     [homeService getAllServiceAddressWihtParam:[NSString stringWithFormat:@"{\"registeredUserId\":\"%@\"}",userId] andWithBlock:^(NSString *result, NSArray *resultInfo, NSError *error) {
         if (!error) {
-            for (MzbAddress *address in resultInfo) {
+            /*for (MzbAddress *address in resultInfo) {
                 NSLog(@"%@\n%@\n%@\n%@\n%@\n%@\n",address.cellName,address.detailAddress,address.addressID,address.memo,address.regionalInfo,address.registeredUserId);
-            }
+            }*/
             
             self.tableList = [resultInfo mutableCopy];
             [self.tableView reloadData];
@@ -164,7 +164,7 @@
 #pragma mark - AddAddressVC delegate
 
 - (void)AddAddressVCAddAddressQuyu:(NSString *)quyu andXiaoqu:(NSString *)xiaoqu andDetailAddress:(NSString *)detailAddress{
-    NSString *xq = [NSString stringWithFormat:@"%@ %@",quyu,xiaoqu];
+    /*NSString *xq = [NSString stringWithFormat:@"%@ %@",quyu,xiaoqu];
     
     NSDictionary *dic = @{@"xq":xq, @"detail":detailAddress};
     
@@ -172,8 +172,9 @@
     [self.tableView reloadData];
     
     [[NSUserDefaults standardUserDefaults] setValue:self.tableList forKey:AddressGlobalKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] synchronize];*/
 
+    [self getAllServiceAddress];
     
 }
 

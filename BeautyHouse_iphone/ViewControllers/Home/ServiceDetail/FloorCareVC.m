@@ -86,17 +86,16 @@
         return;
         
     }else{
-        
+       
         HomeService *homeService = [[HomeService alloc] init];
-        
-        
-        [homeService saveOrdersWithParam:@"" andWithBlock:^(NSString *result, NSArray *resultInfo, NSError *error) {
+        [homeService saveOrdersWithParam:[self spliceJsonParam] andWithBlock:^(NSString *result, NSArray *resultInfo, NSError *error) {
             
             if (error) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                 [alert show];
             }
             else{
+                
             }
             
         }];
@@ -104,11 +103,15 @@
     }
 }
 
-/*- (NSString *)spliceJsonParam{
+- (NSString *)spliceJsonParam{
     
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    NSString *userId = [userDic objectForKey:UserLoginId];
+    NSLog(@"userId:%@",userId);
     
-    return [NSString stringWithFormat:@"{\"registeredUserId\":\"%@\",\"serviceCategory\":{\"id\":\"04185118631\",\"childServiceCategoryList\":[]},\"serviceAddress\":{\"id\":\"39962496506\"},\"auntId\":\"1\",\"level\":\"一星\",\"ageInterval\":\"30~40\",\"sex\":\"女\"}",userID,];
-}*/
+    return [NSString stringWithFormat:@"{\"registeredUserId\":\"%@\",\"serviceCategory\":{\"id\":\"%@\",\"childServiceCategoryList\":[]},\"serviceAddress\":{\"id\":\"%@\"},\"auntId\":\"1\",\"level\":\"一星\",\"ageInterval\":\"30~40\",\"sex\":\"女\"}", userId, self.serviceInfo.serviceId, self.mzbAddress.addressID];
+    
+}
 
 #pragma mark - RMDAteSelectionViewController Delegates
 - (void)dateSelectionViewController:(RMDateSelectionViewController *)vc didSelectDate:(NSDate *)aDate {
@@ -127,7 +130,7 @@
 
 #pragma mark - ChooseAddressVC delegate
 - (void)chooseAddressVCCellSelected:(MzbAddress *)address{
-    
+    self.mzbAddress = address;
     self.addressTF.text = [NSString stringWithFormat:@"%@ %@",address.cellName,address.detailAddress];
 }
 
