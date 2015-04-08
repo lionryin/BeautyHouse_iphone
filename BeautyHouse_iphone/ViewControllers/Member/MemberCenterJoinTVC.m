@@ -20,6 +20,8 @@
 @property (nonatomic, strong) UILabel *detail;
 @property (nonatomic, strong) UIButton *joinBtn;
 
+@property (nonatomic, strong) UIView *horizontalLine;
+
 @end
 
 
@@ -48,9 +50,16 @@
         [self.joinBtn setFrame:CGRectMake(240, 5, 70, 30)];
         [self.joinBtn setTitle:@"开通" forState:UIControlStateNormal];
         self.joinBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-        [self.joinBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [self.joinBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.joinBtn setBackgroundColor:[UIColor orangeColor]];
+        self.joinBtn.layer.cornerRadius = 4;
         [self.joinBtn addTarget:self action:@selector(joinBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:self.joinBtn];
+        
+        self.horizontalLine = [[UIView alloc]initWithFrame:CGRectMake(0, 43, self.frame.size.width, 1)];
+        self.horizontalLine.backgroundColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:1.0];
+        [self.contentView addSubview:self.horizontalLine];
+        
     }
     
     return self;

@@ -136,4 +136,28 @@
 }
 
 
+//用户的金币余额查询
++ (AFHTTPRequestOperation *)getBalanceOfUserGoldCoinsQueryWithParameter:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@"<ws:balanceOfUserGoldCoinsQueries><registeredUserJson>%@</registeredUserJson></ws:balanceOfUserGoldCoinsQueries>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+}
+
+//用户金币交易记录查询
++ (AFHTTPRequestOperation *)getGoldCoinsTradeRecordWithParameter:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@"<ws:getListByGoldCoinInfo><goldCoinInfoJson>%@</goldCoinInfoJson></ws:getListByGoldCoinInfo>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+}
+
+//金币兑换为现金
++ (AFHTTPRequestOperation *)goldCoinsExchangeWithParameter:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@"<ws:addGoldCoinInfo><goldCoinInfoJson>%@</goldCoinInfoJson></ws:addGoldCoinInfo>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+}
+
+
+
+
 @end

@@ -27,6 +27,8 @@
 
 
 @property (nonatomic, strong) UIView *verticalLine;
+@property (nonatomic, strong) UIView *horizontalLine;
+
 
 @end
 
@@ -87,6 +89,11 @@
         self.rDetail.font = [UIFont systemFontOfSize:11];
         self.rDetail.textColor =[UIColor grayColor];
         [self.rView addSubview:self.rDetail];
+        
+        
+        self.horizontalLine = [[UIView alloc]initWithFrame:CGRectMake(0, 99, self.frame.size.width, 1)];
+        self.horizontalLine.backgroundColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:1.0];
+        [self.contentView addSubview:self.horizontalLine];
         
         
     }

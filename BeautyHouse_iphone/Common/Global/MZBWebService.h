@@ -123,7 +123,14 @@
 + (AFHTTPRequestOperation *)getUserBalanceWithParameter:(NSString *)jsonParam;
 
 
+//用户的金币余额查询
++ (AFHTTPRequestOperation *)getBalanceOfUserGoldCoinsQueryWithParameter:(NSString *)jsonParam;
 
+//用户金币交易记录查询
++ (AFHTTPRequestOperation *)getGoldCoinsTradeRecordWithParameter:(NSString *)jsonParam;
+
+//金币兑换为现金
++ (AFHTTPRequestOperation *)goldCoinsExchangeWithParameter:(NSString *)jsonParam;
 
 
 @end
