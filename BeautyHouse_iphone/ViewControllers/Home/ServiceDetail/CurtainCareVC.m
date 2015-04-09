@@ -33,6 +33,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*- (NSString *)spliceJsonParam{
+    
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    NSString *userId = [userDic objectForKey:UserLoginId];
+    NSLog(@"userId:%@",userId);
+    
+    return [NSString stringWithFormat:@"{\"sex\":null,\"orderDateTime\":null,\"serviceDate\":\"%@\",\"memo\":null,\"deductions\":null,\"houseSize\":null,\"ageInterval\":null,\"registeredUser\":null,\"checkOrderInfo\":null,\"auntInfo\":null,\"auntId\":null,\"orderDateTimeStart\":null,\"dictionarys\":null,\"id\":null,\"orderDateTimeEnd\":null,\"level\":null,\"serviceUser\":null,\"consumables\":null,\"otherNeed\":\"%@\",\"registeredUserId\":\"%@\",\"serviceCategory\":{\"sign\":null,\"id\":\"%@\",\"urllink\":null,\"parentId\":null,\"price\":null,\"level\":null,\"description\":null,\"priceDescription\":null,\"servicePhoto\":null,\"serviceName\":null},\"cleaningKit\":null,\"orderStatue\":null,\"completeTime\":null,\"serviceAddress\":{\"id\":\"%@\",\"registeredUserId\":null,\"cellName\":null,\"memo\":null,\"regionalInfo\":null,\"detailAddress\":null}}", self.timeTF.text,self.moreDemondTF.text,userId,self.serviceInfo.serviceId,self.mzbAddress.addressID];
+}*/
+
 #pragma mark - 
 - (void)resetCurtainNumTFWithCurtainNunbers:(NSInteger)num{
     self.curtainNumTF.text = [NSString stringWithFormat:@"%ld",(long)num

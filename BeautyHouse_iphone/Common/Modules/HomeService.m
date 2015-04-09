@@ -209,6 +209,12 @@
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
         NSLog(@"%@",dic);
+        
+        NSString *serviceResult = [dic objectForKey:@"result"];
+        
+        if (block) {
+            block(serviceResult,nil,nil);
+        }
 
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

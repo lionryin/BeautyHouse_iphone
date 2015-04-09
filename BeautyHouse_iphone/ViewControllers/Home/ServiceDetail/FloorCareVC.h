@@ -30,4 +30,7 @@
 - (IBAction)moreDemondButtonPressed:(id)sender;
 - (IBAction)submitButtonPressed:(id)sender;
 
+
+- (NSString *)spliceJsonParam;
+
 @end

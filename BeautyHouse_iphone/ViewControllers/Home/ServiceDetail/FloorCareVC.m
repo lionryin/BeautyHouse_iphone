@@ -11,7 +11,7 @@
 #import "HomeService.h"
 #import "LoginVC.h"
 
-@interface FloorCareVC ()
+@interface FloorCareVC ()<UIAlertViewDelegate>
 
 @end
 
@@ -90,13 +90,20 @@
         HomeService *homeService = [[HomeService alloc] init];
         [homeService saveOrdersWithParam:[self spliceJsonParam] andWithBlock:^(NSString *result, NSArray *resultInfo, NSError *error) {
             
-            if (error) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                [alert show];
-            }
-            else{
+            dispatch_async(dispatch_get_main_queue(), ^{
                 
-            }
+                if (error) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+                else{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"订单提交成功" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                    alert.tag = 999;
+                    [alert show];
+                }
+
+            });
+            
             
         }];
 
@@ -109,7 +116,7 @@
     NSString *userId = [userDic objectForKey:UserLoginId];
     NSLog(@"userId:%@",userId);
     
-    return [NSString stringWithFormat:@"{\"registeredUserId\":\"%@\",\"serviceCategory\":{\"id\":\"%@\",\"childServiceCategoryList\":[]},\"serviceAddress\":{\"id\":\"%@\"},\"auntId\":\"1\",\"level\":\"一星\",\"ageInterval\":\"30~40\",\"sex\":\"女\"}", userId, self.serviceInfo.serviceId, self.mzbAddress.addressID];
+    return [NSString stringWithFormat:@"{\"sex\":null,\"orderDateTime\":null,\"serviceDate\":\"%@\",\"memo\":null,\"deductions\":null,\"houseSize\":null,\"ageInterval\":null,\"registeredUser\":null,\"checkOrderInfo\":null,\"auntInfo\":null,\"auntId\":null,\"orderDateTimeStart\":null,\"dictionarys\":null,\"id\":null,\"orderDateTimeEnd\":null,\"level\":null,\"serviceUser\":null,\"consumables\":null,\"otherNeed\":\"%@\",\"registeredUserId\":\"%@\",\"serviceCategory\":{\"sign\":null,\"id\":\"%@\",\"urllink\":null,\"parentId\":null,\"price\":null,\"level\":null,\"description\":null,\"priceDescription\":null,\"servicePhoto\":null,\"serviceName\":null},\"cleaningKit\":null,\"orderStatue\":null,\"completeTime\":null,\"serviceAddress\":{\"id\":\"%@\",\"registeredUserId\":null,\"cellName\":null,\"memo\":null,\"regionalInfo\":null,\"detailAddress\":null}}", self.timeTF.text,self.moreDemondTF.text,userId,self.serviceInfo.serviceId,self.mzbAddress.addressID];
     
 }
 
@@ -137,6 +144,13 @@
 #pragma mark - MoreDemandVC Delegate
 - (void)moreDemandVCGetDemand:(NSString *)demand{
     self.moreDemondTF.text = demand;
+}
+
+#pragma mark - UIAlertView delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag == 999) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 @end

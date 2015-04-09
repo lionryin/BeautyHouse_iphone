@@ -11,9 +11,13 @@
 @interface NurseVC ()<UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *xingTF;
 @property (weak, nonatomic) IBOutlet UITextField *ageTF;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *sexSegment;
 
 - (IBAction)xingTFClicked:(id)sender;
 - (IBAction)ageTFClicked:(id)sender;
+
+- (IBAction)sexValueChanged:(id)sender;
+- (IBAction)ayMatched:(id)sender;
 
 @end
 
@@ -22,11 +26,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //NSLog(@"sex:%@",( (_sexSegment.selectedSegmentIndex == 0) ? @"男" : @"女"));
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSString *)spliceJsonParam{
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    NSString *userId = [userDic objectForKey:UserLoginId];
+    NSLog(@"userId:%@",userId);
+    
+    NSLog(@"sex:%@",( (_sexSegment.selectedSegmentIndex == 0) ? @"男" : @"女"));
+    
+    return [NSString stringWithFormat:@"{\"sex\":\"%@\",\"orderDateTime\":null,\"serviceDate\":\"%@\",\"memo\":null,\"deductions\":null,\"houseSize\":null,\"ageInterval\":\"%@\",\"registeredUser\":null,\"checkOrderInfo\":null,\"auntInfo\":null,\"auntId\":null,\"orderDateTimeStart\":null,\"dictionarys\":null,\"id\":null,\"orderDateTimeEnd\":null,\"level\":null,\"serviceUser\":null,\"consumables\":null,\"otherNeed\":\"%@\",\"registeredUserId\":\"%@\",\"serviceCategory\":{\"sign\":null,\"id\":\"%@\",\"urllink\":null,\"parentId\":null,\"price\":null,\"level\":null,\"description\":null,\"priceDescription\":null,\"servicePhoto\":null,\"serviceName\":null},\"cleaningKit\":null,\"orderStatue\":null,\"completeTime\":null,\"serviceAddress\":{\"id\":\"%@\",\"registeredUserId\":null,\"cellName\":null,\"memo\":null,\"regionalInfo\":null,\"detailAddress\":null}}",( (_sexSegment.selectedSegmentIndex == 0) ? @"男" : @"女"),self.timeTF.text,self.ageTF.text,self.moreDemondTF.text,userId,self.serviceInfo.serviceId,self.mzbAddress.addressID];
+
 }
 
 #pragma mark - IBAction
@@ -41,6 +58,14 @@
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"30~35",@"35~40",@"40~45", nil];
     actionSheet.tag = 1000;
     [actionSheet showInView:self.view];
+}
+
+- (IBAction)sexValueChanged:(id)sender {
+    
+    NSLog(@"sex:%@",( (_sexSegment.selectedSegmentIndex == 0) ? @"男" : @"女"));
+}
+
+- (IBAction)ayMatched:(id)sender {
 }
 
 #pragma mark - actionSheet delegate
