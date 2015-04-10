@@ -90,7 +90,7 @@
     }else{
        
         HomeService *homeService = [[HomeService alloc] init];
-        [homeService saveOrdersWithParam:[self spliceJsonParam] andWithBlock:^(NSString *result, NSArray *resultInfo, NSError *error) {
+        [homeService saveOrdersWithParam:[self spliceJsonParam] andWithBlock:^(NSString *result, NSString *orderID, NSError *error) {
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
@@ -103,8 +103,14 @@
                     alert.tag = 999;
                     [alert show];*/
                     
-                    SaveOrderSuccessVC *saveOrderSuccessVC = [[SaveOrderSuccessVC alloc] initWithNibName:@"SaveOrderSuccessVC" bundle:nil];
+                    MyOrderVO *myOrder = [[MyOrderVO alloc] init];
+                    myOrder.title = self.serviceInfo.serviceName;
+                    myOrder.time = self.timeTF.text;
+                    myOrder.address = [NSString stringWithFormat:@"%@ %@",self.mzbAddress.cellName,self.mzbAddress.detailAddress];
+                    myOrder.orderID = orderID;
                     
+                    SaveOrderSuccessVC *saveOrderSuccessVC = [[SaveOrderSuccessVC alloc] initWithNibName:@"SaveOrderSuccessVC" bundle:nil];
+                    saveOrderSuccessVC.order = myOrder;
                     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:saveOrderSuccessVC];
                     [self presentViewController:nav animated:YES completion:^{
                         [self.navigationController popViewControllerAnimated:YES];

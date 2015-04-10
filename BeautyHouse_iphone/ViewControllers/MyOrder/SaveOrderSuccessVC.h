@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyOrderVO.h"
 
 @interface SaveOrderSuccessVC : UIViewController
+
+@property (strong, nonatomic) MyOrderVO *order;
 
 @end

@@ -92,6 +92,13 @@
 
 
 #pragma mark - Order
++ (AFHTTPRequestOperation *)cancelOrderInfo:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@"<ws:cancelOrderInfo><orderInfoJson>%@</orderInfoJson></ws:cancelOrderInfo>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+}
+
+
 + (AFHTTPRequestOperation *)getCurrentOrderListWithParameter:(NSString *)jsonParam{
     
     

@@ -194,7 +194,7 @@
 }
 
 //提交订单
-- (void)saveOrdersWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSString *result, NSArray *resultInfo, NSError *error))block{
+- (void)saveOrdersWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSString *result, NSString *orderID, NSError *error))block{
     
     AFHTTPRequestOperation *opration = [MZBWebService saveOrderInfo:jsonParam];
     [opration start];
@@ -211,15 +211,47 @@
         NSLog(@"%@",dic);
         
         NSString *serviceResult = [dic objectForKey:@"result"];
+        NSDictionary *serviceResultInfo = [dic objectForKey:@"resultInfo"];
+        
+        NSString *orderId = [serviceResultInfo objectForKey:@"id"];
+        
         
         if (block) {
-            block(serviceResult,nil,nil);
+            block(serviceResult,orderId,nil);
         }
 
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //NSLog(@"%@",[error description]);
         block(nil, nil, error);
+    }];
+}
+
+- (void)cancelOrdersWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSString *result, NSError *error))block{
+    AFHTTPRequestOperation *opration = [MZBWebService cancelOrderInfo:jsonParam];
+    [opration start];
+    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSData* data = [[NSData alloc] initWithBytes:[responseObject bytes] length:[responseObject length]];
+        NSString* resultStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        //NSLog(@"%@",resultStr);
+        
+        MyPaser *parser = [[MyPaser alloc] initWithContent:resultStr];
+        [parser BeginToParse];
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@"%@",dic);
+        
+        NSString *serviceResult = [dic objectForKey:@"result"];
+        
+        if (block) {
+            block(serviceResult,nil);
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //NSLog(@"%@",[error description]);
+        block(nil,  error);
     }];
 }
 

@@ -48,10 +48,7 @@
  */
 + (AFHTTPRequestOperation *)getAllServiceCategroyParent;
 
-/**
- 下单
- */
-+ (AFHTTPRequestOperation *)saveOrderInfo:(NSString *)jsonParam;
+#pragma mark - address
 
 /**
  添加服务地址
@@ -79,11 +76,17 @@
 
 
 
-
-
-
-
 #pragma mark - Order
+/**
+ 下单
+ */
++ (AFHTTPRequestOperation *)saveOrderInfo:(NSString *)jsonParam;
+
+/**
+ 退单
+ */
++ (AFHTTPRequestOperation *)cancelOrderInfo:(NSString *)jsonParam;
+
 /**
  *@function 获取当前订单列表
  *@param param 接口入参

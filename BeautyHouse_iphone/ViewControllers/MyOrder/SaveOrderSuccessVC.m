@@ -7,8 +7,9 @@
 //
 
 #import "SaveOrderSuccessVC.h"
+#import "HomeService.h"
 
-@interface SaveOrderSuccessVC ()
+@interface SaveOrderSuccessVC ()<UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *serviceNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *serviceTimeLabel;
@@ -33,6 +34,16 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"取消订单" style:UIBarButtonItemStylePlain target:self action:@selector(cancelOrder)];
     [rightItem setTintColor:[UIColor orangeColor]];
     self.navigationItem.rightBarButtonItem = rightItem;
+    
+    
+    ///////
+    if (_order) {
+        self.serviceNameLabel.text = _order.title;
+        self.serviceTimeLabel.text = _order.time;
+        self.serviceAddressLabel.text = _order.address;
+    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,6 +52,9 @@
 }
 
 - (void)cancelOrder{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定要取消订单吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+     alert.tag = 99;
+     [alert show];
     
 }
 
@@ -48,14 +62,31 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UIAlertView delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag == 99 && buttonIndex == 1) {
+        NSLog(@"%li",buttonIndex);
+        
+        NSString *param = [NSString stringWithFormat:@"{\"id\":\"%@\"}", self.order.orderID];
+         
+         HomeService *homeService = [HomeService alloc];
+         [homeService cancelOrdersWithParam:param andWithBlock:^(NSString *result, NSError *error) {
+             if (!error) {
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"订单已经成功取消！" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                 alert.tag = 100;
+                 [alert show];
+                 //[self dismissViewControllerAnimated:YES completion:nil];
+             }
+             else{
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                 [alert show];
+             }
+         }];
+    }
+    else if (alertView.tag == 100 ){
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
-*/
+
 
 @end
