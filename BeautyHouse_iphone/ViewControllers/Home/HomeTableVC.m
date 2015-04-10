@@ -80,34 +80,6 @@
 
     }];
     
-    
-/*    ///test
-    //AFHTTPRequestOperation *opration = [MZBWebService getHomePageServiceCategroy];
-    
-    AFHTTPRequestOperation *opration = [MZBWebService getCurrentOrderListWithParameter:@"{\"proc\":{\"registeredUserId\":\"m78087037527\",\"checkOrderInfo\":1},\"order1\":\"orderDateTime\",\"sort1\":\"desc\",\"pageIndex\":0,\"pageSize\":5}"];
-    
-    
-    [opration start];
-    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSData* data = [[NSData alloc] initWithBytes:[responseObject bytes] length:[responseObject length]];
-        NSString* result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        //NSLog(@"%@",result);
-        
-        MyPaser *parser = [[MyPaser alloc] initWithContent:result];
-        [parser BeginToParse];
-        
-        //NSLog(@"%@",parser.result);
-        
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-        NSLog(@"%@",dic);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",[error description]);
-    }];
-    
-    */
-    
 }
 
 - (void)didReceiveMemoryWarning {

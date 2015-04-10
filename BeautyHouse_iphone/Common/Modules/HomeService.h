@@ -37,5 +37,7 @@
 //获取服务地址
 - (void)getAllServiceAddressWihtParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result,NSArray *resultInfo, NSError *error))block;
 
+//获取当前订单
+- (void)getPageByOrderInfoWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result,NSDictionary *resultInfo, NSError *error))block;
 
 @end

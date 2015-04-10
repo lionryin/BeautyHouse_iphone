@@ -400,4 +400,36 @@
     }];
 }
 
+
+- (void)getPageByOrderInfoWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result,NSDictionary *resultInfo, NSError *error))block{
+    
+    AFHTTPRequestOperation *opration = [MZBWebService getCurrentOrderListWithParameter:jsonParam];
+    
+    [opration start];
+    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSData* data = [[NSData alloc] initWithBytes:[responseObject bytes] length:[responseObject length]];
+        NSString* resultStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        //NSLog(@"%@",resultStr);
+        
+        MyPaser *parser = [[MyPaser alloc] initWithContent:resultStr];
+        [parser BeginToParse];
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@"%@",dic);
+        
+        NSNumber *serviceResult = [dic objectForKey:@"result"];
+        NSLog(@"getAllServiceAddressResult:%@",serviceResult);
+        
+        NSDictionary *serviceResultInfo = [dic objectForKey:@"resultInfo"];
+        
+        if (block) {
+            block(serviceResult,serviceResultInfo,nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil,nil,error);
+    }];
+}
+
 @end

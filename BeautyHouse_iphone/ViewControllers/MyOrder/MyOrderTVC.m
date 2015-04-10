@@ -31,11 +31,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        UIImageView *firstIV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 5, 30, 30)];
+        UIImageView *firstIV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 9, 22, 22)];
         [firstIV setImage:[UIImage imageNamed:@"icon_home"]];
         [self.contentView addSubview:firstIV];
         
-        self.title = [[UILabel alloc]initWithFrame:CGRectMake(45, 10, 160, 20)];
+        self.title = [[UILabel alloc]initWithFrame:CGRectMake(40, 10, 165, 20)];
         self.title.font = [UIFont systemFontOfSize:14];
         self.title.textColor = [UIColor darkGrayColor];
         self.title.textAlignment = NSTextAlignmentLeft;
@@ -51,47 +51,48 @@
         [self.contentView addSubview:self.complaintBtn];
         
         
-        self.verticalLine1 = [[UIView alloc]initWithFrame:CGRectMake(0, 40, 300, 1)];
+        self.verticalLine1 = [[UIView alloc]initWithFrame:CGRectMake(40, 40, 260, 1)];
         self.verticalLine1.backgroundColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:1.0];
         [self.contentView addSubview:self.verticalLine1];
         
-        UIImageView *secondIV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 45, 30, 30)];
+        UIImageView *secondIV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 49, 22, 22)];
         [secondIV setImage:[UIImage imageNamed:@"icon_time"]];
         [self.contentView addSubview:secondIV];
         
-        self.time = [[UILabel alloc]initWithFrame:CGRectMake(45, 50, 200, 20)];
+        self.time = [[UILabel alloc]initWithFrame:CGRectMake(40, 50, 205, 20)];
         self.time.font = [UIFont systemFontOfSize:14];
         self.time.textColor = [UIColor darkGrayColor];
         self.time.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:self.time];
         
-        self.verticalLine2 = [[UIView alloc]initWithFrame:CGRectMake(0, 80, 300, 1)];
+        self.verticalLine2 = [[UIView alloc]initWithFrame:CGRectMake(40, 80, 260, 1)];
         self.verticalLine2.backgroundColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:1.0];
         [self.contentView addSubview:self.verticalLine2];
         
-        UIImageView *thirdIV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 30, 30)];
+        UIImageView *thirdIV = [[UIImageView alloc]initWithFrame:CGRectMake(10, 99, 22, 22)];
         [thirdIV setImage:[UIImage imageNamed:@"icon_adress"]];
         [self.contentView addSubview:thirdIV];
         
-        self.address = [[UILabel alloc]initWithFrame:CGRectMake(45, 90, 200, 20)];
+        self.address = [[UILabel alloc]initWithFrame:CGRectMake(40, 90, 205, 40)];
         self.address.font = [UIFont systemFontOfSize:14];
         self.address.textColor = [UIColor darkGrayColor];
+        self.address.numberOfLines = 2;
         self.address.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:self.address];
         
         
-        self.verticalLine3 = [[UIView alloc]initWithFrame:CGRectMake(0, 120, 300, 1)];
+        self.verticalLine3 = [[UIView alloc]initWithFrame:CGRectMake(10, 140, 290, 1)];
         self.verticalLine3.backgroundColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:1.0];
         [self.contentView addSubview:self.verticalLine3];
         
-        self.status = [[UILabel alloc]initWithFrame:CGRectMake(10, 135, 160, 25)];
+        self.status = [[UILabel alloc]initWithFrame:CGRectMake(10, 155, 160, 25)];
         self.status.font = [UIFont systemFontOfSize:14];
         self.status.textColor = [UIColor darkGrayColor];
         self.status.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:self.status];
         
         self.cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.cancelBtn setFrame:CGRectMake(180, 135, 100, 30)];
+        [self.cancelBtn setFrame:CGRectMake(180, 155, 100, 30)];
         [self.cancelBtn setTitle:@"取消订单" forState:UIControlStateNormal];
         [self.cancelBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         self.cancelBtn.titleLabel.font = [UIFont systemFontOfSize:16];
