@@ -11,7 +11,7 @@
 
 @implementation HomeService
 
-- (void)getHomeServiceWithBlock:(void (^)(NSString *result, NSArray *resultInfo, NSError *error))block{
+- (void)getHomeServiceWithBlock:(void (^)(NSNumber *result, NSArray *resultInfo, NSError *error))block{
     
     AFHTTPRequestOperation *opration = [MZBWebService getHomePageServiceCategroy];
     [opration start];
@@ -29,7 +29,8 @@
         //NSLog(@"%@",dic);
         
         ////////
-        NSString *serviceResult = [dic objectForKey:@"result"];
+        NSNumber *serviceResult = [dic objectForKey:@"result"];
+        //NSString *serviceResult = [dic objectForKey:@"result"];
         //NSLog(@"serviceResult:%@",serviceResult);
         
         NSArray *serviceResultInfo = [dic objectForKey:@"resultInfo"];
@@ -66,7 +67,7 @@
     }];
 }
 
-- (void)getHomeAdWithBlock:(void (^)(NSString *result, NSArray *resultInfo, NSError *error))block{
+- (void)getHomeAdWithBlock:(void (^)(NSNumber *result, NSArray *resultInfo, NSError *error))block{
     AFHTTPRequestOperation *opration = [MZBWebService getHomeAppAdConfigure];
     [opration start];
     [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -82,7 +83,7 @@
         //NSLog(@"%@",dic);
         
         ////////
-        NSString *serviceResult = [dic objectForKey:@"result"];
+        NSNumber *serviceResult = [dic objectForKey:@"result"];
         //NSLog(@"serviceResult:%@",serviceResult);
         
         NSArray *serviceResultInfo = [dic objectForKey:@"resultInfo"];
@@ -114,7 +115,7 @@
     }];
 }
 
-- (void)getAllServiceWithBlock:(void (^)(NSString *result, NSArray *resultInfo, NSError *error))block{
+- (void)getAllServiceWithBlock:(void (^)(NSNumber *result, NSArray *resultInfo, NSError *error))block{
     AFHTTPRequestOperation *opration = [MZBWebService getAllServiceCategroyParent];
     [opration start];
     [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -131,7 +132,7 @@
         NSLog(@"%@",dic);
         
         ////////
-        NSString *serviceResult = [dic objectForKey:@"result"];
+        NSNumber *serviceResult = [dic objectForKey:@"result"];
         //NSLog(@"serviceResult:%@",serviceResult);
         
         NSArray *serviceResultInfo = [dic objectForKey:@"resultInfo"];
@@ -194,7 +195,7 @@
 }
 
 //提交订单
-- (void)saveOrdersWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSString *result, NSString *orderID, NSError *error))block{
+- (void)saveOrdersWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result, NSString *orderID, NSError *error))block{
     
     AFHTTPRequestOperation *opration = [MZBWebService saveOrderInfo:jsonParam];
     [opration start];
@@ -210,7 +211,7 @@
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
         NSLog(@"%@",dic);
         
-        NSString *serviceResult = [dic objectForKey:@"result"];
+        NSNumber *serviceResult = [dic objectForKey:@"result"];
         NSDictionary *serviceResultInfo = [dic objectForKey:@"resultInfo"];
         
         NSString *orderId = [serviceResultInfo objectForKey:@"id"];
@@ -227,7 +228,7 @@
     }];
 }
 
-- (void)cancelOrdersWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSString *result, NSError *error))block{
+- (void)cancelOrdersWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result, NSError *error))block{
     AFHTTPRequestOperation *opration = [MZBWebService cancelOrderInfo:jsonParam];
     [opration start];
     [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -242,7 +243,7 @@
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
         NSLog(@"%@",dic);
         
-        NSString *serviceResult = [dic objectForKey:@"result"];
+        NSNumber *serviceResult = [dic objectForKey:@"result"];
         
         if (block) {
             block(serviceResult,nil);
@@ -255,7 +256,7 @@
     }];
 }
 
-- (void)saveServiceAddressWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSString *result, NSError *error))block{
+- (void)saveServiceAddressWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result, NSError *error))block{
     
     AFHTTPRequestOperation *opration = [MZBWebService saveServiceAddress:jsonParam];
     [opration start];
@@ -271,7 +272,7 @@
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
         //NSLog(@"%@",dic);
         
-        NSString *serviceResult = [dic objectForKey:@"result"];
+        NSNumber *serviceResult = [dic objectForKey:@"result"];
         NSLog(@"addAddressServiceResult:%@",serviceResult);
         if (block) {
             block(serviceResult,nil);
@@ -348,7 +349,7 @@
     return md;
 }
 
-- (void)getAllServiceAddressWihtParam:(NSString *)jsonParam andWithBlock:(void (^)(NSString *result, NSArray *resultInfo,  NSError *error))block{
+- (void)getAllServiceAddressWihtParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result, NSArray *resultInfo,  NSError *error))block{
     
     
     AFHTTPRequestOperation *opration = [MZBWebService getAllServiceAddress:jsonParam];
@@ -370,7 +371,7 @@
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
         NSLog(@"%@",dic);
         
-        NSString *serviceResult = [dic objectForKey:@"result"];
+        NSNumber *serviceResult = [dic objectForKey:@"result"];
         NSLog(@"getAllServiceAddressResult:%@",serviceResult);
         
         NSArray *serviceResultInfo = [dic objectForKey:@"resultInfo"];

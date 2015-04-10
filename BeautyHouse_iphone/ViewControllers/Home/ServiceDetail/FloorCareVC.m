@@ -14,6 +14,8 @@
 
 @interface FloorCareVC ()<UIAlertViewDelegate>
 
+@property (strong, nonatomic) MBProgressHUD *hud;
+
 @end
 
 @implementation FloorCareVC
@@ -88,9 +90,16 @@
         return;
         
     }else{
+        
+        _hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+        _hud.labelText = @"提交中...";
+        [self.navigationController.view addSubview:_hud];
+        [_hud show:YES];
        
         HomeService *homeService = [[HomeService alloc] init];
-        [homeService saveOrdersWithParam:[self spliceJsonParam] andWithBlock:^(NSString *result, NSString *orderID, NSError *error) {
+        [homeService saveOrdersWithParam:[self spliceJsonParam] andWithBlock:^(NSNumber *result, NSString *orderID, NSError *error) {
+            
+            [_hud hide:YES];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
@@ -102,19 +111,26 @@
                     /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"订单提交成功" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
                     alert.tag = 999;
                     [alert show];*/
+                    if ([result integerValue] == 0) {
+                        
+                        MyOrderVO *myOrder = [[MyOrderVO alloc] init];
+                        myOrder.title = self.serviceInfo.serviceName;
+                        myOrder.time = self.timeTF.text;
+                        myOrder.address = [NSString stringWithFormat:@"%@ %@",self.mzbAddress.cellName,self.mzbAddress.detailAddress];
+                        myOrder.orderID = orderID;
+                        
+                        SaveOrderSuccessVC *saveOrderSuccessVC = [[SaveOrderSuccessVC alloc] initWithNibName:@"SaveOrderSuccessVC" bundle:nil];
+                        saveOrderSuccessVC.order = myOrder;
+                        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:saveOrderSuccessVC];
+                        [self presentViewController:nav animated:YES completion:^{
+                            [self.navigationController popViewControllerAnimated:YES];
+                        }];
+
+                    }
+                    else{
+                        
+                    }
                     
-                    MyOrderVO *myOrder = [[MyOrderVO alloc] init];
-                    myOrder.title = self.serviceInfo.serviceName;
-                    myOrder.time = self.timeTF.text;
-                    myOrder.address = [NSString stringWithFormat:@"%@ %@",self.mzbAddress.cellName,self.mzbAddress.detailAddress];
-                    myOrder.orderID = orderID;
-                    
-                    SaveOrderSuccessVC *saveOrderSuccessVC = [[SaveOrderSuccessVC alloc] initWithNibName:@"SaveOrderSuccessVC" bundle:nil];
-                    saveOrderSuccessVC.order = myOrder;
-                    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:saveOrderSuccessVC];
-                    [self presentViewController:nav animated:YES completion:^{
-                        [self.navigationController popViewControllerAnimated:YES];
-                    }];
                     
                 }
 

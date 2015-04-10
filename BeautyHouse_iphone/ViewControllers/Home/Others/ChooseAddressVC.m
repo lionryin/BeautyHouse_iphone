@@ -57,14 +57,20 @@
     NSLog(@"userId:%@",userId);
     
     HomeService *homeService = [[HomeService alloc] init];
-    [homeService getAllServiceAddressWihtParam:[NSString stringWithFormat:@"{\"registeredUserId\":\"%@\"}",userId] andWithBlock:^(NSString *result, NSArray *resultInfo, NSError *error) {
+    [homeService getAllServiceAddressWihtParam:[NSString stringWithFormat:@"{\"registeredUserId\":\"%@\"}",userId] andWithBlock:^(NSNumber *result, NSArray *resultInfo, NSError *error) {
         if (!error) {
             /*for (MzbAddress *address in resultInfo) {
                 NSLog(@"%@\n%@\n%@\n%@\n%@\n%@\n",address.cellName,address.detailAddress,address.addressID,address.memo,address.regionalInfo,address.registeredUserId);
             }*/
             
-            self.tableList = [resultInfo mutableCopy];
-            [self.tableView reloadData];
+            if ([result integerValue] == 0) {
+                self.tableList = [resultInfo mutableCopy];
+                [self.tableView reloadData];
+            }
+            else{
+                
+            }
+            
         }
         else{
             

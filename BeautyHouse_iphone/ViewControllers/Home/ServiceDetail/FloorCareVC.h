@@ -12,6 +12,7 @@
 #import "ChooseAddressVC.h"
 #import "MoreDemandVC.h"
 #import "MzbAddress.h"
+#import "MBProgressHUD.h"
 
 @interface FloorCareVC : UIViewController<RMDateSelectionViewControllerDelegate,ChooseAddressVCDelegate, MoreDemandVCDelegate>
 

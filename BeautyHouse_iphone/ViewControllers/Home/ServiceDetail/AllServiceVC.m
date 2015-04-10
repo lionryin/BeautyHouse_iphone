@@ -32,14 +32,21 @@
     [self initMainUI];
     
     HomeService *homeService = [[HomeService alloc] init];
-    [homeService getAllServiceWithBlock:^(NSString *result, NSArray *resultInfo, NSError *error) {
+    [homeService getAllServiceWithBlock:^(NSNumber *result, NSArray *resultInfo, NSError *error) {
         if (error) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
         }
         else{
-            _tableList = [resultInfo mutableCopy];
-            [self.tableView reloadData];
+            if ([result integerValue] == 0) {
+                _tableList = [resultInfo mutableCopy];
+                [self.tableView reloadData];
+            }
+            else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误，请重试！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+            
         }
 
     }];

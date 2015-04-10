@@ -8,12 +8,15 @@
 
 #import "SaveOrderSuccessVC.h"
 #import "HomeService.h"
+#import "MBProgressHUD.h"
 
 @interface SaveOrderSuccessVC ()<UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *serviceNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *serviceTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *serviceAddressLabel;
+
+@property (strong, nonatomic) MBProgressHUD *hud;
 
 @end
 
@@ -68,13 +71,27 @@
         NSLog(@"%li",buttonIndex);
         
         NSString *param = [NSString stringWithFormat:@"{\"id\":\"%@\"}", self.order.orderID];
+        
+        _hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+        _hud.labelText = @"取消中...";
+        [self.navigationController.view addSubview:_hud];
+        [_hud show:YES];
+
          
          HomeService *homeService = [HomeService alloc];
-         [homeService cancelOrdersWithParam:param andWithBlock:^(NSString *result, NSError *error) {
+         [homeService cancelOrdersWithParam:param andWithBlock:^(NSNumber *result, NSError *error) {
+             [_hud hide:NO];
+             
              if (!error) {
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"订单已经成功取消！" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-                 alert.tag = 100;
-                 [alert show];
+                 if ([result integerValue] == 0) {
+                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"订单已经成功取消！" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                     alert.tag = 100;
+                     [alert show];
+                 }
+                 else{
+                     
+                 }
+                
                  //[self dismissViewControllerAnimated:YES completion:nil];
              }
              else{

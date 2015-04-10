@@ -43,25 +43,39 @@
     _serviceInfos = [[NSArray alloc] init];
     
     HomeService *homeService = [[HomeService alloc] init];
-    [homeService getHomeServiceWithBlock:^(NSString *result, NSArray *resultInfo, NSError *error) {
+    [homeService getHomeServiceWithBlock:^(NSNumber *result, NSArray *resultInfo, NSError *error) {
         if (error) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
         }
         else{
-            _serviceInfos = [resultInfo mutableCopy];
-            [self.tableView reloadData];
+            if ([result integerValue] == 0) {
+                _serviceInfos = [resultInfo mutableCopy];
+                [self.tableView reloadData];
+            }
+            else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误，请重试！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+            
         }
         
     }];
-    [homeService getHomeAdWithBlock:^(NSString *result, NSArray *resultInfo, NSError *error) {
+    [homeService getHomeAdWithBlock:^(NSNumber *result, NSArray *resultInfo, NSError *error) {
         if (error) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];
+            NSLog(@"网络错误");
+            /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];*/
         }
         else{
-            _adInfos = [resultInfo mutableCopy];
-            [self.tableView reloadData];
+            if ([result integerValue] == 0) {
+                _adInfos = [resultInfo mutableCopy];
+                [self.tableView reloadData];
+            }
+            else{
+                NSLog(@"resultInfo = 1");
+            }
+            
         }
 
     }];

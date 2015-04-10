@@ -67,13 +67,19 @@
         //NSString *params = [NSString stringWithFormat:@"{\"cellName\":\"%@ %@\",\"detailAddress\":\"%@\",\"registeredUserId\":\"%@\"}",[_quyuTF.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],[_xiaoquTF.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],[_detailAddressTF.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],userId];
         
         HomeService *homeService = [[HomeService alloc] init];
-        [homeService saveServiceAddressWithParam:params andWithBlock:^(NSString *result, NSError *error) {
+        [homeService saveServiceAddressWithParam:params andWithBlock:^(NSNumber *result, NSError *error) {
             if (!error) {
                 NSLog(@"saveServiceAddressresult:%@",result);
- 
-                [self.delegate AddAddressVCAddAddressQuyu:_quyuTF.text andXiaoqu:_xiaoquTF.text andDetailAddress:_detailAddressTF.text];
                 
-                [self.navigationController popViewControllerAnimated:YES];
+                if ([result integerValue] == 0) {
+                    [self.delegate AddAddressVCAddAddressQuyu:_quyuTF.text andXiaoqu:_xiaoquTF.text andDetailAddress:_detailAddressTF.text];
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+                else{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误，请重试！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
                
             }
             else{
