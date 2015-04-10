@@ -10,6 +10,7 @@
 #import "ServiceIntroductionVC.h"
 #import "HomeService.h"
 #import "LoginVC.h"
+#import "SaveOrderSuccessVC.h"
 
 @interface FloorCareVC ()<UIAlertViewDelegate>
 
@@ -74,6 +75,7 @@
 
 - (IBAction)submitButtonPressed:(id)sender{
     
+    
     if (self.timeTF.text.length <=0) {
         UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"预约时间不能为空" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
         
@@ -97,14 +99,20 @@
                     [alert show];
                 }
                 else{
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"订单提交成功" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                    /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"订单提交成功" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
                     alert.tag = 999;
-                    [alert show];
+                    [alert show];*/
+                    
+                    SaveOrderSuccessVC *saveOrderSuccessVC = [[SaveOrderSuccessVC alloc] initWithNibName:@"SaveOrderSuccessVC" bundle:nil];
+                    
+                    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:saveOrderSuccessVC];
+                    [self presentViewController:nav animated:YES completion:^{
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }];
+                    
                 }
 
             });
-            
-            
         }];
 
     }

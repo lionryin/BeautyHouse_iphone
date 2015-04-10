@@ -39,7 +39,7 @@
     self.segCtrl = [[UISegmentedControl alloc]initWithItems:@[@"当前订单",@"历史订单"]];
     [self.segCtrl setFrame:CGRectMake(10, 70, self.view.frame.size.width-20, 40)];
     self.segCtrl.selectedSegmentIndex = 0;
-    //self.segCtrl.tintColor =[UIColor orangeColor];
+    self.segCtrl.tintColor =[UIColor orangeColor];
     [self.segCtrl addTarget:self action:@selector(segCtrlClicked:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.segCtrl];
     
