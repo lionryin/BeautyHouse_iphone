@@ -10,4 +10,6 @@
 
 @interface LoginVC : BaseViewController
 
+@property (nonatomic) BOOL isOrderFrom;
+
 @end

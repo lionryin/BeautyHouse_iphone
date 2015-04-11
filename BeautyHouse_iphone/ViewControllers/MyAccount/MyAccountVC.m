@@ -94,6 +94,7 @@
 - (void)loginAction:(id)sender{
     
     LoginVC *loginVC = [[LoginVC alloc]init];
+    loginVC.isOrderFrom = NO;
     UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
     [self presentViewController:loginNC animated:YES completion:^{
         

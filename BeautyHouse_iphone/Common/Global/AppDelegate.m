@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Common.h"
 #import "AFNetworkActivityIndicatorManager.h"
+#import "LoginVC.h"
 
 
 @interface AppDelegate ()
@@ -20,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    ((UITabBarController *)self.window.rootViewController).delegate = self;
     
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
@@ -65,6 +67,27 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - tabBarController delegate
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    
+    if ([viewController.tabBarItem.title isEqualToString:@"订单"]) {
+        NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+        NSString *userIsLogin = [userDic objectForKey:UserIsLoginKey];
+        
+        if ([userIsLogin isEqualToString:@"0"]) {//未登陆
+             LoginVC *loginVC = [[LoginVC alloc]init];
+            loginVC.isOrderFrom = YES;
+             UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
+             [viewController presentViewController:loginNC animated:YES completion:nil];
+            
+            return NO;
+        }
+
+    }
+    
+    return YES;
 }
 
 @end

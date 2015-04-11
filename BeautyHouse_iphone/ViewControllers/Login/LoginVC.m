@@ -238,7 +238,10 @@
                 [accountDefaults synchronize];
                 
                 [self dismissViewControllerAnimated:YES completion:^{
-                    
+                    if (_isOrderFrom) {
+                        UIWindow * window = [UIApplication sharedApplication].keyWindow ;
+                        ((UITabBarController *)window.rootViewController).selectedIndex = 1;
+                    }
                 }];
                 
                 

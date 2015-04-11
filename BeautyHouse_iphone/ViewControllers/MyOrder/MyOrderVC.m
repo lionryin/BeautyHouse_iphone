@@ -144,6 +144,12 @@
     NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
     NSString *userId = [userDic objectForKey:UserLoginId];
     NSLog(@"userId:%@",userId);
+    
+   /* if ([userIsLogin isEqualToString:@"0"]) {//未登陆
+        LoginVC *loginVC = [[LoginVC alloc]init];
+        UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
+        [self presentViewController:loginNC animated:YES completion:nil];
+    }*/
 
     NSString *param = [NSString stringWithFormat:@"{\"proc\":{\"registeredUserId\":\"%@\",\"checkOrderInfo\":%li},\"order1\":\"orderDateTime\",\"sort1\":\"desc\",\"pageIndex\":0,\"pageSize\":5}",userId,checkOrderInfo];
     

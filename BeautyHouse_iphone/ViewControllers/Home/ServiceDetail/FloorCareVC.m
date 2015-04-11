@@ -58,6 +58,7 @@
     
     if ([userIsLogin isEqualToString:@"0"]) {//未登陆
         LoginVC *loginVC = [[LoginVC alloc]init];
+        loginVC.isOrderFrom = NO;
         UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
         [self presentViewController:loginNC animated:YES completion:nil];
     }
