@@ -137,6 +137,8 @@
 		B0735C2B1AC273C4005A3E82 /* join_05.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C271AC273C4005A3E82 /* join_05.png */; };
 		B0735C2C1AC273C4005A3E82 /* join_06.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C281AC273C4005A3E82 /* join_06.png */; };
 		B0735C2D1AC273C4005A3E82 /* join_07.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C291AC273C4005A3E82 /* join_07.png */; };
+		B07FB3351AD8CAE2003C96C8 /* question.html in Resources */ = {isa = PBXBuildFile; fileRef = B07FB3331AD8CAE2003C96C8 /* question.html */; };
+		B07FB3361AD8CAE2003C96C8 /* user_agreement.html in Resources */ = {isa = PBXBuildFile; fileRef = B07FB3341AD8CAE2003C96C8 /* user_agreement.html */; };
 		B0A5D3571ACBAE0F00D60958 /* GoldenIconTradeRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A5D3561ACBAE0F00D60958 /* GoldenIconTradeRecordVC.m */; };
 		B0A5D35A1ACBAE4A00D60958 /* GoldenIconExchangeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A5D3591ACBAE4A00D60958 /* GoldenIconExchangeVC.m */; };
 		B0A5D35D1ACBAEC400D60958 /* AccountRechargeRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A5D35C1ACBAEC400D60958 /* AccountRechargeRecordVC.m */; };
@@ -372,6 +374,8 @@
 		B0735C271AC273C4005A3E82 /* join_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_05.png; path = BeautyHouse_iphone/Res/join_05.png; sourceTree = SOURCE_ROOT; };
 		B0735C281AC273C4005A3E82 /* join_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_06.png; path = BeautyHouse_iphone/Res/join_06.png; sourceTree = SOURCE_ROOT; };
 		B0735C291AC273C4005A3E82 /* join_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_07.png; path = BeautyHouse_iphone/Res/join_07.png; sourceTree = SOURCE_ROOT; };
+		B07FB3331AD8CAE2003C96C8 /* question.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = question.html; path = BeautyHouse_iphone/Res/question.html; sourceTree = SOURCE_ROOT; };
+		B07FB3341AD8CAE2003C96C8 /* user_agreement.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = user_agreement.html; path = BeautyHouse_iphone/Res/user_agreement.html; sourceTree = SOURCE_ROOT; };
 		B0A5D3551ACBAE0F00D60958 /* GoldenIconTradeRecordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldenIconTradeRecordVC.h; sourceTree = "<group>"; };
 		B0A5D3561ACBAE0F00D60958 /* GoldenIconTradeRecordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoldenIconTradeRecordVC.m; sourceTree = "<group>"; };
 		B0A5D3581ACBAE4A00D60958 /* GoldenIconExchangeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldenIconExchangeVC.h; sourceTree = "<group>"; };
@@ -609,6 +613,8 @@
 		A696C50B1AC1A73500A860AD /* MyAccount */ = {
 			isa = PBXGroup;
 			children = (
+				B07FB3331AD8CAE2003C96C8 /* question.html */,
+				B07FB3341AD8CAE2003C96C8 /* user_agreement.html */,
 			);
 			path = MyAccount;
 			sourceTree = "<group>";
@@ -1037,6 +1043,8 @@
 				A6BB685A1AC9359800DF1723 /* XiaohaopinVC.xib in Resources */,
 				A696C5B41AC1A98300A860AD /* ad_a_2.jpg in Resources */,
 				B0735C2C1AC273C4005A3E82 /* join_06.png in Resources */,
+				B07FB3351AD8CAE2003C96C8 /* question.html in Resources */,
+				B07FB3361AD8CAE2003C96C8 /* user_agreement.html in Resources */,
 				A6BB68511AC9232100DF1723 /* select_plus.png in Resources */,
 				A696C5AD1AC1A97200A860AD /* tab_member@2x.png in Resources */,
 				A696C5911AC1A91900A860AD /* NewHouseCareVC.xib in Resources */,

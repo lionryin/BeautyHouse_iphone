@@ -17,4 +17,14 @@
 }
 
 
+- (void)initMainUI{
+    
+    UIWebView *webView = [[UIWebView alloc]initWithFrame:self.view.frame];
+    
+    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"question" ofType:@"html"];
+    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    [webView loadHTMLString:htmlString baseURL:[NSURL URLWithString:filePath]];
+    
+}
+
 @end
