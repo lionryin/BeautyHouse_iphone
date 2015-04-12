@@ -11,3 +11,5 @@
 #define UserLoginId          @"UserLoginId"
 
 #define AddressGlobalKey     @"AddressGlobalKey"
+
+#define MZB_NOTE_LOGIN_OK    @"MZB_NOTE_LOGIN_OK"//登陆成功

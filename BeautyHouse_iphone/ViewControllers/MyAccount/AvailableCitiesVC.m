@@ -37,12 +37,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    return 12;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *reuse = @"MyAccountTVC";
+    static NSString *reuse = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuse];
     if (cell == nil) {
@@ -52,10 +52,10 @@
     
     
     
-    cell.textLabel.text = @"开通城市列表";
+    cell.textLabel.text = @"武汉市";
     cell.textLabel.textColor = [UIColor darkGrayColor];
     cell.textLabel.font = [UIFont systemFontOfSize:14.0];
-    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
     
     return cell;

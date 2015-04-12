@@ -22,6 +22,7 @@
 
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)UIButton *loginBtn;
+@property (nonatomic,strong)UILabel *userPhoneNumber;
 
 @end
 
@@ -30,9 +31,54 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的";
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateHeader) name:MZB_NOTE_LOGIN_OK object:nil];
+    
     [self initMainUI];
+    [self updateHeader];
 }
 
+- (BOOL)isLoginOK{
+    BOOL loginOK = NO;
+    
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    
+    NSString  *flag = [userDic objectForKey:UserIsLoginKey];
+    
+    if ([flag isEqualToString:@"1"]) {
+        loginOK = YES;
+    }else{
+        loginOK = NO;
+    }
+    
+    return loginOK;
+}
+
+- (NSString *)getUserPhoneNumber{
+    NSString *phoneStr = nil;
+    
+    
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    
+    phoneStr = [userDic objectForKey:UserPhoneNumberKey];
+    
+    return phoneStr;
+}
+
+
+
+- (void)updateHeader{
+    if ([self isLoginOK]) {
+        self.userPhoneNumber.hidden = NO;
+        self.loginBtn.hidden = YES;
+        
+        self.userPhoneNumber.text = [self getUserPhoneNumber];
+        
+    }else{
+        self.userPhoneNumber.hidden = YES;
+        self.loginBtn.hidden = NO;
+    }
+}
 
 
 - (void)initMainUI{
@@ -54,13 +100,25 @@
     
     [view addSubview:bgIV];
     
+    UIImageView *photoIV=[[UIImageView alloc]initWithFrame:CGRectMake(40, 50, 31, 34)];
+    [photoIV setImage:[UIImage imageNamed:@"people_ayb"]];
+    
+    [view addSubview:photoIV];
+    
+    self.userPhoneNumber = [[UILabel alloc]initWithFrame:CGRectMake(80, 50, 220, 40)];
+    self.userPhoneNumber.textAlignment = NSTextAlignmentLeft;
+    self.userPhoneNumber.font =[UIFont systemFontOfSize:17];
+    self.userPhoneNumber.textColor = [UIColor darkTextColor];
+    self.userPhoneNumber.hidden = YES;
+    [view addSubview:self.userPhoneNumber];
     
     self.loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.loginBtn setFrame:CGRectMake(100, 60, 80, 40)];
-    [self.loginBtn setTitle:@"登录" forState:UIControlStateNormal];
+    [self.loginBtn setFrame:CGRectMake(80, 50, 80, 40)];
+    [self.loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
     
     [self.loginBtn addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:self.loginBtn];
+    self.loginBtn.hidden = YES;
     
     
     
@@ -88,6 +146,8 @@
 
 
 - (void)exitAction:(id)sender{
+    
+    
     
 }
 

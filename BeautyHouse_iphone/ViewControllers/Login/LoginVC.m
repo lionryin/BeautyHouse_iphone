@@ -7,7 +7,7 @@
 //
 
 #import "LoginVC.h"
-#import "MZBWebService.h"
+
 
 @interface LoginVC ()<UITextFieldDelegate>
 
@@ -243,6 +243,8 @@
                         ((UITabBarController *)window.rootViewController).selectedIndex = 1;
                     }
                 }];
+                
+                [[NSNotificationCenter defaultCenter]postNotificationName:MZB_NOTE_LOGIN_OK object:nil];
                 
                 
             }else{

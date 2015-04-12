@@ -46,7 +46,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 2;
+    if (section == 0) {
+        return 2;
+    }else{
+        return 1;
+    }
+    
     
 }
 
@@ -76,9 +81,6 @@
     }else{
         switch (indexPath.row) {
             case 0:
-                str = @"版本升级";
-                break;
-            case 1:
                 str = @"关于";
                 break;
             default:
@@ -138,14 +140,6 @@
     }else{
         switch (indexPath.row) {
             case 0:
-            {
-
-                SoftwareUpdateVC *vc =[SoftwareUpdateVC new];
-                
-                [self.navigationController pushViewController:vc animated:YES];
-            }
-                break;
-            case 1:
             {
                 AboutVC *vc =[AboutVC new];
                 
