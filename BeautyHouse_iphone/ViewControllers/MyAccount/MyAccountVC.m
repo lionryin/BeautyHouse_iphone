@@ -349,7 +349,7 @@
     
     
     [UMSocialSnsService presentSnsIconSheetView:self
-                                         appKey:@"5367452b56240b4c0006031a"
+                                         appKey:@"54f7f5d2fd98c52b230005a4"
                                       shareText:ShareText
                                      shareImage:[UIImage imageNamed:@"icon.png"]
                                 shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToSms,UMShareToWechatTimeline,nil]

@@ -41,7 +41,7 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 
-    [UMSocialData setAppKey:@"5367452b56240b4c0006031a"];
+    [UMSocialData setAppKey:@"54f7f5d2fd98c52b230005a4"];
     
     
     return YES;
