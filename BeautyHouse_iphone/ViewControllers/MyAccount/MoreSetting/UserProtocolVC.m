@@ -20,10 +20,14 @@
 - (void)initMainUI{
     
     UIWebView *webView = [[UIWebView alloc]initWithFrame:self.view.frame];
+    webView.scalesPageToFit = YES;
+    [self.view addSubview:webView];
     
-    NSString *filePath = [[NSBundle mainBundle]pathForResource:@"user_agreement" ofType:@"html"];
-    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    [webView loadHTMLString:htmlString baseURL:[NSURL URLWithString:filePath]];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"user_agreement" ofType:@"html"];
+    NSURL *url  = [NSURL URLWithString:path];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:request];
     
 }
 
