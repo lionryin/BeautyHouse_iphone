@@ -21,7 +21,7 @@
 
 #define ShareText @"这是要分享的文字，可以在这里自定义"
 
-@interface MyAccountVC ()<UMSocialUIDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface MyAccountVC ()<UMSocialUIDelegate,UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)UIButton *loginBtn;
@@ -36,6 +36,7 @@
     self.title = @"我的";
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateHeader) name:MZB_NOTE_LOGIN_OK object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateHeader) name:MZB_NOTE_EXIT_OK object:nil];
     
     [self initMainUI];
     [self updateHeader];
@@ -150,8 +151,26 @@
 
 - (void)exitAction:(id)sender{
     
+    UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"你确定要退出登录吗?" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+    [av show];
+
+}
+
+
+- (void)exitOperation{
+    NSUserDefaults *accountDefaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *userDic = [accountDefaults dictionaryForKey:UserGlobalKey];
+    NSMutableDictionary *mUserDic= [userDic mutableCopy];
     
+    [mUserDic setObject:@"0" forKey:UserIsLoginKey];
+    [mUserDic setObject:[self getUserPhoneNumber] forKey:UserPhoneNumberKey];
+    [mUserDic setObject:@"" forKey:UserLoginId];
     
+    [accountDefaults setObject:mUserDic forKey:UserGlobalKey];
+    
+    [accountDefaults synchronize];
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:MZB_NOTE_EXIT_OK object:nil];
 }
 
 - (void)loginAction:(id)sender{
@@ -339,6 +358,19 @@
     
 }
 
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            [self exitOperation];
+            break;
+        case 1:
+            
+            break;
+        default:
+            break;
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

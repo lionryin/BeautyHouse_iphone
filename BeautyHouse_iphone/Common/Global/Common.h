@@ -13,3 +13,5 @@
 #define AddressGlobalKey     @"AddressGlobalKey"
 
 #define MZB_NOTE_LOGIN_OK    @"MZB_NOTE_LOGIN_OK"//登陆成功
+
+#define MZB_NOTE_EXIT_OK     @"MZB_NOTE_EXIT_OK"//退出登录成功
