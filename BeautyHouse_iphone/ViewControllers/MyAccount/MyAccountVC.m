@@ -17,8 +17,11 @@
 #import "MoreSettingVC.h"
 
 #import "LoginVC.h"
+#import "UMSocial.h"
 
-@interface MyAccountVC ()<UITableViewDataSource,UITableViewDelegate>
+#define ShareText @"这是要分享的文字，可以在这里自定义"
+
+@interface MyAccountVC ()<UMSocialUIDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)UIButton *loginBtn;
@@ -269,8 +272,9 @@
         switch (indexPath.row) {
             case 0:
             {
-                ShareToFriendsVC *friendVC =[ShareToFriendsVC new];
-                [self.navigationController pushViewController:friendVC animated:YES];
+//                ShareToFriendsVC *friendVC =[ShareToFriendsVC new];
+//                [self.navigationController pushViewController:friendVC animated:YES];
+                [self shareAction];
             }
                 break;
             case 1:
@@ -321,6 +325,19 @@
     return 0.01;
 }
 
+
+- (void)shareAction{
+    
+    
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"5367452b56240b4c0006031a"
+                                      shareText:ShareText
+                                     shareImage:[UIImage imageNamed:@"icon.png"]
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToSms,UMShareToWechatTimeline,nil]
+                                       delegate:self];
+    
+    
+}
 
 
 - (void)didReceiveMemoryWarning {

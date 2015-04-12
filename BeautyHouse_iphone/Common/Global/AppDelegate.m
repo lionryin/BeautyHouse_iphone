@@ -10,7 +10,7 @@
 #import "Common.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "LoginVC.h"
-
+#import "UMSocial.h"
 
 @interface AppDelegate ()
 
@@ -41,7 +41,7 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 
-    
+    [UMSocialData setAppKey:@"5367452b56240b4c0006031a"];
     
     
     return YES;
