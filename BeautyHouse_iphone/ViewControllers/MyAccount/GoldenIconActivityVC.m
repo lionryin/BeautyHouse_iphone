@@ -61,7 +61,7 @@
     
     switch (indexPath.row) {
         case 0:
-            str = @"金币余额";
+            str = @"金币余额:                  0.0";
             break;
         case 1:
             str = @"金币交易记录查询";
