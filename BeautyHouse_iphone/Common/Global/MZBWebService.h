@@ -136,4 +136,8 @@
 + (AFHTTPRequestOperation *)goldCoinsExchangeWithParameter:(NSString *)jsonParam;
 
 
+//登录用户的费用明细查询{} OR 登录用户的充值明细查询{}
++ (AFHTTPRequestOperation *)getListRechargeInfoWithParameter:(NSString *)jsonParam;
+
+
 @end

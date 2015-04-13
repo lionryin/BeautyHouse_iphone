@@ -165,6 +165,11 @@
 }
 
 
-
+//登录用户的费用明细查询
++ (AFHTTPRequestOperation *)getListRechargeInfoWithParameter:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@"<getListRechargeInfo><rechargeInfoJson>%@</rechargeInfoJson></ws:getListRechargeInfo>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+}
 
 @end
