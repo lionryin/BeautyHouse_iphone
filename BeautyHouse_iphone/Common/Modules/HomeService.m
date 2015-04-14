@@ -432,4 +432,37 @@
     }];
 }
 
+- (void)getOrderLogListWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result,NSNumber *orderStatus,NSArray *resultInfo, NSError *error))block{
+    AFHTTPRequestOperation *opration = [MZBWebService getOrderLogList:jsonParam];
+    
+    [opration start];
+    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSData* data = [[NSData alloc] initWithBytes:[responseObject bytes] length:[responseObject length]];
+        NSString* resultStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        //NSLog(@"%@",resultStr);
+        
+        MyPaser *parser = [[MyPaser alloc] initWithContent:resultStr];
+        [parser BeginToParse];
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@"%@",dic);
+        
+        NSNumber *serviceResult = [dic objectForKey:@"result"];
+        NSLog(@"getAllServiceAddressResult:%@",serviceResult);
+        
+        NSNumber *status = [dic objectForKey:@"orderStatus"];
+        
+        NSArray *serviceResultInfo = [dic objectForKey:@"resultInfo"];
+        
+        if (block) {
+            block(serviceResult,status,serviceResultInfo,nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil,nil,nil,error);
+    }];
+
+}
+
 @end

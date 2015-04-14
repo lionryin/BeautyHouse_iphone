@@ -40,4 +40,7 @@
 //获取当前订单
 - (void)getPageByOrderInfoWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result,NSDictionary *resultInfo, NSError *error))block;
 
+//获取订单日志
+- (void)getOrderLogListWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result,NSNumber *orderStatus,NSArray *resultInfo, NSError *error))block;
+
 @end

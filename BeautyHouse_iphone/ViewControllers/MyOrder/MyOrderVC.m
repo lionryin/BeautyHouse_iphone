@@ -10,12 +10,13 @@
 #import "MyOrderTVC.h"
 #import "HomeService.h"
 #import "MJRefresh.h"
+#import "OrderDetailVC.h"
 
 #define MyOrderCellID @"MyOrderCellID"
 
 
 
-@interface MyOrderVC ()<UITableViewDataSource,UITableViewDelegate,MyOrderTVCDelegate>
+@interface MyOrderVC ()<UITableViewDataSource,UITableViewDelegate,MyOrderTVCDelegate,UIAlertViewDelegate>
 
 @property (nonatomic,strong)UISegmentedControl *segCtrl;
 @property (nonatomic,strong)UITableView *tableView;
@@ -26,6 +27,10 @@
 
 @property (nonatomic) NSInteger currentOrderPageIndex;
 @property (nonatomic) NSInteger historyOrderPageIndex;
+@property (nonatomic) NSInteger currentOrderTotalPage;
+@property (nonatomic) NSInteger historyOrderTotalPage;
+
+@property (strong, nonatomic) MBProgressHUD *hud;
 
 @end
 
@@ -38,6 +43,8 @@
     
     _currentOrderPageIndex = 0;
     _historyOrderPageIndex = 0;
+    _currentOrderTotalPage = 0;
+    _historyOrderTotalPage = 0;
     
     _currentOrderList = [[NSMutableArray alloc] init];
     _historyOrderList = [[NSMutableArray alloc] init];
@@ -100,7 +107,10 @@
 - (void)headerRereshing
 {
     if(_segCtrl.selectedSegmentIndex == 0){
-        [self getPageByOrderInfo:1 andWithBlock:^(NSArray *orderResults) {
+        self.currentOrderPageIndex = 0;
+        [self getPageByOrderInfo:1 andPageIndex:self.currentOrderPageIndex andWithBlock:^(NSArray *orderResults,NSInteger totalPage) {
+            self.currentOrderPageIndex++;
+            self.currentOrderTotalPage = totalPage;
             self.currentOrderList = [orderResults mutableCopy];
             self.orderList = self.currentOrderList;
             [self.tableView reloadData];
@@ -109,7 +119,10 @@
 
     }
     else{
-        [self getPageByOrderInfo:2 andWithBlock:^(NSArray *orderResults) {
+        self.historyOrderPageIndex = 0;
+        [self getPageByOrderInfo:2 andPageIndex:self.historyOrderPageIndex andWithBlock:^(NSArray *orderResults,NSInteger totalPage) {
+            self.historyOrderPageIndex++;
+            self.historyOrderTotalPage = totalPage;
             _historyOrderList = [orderResults mutableCopy];
             self.orderList = self.historyOrderList;
             [self.tableView reloadData];
@@ -127,6 +140,34 @@
 
 - (void)footerRereshing
 {
+    if(_segCtrl.selectedSegmentIndex == 0){
+        if (_currentOrderPageIndex < _currentOrderTotalPage) {
+            [self getPageByOrderInfo:1 andPageIndex:_currentOrderPageIndex andWithBlock:^(NSArray *orderResults, NSInteger totalPage) {
+                self.currentOrderPageIndex++;
+                self.currentOrderTotalPage = totalPage;
+                [self.currentOrderList addObjectsFromArray:orderResults ];
+                self.orderList = self.currentOrderList;
+                [self.tableView reloadData];
+                [self.tableView footerEndRefreshing];
+            }];
+
+        }
+        
+        
+    }
+    else{
+        if (_historyOrderPageIndex < _historyOrderTotalPage) {
+            [self getPageByOrderInfo:2 andPageIndex:_historyOrderPageIndex andWithBlock:^(NSArray *orderResults, NSInteger totalPage) {
+                self.historyOrderPageIndex++;
+                self.historyOrderTotalPage = totalPage;
+                [self.historyOrderList addObjectsFromArray:orderResults];
+                self.orderList = self.historyOrderList;
+                [self.tableView reloadData];
+                [self.tableView footerEndRefreshing];
+            }];
+        }
+        
+    }
        // 刷新表格
     [self.tableView reloadData];
     
@@ -138,20 +179,13 @@
 
 #pragma mark - order
 
-- (void)getPageByOrderInfo:(NSInteger )checkOrderInfo andWithBlock:(void (^)(NSArray *orderResults))block;
+- (void)getPageByOrderInfo:(NSInteger )checkOrderInfo andPageIndex:(NSInteger)index andWithBlock:(void (^)(NSArray *orderResults ,NSInteger totalPage))block;
 {
-    
     NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
     NSString *userId = [userDic objectForKey:UserLoginId];
     NSLog(@"userId:%@",userId);
     
-   /* if ([userIsLogin isEqualToString:@"0"]) {//未登陆
-        LoginVC *loginVC = [[LoginVC alloc]init];
-        UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
-        [self presentViewController:loginNC animated:YES completion:nil];
-    }*/
-
-    NSString *param = [NSString stringWithFormat:@"{\"proc\":{\"registeredUserId\":\"%@\",\"checkOrderInfo\":%li},\"order1\":\"orderDateTime\",\"sort1\":\"desc\",\"pageIndex\":0,\"pageSize\":5}",userId,checkOrderInfo];
+    NSString *param = [NSString stringWithFormat:@"{\"proc\":{\"registeredUserId\":\"%@\",\"checkOrderInfo\":%li},\"order1\":\"orderDateTime\",\"sort1\":\"desc\",\"pageIndex\":%li,\"pageSize\":5}",userId,checkOrderInfo,index];
     
     HomeService *homeService = [[HomeService alloc] init];
     [homeService getPageByOrderInfoWithParam:param andWithBlock:^(NSNumber *result, NSDictionary *resultInfo, NSError *error) {
@@ -170,14 +204,17 @@
                     order.orderType = checkOrderInfo == 1 ? kOrderTypeCurrent : kOrderTypeHistory;
                     [tempOrderList addObject:order];
                 }
-                block(tempOrderList);
+                NSNumber *totalNum = [resultInfo objectForKey:@"totalPage"];
+                block(tempOrderList,[totalNum integerValue]);
             }
             else{
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误，请重试！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                 [self.tableView headerEndRefreshing];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                 [alert show];
             }
         }
         else{
+             [self.tableView headerEndRefreshing];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
 
@@ -274,7 +311,7 @@
     cell.cellEdge = 10;
     
     MyOrderVO *orderVO = [self.orderList objectAtIndex:indexPath.section];
-    
+    cell.myOrderVO = orderVO;
     [cell updateMyOrderTVC:orderVO];
     return cell;
 }
@@ -289,19 +326,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-#pragma mark - MyOrderTVC Delegate
-
-- (void)complaintBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell{
     
+    OrderDetailVC *orderDetailVC = [[OrderDetailVC alloc] initWithNibName:@"OrderDetailVC" bundle:nil];
+    orderDetailVC.orderVO = [self.orderList objectAtIndex:indexPath.section];
+    [self.navigationController pushViewController:orderDetailVC animated:YES];
 }
-
-
-- (void)cancelBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell{
-    
-}
-
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -313,14 +342,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - MyOrderTVC Delegate
+
+- (void)complaintBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell{
+    
 }
-*/
+
+
+- (void)cancelBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell{//取消成功
+    [self setupRefresh:@"current"];
+}
+
+
+
+
 
 @end

@@ -89,7 +89,8 @@
                      [alert show];
                  }
                  else{
-                     
+                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误，请重试！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                     [alert show];
                  }
                 
                  //[self dismissViewControllerAnimated:YES completion:nil];

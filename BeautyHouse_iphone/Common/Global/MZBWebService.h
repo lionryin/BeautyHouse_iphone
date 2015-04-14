@@ -99,7 +99,10 @@
  */
 + (AFHTTPRequestOperation *)getHistoryOrderListWithParameter:(NSString *)jsonParam;
 
-
+/**
+ 获取订单日志
+ */
++ (AFHTTPRequestOperation *)getOrderLogList:(NSString *)jsonParam;
 
 
 #pragma mark - Member Center

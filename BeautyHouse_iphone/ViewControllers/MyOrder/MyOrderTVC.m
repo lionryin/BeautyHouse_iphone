@@ -7,8 +7,9 @@
 //
 
 #import "MyOrderTVC.h"
+#import "HomeService.h"
 
-@interface MyOrderTVC ()
+@interface MyOrderTVC ()<UIAlertViewDelegate>
 
 @property (nonatomic, strong) UILabel *title;
 @property (nonatomic, strong) UILabel *time;
@@ -21,6 +22,8 @@
 @property (nonatomic, strong)UIView  *verticalLine1;
 @property (nonatomic, strong)UIView  *verticalLine2;
 @property (nonatomic, strong)UIView  *verticalLine3;
+
+@property (strong, nonatomic) MBProgressHUD *hud;
 
 @end
 
@@ -48,7 +51,7 @@
         self.complaintBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         [self.complaintBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self.complaintBtn addTarget:self action:@selector(complaintBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [self.contentView addSubview:self.complaintBtn];
+        //[self.contentView addSubview:self.complaintBtn];
         
         
         self.verticalLine1 = [[UIView alloc]initWithFrame:CGRectMake(40, 40, 260, 1)];
@@ -129,9 +132,55 @@
 
 
 - (void)cancelBtnClicked:(id)sender{
-    if ([self.delegate respondsToSelector:@selector(cancelBtnClickedWithMyOrderTVC:)]) {
-        [self.delegate cancelBtnClickedWithMyOrderTVC:self];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定要取消订单吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alert.tag = 88;
+    [alert show];
+    
+ }
+
+#pragma mark - UIAlertView delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag == 88 && buttonIndex == 1) {
+        NSLog(@"%li",buttonIndex);
+        
+        NSString *param = [NSString stringWithFormat:@"{\"id\":\"%@\"}", self.myOrderVO.orderID];
+        
+        _hud = [[MBProgressHUD alloc] initWithView:self.contentView];
+        _hud.labelText = @"取消中...";
+        [self.contentView addSubview:_hud];
+        [_hud show:YES];
+        
+        
+        HomeService *homeService = [HomeService alloc];
+        [homeService cancelOrdersWithParam:param andWithBlock:^(NSNumber *result, NSError *error) {
+            [_hud hide:NO];
+            
+            if (!error) {
+                if ([result integerValue] == 0) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"订单已经成功取消！" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                    alert.tag = 888;
+                    [alert show];
+                }
+                else{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误，请重试！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+                
+            }
+            else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+        }];
+    }
+    else if (alertView.tag == 888){
+        
+        if ([self.delegate respondsToSelector:@selector(cancelBtnClickedWithMyOrderTVC:)]) {
+            [self.delegate cancelBtnClickedWithMyOrderTVC:self];
+        }
+
     }
 }
+
 
 @end

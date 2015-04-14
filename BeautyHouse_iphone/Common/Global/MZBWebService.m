@@ -114,6 +114,12 @@
     return [MZBWebService MZBWebService:params];
 }
 
++ (AFHTTPRequestOperation *)getOrderLogList:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@"<ws:getOrderLogList><orderLogJson>%@</orderLogJson></ws:getOrderLogList>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+}
+
 
 #pragma mark - My Account
 

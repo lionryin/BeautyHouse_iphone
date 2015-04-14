@@ -8,7 +8,7 @@
 
 #import "BaseTVC.h"
 #import "MyOrderVO.h"
-
+#import "MBProgressHUD.h"
 
 
 @class MyOrderTVC;
@@ -24,6 +24,7 @@
 @interface MyOrderTVC : BaseTVC
 
 @property (nonatomic,weak)id<MyOrderTVCDelegate>delegate;
+@property (strong, nonatomic) MyOrderVO *myOrderVO;
 
 - (void)updateMyOrderTVC:(MyOrderVO *)orderVO;
 

@@ -82,6 +82,11 @@
 		A696C5BB1AC1A9BE00A860AD /* nav_back.png in Resources */ = {isa = PBXBuildFile; fileRef = A696C5B71AC1A9BE00A860AD /* nav_back.png */; };
 		A696C5BC1AC1A9BE00A860AD /* s_phone.png in Resources */ = {isa = PBXBuildFile; fileRef = A696C5B81AC1A9BE00A860AD /* s_phone.png */; };
 		A696C5BD1AC1A9BE00A860AD /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = A696C5B91AC1A9BE00A860AD /* time.png */; };
+		A6B595971ADCADF100A0E928 /* OrderDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B595951ADCADF100A0E928 /* OrderDetailVC.m */; };
+		A6B595981ADCADF100A0E928 /* OrderDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B595961ADCADF100A0E928 /* OrderDetailVC.xib */; };
+		A6B5959B1ADCB7F200A0E928 /* two_status_circle_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B595991ADCB7F200A0E928 /* two_status_circle_gray.png */; };
+		A6B5959C1ADCB7F200A0E928 /* two_status_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B5959A1ADCB7F200A0E928 /* two_status_circle.png */; };
+		A6B595A21ADCF96800A0E928 /* orderStatus.9.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B595A11ADCF96800A0E928 /* orderStatus.9.png */; };
 		A6B6A8961AC4359500B12F04 /* AddAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B6A8941AC4359500B12F04 /* AddAddressVC.m */; };
 		A6B6A8971AC4359500B12F04 /* AddAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A8951AC4359500B12F04 /* AddAddressVC.xib */; };
 		A6B6A89B1AC436C600B12F04 /* category.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A8981AC436C600B12F04 /* category.png */; };
@@ -309,6 +314,12 @@
 		A696C5B71AC1A9BE00A860AD /* nav_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_back.png; sourceTree = "<group>"; };
 		A696C5B81AC1A9BE00A860AD /* s_phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s_phone.png; sourceTree = "<group>"; };
 		A696C5B91AC1A9BE00A860AD /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time.png; sourceTree = "<group>"; };
+		A6B595941ADCADF100A0E928 /* OrderDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailVC.h; sourceTree = "<group>"; };
+		A6B595951ADCADF100A0E928 /* OrderDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailVC.m; sourceTree = "<group>"; };
+		A6B595961ADCADF100A0E928 /* OrderDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderDetailVC.xib; sourceTree = "<group>"; };
+		A6B595991ADCB7F200A0E928 /* two_status_circle_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = two_status_circle_gray.png; sourceTree = "<group>"; };
+		A6B5959A1ADCB7F200A0E928 /* two_status_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = two_status_circle.png; sourceTree = "<group>"; };
+		A6B595A11ADCF96800A0E928 /* orderStatus.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orderStatus.9.png; sourceTree = "<group>"; };
 		A6B6A8931AC4359500B12F04 /* AddAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressVC.h; sourceTree = "<group>"; };
 		A6B6A8941AC4359500B12F04 /* AddAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAddressVC.m; sourceTree = "<group>"; };
 		A6B6A8951AC4359500B12F04 /* AddAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAddressVC.xib; sourceTree = "<group>"; };
@@ -683,6 +694,9 @@
 		A696C50C1AC1A73500A860AD /* MyOrder */ = {
 			isa = PBXGroup;
 			children = (
+				A6B595A11ADCF96800A0E928 /* orderStatus.9.png */,
+				A6B595991ADCB7F200A0E928 /* two_status_circle_gray.png */,
+				A6B5959A1ADCB7F200A0E928 /* two_status_circle.png */,
 				B0735C091AC25350005A3E82 /* icon_adress.png */,
 				B0735C0A1AC25350005A3E82 /* icon_home.png */,
 				B0735C0B1AC25350005A3E82 /* icon_time.png */,
@@ -775,6 +789,9 @@
 				A6B6D6A41AD7700300163715 /* SaveOrderSuccessVC.h */,
 				A6B6D6A51AD7700300163715 /* SaveOrderSuccessVC.m */,
 				A6B6D6A61AD7700300163715 /* SaveOrderSuccessVC.xib */,
+				A6B595941ADCADF100A0E928 /* OrderDetailVC.h */,
+				A6B595951ADCADF100A0E928 /* OrderDetailVC.m */,
+				A6B595961ADCADF100A0E928 /* OrderDetailVC.xib */,
 			);
 			path = MyOrder;
 			sourceTree = "<group>";
@@ -1141,10 +1158,12 @@
 				B009665B1ADA14E2007DD934 /* accountDetail01@2x.png in Resources */,
 				A696C5AC1AC1A97200A860AD /* tab_home@2x.png in Resources */,
 				A66C50B51AC2686C003E146F /* AllServiceCell.xib in Resources */,
+				A6B5959B1ADCB7F200A0E928 /* two_status_circle_gray.png in Resources */,
 				A696C5BD1AC1A9BE00A860AD /* time.png in Resources */,
 				B009668D1ADA6908007DD934 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				A696C5931AC1A91900A860AD /* NurseVC.xib in Resources */,
 				A696C58F1AC1A91900A860AD /* FloorCareVC.xib in Resources */,
+				A6B595981ADCADF100A0E928 /* OrderDetailVC.xib in Resources */,
 				A6B6D6A81AD7700300163715 /* SaveOrderSuccessVC.xib in Resources */,
 				A6694CC61AD40C9D00339A2B /* timeline_green.png in Resources */,
 				B0735C2B1AC273C4005A3E82 /* join_05.png in Resources */,
@@ -1155,7 +1174,9 @@
 				B00966871ADA6908007DD934 /* UMSCommentInputControlleriPad.xib in Resources */,
 				A696C58D1AC1A91900A860AD /* CurtainCareVC.xib in Resources */,
 				A66C50B01AC262EF003E146F /* AllServiceVC.xib in Resources */,
+				A6B5959C1ADCB7F200A0E928 /* two_status_circle.png in Resources */,
 				A696C5AE1AC1A97200A860AD /* tab_orders@2x.png in Resources */,
+				A6B595A21ADCF96800A0E928 /* orderStatus.9.png in Resources */,
 				A696C5891AC1A91900A860AD /* RMDateSelectionViewController.xib in Resources */,
 				A6BB685C1AC9376F00DF1723 /* progress_loading_image.png in Resources */,
 				B00966891ADA6908007DD934 /* UMShareEditViewControlleriPad.xib in Resources */,
@@ -1286,6 +1307,7 @@
 				B0735C1C1AC25C32005A3E82 /* ShareToFriendsVC.m in Sources */,
 				B01EC0471ACA695F0049FC7D /* SoftwareUpdateVC.m in Sources */,
 				A6FFFA1D1AD8177F00A544C5 /* MJRefreshHeaderView.m in Sources */,
+				A6B595971ADCADF100A0E928 /* OrderDetailVC.m in Sources */,
 				B0735C1F1AC25C44005A3E82 /* FeedBackVC.m in Sources */,
 				A696C5571AC1A8F400A860AD /* AFNetworkReachabilityManager.m in Sources */,
 				A6CB3FB61AC3E43800C65C47 /* ChooseAddressCell.m in Sources */,
