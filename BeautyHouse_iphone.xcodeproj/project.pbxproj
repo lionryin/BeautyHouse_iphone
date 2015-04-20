@@ -168,6 +168,8 @@
 		B0A5D3601ACBAEF500D60958 /* AccountExpenseRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A5D35F1ACBAEF500D60958 /* AccountExpenseRecordVC.m */; };
 		B0A5D3631ACBAF2E00D60958 /* AccountRechargeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A5D3621ACBAF2E00D60958 /* AccountRechargeVC.m */; };
 		B0A5D3661ACBAF7D00D60958 /* AccountFamilyStewardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A5D3651ACBAF7D00D60958 /* AccountFamilyStewardVC.m */; };
+		B0B9EC0B1AE4930700FBE820 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0B9EC091AE4930600FBE820 /* AlipaySDK.bundle */; };
+		B0B9EC0C1AE4930700FBE820 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B9EC0A1AE4930600FBE820 /* AlipaySDK.framework */; };
 		B0F681EE1AC6740B008DBE63 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F681ED1AC6740B008DBE63 /* LoginVC.m */; };
 /* End PBXBuildFile section */
 
@@ -450,6 +452,8 @@
 		B0A5D3621ACBAF2E00D60958 /* AccountRechargeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRechargeVC.m; sourceTree = "<group>"; };
 		B0A5D3641ACBAF7D00D60958 /* AccountFamilyStewardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountFamilyStewardVC.h; sourceTree = "<group>"; };
 		B0A5D3651ACBAF7D00D60958 /* AccountFamilyStewardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountFamilyStewardVC.m; sourceTree = "<group>"; };
+		B0B9EC091AE4930600FBE820 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		B0B9EC0A1AE4930600FBE820 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		B0F681EC1AC6740B008DBE63 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		B0F681ED1AC6740B008DBE63 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -460,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B009668E1ADA6908007DD934 /* libSocialWechat.a in Frameworks */,
+				B0B9EC0C1AE4930700FBE820 /* AlipaySDK.framework in Frameworks */,
 				B00966841ADA6908007DD934 /* libUMSocial_Sdk_4.2.1.a in Frameworks */,
 				B009668F1ADA6908007DD934 /* libWeChatSDK.a in Frameworks */,
 			);
@@ -600,6 +605,7 @@
 		A696C5051AC1A73500A860AD /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				B0B9EC081AE4930600FBE820 /* Alipay */,
 				B00966611ADA6907007DD934 /* UMSocial_Sdk_4.2.1 */,
 				B009667C1ADA6908007DD934 /* UMSocial_Sdk_Extra_Frameworks */,
 				A6FFFA081AD8177F00A544C5 /* MJRefresh */,
@@ -1053,6 +1059,15 @@
 			path = GoldenIconActivity;
 			sourceTree = "<group>";
 		};
+		B0B9EC081AE4930600FBE820 /* Alipay */ = {
+			isa = PBXGroup;
+			children = (
+				B0B9EC091AE4930600FBE820 /* AlipaySDK.bundle */,
+				B0B9EC0A1AE4930600FBE820 /* AlipaySDK.framework */,
+			);
+			path = Alipay;
+			sourceTree = "<group>";
+		};
 		B0F681EB1AC6736C008DBE63 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1170,6 +1185,7 @@
 				A696C5BA1AC1A9BE00A860AD /* arrow_right_gray.png in Resources */,
 				A6CB3FB91AC3E7BB00C65C47 /* selected_Address.png in Resources */,
 				A6B6A89D1AC436C600B12F04 /* home.png in Resources */,
+				B0B9EC0B1AE4930700FBE820 /* AlipaySDK.bundle in Resources */,
 				B0735C2D1AC273C4005A3E82 /* join_07.png in Resources */,
 				B00966871ADA6908007DD934 /* UMSCommentInputControlleriPad.xib in Resources */,
 				A696C58D1AC1A91900A860AD /* CurtainCareVC.xib in Resources */,
@@ -1444,6 +1460,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
+				);
 				INFOPLIST_FILE = BeautyHouse_iphone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1464,6 +1484,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
+				);
 				INFOPLIST_FILE = BeautyHouse_iphone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
