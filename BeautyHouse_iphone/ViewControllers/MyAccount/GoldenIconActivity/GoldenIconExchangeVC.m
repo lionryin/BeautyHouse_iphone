@@ -7,6 +7,7 @@
 //
 
 #import "GoldenIconExchangeVC.h"
+#import "MZBWebService.h"
 
 @interface GoldenIconExchangeVC ()
 @property (nonatomic, strong) UILabel *balanceValue;
@@ -35,7 +36,7 @@
     [containView addSubview:balanceStr];
     
     _balanceValue = [self createLabelWithFrame:CGRectMake(110, 7, containView.frame.size.width-120, 30)];
-    _balanceValue.text = @"0";
+    _balanceValue.text = [NSString stringWithFormat:@"%li",self.balance];
     _balanceValue.textAlignment = NSTextAlignmentCenter;
     [containView addSubview:_balanceValue];
     
@@ -51,6 +52,7 @@
     _exchTF = [[UITextField alloc]initWithFrame:CGRectMake(110, 44+7, containView.frame.size.width-120, 30)];
     _exchTF.placeholder = @"输入想兑换的金币数";
     _exchTF.textAlignment =  NSTextAlignmentCenter;
+    _exchTF.keyboardType = UIKeyboardTypeNumberPad;
     [containView addSubview:_exchTF];
     
     
@@ -67,7 +69,86 @@
     
 }
 
+
+
+- (NSString *)getUserLoginId{
+    NSString *userId = nil;
+    
+    
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    
+    userId = [userDic objectForKey:UserLoginId];
+    
+    return userId;
+}
+
+
+
 - (void)nextBtnAction:(id)sender{
+    
+    NSInteger exchCoins = [self.exchTF.text integerValue];
+    if (exchCoins<=0) {
+        
+        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请想兑换的金币数" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        
+        [av show];
+        
+        return;
+    }
+    
+    
+    if ([self getUserLoginId]) {
+        NSString *jsonParam = [NSString stringWithFormat:@"{\"registeredUserId\":\"%@\",\"number\":\"%li\",\"sign\":\"1\"}",[self getUserLoginId],exchCoins];
+        AFHTTPRequestOperation *opration = [MZBWebService goldCoinsExchangeWithParameter:jsonParam];
+        
+        [opration start];
+        
+        [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            NSData* data = [[NSData alloc] initWithBytes:[responseObject bytes] length:[responseObject length]];
+            NSString* result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+            
+            MyPaser *parser = [[MyPaser alloc] initWithContent:result];
+            [parser BeginToParse];
+            
+            
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+            NSLog(@"%@",dic);
+            NSNumber *rst = dic[@"result"];
+            if (rst.integerValue == 0) {
+                
+                UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"恭喜,兑换成功" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                
+                [av show];
+                
+                
+            }else{
+                
+                UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"兑换失败" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                
+                [av show];
+                
+            }
+            
+            
+            
+            
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            
+            
+        }];
+        
+    }else{
+        
+        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请返回个人中心登录" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        
+        [av show];
+    }
+
     
 }
 

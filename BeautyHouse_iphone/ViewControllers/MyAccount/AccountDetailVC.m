@@ -12,12 +12,17 @@
 #import "AccountRechargeVC.h"
 #import "AccountExpenseRecordVC.h"
 
+#import "MZBWebService.h"
 
 
 @interface AccountDetailVC ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) NSMutableArray *list;
+//@property (nonatomic, strong) NSMutableArray *list;
+@property (nonatomic,assign)CGFloat balance;
+
+
+
 @end
 
 @implementation AccountDetailVC
@@ -25,7 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"账户详情";
+    self.balance = 0.0;
     [self initMainUI];
+    
+    [self getCashBalance];
     // Do any additional setup after loading the view.
 }
 
@@ -46,9 +54,70 @@
     
 }
 
-- (void)initData{
-    self.list = [NSMutableArray array];
+- (NSString *)getUserLoginId{
+    NSString *userId = nil;
     
+    
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    
+    userId = [userDic objectForKey:UserLoginId];
+    
+    return userId;
+}
+
+- (void)getCashBalance{
+    
+    if ([self getUserLoginId]) {
+        NSString *jsonParam = [NSString stringWithFormat:@"{\"id\":\"%@\"}",[self getUserLoginId]];
+        AFHTTPRequestOperation *opration = [MZBWebService getUserBalanceWithParameter:jsonParam];
+        
+        [opration start];
+        
+        [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            NSData* data = [[NSData alloc] initWithBytes:[responseObject bytes] length:[responseObject length]];
+            NSString* result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+            
+            MyPaser *parser = [[MyPaser alloc] initWithContent:result];
+            [parser BeginToParse];
+            
+            
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+            NSLog(@"%@",dic);
+            NSNumber *rst = dic[@"result"];
+            if (rst.integerValue == 0) {
+                
+                NSNumber *balanceNumber = dic[@"resultInfo"];
+                self.balance = balanceNumber.floatValue;
+                
+                [self.collectionView reloadData];
+                
+            }else{
+                
+                //                UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:dic[@"resultInfo"] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                //
+                //                [av show];
+            }
+            
+            
+            
+            
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            
+            
+        }];
+        
+    }else{
+        
+        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请返回个人中心登录" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        
+        [av show];
+    }
+
     
 }
 
@@ -67,21 +136,27 @@
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
+    
+    for (UIView *view in cell.contentView.subviews) {
+        [view removeFromSuperview];
+    }
+    
+    
     UIImageView *iv = [[UIImageView alloc]initWithFrame:CGRectMake(36, 20, 37, 35)];
-    [cell addSubview:iv];
+    [cell.contentView addSubview:iv];
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 60, cell.frame.size.width, 30)];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont systemFontOfSize:15];
     label.textColor = [UIColor darkGrayColor];
-    [cell addSubview:label];
+    [cell.contentView addSubview:label];
     
     UIView *bottomLine = [[UIView alloc]initWithFrame:CGRectMake(0, cell.frame.size.height-0.5, cell.frame.size.width, 0.5)];
     bottomLine.backgroundColor = [UIColor colorWithRed:210.0/255 green:210.0/255 blue:210.0/255 alpha:1.0];
-    [cell addSubview:bottomLine];
+    [cell.contentView addSubview:bottomLine];
     
     UIView *rightLine = [[UIView alloc]initWithFrame:CGRectMake(cell.frame.size.width-0.5, 0, 0.5, cell.frame.size.height)];
     rightLine.backgroundColor = [UIColor colorWithRed:210.0/255 green:210.0/255 blue:210.0/255 alpha:1.0];
-    [cell addSubview:rightLine];
+    [cell.contentView addSubview:rightLine];
     
     switch (indexPath.row) {
         case 0:
@@ -128,13 +203,19 @@
                                                                            withReuseIdentifier:@"Header"
                                                                                   forIndexPath:indexPath];
         header.backgroundColor = [UIColor whiteColor];
+        
+        for (UIView *view in header.subviews) {
+            [view removeFromSuperview];
+        }
+        
+        
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, header.frame.size.width, header.frame.size.height)];
         label.textAlignment = NSTextAlignmentLeft;
         label.font = [UIFont systemFontOfSize:17];
         label.textColor = [UIColor darkTextColor];
         [header addSubview:label];
         
-        label.text = @"     账户余额:         0.0";
+        label.text = [NSString stringWithFormat:@"     账户余额:         %.1f",self.balance];
         
         UIView *bottomLine = [[UIView alloc]initWithFrame:CGRectMake(0, header.frame.size.height-0.5, header.frame.size.width, 0.5)];
         bottomLine.backgroundColor = [UIColor colorWithRed:210.0/255 green:210.0/255 blue:210.0/255 alpha:1.0];

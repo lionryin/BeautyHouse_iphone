@@ -7,7 +7,12 @@
 //
 
 #import "UserProtocolVC.h"
+#import "MBProgressHUD.h"
 
+@interface UserProtocolVC ()<UIWebViewDelegate>
+@property (strong, nonatomic) MBProgressHUD    *progresshud;
+
+@end
 @implementation UserProtocolVC
 
 
@@ -21,6 +26,7 @@
     
     UIWebView *webView = [[UIWebView alloc]initWithFrame:self.view.frame];
     webView.scalesPageToFit = YES;
+    webView.delegate = self;
     [self.view addSubview:webView];
     
     
@@ -31,5 +37,13 @@
     
 }
 
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    [_progresshud show:YES];
+}
+
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [_progresshud hide:YES];
+}
 
 @end

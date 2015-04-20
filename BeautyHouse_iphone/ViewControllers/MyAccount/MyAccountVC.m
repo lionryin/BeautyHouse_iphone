@@ -18,6 +18,8 @@
 
 #import "LoginVC.h"
 #import "UMSocial.h"
+#import "MBProgressHUD.h"
+
 
 #define ShareText @"这是要分享的文字，可以在这里自定义"
 
@@ -26,6 +28,8 @@
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)UIButton *loginBtn;
 @property (nonatomic,strong)UILabel *userPhoneNumber;
+@property (strong, nonatomic) MBProgressHUD        * progresshud;
+
 
 @end
 
@@ -37,6 +41,10 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateHeader) name:MZB_NOTE_LOGIN_OK object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateHeader) name:MZB_NOTE_EXIT_OK object:nil];
+    
+    _progresshud = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:_progresshud];
+    [_progresshud show:NO];
     
     [self initMainUI];
     [self updateHeader];
@@ -86,7 +94,7 @@
 
 
 - (void)initMainUI{
-    self.tableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
+    self.tableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64-49) style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.tableHeaderView = [self tableHeaderView];

@@ -10,4 +10,5 @@
 
 @interface GoldenIconExchangeVC : BaseViewController
 
+@property (nonatomic, assign)NSInteger balance;
 @end

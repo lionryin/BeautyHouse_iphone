@@ -7,8 +7,10 @@
 //
 
 #import "UserProblemsVC.h"
+#import "MBProgressHUD.h"
 
-@interface UserProblemsVC ()
+@interface UserProblemsVC ()<UIWebViewDelegate>
+@property (strong, nonatomic) MBProgressHUD        * progresshud;
 
 @end
 
@@ -19,12 +21,17 @@
     [super viewDidLoad];
     self.title = @"常见问题";
     [self initMainUI];
+    
+    _progresshud = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:_progresshud];
+    [_progresshud show:NO];
 }
 
 
 - (void)initMainUI{
     
     UIWebView *webView = [[UIWebView alloc]initWithFrame:self.view.frame];
+    webView.delegate = self;
     webView.scalesPageToFit = YES;
     [self.view addSubview:webView];
     
@@ -36,6 +43,13 @@
 
 }
 
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    [_progresshud show:YES];
+}
 
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [_progresshud hide:YES];
+}
 
 @end
