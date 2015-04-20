@@ -143,4 +143,8 @@
 + (AFHTTPRequestOperation *)getListRechargeInfoWithParameter:(NSString *)jsonParam;
 
 
+//问题反馈或建议
++ (AFHTTPRequestOperation *)saveMenberFeedBackWithParameter:(NSString *)jsonParam;
+
+
 @end

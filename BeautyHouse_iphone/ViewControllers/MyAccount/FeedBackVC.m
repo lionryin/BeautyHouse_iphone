@@ -7,6 +7,8 @@
 //
 
 #import "FeedBackVC.h"
+#import "MZBWebService.h"
+
 
 @interface FeedBackVC ()<UITextViewDelegate>
 @property (nonatomic,strong)UIScrollView *scrollView;
@@ -70,7 +72,68 @@
     
 }
 
+- (NSString *)getUserId{
+    NSString *userId = nil;
+    
+    
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    
+    userId = [userDic objectForKey:UserLoginId];
+    
+    return userId;
+}
+
 - (void)submitBtnClicked:(id)sender{
+    
+    
+    if (!self.feedTV.text.length) {
+        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请填写意见反馈" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        
+        [av show];
+        return;
+    }
+    
+    if (![self getUserId].length) {
+        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请先登录" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        
+        [av show];
+        return;
+    }
+    
+    
+    NSString *jsonParam = [NSString stringWithFormat:@"{\"menberId\":\"%@\",\"feedback\":%@}",[self getUserId],[self.feedTV.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    AFHTTPRequestOperation *opration = [MZBWebService saveMenberFeedBackWithParameter:jsonParam];
+    
+    [opration start];
+    
+    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSData* data = [[NSData alloc] initWithBytes:[responseObject bytes] length:[responseObject length]];
+        NSString* result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        //NSLog(@"%@",result);
+        
+        MyPaser *parser = [[MyPaser alloc] initWithContent:result];
+        [parser BeginToParse];
+
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@"%@",dic);
+        
+        
+        
+        
+        NSNumber *rst = dic[@"result"];
+        if (rst.integerValue == 0) {
+            UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"提交反馈成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            
+            [av show];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+    
+    
     
 }
 

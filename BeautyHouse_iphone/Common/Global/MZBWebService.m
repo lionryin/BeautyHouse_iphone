@@ -178,4 +178,12 @@
     return [MZBWebService MZBWebService:params];
 }
 
+
+//问题反馈或建议
++ (AFHTTPRequestOperation *)saveMenberFeedBackWithParameter:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@"<saveMenberFeedBack><menberFeedBackJson>%@</menberFeedBackJson></ws:saveMenberFeedBack>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+}
+
 @end
