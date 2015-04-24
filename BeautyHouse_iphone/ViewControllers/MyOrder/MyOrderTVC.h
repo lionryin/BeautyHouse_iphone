@@ -17,6 +17,7 @@
 
 - (void)complaintBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell;
 - (void)cancelBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell;
+- (void)zhifuBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell;
 
 
 @end

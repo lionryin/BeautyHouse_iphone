@@ -292,8 +292,10 @@
 #pragma mark - action
 - (void)phoneButtonClicked:(id)sender{
     
-    NSString *phoneStr = [NSString stringWithFormat:@"tel://%li",(long)[_myOrderVO.auntPhone integerValue]];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneStr]];
+    
+    NSLog(@"phoneStr:%@",self.myOrderVO.auntPhone);
+
+     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@",self.myOrderVO.auntPhone]]];
 }
 
 - (void)complaintBtnClicked:(id)sender{//评价
@@ -311,15 +313,17 @@
  }
 
 - (void)zhifuBtnClicked:(id)sender{
-    /*if ([self.delegate respondsToSelector:@selector(complaintBtnClickedWithMyOrderTVC:)]) {
-        [self.delegate complaintBtnClickedWithMyOrderTVC:self];
-    }*/
+    if ([self.delegate respondsToSelector:@selector(zhifuBtnClickedWithMyOrderTVC:)]) {
+        [self.delegate zhifuBtnClickedWithMyOrderTVC:self];
+    }
 }
 
 #pragma mark - UIAlertView delegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"%li",(long)buttonIndex);
+    
     if (alertView.tag == 88 && buttonIndex == 1) {
-        NSLog(@"%li",buttonIndex);
+        
         
         NSString *param = [NSString stringWithFormat:@"{\"id\":\"%@\"}", self.myOrderVO.orderID];
         
@@ -356,9 +360,11 @@
         if ([self.delegate respondsToSelector:@selector(cancelBtnClickedWithMyOrderTVC:)]) {
             [self.delegate cancelBtnClickedWithMyOrderTVC:self];
         }
-
     }
 }
+
+
+
 
 
 @end

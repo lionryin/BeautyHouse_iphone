@@ -26,7 +26,7 @@ typedef enum {
 //阿姨信息
 @property (nonatomic,strong)NSString *auntName;
 @property (nonatomic,strong)NSString *auntLevel;
-@property (nonatomic,strong)NSNumber *auntPhone;
+@property (nonatomic,strong)NSString *auntPhone;
 
 
 @property (nonatomic,assign)EOrderType orderType;

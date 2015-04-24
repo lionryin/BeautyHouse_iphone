@@ -11,6 +11,7 @@
 #import "HomeService.h"
 #import "MJRefresh.h"
 #import "OrderDetailVC.h"
+#import "OrderPayVC.h"
 
 #define MyOrderCellID @"MyOrderCellID"
 
@@ -238,15 +239,7 @@
 - (void)getCurrentOrderList{
     //[self.orderList removeAllObjects];
     
-   /* MyOrderVO *orderVO = [[MyOrderVO alloc]init];
-    orderVO.title = @"请保姆";
-    orderVO.time = @"2015-03-22 17:30:25";
-    orderVO.address = @"光谷大道120号";//orderVO.address;
-    orderVO.status = @"已分配";
-    orderVO.orderType = kOrderTypeCurrent;
-    [self.orderList addObject:orderVO];
-    [self.orderList addObject:orderVO];
-    [self.orderList addObject:orderVO];*/
+  
     if (self.currentOrderList.count == 0) {
         [self setupRefresh:@"current"];
     }
@@ -373,7 +366,11 @@
     [self setupRefresh:@"current"];
 }
 
-
+- (void)zhifuBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell{
+    OrderPayVC *orderPayVC = [[OrderPayVC alloc] initWithNibName:@"OrderPayVC" bundle:nil];
+    
+    [self.navigationController pushViewController:orderPayVC animated:YES];
+}
 
 
 
