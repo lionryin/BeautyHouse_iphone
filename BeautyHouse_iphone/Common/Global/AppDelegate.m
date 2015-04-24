@@ -80,7 +80,7 @@
              LoginVC *loginVC = [[LoginVC alloc]init];
             loginVC.isOrderFrom = YES;
              UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
-             [viewController presentViewController:loginNC animated:YES completion:nil];
+             [tabBarController presentViewController:loginNC animated:YES completion:nil];
             
             return NO;
         }
