@@ -146,46 +146,6 @@
         }
 
     }
-    else if (orderStatus == 36 ){
-        if (info.count>4) {
-            
-            NSDictionary *dic = [info objectAtIndex:0];
-            [self fillStatus1WithDic:dic];
-            
-            NSDictionary *dic1 = [info objectAtIndex:1];
-            [self fillStatus2WithDic:dic1];
-            
-        
-            NSDictionary *dic2 = [info objectAtIndex:3];
-            [self fillStatus3WithDic:dic2];
-            
-        
-            NSDictionary *dic3 = [info objectAtIndex:4];
-            [self fillStatus4WithDic:dic3];
-            
-            
-        }
-        else{
-            NSDictionary *dic = [info objectAtIndex:0];
-            [self fillStatus1WithDic:dic];
-            if (info.count>1) {
-                NSDictionary *dic1 = [info objectAtIndex:1];
-                [self fillStatus2WithDic:dic1];
-                
-                if (info.count>2) {
-                    NSDictionary *dic2 = [info objectAtIndex:2];
-                    [self fillStatus3WithDic:dic2];
-                    
-                    if (info.count>3) {
-                        NSDictionary *dic3 = [info objectAtIndex:3];
-                        [self fillStatus4WithDic:dic3];
-                        
-                    }
-                }
-            }
-
-        }
-    }
     else if (orderStatus == 78){
         NSDictionary *dic = [info objectAtIndex:0];
         [self fillStatus1WithDic:dic];
@@ -219,23 +179,26 @@
 
 - (void)initStatusImageViewWithStatus:(NSInteger)orderStatus{
     
-    if (orderStatus == 32 || orderStatus == 33) {
+    if (orderStatus == 32 ) {
         _dfpImageView.highlighted = YES;
+    }
+    else if (orderStatus == 33){
+        _dfpImageView.highlighted = YES;
+        _zxzImageView.highlighted = YES;
     }
     else if (orderStatus == 34){
         _dfpImageView.highlighted = YES;
         _zxzImageView.highlighted = YES;
+        _fwwcImageView.highlighted = YES;
     }
     else if (orderStatus == 35){
         _dfpImageView.highlighted = YES;
         _zxzImageView.highlighted = YES;
         _fwwcImageView.highlighted = YES;
-    }
-    else if (orderStatus == 36 || orderStatus == 78){
-        _dfpImageView.highlighted = YES;
-        _zxzImageView.highlighted = YES;
-        _fwwcImageView.highlighted = YES;
         _jsImageView.highlighted = YES;
+    }
+    else if (orderStatus == 78){
+        _dfpImageView.highlighted = YES;
     }
 }
 

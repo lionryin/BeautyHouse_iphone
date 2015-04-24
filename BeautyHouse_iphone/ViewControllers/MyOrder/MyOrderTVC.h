@@ -26,7 +26,7 @@
 @property (nonatomic,weak)id<MyOrderTVCDelegate>delegate;
 @property (strong, nonatomic) MyOrderVO *myOrderVO;
 
-- (void)updateMyOrderTVC:(MyOrderVO *)orderVO;
+- (CGFloat )updateMyOrderTVC;
 
 
 @end

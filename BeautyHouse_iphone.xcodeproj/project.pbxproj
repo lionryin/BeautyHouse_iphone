@@ -114,6 +114,10 @@
 		A6CB3FB91AC3E7BB00C65C47 /* selected_Address.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FB81AC3E7BB00C65C47 /* selected_Address.png */; };
 		A6CB3FBD1AC3E82D00C65C47 /* unselected_Address.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FBB1AC3E82D00C65C47 /* unselected_Address.png */; };
 		A6CB3FBF1AC3EB5000C65C47 /* add_Address.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FBE1AC3EB5000C65C47 /* add_Address.png */; };
+		A6CE40D41AEA2EDC00A48B39 /* auntIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CE40D31AEA2EDC00A48B39 /* auntIcon.png */; };
+		A6CE40D61AEA2F0200A48B39 /* auntPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CE40D51AEA2F0200A48B39 /* auntPhone.png */; };
+		A6CE40D91AEA2FA000A48B39 /* star_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CE40D71AEA2FA000A48B39 /* star_normal.png */; };
+		A6CE40DA1AEA2FA000A48B39 /* star_select.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CE40D81AEA2FA000A48B39 /* star_select.png */; };
 		A6FFFA071AD7BBB700A544C5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FFFA061AD7BBB700A544C5 /* MBProgressHUD.m */; };
 		A6FFFA191AD8177F00A544C5 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6FFFA091AD8177F00A544C5 /* MJRefresh.bundle */; };
 		A6FFFA1A1AD8177F00A544C5 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FFFA0C1AD8177F00A544C5 /* MJRefreshBaseView.m */; };
@@ -357,6 +361,10 @@
 		A6CB3FB81AC3E7BB00C65C47 /* selected_Address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_Address.png; sourceTree = "<group>"; };
 		A6CB3FBB1AC3E82D00C65C47 /* unselected_Address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unselected_Address.png; sourceTree = "<group>"; };
 		A6CB3FBE1AC3EB5000C65C47 /* add_Address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_Address.png; sourceTree = "<group>"; };
+		A6CE40D31AEA2EDC00A48B39 /* auntIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = auntIcon.png; sourceTree = "<group>"; };
+		A6CE40D51AEA2F0200A48B39 /* auntPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = auntPhone.png; sourceTree = "<group>"; };
+		A6CE40D71AEA2FA000A48B39 /* star_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_normal.png; sourceTree = "<group>"; };
+		A6CE40D81AEA2FA000A48B39 /* star_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_select.png; sourceTree = "<group>"; };
 		A6FFFA051AD7BBB700A544C5 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		A6FFFA061AD7BBB700A544C5 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		A6FFFA091AD8177F00A544C5 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
@@ -700,6 +708,10 @@
 		A696C50C1AC1A73500A860AD /* MyOrder */ = {
 			isa = PBXGroup;
 			children = (
+				A6CE40D71AEA2FA000A48B39 /* star_normal.png */,
+				A6CE40D81AEA2FA000A48B39 /* star_select.png */,
+				A6CE40D51AEA2F0200A48B39 /* auntPhone.png */,
+				A6CE40D31AEA2EDC00A48B39 /* auntIcon.png */,
 				A6B595A11ADCF96800A0E928 /* orderStatus.9.png */,
 				A6B595991ADCB7F200A0E928 /* two_status_circle_gray.png */,
 				A6B5959A1ADCB7F200A0E928 /* two_status_circle.png */,
@@ -1168,6 +1180,7 @@
 				A6B6A8971AC4359500B12F04 /* AddAddressVC.xib in Resources */,
 				A696C5951AC1A91900A860AD /* ServiceIntroductionVC.xib in Resources */,
 				A696C58B1AC1A91900A860AD /* CleanerVC.xib in Resources */,
+				A6CE40DA1AEA2FA000A48B39 /* star_select.png in Resources */,
 				A696C5BB1AC1A9BE00A860AD /* nav_back.png in Resources */,
 				A6CB3FB71AC3E43800C65C47 /* ChooseAddressCell.xib in Resources */,
 				B009665B1ADA14E2007DD934 /* accountDetail01@2x.png in Resources */,
@@ -1205,10 +1218,12 @@
 				A6BB684D1AC6848000DF1723 /* MoreDemandVC.xib in Resources */,
 				A6BB685E1ACAD1E300DF1723 /* arrow_down.png in Resources */,
 				B0735C0C1AC25350005A3E82 /* icon_adress.png in Resources */,
+				A6CE40D91AEA2FA000A48B39 /* star_normal.png in Resources */,
 				B0735C2A1AC273C4005A3E82 /* join_04.png in Resources */,
 				A696C5B31AC1A98300A860AD /* ad_a_1.jpg in Resources */,
 				B00966881ADA6908007DD934 /* UMShareEditViewController.xib in Resources */,
 				A66C50AB1AC262A0003E146F /* mybgpic.png in Resources */,
+				A6CE40D41AEA2EDC00A48B39 /* auntIcon.png in Resources */,
 				A6B6A89C1AC436C600B12F04 /* adress.png in Resources */,
 				A6CB3FBF1AC3EB5000C65C47 /* add_Address.png in Resources */,
 				A6BB68551AC930BA00DF1723 /* select_min.jpg in Resources */,
@@ -1228,6 +1243,7 @@
 				B00966601ADA64FB007DD934 /* people_ayb.png in Resources */,
 				A696C5131AC1A73500A860AD /* Main.storyboard in Resources */,
 				B009665E1ADA14E2007DD934 /* accountDetail04@2x.png in Resources */,
+				A6CE40D61AEA2F0200A48B39 /* auntPhone.png in Resources */,
 				B009668B1ADA6908007DD934 /* UMSnsAccountViewController.xib in Resources */,
 				A6B6D6A31AD6585F00163715 /* HouseSizeVC.xib in Resources */,
 				A6BB68541AC930BA00DF1723 /* select_hover_min.jpg in Resources */,

@@ -20,7 +20,14 @@ typedef enum {
 @property (nonatomic,strong)NSString *time;
 @property (nonatomic,strong)NSString *address;
 @property (nonatomic,strong)NSString *status;
+@property (nonatomic,strong)NSNumber *statusID;
 @property (nonatomic,strong)NSString *orderID;
+
+//阿姨信息
+@property (nonatomic,strong)NSString *auntName;
+@property (nonatomic,strong)NSString *auntLevel;
+@property (nonatomic,strong)NSNumber *auntPhone;
+
 
 @property (nonatomic,assign)EOrderType orderType;
 

@@ -201,6 +201,18 @@
                     order.time = [tempDic objectForKey:@"orderDateTime"];
                     order.address = [NSString stringWithFormat:@"%@ %@",[[tempDic objectForKey:@"serviceAddress"] objectForKey:@"cellName"],[[tempDic objectForKey:@"serviceAddress"] objectForKey:@"detailAddress"]];
                     order.status = [[tempDic objectForKey:@"orderStatue"] objectForKey:@"keyName"];
+                    order.statusID = [[tempDic objectForKey:@"orderStatue"] objectForKey:@"id"];
+                    
+                    NSDictionary *auntDic = [tempDic objectForKey:@"auntInfo"];
+                    
+                    NSLog(@"%@",auntDic);
+                    
+                    if ([auntDic isKindOfClass:[NSDictionary class]]) {
+                        order.auntName = [auntDic objectForKey:@"auntName"];
+                        order.auntLevel = [auntDic objectForKey:@"level"];
+                        order.auntPhone = [auntDic objectForKey:@"phone"];
+                    }
+                    
                     order.orderType = checkOrderInfo == 1 ? kOrderTypeCurrent : kOrderTypeHistory;
                     [tempOrderList addObject:order];
                 }
@@ -312,7 +324,7 @@
     
     MyOrderVO *orderVO = [self.orderList objectAtIndex:indexPath.section];
     cell.myOrderVO = orderVO;
-    [cell updateMyOrderTVC:orderVO];
+    //[cell updateMyOrderTVC];
     return cell;
 }
 
@@ -320,7 +332,14 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 195;
+     MyOrderVO *orderVO = [self.orderList objectAtIndex:indexPath.section];
+    if ([orderVO.statusID integerValue] == 32 || [orderVO.statusID integerValue] == 78) {
+        return 195;
+    }
+    else{
+        return 60+195;
+    }
+    
     
 }
 
