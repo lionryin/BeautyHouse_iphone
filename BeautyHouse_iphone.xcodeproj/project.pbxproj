@@ -1510,6 +1510,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
+				);
 				INFOPLIST_FILE = BeautyHouse_iphone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1517,6 +1522,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/UMSocial_Sdk_4.2.1",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/UMSocial_Sdk_Extra_Frameworks/Wechat",
+					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1534,6 +1540,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
+				);
 				INFOPLIST_FILE = BeautyHouse_iphone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1541,6 +1552,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/UMSocial_Sdk_4.2.1",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/UMSocial_Sdk_Extra_Frameworks/Wechat",
+					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

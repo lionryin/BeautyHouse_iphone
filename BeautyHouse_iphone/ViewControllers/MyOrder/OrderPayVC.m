@@ -8,6 +8,7 @@
 
 #import "OrderPayVC.h"
 #import "MZBWebService.h"
+#import <AlipaySDK.framework/Headers/Alipay.h>
 
 @interface OrderPayVC ()<UITextFieldDelegate>
 - (IBAction)payButtonSelecked:(id)sender;
