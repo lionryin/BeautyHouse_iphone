@@ -174,6 +174,7 @@
 		B07A96971AEB7A8500260C66 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A96961AEB7A8500260C66 /* CoreTelephony.framework */; };
 		B07A96991AEB7AFA00260C66 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A96981AEB7AFA00260C66 /* Security.framework */; };
 		B07A969B1AEB7D7E00260C66 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A969A1AEB7D7E00260C66 /* libz.dylib */; };
+		B07A969E1AEB85F900260C66 /* MemberVO.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A969D1AEB85F900260C66 /* MemberVO.m */; };
 		B07FB3351AD8CAE2003C96C8 /* question.html in Resources */ = {isa = PBXBuildFile; fileRef = B07FB3331AD8CAE2003C96C8 /* question.html */; };
 		B07FB3361AD8CAE2003C96C8 /* user_agreement.html in Resources */ = {isa = PBXBuildFile; fileRef = B07FB3341AD8CAE2003C96C8 /* user_agreement.html */; };
 		B0A5D3571ACBAE0F00D60958 /* GoldenIconTradeRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A5D3561ACBAE0F00D60958 /* GoldenIconTradeRecordVC.m */; };
@@ -467,6 +468,8 @@
 		B07A96961AEB7A8500260C66 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		B07A96981AEB7AFA00260C66 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B07A969A1AEB7D7E00260C66 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		B07A969C1AEB85F900260C66 /* MemberVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberVO.h; sourceTree = "<group>"; };
+		B07A969D1AEB85F900260C66 /* MemberVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberVO.m; sourceTree = "<group>"; };
 		B07FB3331AD8CAE2003C96C8 /* question.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = question.html; path = BeautyHouse_iphone/Res/question.html; sourceTree = SOURCE_ROOT; };
 		B07FB3341AD8CAE2003C96C8 /* user_agreement.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = user_agreement.html; path = BeautyHouse_iphone/Res/user_agreement.html; sourceTree = SOURCE_ROOT; };
 		B0A5D3551ACBAE0F00D60958 /* GoldenIconTradeRecordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldenIconTradeRecordVC.h; sourceTree = "<group>"; };
@@ -627,6 +630,8 @@
 				A696C5261AC1A8E800A860AD /* HomeService.m */,
 				A696C5271AC1A8E800A860AD /* MyOrderVO.h */,
 				A696C5281AC1A8E800A860AD /* MyOrderVO.m */,
+				B07A969C1AEB85F900260C66 /* MemberVO.h */,
+				B07A969D1AEB85F900260C66 /* MemberVO.m */,
 				A696C5291AC1A8E800A860AD /* MzbService.h */,
 				A696C52A1AC1A8E800A860AD /* MzbService.m */,
 				A66C50A71AC25313003E146F /* MzbAd.h */,
@@ -1343,6 +1348,7 @@
 				A66C50AF1AC262EF003E146F /* AllServiceVC.m in Sources */,
 				A696C5941AC1A91900A860AD /* ServiceIntroductionVC.m in Sources */,
 				A6FFFA1C1AD8177F00A544C5 /* MJRefreshFooterView.m in Sources */,
+				B07A969E1AEB85F900260C66 /* MemberVO.m in Sources */,
 				A696C5641AC1A8F400A860AD /* UIWebView+AFNetworking.m in Sources */,
 				A6FFFA1B1AD8177F00A544C5 /* MJRefreshConst.m in Sources */,
 				A696C52B1AC1A8E800A860AD /* HomeService.m in Sources */,
