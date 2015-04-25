@@ -58,11 +58,11 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定要取消订单吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
      alert.tag = 99;
      [alert show];
-    
 }
 
 - (void)leftClick{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - UIAlertView delegate

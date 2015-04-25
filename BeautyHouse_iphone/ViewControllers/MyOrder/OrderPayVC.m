@@ -7,6 +7,7 @@
 //
 
 #import "OrderPayVC.h"
+#import "MZBWebService.h"
 
 @interface OrderPayVC ()<UITextFieldDelegate>
 - (IBAction)payButtonSelecked:(id)sender;
@@ -87,6 +88,24 @@
             
         }
         else if (_imageView2.highlighted){//现金支付
+            
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.mrchabo.com/order/Service/offlinePay.do?id=%@&deductions=%@",_orderVO.orderID,_rmbTF.text]];
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            //
+            AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+            [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                
+                NSString *html = operation.responseString;
+                NSLog(@"html:%@",html);
+                
+
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"发生错误！%@",error);
+            }];
+            [operation start];
+            
+            
+            
             
         }
         else if (_imageView3.highlighted){//微信支付

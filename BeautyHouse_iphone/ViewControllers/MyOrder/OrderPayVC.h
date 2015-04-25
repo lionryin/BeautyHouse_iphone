@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyOrderVO.h"
 
 @interface OrderPayVC : UIViewController
+
+@property (strong, nonatomic) MyOrderVO *orderVO;
+
 - (IBAction)nextStepButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *rmbTF;
 

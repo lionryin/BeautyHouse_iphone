@@ -122,10 +122,12 @@
                         
                         SaveOrderSuccessVC *saveOrderSuccessVC = [[SaveOrderSuccessVC alloc] initWithNibName:@"SaveOrderSuccessVC" bundle:nil];
                         saveOrderSuccessVC.order = myOrder;
-                        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:saveOrderSuccessVC];
-                        [self presentViewController:nav animated:YES completion:^{
-                            [self.navigationController popViewControllerAnimated:YES];
-                        }];
+                        //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:saveOrderSuccessVC];
+                        //[self presentViewController:nav animated:YES completion:^{
+                            //[self.navigationController popViewControllerAnimated:YES];
+                        //}];
+                        
+                        [self.navigationController pushViewController:saveOrderSuccessVC animated:YES];
 
                     }
                     else{

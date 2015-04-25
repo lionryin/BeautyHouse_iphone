@@ -368,7 +368,7 @@
 
 - (void)zhifuBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell{
     OrderPayVC *orderPayVC = [[OrderPayVC alloc] initWithNibName:@"OrderPayVC" bundle:nil];
-    
+    orderPayVC.orderVO = cell.myOrderVO;
     [self.navigationController pushViewController:orderPayVC animated:YES];
 }
 
