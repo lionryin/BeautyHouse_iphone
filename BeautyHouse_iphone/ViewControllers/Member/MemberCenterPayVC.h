@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
+#import "MemberVO.h"
 
 @interface MemberCenterPayVC : BaseViewController
 
+@property (nonatomic,strong)MemberVO *memberVO;
 @end

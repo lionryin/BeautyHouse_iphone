@@ -67,13 +67,14 @@
 
 
 - (void)updateCellWithJoinMemberVO:(MemberVO *)joinMemberVO{
+    self.memberVO = joinMemberVO;
     self.title.text = joinMemberVO.configName;
     self.detail.text = [NSString stringWithFormat:@"充%li(赠送%li)",(long)joinMemberVO.chargeMoney.integerValue,(long)joinMemberVO.giveMoney.integerValue];
     
 }
 
 - (void)joinBtnClicked:(id)sender{
-    if ([self.delegate respondsToSelector:@selector(joinBtnClicked:)]) {
+    if ([self.delegate respondsToSelector:@selector(joinBtnClickedWithMemberCenterJoinTVC:)]) {
         [self.delegate joinBtnClickedWithMemberCenterJoinTVC:self];
     }
 }

@@ -11,6 +11,7 @@
 #import "MemberCenterPrivilegeTVC.h"
 #import "MemberVO.h"
 #import "MZBWebService.h"
+#import "MemberCenterPayVC.h"
 
 @interface MemberCenterVC ()<UITableViewDataSource,UITableViewDelegate,MemberCenterJoinTVCDelegate>
 
@@ -233,6 +234,9 @@
 
 #pragma mark - MemberCenterPrivilegeTVC Delegate
 - (void)joinBtnClickedWithMemberCenterJoinTVC:(MemberCenterJoinTVC *)cell{
+    MemberCenterPayVC *payVC = [MemberCenterPayVC new];
+    payVC.memberVO = cell.memberVO;
+    [self.navigationController pushViewController:payVC animated:YES];
     
 }
 

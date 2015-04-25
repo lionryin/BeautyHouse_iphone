@@ -27,6 +27,8 @@
 
 @property (nonatomic,weak)id<MemberCenterJoinTVCDelegate>delegate;
 
+@property (nonatomic, strong)MemberVO *memberVO;
+
 - (void)updateCellWithJoinMemberVO:(MemberVO *)joinMemberVO;
 
 @end
