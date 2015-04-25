@@ -12,6 +12,39 @@
 #import "LoginVC.h"
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
+#import "Constant.h"
+
+
+/**
+ *  微信开放平台申请得到的 appid, 需要同时添加在 URL schema
+ */
+NSString * const WXAppId = @"wx038e41f97fa55586";
+
+/**
+ * 微信开放平台和商户约定的支付密钥
+ *
+ * 注意：不能hardcode在客户端，建议genSign这个过程由服务器端完成
+ */
+NSString * const WXAppKey = @"4ad2595522b5ff33d82a886764a68d82";
+
+/**
+ * 微信开放平台和商户约定的密钥
+ *
+ * 注意：不能hardcode在客户端，建议genSign这个过程由服务器端完成
+ */
+NSString * const WXAppSecret = @"4ad2595522b5ff33d82a886764a68d82";
+
+/**
+ * 微信开放平台和商户约定的支付密钥
+ *
+ * 注意：不能hardcode在客户端，建议genSign这个过程由服务器端完成
+ */
+NSString * const WXPartnerKey = @"4ad2595522b5ff33d82a886764a68d82";
+
+/**
+ *  微信公众平台商户模块生成的ID
+ */
+NSString * const WXPartnerId = @"1234641402";
 
 @interface AppDelegate ()
 
@@ -20,7 +53,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    return  [UMSocialSnsService handleOpenURL:url];
+    return  [UMSocialSnsService handleOpenURL:url wxApiDelegate:self];
 }
 
 - (BOOL)application:(UIApplication *)application
@@ -28,7 +61,7 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
-    return  [UMSocialSnsService handleOpenURL:url];
+    return  [UMSocialSnsService handleOpenURL:url wxApiDelegate:self];
 }
 
 
@@ -54,8 +87,11 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 
+    //微信分享
     [UMSocialData setAppKey:@"54f7f5d2fd98c52b230005a4"];
     [UMSocialWechatHandler setWXAppId:@"wx038e41f97fa55586" appSecret:@"4ad2595522b5ff33d82a886764a68d82" url:@"http://www.mrchabo.com/"];
+    //微信支付
+    [WXApi registerApp:WXAppId];
     
     
     return YES;
@@ -102,6 +138,26 @@
     }
     
     return YES;
+}
+
+#pragma mark - wx delegate
+
+- (void)onResp:(BaseResp *)resp{
+    if ([resp isKindOfClass:[PayResp class]]) {
+        
+        NSString *strTitle = [NSString stringWithFormat:@"支付结果"];
+        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle
+                                                        message:strMsg
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
+        [alert show];
+        
+        //[[NSNotificationCenter defaultCenter] postNotificationName:HUDDismissNotification object:nil userInfo:nil];
+    }
+
 }
 
 @end

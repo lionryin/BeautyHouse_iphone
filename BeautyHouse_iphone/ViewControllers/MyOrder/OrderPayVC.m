@@ -14,6 +14,10 @@
 #import "HomeService.h"
 #import "OrderPaySuccessVC.h"
 
+#import "Constant.h"
+//#import <MBProgressHUD/MBProgressHUD.h>
+#import "WXPayClient.h"
+
 
 @interface OrderPayVC ()<UITextFieldDelegate,OrderPaySuccessDelegate>
 - (IBAction)payButtonSelecked:(id)sender;
@@ -182,6 +186,10 @@
             
         }
         else if (_imageView3.highlighted){//微信支付
+            
+            //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideHUD) name:HUDDismissNotification object:nil];
+            
+            [[WXPayClient shareInstance] payProduct];
             
         }
         else if (_imageView4.highlighted){//余额支付

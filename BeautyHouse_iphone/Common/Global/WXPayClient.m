@@ -8,6 +8,8 @@
 
 #import "WXPayClient.h"
 #import "Constant.h"
+#import "CommonUtil.h"
+#import "ASIHTTPRequest.h"
 
 NSString *AccessTokenKey = @"access_token";
 NSString *PrePayIdKey = @"prepayid";
@@ -16,6 +18,8 @@ NSString *errmsgKey = @"errmsg";
 NSString *expiresInKey = @"expires_in";
 
 @interface WXPayClient ()
+
+@property (nonatomic, strong) ASIHTTPRequest *request;
 
 @property (nonatomic, copy) NSString *timeStamp;
 @property (nonatomic, copy) NSString *nonceStr;
@@ -39,7 +43,7 @@ NSString *expiresInKey = @"expires_in";
 
 - (void)payProduct
 {
-    //[self getAccessToken];
+    [self getAccessToken];
 }
 
 #pragma mark - 生成各种参数
@@ -54,8 +58,8 @@ NSString *expiresInKey = @"expires_in";
  */
 - (NSString *)genNonceStr
 {
-    //return [CommonUtil md5:[NSString stringWithFormat:@"%d", arc4random() % 10000]];
-    return nil;
+    return [CommonUtil md5:[NSString stringWithFormat:@"%d", arc4random() % 10000]];
+    
 }
 
 /**
@@ -68,22 +72,22 @@ NSString *expiresInKey = @"expires_in";
 
 - (NSString *)genOutTradNo
 {
-    //return [CommonUtil md5:[NSString stringWithFormat:@"%d", arc4random() % 10000]];
-    return nil;
+    return [CommonUtil md5:[NSString stringWithFormat:@"%d", arc4random() % 10000]];
+    
 }
 
 - (NSString *)genPackage
 {
- /*   // 构造参数列表
+    // 构造参数列表
     NSMutableDictionary *params = [NSMutableDictionary dictionary]; 
     [params setObject:@"WX" forKey:@"bank_type"];
-    [params setObject:@"千足金箍棒" forKey:@"body"];
+    [params setObject:@"美宅宝" forKey:@"body"];
     [params setObject:@"1" forKey:@"fee_type"];
     [params setObject:@"UTF-8" forKey:@"input_charset"];
     [params setObject:@"http://weixin.qq.com" forKey:@"notify_url"];
     [params setObject:[self genOutTradNo] forKey:@"out_trade_no"]; 
     [params setObject:WXPartnerId forKey:@"partner"];
-    //[params setObject:[CommonUtil getIPAddress:YES] forKey:@"spbill_create_ip"];
+    [params setObject:[CommonUtil getIPAddress:YES] forKey:@"spbill_create_ip"];
     [params setObject:@"1" forKey:@"total_fee"];    // 1 =＝ ¥0.01
     
     NSArray *keys = [params allKeys];
@@ -104,7 +108,7 @@ NSString *expiresInKey = @"expires_in";
     [package appendString:WXPartnerKey]; // 注意:不能hardcode在客户端,建议genPackage这个过程都由服务器端完成
     
     // 进行md5摘要前,params内容为原始内容,未经过url encode处理
-    //NSString *packageSign = [[CommonUtil md5:[package copy]] uppercaseString];
+    NSString *packageSign = [[CommonUtil md5:[package copy]] uppercaseString];
     package = nil;
     
     // 生成 packageParamsString
@@ -123,15 +127,15 @@ NSString *expiresInKey = @"expires_in";
     }
     NSString *packageParamsString = [package substringWithRange:NSMakeRange(0, package.length - 1)];
 
-    NSString *result = [NSString stringWithFormat:@"%@&sign=%@", packageParamsString, packageSign];
+    NSString *result = [NSString stringWithFormat:@"%@&sign=%@", packageParamsString,packageSign];
     
     NSLog(@"--- Package: %@", result);
     
-    return result;*/
-    return nil;
+    return result;
+   
 }
 
-/*- (NSString *)genSign:(NSDictionary *)signParams
+- (NSString *)genSign:(NSDictionary *)signParams
 {
     // 排序
     NSArray *keys = [signParams allKeys];
@@ -152,12 +156,13 @@ NSString *expiresInKey = @"expires_in";
     NSString *result = [CommonUtil sha1:signString];
     NSLog(@"--- Gen sign: %@", result);
     return result;
-}*/
+}
 
-/*- (NSMutableData *)getProductArgs
+- (NSMutableData *)getProductArgs
 {
     self.timeStamp = [self genTimeStamp];
-    self.nonceStr = [self genNonceStr]; // traceId 由开发者自定义，可用于订单的查询与跟踪，建议根据支付用户信息生成此id
+    self.nonceStr = [self genNonceStr];
+    // traceId 由开发者自定义，可用于订单的查询与跟踪，建议根据支付用户信息生成此id
     self.traceId = [self genTraceId];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary]; 
@@ -174,11 +179,11 @@ NSString *expiresInKey = @"expires_in";
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error: &error];
     NSLog(@"--- ProductArgs: %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
     return [NSMutableData dataWithData:jsonData]; 
-}*/
+}
 
 #pragma mark - 主体流程
 
-/*- (void)getAccessToken
+- (void)getAccessToken
 {
     NSString *getAccessTokenUrl = [NSString stringWithFormat:@"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%@&secret=%@", WXAppId, WXAppSecret];
     
@@ -274,7 +279,7 @@ NSString *expiresInKey = @"expires_in";
             request.sign = [weakSelf genSign:params];
             
             // 在支付之前，如果应用没有注册到微信，应该先调用 [WXApi registerApp:appId] 将应用注册到微信
-            [WXApi safeSendReq:request];
+            [WXApi sendReq:request];
         } else {
             NSString *strMsg = [NSString stringWithFormat:@"errcode: %@, errmsg:%@", dict[errcodeKey], dict[errmsgKey]];
             [weakSelf showAlertWithTitle:@"错误" msg:strMsg];
@@ -296,7 +301,7 @@ NSString *expiresInKey = @"expires_in";
                                           cancelButtonTitle:@"OK" 
                                           otherButtonTitles:nil, nil];
     [alert show];
-    [[NSNotificationCenter defaultCenter] postNotificationName:HUDDismissNotification object:nil userInfo:nil];
-}*/
+    //[[NSNotificationCenter defaultCenter] postNotificationName:HUDDismissNotification object:nil userInfo:nil];
+}
 
 @end
