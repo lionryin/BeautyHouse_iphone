@@ -105,6 +105,17 @@
 + (AFHTTPRequestOperation *)getOrderLogList:(NSString *)jsonParam;
 
 
+/**
+ 登陆用户的余额查询
+ */
++ (AFHTTPRequestOperation *)balanceOfUserQueries:(NSString *)jsonParam;
+
+/**
+ 登陆用户余额支付订单
+ */
++ (AFHTTPRequestOperation *)balancesPay:(NSString *)jsonParam;
+
+
 #pragma mark - Member Center
 
 

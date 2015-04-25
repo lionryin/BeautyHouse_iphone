@@ -17,7 +17,7 @@
 
 
 
-@interface MyOrderVC ()<UITableViewDataSource,UITableViewDelegate,MyOrderTVCDelegate,UIAlertViewDelegate>
+@interface MyOrderVC ()<UITableViewDataSource,UITableViewDelegate,MyOrderTVCDelegate,UIAlertViewDelegate,OrderPayVCDelegate>
 
 @property (nonatomic,strong)UISegmentedControl *segCtrl;
 @property (nonatomic,strong)UITableView *tableView;
@@ -369,9 +369,13 @@
 - (void)zhifuBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell{
     OrderPayVC *orderPayVC = [[OrderPayVC alloc] initWithNibName:@"OrderPayVC" bundle:nil];
     orderPayVC.orderVO = cell.myOrderVO;
+    orderPayVC.delegate = self;
     [self.navigationController pushViewController:orderPayVC animated:YES];
 }
 
-
+#pragma mark - orderPayVC delegate
+- (void)orderPayVCPaySuccess{
+    [self setupRefresh:@"current"];
+}
 
 @end

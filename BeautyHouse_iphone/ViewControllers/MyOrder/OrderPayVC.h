@@ -9,7 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "MyOrderVO.h"
 
+@protocol OrderPayVCDelegate <NSObject>
+
+- (void)orderPayVCPaySuccess;
+
+@end
+
 @interface OrderPayVC : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *yueLabel;
+
+@property (nonatomic, assign) id<OrderPayVCDelegate>delegate;
 
 @property (strong, nonatomic) MyOrderVO *orderVO;
 

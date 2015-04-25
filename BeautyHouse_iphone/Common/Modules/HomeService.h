@@ -43,4 +43,10 @@
 //获取订单日志
 - (void)getOrderLogListWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result,NSNumber *orderStatus,NSArray *resultInfo, NSError *error))block;
 
+//登陆用户的余额查询
+- (void)balanceOfUserQueriesWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result,NSNumber *resultInfo, NSError *error))block;
+
+//登陆用户余额支付订单
+- (void)balancesPayWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result,NSNumber *resultInfo, NSError *error))block;
+
 @end

@@ -7,10 +7,15 @@
 //
 
 #import "OrderPayVC.h"
+
 #import "MZBWebService.h"
 #import <AlipaySDK.framework/Headers/Alipay.h>
 
-@interface OrderPayVC ()<UITextFieldDelegate>
+#import "HomeService.h"
+#import "OrderPaySuccessVC.h"
+
+
+@interface OrderPayVC ()<UITextFieldDelegate,OrderPaySuccessDelegate>
 - (IBAction)payButtonSelecked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView1;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView2;
@@ -26,6 +31,33 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"订单支付";
+    
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    NSString *userId = [userDic objectForKey:UserLoginId];
+    NSLog(@"userId:%@",userId);
+    
+    HomeService *homeService = [[HomeService alloc] init];
+    [homeService balanceOfUserQueriesWithParam:[NSString stringWithFormat:@"{\"id\":\"%@\"}",userId] andWithBlock:^(NSNumber *result, NSNumber *resultInfo, NSError *error) {
+        
+        if (!error) {
+            if ([result integerValue] == 0) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    _yueLabel.text = [NSString stringWithFormat:@"余额%.2f",[resultInfo doubleValue]];
+                });
+            }
+            else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+        }
+        else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
+
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,11 +150,30 @@
             [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                 NSString *html = operation.responseString;
-                NSLog(@"html:%@",html);
+                //NSLog(@"html:%@",html);
+                
+                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[html dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+                NSLog(@"%@",dic);
+                
+                if ([[dic objectForKey:@"result"] integerValue] == 0) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        OrderPaySuccessVC *paySuccessVC = [[OrderPaySuccessVC alloc] initWithNibName:@"OrderPaySuccessVC" bundle:nil];
+                        paySuccessVC.delegate = self;
+                        [self.navigationController pushViewController:paySuccessVC animated:YES];
+                    });
+                }
+                else{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    [alert show];
+
+                }
                 
 
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"发生错误！%@",error);
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+
             }];
             [operation start];
             
@@ -150,6 +201,12 @@
     return YES;
 }
 
+#pragma mark - OrderPaySuccessVC delegate
+- (void)orderPaySuccessVCLeftButtonClicked{
+    if ([self.delegate respondsToSelector:@selector(orderPayVCPaySuccess)]) {
+        [self.delegate orderPayVCPaySuccess];
+    }
+}
 
 - (NSDictionary *)dictFromString:(NSString *)aString
 {

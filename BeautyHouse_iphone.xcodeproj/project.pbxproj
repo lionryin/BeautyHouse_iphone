@@ -82,6 +82,13 @@
 		A696C5BB1AC1A9BE00A860AD /* nav_back.png in Resources */ = {isa = PBXBuildFile; fileRef = A696C5B71AC1A9BE00A860AD /* nav_back.png */; };
 		A696C5BC1AC1A9BE00A860AD /* s_phone.png in Resources */ = {isa = PBXBuildFile; fileRef = A696C5B81AC1A9BE00A860AD /* s_phone.png */; };
 		A696C5BD1AC1A9BE00A860AD /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = A696C5B91AC1A9BE00A860AD /* time.png */; };
+		A6B24B9D1AEB718B00C76124 /* OrderPaySuccessVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B24B9B1AEB718B00C76124 /* OrderPaySuccessVC.m */; };
+		A6B24B9E1AEB718B00C76124 /* OrderPaySuccessVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B24B9C1AEB718B00C76124 /* OrderPaySuccessVC.xib */; };
+		A6B24BA11AEB768300C76124 /* xianjin.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B24B9F1AEB768300C76124 /* xianjin.png */; };
+		A6B24BA21AEB768300C76124 /* yue.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B24BA01AEB768300C76124 /* yue.png */; };
+		A6B24BA81AEB82DE00C76124 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B24BA41AEB82DE00C76124 /* libWeChatSDK.a */; };
+		A6B24BA91AEB82DE00C76124 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = A6B24BA51AEB82DE00C76124 /* read_me.txt */; };
+		A6B24BAD1AEB84B100C76124 /* WXPayClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B24BAC1AEB84B100C76124 /* WXPayClient.m */; };
 		A6B595971ADCADF100A0E928 /* OrderDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B595951ADCADF100A0E928 /* OrderDetailVC.m */; };
 		A6B595981ADCADF100A0E928 /* OrderDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B595961ADCADF100A0E928 /* OrderDetailVC.xib */; };
 		A6B5959B1ADCB7F200A0E928 /* two_status_circle_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B595991ADCB7F200A0E928 /* two_status_circle_gray.png */; };
@@ -331,6 +338,18 @@
 		A696C5B71AC1A9BE00A860AD /* nav_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_back.png; sourceTree = "<group>"; };
 		A696C5B81AC1A9BE00A860AD /* s_phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s_phone.png; sourceTree = "<group>"; };
 		A696C5B91AC1A9BE00A860AD /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time.png; sourceTree = "<group>"; };
+		A6B24B9A1AEB718B00C76124 /* OrderPaySuccessVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderPaySuccessVC.h; sourceTree = "<group>"; };
+		A6B24B9B1AEB718B00C76124 /* OrderPaySuccessVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderPaySuccessVC.m; sourceTree = "<group>"; };
+		A6B24B9C1AEB718B00C76124 /* OrderPaySuccessVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderPaySuccessVC.xib; sourceTree = "<group>"; };
+		A6B24B9F1AEB768300C76124 /* xianjin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xianjin.png; sourceTree = "<group>"; };
+		A6B24BA01AEB768300C76124 /* yue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yue.png; sourceTree = "<group>"; };
+		A6B24BA41AEB82DE00C76124 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		A6B24BA51AEB82DE00C76124 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
+		A6B24BA61AEB82DE00C76124 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		A6B24BA71AEB82DE00C76124 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		A6B24BAA1AEB84B100C76124 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		A6B24BAB1AEB84B100C76124 /* WXPayClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXPayClient.h; sourceTree = "<group>"; };
+		A6B24BAC1AEB84B100C76124 /* WXPayClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXPayClient.m; sourceTree = "<group>"; };
 		A6B595941ADCADF100A0E928 /* OrderDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailVC.h; sourceTree = "<group>"; };
 		A6B595951ADCADF100A0E928 /* OrderDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailVC.m; sourceTree = "<group>"; };
 		A6B595961ADCADF100A0E928 /* OrderDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderDetailVC.xib; sourceTree = "<group>"; };
@@ -502,6 +521,7 @@
 				B0B9EC0C1AE4930700FBE820 /* AlipaySDK.framework in Frameworks */,
 				B00966841ADA6908007DD934 /* libUMSocial_Sdk_4.2.1.a in Frameworks */,
 				B009668F1ADA6908007DD934 /* libWeChatSDK.a in Frameworks */,
+				A6B24BA81AEB82DE00C76124 /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +639,9 @@
 				A696C5171AC1A8C200A860AD /* MyPaser.m */,
 				A696C5181AC1A8C200A860AD /* MZBWebService.h */,
 				A696C5191AC1A8C200A860AD /* MZBWebService.m */,
+				A6B24BAA1AEB84B100C76124 /* Constant.h */,
+				A6B24BAB1AEB84B100C76124 /* WXPayClient.h */,
+				A6B24BAC1AEB84B100C76124 /* WXPayClient.m */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -645,6 +668,7 @@
 		A696C5051AC1A73500A860AD /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				A6B24BA31AEB82DE00C76124 /* WeChatSDK_1.5 */,
 				B0B9EC081AE4930600FBE820 /* Alipay */,
 				B00966611ADA6907007DD934 /* UMSocial_Sdk_4.2.1 */,
 				B009667C1ADA6908007DD934 /* UMSocial_Sdk_Extra_Frameworks */,
@@ -740,6 +764,8 @@
 		A696C50C1AC1A73500A860AD /* MyOrder */ = {
 			isa = PBXGroup;
 			children = (
+				A6B24B9F1AEB768300C76124 /* xianjin.png */,
+				A6B24BA01AEB768300C76124 /* yue.png */,
 				A6CE40F11AEA436D00A48B39 /* weixin2.png */,
 				A6CE40ED1AEA434A00A48B39 /* weixin.png */,
 				A6CE40EE1AEA434A00A48B39 /* zhifubao.png */,
@@ -850,6 +876,9 @@
 				A6CE40E41AEA3CBF00A48B39 /* OrderPayVC.h */,
 				A6CE40E51AEA3CBF00A48B39 /* OrderPayVC.m */,
 				A6CE40E61AEA3CBF00A48B39 /* OrderPayVC.xib */,
+				A6B24B9A1AEB718B00C76124 /* OrderPaySuccessVC.h */,
+				A6B24B9B1AEB718B00C76124 /* OrderPaySuccessVC.m */,
+				A6B24B9C1AEB718B00C76124 /* OrderPaySuccessVC.xib */,
 			);
 			path = MyOrder;
 			sourceTree = "<group>";
@@ -942,6 +971,17 @@
 				A66C50B71AC272D1003E146F /* AllServiceButton.m */,
 			);
 			path = ServiceDetail;
+			sourceTree = "<group>";
+		};
+		A6B24BA31AEB82DE00C76124 /* WeChatSDK_1.5 */ = {
+			isa = PBXGroup;
+			children = (
+				A6B24BA41AEB82DE00C76124 /* libWeChatSDK.a */,
+				A6B24BA51AEB82DE00C76124 /* read_me.txt */,
+				A6B24BA61AEB82DE00C76124 /* WXApi.h */,
+				A6B24BA71AEB82DE00C76124 /* WXApiObject.h */,
+			);
+			path = WeChatSDK_1.5;
 			sourceTree = "<group>";
 		};
 		A6CB3FAB1AC3DE2500C65C47 /* Others */ = {
@@ -1212,12 +1252,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A696C5B51AC1A98300A860AD /* ad_a_3.jpg in Resources */,
+				A6B24BA11AEB768300C76124 /* xianjin.png in Resources */,
 				B0735C0D1AC25350005A3E82 /* icon_home.png in Resources */,
 				B00966851ADA6908007DD934 /* UMSCommentDetailController.xib in Resources */,
 				B00966831ADA6908007DD934 /* UMSocialLocalizable.strings in Resources */,
 				A696C4E31AC1A5D900A860AD /* Images.xcassets in Resources */,
 				A6CE40EB1AEA429E00A48B39 /* pay_selected.png in Resources */,
 				A6B6A89B1AC436C600B12F04 /* category.png in Resources */,
+				A6B24B9E1AEB718B00C76124 /* OrderPaySuccessVC.xib in Resources */,
 				A6B6A8971AC4359500B12F04 /* AddAddressVC.xib in Resources */,
 				A696C5951AC1A91900A860AD /* ServiceIntroductionVC.xib in Resources */,
 				A696C58B1AC1A91900A860AD /* CleanerVC.xib in Resources */,
@@ -1239,6 +1281,7 @@
 				A6694CC61AD40C9D00339A2B /* timeline_green.png in Resources */,
 				B0735C2B1AC273C4005A3E82 /* join_05.png in Resources */,
 				A696C5BA1AC1A9BE00A860AD /* arrow_right_gray.png in Resources */,
+				A6B24BA91AEB82DE00C76124 /* read_me.txt in Resources */,
 				A6CB3FB91AC3E7BB00C65C47 /* selected_Address.png in Resources */,
 				A6B6A89D1AC436C600B12F04 /* home.png in Resources */,
 				B0B9EC0B1AE4930700FBE820 /* AlipaySDK.bundle in Resources */,
@@ -1278,6 +1321,7 @@
 				B00966861ADA6908007DD934 /* UMSCommentInputController.xib in Resources */,
 				A6CE40EC1AEA429E00A48B39 /* pay_unselected.png in Resources */,
 				B009665C1ADA14E2007DD934 /* accountDetail02@2x.png in Resources */,
+				A6B24BA21AEB768300C76124 /* yue.png in Resources */,
 				B07FB3361AD8CAE2003C96C8 /* user_agreement.html in Resources */,
 				A6BB68511AC9232100DF1723 /* select_plus.png in Resources */,
 				A696C5AD1AC1A97200A860AD /* tab_member@2x.png in Resources */,
@@ -1352,6 +1396,7 @@
 				A696C5641AC1A8F400A860AD /* UIWebView+AFNetworking.m in Sources */,
 				A6FFFA1B1AD8177F00A544C5 /* MJRefreshConst.m in Sources */,
 				A696C52B1AC1A8E800A860AD /* HomeService.m in Sources */,
+				A6B24B9D1AEB718B00C76124 /* OrderPaySuccessVC.m in Sources */,
 				A66C50B41AC2686C003E146F /* AllServiceCell.m in Sources */,
 				A696C58E1AC1A91900A860AD /* FloorCareVC.m in Sources */,
 				A6BB68591AC9359800DF1723 /* XiaohaopinVC.m in Sources */,
@@ -1392,6 +1437,7 @@
 				A6CE40E71AEA3CBF00A48B39 /* OrderPayVC.m in Sources */,
 				A6CB3FB61AC3E43800C65C47 /* ChooseAddressCell.m in Sources */,
 				A696C52D1AC1A8E800A860AD /* MzbService.m in Sources */,
+				A6B24BAD1AEB84B100C76124 /* WXPayClient.m in Sources */,
 				A696C59D1AC1A93300A860AD /* MemberCenterPrivilegeTVC.m in Sources */,
 				A66C50A91AC25313003E146F /* MzbAd.m in Sources */,
 				A696C5541AC1A8F400A860AD /* AFHTTPRequestOperation.m in Sources */,
@@ -1541,6 +1587,9 @@
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/UMSocial_Sdk_4.2.1",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
+
+					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/WeChatSDK_1.5",
+
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1570,7 +1619,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/UMSocial_Sdk_4.2.1",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/UMSocial_Sdk_Extra_Frameworks/Wechat",
+
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
+
+					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/WeChatSDK_1.5",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

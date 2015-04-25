@@ -120,6 +120,17 @@
     return [MZBWebService MZBWebService:params];
 }
 
++ (AFHTTPRequestOperation *)balanceOfUserQueries:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@" <ws:balanceOfUserQueries><registeredUserJson>%@</registeredUserJson></ws:balanceOfUserQueries>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+}
+
++ (AFHTTPRequestOperation *)balancesPay:(NSString *)jsonParam{
+    
+    return [MZBWebService MZBWebService:[NSString stringWithFormat:@"<ws:balancesPay><orderInfoJson>%@</orderInfoJson></ws:balancesPay>",jsonParam]];
+}
+
 
 #pragma mark - My Account
 

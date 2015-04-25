@@ -465,4 +465,66 @@
 
 }
 
+- (void)balanceOfUserQueriesWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result,NSNumber *resultInfo, NSError *error))block{
+    
+    AFHTTPRequestOperation *opration = [MZBWebService balanceOfUserQueries:jsonParam];
+    
+    [opration start];
+    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *html = operation.responseString;
+        //NSLog(@"html:%@",html);
+        
+        MyPaser *parser = [[MyPaser alloc] initWithContent:html];
+        [parser BeginToParse];
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@"%@",dic);
+        
+        NSNumber *serviceResult = [dic objectForKey:@"result"];
+        NSLog(@"balanceOfUserQueriesResult:%@",serviceResult);
+        
+        NSNumber *serviceResultInfo = [dic objectForKey:@"resultInfo"];
+        NSLog(@"balanceOfUserQueriesResultInfo:%@",serviceResultInfo);
+        
+        if (block) {
+            block(serviceResult,serviceResultInfo,nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil,nil,error);
+    }];
+}
+
+- (void)balancesPayWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result,NSNumber *resultInfo, NSError *error))block{
+    AFHTTPRequestOperation *opration = [MZBWebService balancesPay:jsonParam];
+    
+    [opration start];
+    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *html = operation.responseString;
+        //NSLog(@"html:%@",html);
+        
+        MyPaser *parser = [[MyPaser alloc] initWithContent:html];
+        [parser BeginToParse];
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@"%@",dic);
+        
+        NSNumber *serviceResult = [dic objectForKey:@"result"];
+        NSLog(@"balanceOfUserQueriesResult:%@",serviceResult);
+        
+        NSNumber *serviceResultInfo = [dic objectForKey:@"resultInfo"];
+        NSLog(@"balanceOfUserQueriesResultInfo:%@",serviceResultInfo);
+        
+        if (block) {
+            block(serviceResult,serviceResultInfo,nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil,nil,error);
+    }];
+
+}
+
 @end
