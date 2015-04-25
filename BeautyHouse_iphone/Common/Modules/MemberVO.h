@@ -10,4 +10,10 @@
 
 @interface MemberVO : NSObject
 
+@property (nonatomic,strong)NSString *configName;
+@property (nonatomic,strong)NSNumber *chargeMoney;
+@property (nonatomic,strong)NSNumber *giveMoney;
+
+- (void)parseWithDic:(NSDictionary *)dic;
+
 @end

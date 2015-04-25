@@ -66,9 +66,9 @@
 }
 
 
-- (void)updateCellWithJoinMemberVO:(JoinMemberVO *)joinMemberVO{
-    self.title.text = joinMemberVO.title;
-    self.detail.text = joinMemberVO.detail;
+- (void)updateCellWithJoinMemberVO:(MemberVO *)joinMemberVO{
+    self.title.text = joinMemberVO.configName;
+    self.detail.text = [NSString stringWithFormat:@"充%li(赠送%li)",(long)joinMemberVO.chargeMoney.integerValue,(long)joinMemberVO.giveMoney.integerValue];
     
 }
 

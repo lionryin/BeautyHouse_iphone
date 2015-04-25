@@ -10,4 +10,13 @@
 
 @implementation MemberVO
 
+- (void)parseWithDic:(NSDictionary *)dic{
+    
+    self.configName = dic[@"configName"];
+    self.chargeMoney = dic[@"chargeMoney"];
+    self.giveMoney= dic[@"giveMoney"];
+    
+}
+
+
 @end

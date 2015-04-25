@@ -7,7 +7,7 @@
 //
 
 #import "BaseTVC.h"
-
+#import "MemberVO.h"
 @interface JoinMemberVO : NSObject
 @property (nonatomic,strong)NSString *title;
 @property (nonatomic,strong)NSString *detail;
@@ -27,6 +27,6 @@
 
 @property (nonatomic,weak)id<MemberCenterJoinTVCDelegate>delegate;
 
-- (void)updateCellWithJoinMemberVO:(JoinMemberVO *)joinMemberVO;
+- (void)updateCellWithJoinMemberVO:(MemberVO *)joinMemberVO;
 
 @end

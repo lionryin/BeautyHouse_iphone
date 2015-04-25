@@ -132,12 +132,21 @@
 }
 
 
+
+#pragma mark - Member Center
+
++ (AFHTTPRequestOperation *)getAllMemberTypeWithParameter:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@"<ws:getAllMemberType/>"];
+    
+    return [MZBWebService MZBWebService:params];
+}
+
+
+
 #pragma mark - My Account
 
 
 
-
-#pragma mark - Member Center
 
 /**
  *@function 获取开通服务的城市

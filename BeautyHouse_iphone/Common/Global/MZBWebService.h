@@ -119,7 +119,7 @@
 #pragma mark - Member Center
 
 
-
++ (AFHTTPRequestOperation *)getAllMemberTypeWithParameter:(NSString *)jsonParam;
 
 
 

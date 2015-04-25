@@ -9,7 +9,8 @@
 #import "MemberCenterVC.h"
 #import "MemberCenterJoinTVC.h"
 #import "MemberCenterPrivilegeTVC.h"
-
+#import "MemberVO.h"
+#import "MZBWebService.h"
 
 @interface MemberCenterVC ()<UITableViewDataSource,UITableViewDelegate,MemberCenterJoinTVCDelegate>
 
@@ -47,6 +48,49 @@
         self.memberList = [[NSMutableArray alloc]init];
     }
     
+    AFHTTPRequestOperation *opration = [MZBWebService getAllMemberTypeWithParameter:nil];
+    
+    [opration start];
+    
+    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSData* data = [[NSData alloc] initWithBytes:[responseObject bytes] length:[responseObject length]];
+        NSString* result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        MyPaser *parser = [[MyPaser alloc] initWithContent:result];
+        [parser BeginToParse];
+        
+        
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@"%@",dic);
+        NSNumber *rst = dic[@"result"];
+        if (rst.integerValue == 0) {
+            
+            NSArray *list = dic[@"resultInfo"];
+            
+            for (NSDictionary *dic in list) {
+                MemberVO *memberVO = [[MemberVO alloc]init];
+                [memberVO parseWithDic:dic];
+                [self.memberList addObject:memberVO];
+            }
+            
+            [self.tableView reloadData];
+            
+        }
+        
+        
+        
+        
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        
+        
+    }];
+
+    /*
     JoinMemberVO *memberVO1=[[JoinMemberVO alloc]init];
     memberVO1.title = @"金卡:";
     memberVO1.detail = @"充100(返50)";
@@ -60,7 +104,7 @@
     JoinMemberVO *memberVO3=[[JoinMemberVO alloc]init];
     memberVO3.title = @"钻石卡:";
     memberVO3.detail = @"充500(返300)";
-    [self.memberList addObject:memberVO3];
+    [self.memberList addObject:memberVO3];*/
     
     if (self.privilegeList == nil) {
         self.privilegeList = [[NSMutableArray alloc] init];
@@ -101,7 +145,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     if (section == 0) {
-        return 3;
+        return self.memberList.count;
     }
     return 2;
 }
@@ -117,7 +161,7 @@
             
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        JoinMemberVO *memberVO = [self.memberList objectAtIndex:indexPath.row];
+        MemberVO *memberVO = [self.memberList objectAtIndex:indexPath.row];
         [cell updateCellWithJoinMemberVO:memberVO];
         return cell;
         
