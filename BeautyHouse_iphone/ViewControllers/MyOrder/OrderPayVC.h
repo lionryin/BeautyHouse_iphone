@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface OrderPayVC : UIViewController
+- (IBAction)nextStepButtonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *rmbTF;
 
 @end

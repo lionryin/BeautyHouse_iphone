@@ -76,13 +76,39 @@
     }
 }
 
-
+- (IBAction)nextStepButtonPressed:(id)sender {
+    if (_rmbTF.text.length <= 0) {
+        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"支付金额不能为空" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [av show];
+        return;
+    }
+    else {
+        if (_imageView1.highlighted) {//支付宝支付
+            
+        }
+        else if (_imageView2.highlighted){//现金支付
+            
+        }
+        else if (_imageView3.highlighted){//微信支付
+            
+        }
+        else if (_imageView4.highlighted){//余额支付
+            
+        }
+        else{
+            UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请选择一种支付方式" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+            [av show];
+            return;
+        }
+    }
+}
 
 #pragma mark - TextField delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
 }
+
 
 
 @end

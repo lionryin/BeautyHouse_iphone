@@ -11,6 +11,7 @@
                 <outlet property="imageView2" destination="oZ5-Qy-gEJ" id="mdt-YM-jPG"/>
                 <outlet property="imageView3" destination="gnx-uo-nwf" id="KUf-D0-fHa"/>
                 <outlet property="imageView4" destination="llN-Q5-xqt" id="wXd-66-cTB"/>
+                <outlet property="rmbTF" destination="Yrf-Cz-ARD" id="4dG-Kt-5d2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -86,7 +87,7 @@
                             <rect key="frame" x="8" y="2" width="44" height="36"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pay_unselected.png" highlightedImage="pay_selected.png" id="f9s-5w-R5L">
+                        <imageView userInteractionEnabled="NO" tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pay_unselected.png" highlightedImage="pay_selected.png" highlighted="YES" id="f9s-5w-R5L">
                             <rect key="frame" x="277" y="7" width="30" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -202,6 +203,19 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ny6-wQ-dm5">
+                    <rect key="frame" x="8" y="398" width="304" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.3167024101" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <state key="normal" title="下一步">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="nextStepButtonPressed:" destination="-1" eventType="touchUpInside" id="vVK-fV-lkl"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
