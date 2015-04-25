@@ -86,6 +86,27 @@
     }
     else {
         if (_imageView1.highlighted) {//支付宝支付
+            NSString *subPayInfo = @"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&subject=\"美宅宝\"&body=\"订单支付\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"&sign=\"M57EIluNFAusE%2BiI31iPZqlAAxVWthl0Cvg0Y9I5wEt0HUaUFkQgUIHWYeLLn2HLfa9oKo6adgq4AUZ2lSjvjTeqbryqB3zwKJcMDRtk%2F%2BQtv7Y3ymm8hmbFR3Ka14PitREsJmDPP3t%2Bc9Z%2FQv6PgQwZoYXJw6sX%2BB%2FtdpnwV3I%3D\"&sign_type=\"RSA\"";
+            
+            
+            NSString *payInfo = [NSString stringWithFormat:@"total_fee=\"%@\"&out_trade_no=\"%@\"&%@",self.rmbTF.text,self.orderVO.orderID,subPayInfo];
+            
+            
+            Alipay *pay = [Alipay defaultService];
+            
+            [pay pay:payInfo from:@"" callback:^(NSString *resultStr) {
+                
+                NSDictionary *jsonQuery=[self dictFromString:resultStr];
+                NSString *resultStatus = jsonQuery [@"ResultStatus"];
+                if (9000 == [resultStatus intValue]) {//支付成功
+                    
+                    
+                    
+                }else{
+                    
+                }
+                
+            }];
             
         }
         else if (_imageView2.highlighted){//现金支付
@@ -130,5 +151,20 @@
 }
 
 
+- (NSDictionary *)dictFromString:(NSString *)aString
+{
+    NSData *theData = [aString dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    NSError *error = nil;
+    
+    NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:theData options:kNilOptions error:&error];
+    
+    if (error) {
+        NSLog(@"error convert json string to dict,%@,%@", aString, error);
+        return nil;
+    }
+    else {
+        return resultDict;
+    }
+}
 
 @end

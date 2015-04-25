@@ -171,6 +171,9 @@
 		B0735C2B1AC273C4005A3E82 /* join_05.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C271AC273C4005A3E82 /* join_05.png */; };
 		B0735C2C1AC273C4005A3E82 /* join_06.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C281AC273C4005A3E82 /* join_06.png */; };
 		B0735C2D1AC273C4005A3E82 /* join_07.png in Resources */ = {isa = PBXBuildFile; fileRef = B0735C291AC273C4005A3E82 /* join_07.png */; };
+		B07A96971AEB7A8500260C66 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A96961AEB7A8500260C66 /* CoreTelephony.framework */; };
+		B07A96991AEB7AFA00260C66 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A96981AEB7AFA00260C66 /* Security.framework */; };
+		B07A969B1AEB7D7E00260C66 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A969A1AEB7D7E00260C66 /* libz.dylib */; };
 		B07FB3351AD8CAE2003C96C8 /* question.html in Resources */ = {isa = PBXBuildFile; fileRef = B07FB3331AD8CAE2003C96C8 /* question.html */; };
 		B07FB3361AD8CAE2003C96C8 /* user_agreement.html in Resources */ = {isa = PBXBuildFile; fileRef = B07FB3341AD8CAE2003C96C8 /* user_agreement.html */; };
 		B0A5D3571ACBAE0F00D60958 /* GoldenIconTradeRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A5D3561ACBAE0F00D60958 /* GoldenIconTradeRecordVC.m */; };
@@ -461,6 +464,9 @@
 		B0735C271AC273C4005A3E82 /* join_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_05.png; path = BeautyHouse_iphone/Res/join_05.png; sourceTree = SOURCE_ROOT; };
 		B0735C281AC273C4005A3E82 /* join_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_06.png; path = BeautyHouse_iphone/Res/join_06.png; sourceTree = SOURCE_ROOT; };
 		B0735C291AC273C4005A3E82 /* join_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = join_07.png; path = BeautyHouse_iphone/Res/join_07.png; sourceTree = SOURCE_ROOT; };
+		B07A96961AEB7A8500260C66 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		B07A96981AEB7AFA00260C66 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B07A969A1AEB7D7E00260C66 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		B07FB3331AD8CAE2003C96C8 /* question.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = question.html; path = BeautyHouse_iphone/Res/question.html; sourceTree = SOURCE_ROOT; };
 		B07FB3341AD8CAE2003C96C8 /* user_agreement.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = user_agreement.html; path = BeautyHouse_iphone/Res/user_agreement.html; sourceTree = SOURCE_ROOT; };
 		B0A5D3551ACBAE0F00D60958 /* GoldenIconTradeRecordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldenIconTradeRecordVC.h; sourceTree = "<group>"; };
@@ -486,6 +492,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B07A969B1AEB7D7E00260C66 /* libz.dylib in Frameworks */,
+				B07A96991AEB7AFA00260C66 /* Security.framework in Frameworks */,
+				B07A96971AEB7A8500260C66 /* CoreTelephony.framework in Frameworks */,
 				B009668E1ADA6908007DD934 /* libSocialWechat.a in Frameworks */,
 				B0B9EC0C1AE4930700FBE820 /* AlipaySDK.framework in Frameworks */,
 				B00966841ADA6908007DD934 /* libUMSocial_Sdk_4.2.1.a in Frameworks */,
@@ -516,6 +525,9 @@
 		A696C4C91AC1A5D900A860AD = {
 			isa = PBXGroup;
 			children = (
+				B07A969A1AEB7D7E00260C66 /* libz.dylib */,
+				B07A96981AEB7AFA00260C66 /* Security.framework */,
+				B07A96961AEB7A8500260C66 /* CoreTelephony.framework */,
 				A696C4D41AC1A5D900A860AD /* BeautyHouse_iphone */,
 				A696C4EE1AC1A5D900A860AD /* BeautyHouse_iphoneTests */,
 				A696C4D31AC1A5D900A860AD /* Products */,
