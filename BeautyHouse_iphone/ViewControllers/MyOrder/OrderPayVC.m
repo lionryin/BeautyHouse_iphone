@@ -40,6 +40,8 @@
     NSString *userId = [userDic objectForKey:UserLoginId];
     NSLog(@"userId:%@",userId);
     
+    NSLog(@"orderid:%@",_orderVO.orderID);
+    
     HomeService *homeService = [[HomeService alloc] init];
     [homeService balanceOfUserQueriesWithParam:[NSString stringWithFormat:@"{\"id\":\"%@\"}",userId] andWithBlock:^(NSNumber *result, NSNumber *resultInfo, NSError *error) {
         
