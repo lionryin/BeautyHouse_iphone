@@ -211,6 +211,9 @@
 		B0A981D81AEDF6AC00AFA50B /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A981D01AEDF6AC00AFA50B /* RSADataVerifier.m */; };
 		B0A981DB1AEDF74F00AFA50B /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A981D91AEDF74F00AFA50B /* libcrypto.a */; };
 		B0A981DC1AEDF74F00AFA50B /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A981DA1AEDF74F00AFA50B /* libssl.a */; };
+		B0A981DE1AEDF7A100AFA50B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A981DD1AEDF7A100AFA50B /* SystemConfiguration.framework */; };
+		B0A981E01AEDFC9200AFA50B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A981DF1AEDFC9200AFA50B /* QuartzCore.framework */; };
+		B0A981E21AEDFC9C00AFA50B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A981E11AEDFC9C00AFA50B /* CoreText.framework */; };
 		B0B9EC0B1AE4930700FBE820 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0B9EC091AE4930600FBE820 /* AlipaySDK.bundle */; };
 		B0B9EC0C1AE4930700FBE820 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B9EC0A1AE4930600FBE820 /* AlipaySDK.framework */; };
 		B0F681EE1AC6740B008DBE63 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F681ED1AC6740B008DBE63 /* LoginVC.m */; };
@@ -644,6 +647,9 @@
 		B0A981D01AEDF6AC00AFA50B /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
 		B0A981D91AEDF74F00AFA50B /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		B0A981DA1AEDF74F00AFA50B /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		B0A981DD1AEDF7A100AFA50B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B0A981DF1AEDFC9200AFA50B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B0A981E11AEDFC9C00AFA50B /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B0B9EC091AE4930600FBE820 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		B0B9EC0A1AE4930600FBE820 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		B0F681EC1AC6740B008DBE63 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
@@ -655,6 +661,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0A981E21AEDFC9C00AFA50B /* CoreText.framework in Frameworks */,
+				B0A981E01AEDFC9200AFA50B /* QuartzCore.framework in Frameworks */,
+				B0A981DE1AEDF7A100AFA50B /* SystemConfiguration.framework in Frameworks */,
 				B0A981DC1AEDF74F00AFA50B /* libssl.a in Frameworks */,
 				B07A969B1AEB7D7E00260C66 /* libz.dylib in Frameworks */,
 				B07A96991AEB7AFA00260C66 /* Security.framework in Frameworks */,
@@ -691,6 +700,9 @@
 		A696C4C91AC1A5D900A860AD = {
 			isa = PBXGroup;
 			children = (
+				B0A981E11AEDFC9C00AFA50B /* CoreText.framework */,
+				B0A981DF1AEDFC9200AFA50B /* QuartzCore.framework */,
+				B0A981DD1AEDF7A100AFA50B /* SystemConfiguration.framework */,
 				B07A969A1AEB7D7E00260C66 /* libz.dylib */,
 				B07A96981AEB7AFA00260C66 /* Security.framework */,
 				B07A96961AEB7A8500260C66 /* CoreTelephony.framework */,
@@ -1874,16 +1886,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Cui Lei (KCVJ79TP6B)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Cui Lei (KCVJ79TP6B)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
 				);
+				GCC_INPUT_FILETYPE = automatic;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
+					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart",
+					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/openssl",
 				);
 				INFOPLIST_FILE = BeautyHouse_iphone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1906,16 +1922,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: WUHAN EREAL SOFTWARE CO.,LTD";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
 				);
+				GCC_INPUT_FILETYPE = automatic;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
+					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart",
+					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/openssl",
 				);
 				INFOPLIST_FILE = BeautyHouse_iphone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
