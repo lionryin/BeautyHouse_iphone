@@ -255,11 +255,26 @@
 }
 
 
+- (NSString *)getUserId{
+    NSString *userId = nil;
+    
+    
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    
+    userId = [userDic objectForKey:UserLoginId];
+    
+    return userId;
+}
+
+
 - (void)exitAction:(id)sender{
     
     if (_flagIV1.tag == 2011) {//支付宝支付
         
-        NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"会员充值\"&total_fee=\"%.2f\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",@"xxxx",self.memberVO.chargeMoney.floatValue];
+        NSString *uuidString = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        NSString *tradeId = [NSString stringWithFormat:@"%@-%@",[self getUserId],uuidString];
+        
+        NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"会员充值\"&total_fee=\"%.2f\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",tradeId,self.memberVO.chargeMoney.floatValue];
         
         id <DataSigner> signer = CreateRSADataSigner(RSA_PRIVATE);
         NSString *signedString = [signer signString:subPayInfo];
@@ -275,7 +290,7 @@
             NSString *resultStatus = jsonQuery [@"ResultStatus"];
             if (9000 == [resultStatus intValue]) {//支付成功
                 
-                
+                [self.navigationController popViewControllerAnimated:YES];
                 
             }else{
                 
