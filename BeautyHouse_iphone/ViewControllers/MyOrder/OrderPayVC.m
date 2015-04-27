@@ -148,13 +148,13 @@
                 NSDictionary *jsonQuery=[self dictFromString:resultStr];
                 NSString *resultStatus = jsonQuery [@"ResultStatus"];
                 if (9000 == [resultStatus intValue]) {//支付成功
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"支付成功" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-                    alert.tag = 102;
-                    [alert show];
+                    if ([self.delegate respondsToSelector:@selector(orderPayVCPaySuccess)]) {
+                        [self.delegate orderPayVCPaySuccess];
+                    }
+                    [self.navigationController popViewControllerAnimated:YES];
+
 
                 }else{
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"支付失败，发生未知错误！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                    [alert show];
                 }
                 
             }];
