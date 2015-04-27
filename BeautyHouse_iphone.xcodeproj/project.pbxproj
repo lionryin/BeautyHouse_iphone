@@ -209,6 +209,8 @@
 		B0A981D61AEDF6AC00AFA50B /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A981CC1AEDF6AC00AFA50B /* openssl_wrapper.m */; };
 		B0A981D71AEDF6AC00AFA50B /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A981CE1AEDF6AC00AFA50B /* RSADataSigner.m */; };
 		B0A981D81AEDF6AC00AFA50B /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A981D01AEDF6AC00AFA50B /* RSADataVerifier.m */; };
+		B0A981DB1AEDF74F00AFA50B /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A981D91AEDF74F00AFA50B /* libcrypto.a */; };
+		B0A981DC1AEDF74F00AFA50B /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A981DA1AEDF74F00AFA50B /* libssl.a */; };
 		B0B9EC0B1AE4930700FBE820 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0B9EC091AE4930600FBE820 /* AlipaySDK.bundle */; };
 		B0B9EC0C1AE4930700FBE820 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B9EC0A1AE4930600FBE820 /* AlipaySDK.framework */; };
 		B0F681EE1AC6740B008DBE63 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F681ED1AC6740B008DBE63 /* LoginVC.m */; };
@@ -640,6 +642,8 @@
 		B0A981CE1AEDF6AC00AFA50B /* RSADataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataSigner.m; sourceTree = "<group>"; };
 		B0A981CF1AEDF6AC00AFA50B /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
 		B0A981D01AEDF6AC00AFA50B /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
+		B0A981D91AEDF74F00AFA50B /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		B0A981DA1AEDF74F00AFA50B /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		B0B9EC091AE4930600FBE820 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		B0B9EC0A1AE4930600FBE820 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		B0F681EC1AC6740B008DBE63 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
@@ -651,6 +655,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0A981DC1AEDF74F00AFA50B /* libssl.a in Frameworks */,
 				B07A969B1AEB7D7E00260C66 /* libz.dylib in Frameworks */,
 				B07A96991AEB7AFA00260C66 /* Security.framework in Frameworks */,
 				B07A96971AEB7A8500260C66 /* CoreTelephony.framework in Frameworks */,
@@ -659,6 +664,7 @@
 				B00966841ADA6908007DD934 /* libUMSocial_Sdk_4.2.1.a in Frameworks */,
 				B009668F1ADA6908007DD934 /* libWeChatSDK.a in Frameworks */,
 				A6B24BA81AEB82DE00C76124 /* libWeChatSDK.a in Frameworks */,
+				B0A981DB1AEDF74F00AFA50B /* libcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,6 +813,8 @@
 		A696C5051AC1A73500A860AD /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				B0A981D91AEDF74F00AFA50B /* libcrypto.a */,
+				B0A981DA1AEDF74F00AFA50B /* libssl.a */,
 				B0A981731AEDF6AB00AFA50B /* openssl */,
 				B0A981BF1AEDF6AC00AFA50B /* Util */,
 				A6B24BB11AEB983400C76124 /* ASIHttp */,
@@ -1886,6 +1894,7 @@
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/WeChatSDK_1.5",
+					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1917,6 +1926,7 @@
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/UMSocial_Sdk_Extra_Frameworks/Wechat",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/WeChatSDK_1.5",
+					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
