@@ -496,7 +496,7 @@
     }];
 }
 
-- (void)balancesPayWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result,NSNumber *resultInfo, NSError *error))block{
+- (void)balancesPayWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result, NSError *error))block{
     AFHTTPRequestOperation *opration = [MZBWebService balancesPay:jsonParam];
     
     [opration start];
@@ -514,15 +514,15 @@
         NSNumber *serviceResult = [dic objectForKey:@"result"];
         NSLog(@"balanceOfUserQueriesResult:%@",serviceResult);
         
-        NSNumber *serviceResultInfo = [dic objectForKey:@"resultInfo"];
-        NSLog(@"balanceOfUserQueriesResultInfo:%@",serviceResultInfo);
+        //NSNumber *serviceResultInfo = [dic objectForKey:@"resultInfo"];
+        //NSLog(@"balanceOfUserQueriesResultInfo:%@",serviceResultInfo);
         
         if (block) {
-            block(serviceResult,serviceResultInfo,nil);
+            block(serviceResult,nil);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        block(nil,nil,error);
+        block(nil,error);
     }];
 
 }

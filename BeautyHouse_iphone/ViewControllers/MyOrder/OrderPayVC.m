@@ -23,12 +23,14 @@
 #import "Common.h"
 
 
-@interface OrderPayVC ()<UITextFieldDelegate,OrderPaySuccessDelegate>
+@interface OrderPayVC ()<UITextFieldDelegate,OrderPaySuccessDelegate,UIAlertViewDelegate>
 - (IBAction)payButtonSelecked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView1;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView2;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView3;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView4;
+
+@property (nonatomic) double yue;
 
 @end
 
@@ -39,6 +41,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"订单支付";
+    _yue = 0;
     
     NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
     NSString *userId = [userDic objectForKey:UserLoginId];
@@ -53,10 +56,11 @@
             if ([result integerValue] == 0) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     _yueLabel.text = [NSString stringWithFormat:@"余额%.2f",[resultInfo doubleValue]];
+                    _yue = [resultInfo doubleValue];
                 });
             }
             else{
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"获取余额失败！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                 [alert show];
             }
         }
@@ -203,6 +207,33 @@
         }
         else if (_imageView4.highlighted){//余额支付
             
+            if (_yue < [_rmbTF.text doubleValue]) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"余额不足" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                [alert show];
+                
+                return;
+            }
+            
+            NSString *param = [NSString stringWithFormat:@"{\"sex\":null,\"orderDateTime\":null,\"serviceDate\":null,\"memo\":null,\"deductions\":%@,\"houseSize\":null,\"ageInterval\":null,\"registeredUser\":null,\"checkOrderInfo\":null,\"auntInfo\":null,\"auntId\":null,\"orderDateTimeStart\":null,\"dictionarys\":null,\"id\":\"%@\",\"orderDateTimeEnd\":null,\"level\":null,\"serviceUser\":null,\"consumables\":null,\"otherNeed\":null,\"registeredUserId\":null,\"serviceCategory\":null,\"cleaningKit\":null,\"orderStatue\":null,\"completeTime\":null,\"serviceAddress\":null}",_rmbTF.text,_orderVO.orderID];
+            HomeService *homeService = [[HomeService alloc] init];
+            [homeService balancesPayWithParam:param andWithBlock:^(NSNumber *result, NSError *error) {
+                if (!error) {
+                    if ([result integerValue] == 0) {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"支付成功" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                        alert.tag = 101;
+                        [alert show];
+                    }
+                    else{
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        [alert show];
+                    }
+                }
+                else{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+            }];
+            
         }
         else{
             UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请选择一种支付方式" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
@@ -240,5 +271,17 @@
         return resultDict;
     }
 }
+
+#pragma mark - alertView delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag == 101) {
+        if ([self.delegate respondsToSelector:@selector(orderPayVCPaySuccess)]) {
+            [self.delegate orderPayVCPaySuccess];
+        }
+
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 
 @end

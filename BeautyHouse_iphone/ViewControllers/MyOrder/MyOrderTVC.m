@@ -236,25 +236,27 @@
         
         _auntNameLabel.text = orderVO.auntName;
         
-        if ([orderVO.auntLevel isEqualToString:@"1.0"]) {
+        double level = [orderVO.auntLevel doubleValue];
+        
+        if (level >= 0.2 && level<0.4) {
             _levelImageView1.highlighted = YES;
         }
-        else if ([orderVO.auntLevel isEqualToString:@"2.0"]){
+        else if (level>=0.4 && level<0.6){
             _levelImageView1.highlighted = YES;
             _levelImageView2.highlighted = YES;
         }
-        else if ([orderVO.auntLevel isEqualToString:@"3.0"]){
+        else if (level>=0.6 && level<0.8){
             _levelImageView1.highlighted = YES;
             _levelImageView2.highlighted = YES;
             _levelImageView3.highlighted = YES;
         }
-        else if ([orderVO.auntLevel isEqualToString:@"4.0"]){
+        else if (level>=0.8 && level<1.0){
             _levelImageView1.highlighted = YES;
             _levelImageView2.highlighted = YES;
             _levelImageView3.highlighted = YES;
             _levelImageView4.highlighted = YES;
         }
-        else if ([orderVO.auntLevel isEqualToString:@"5.0"]){
+        else if (level== 1.0){
             _levelImageView1.highlighted = YES;
             _levelImageView2.highlighted = YES;
             _levelImageView3.highlighted = YES;

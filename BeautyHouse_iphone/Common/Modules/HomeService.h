@@ -47,6 +47,6 @@
 - (void)balanceOfUserQueriesWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result,NSNumber *resultInfo, NSError *error))block;
 
 //登陆用户余额支付订单
-- (void)balancesPayWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result,NSNumber *resultInfo, NSError *error))block;
+- (void)balancesPayWithParam:(NSString *)jsonParam andWithBlock:(void (^)(NSNumber *result, NSError *error))block;
 
 @end
