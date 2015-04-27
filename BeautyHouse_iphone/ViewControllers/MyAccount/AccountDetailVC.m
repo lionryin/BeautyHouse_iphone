@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"账户详情";
-    self.balance = 0.0;
+    self.balance = 0.00;
     [self initMainUI];
     
     [self getCashBalance];
@@ -215,7 +215,7 @@
         label.textColor = [UIColor darkTextColor];
         [header addSubview:label];
         
-        label.text = [NSString stringWithFormat:@"     账户余额:         %.1f",self.balance];
+        label.text = [NSString stringWithFormat:@"     账户余额:         %.2f",self.balance];
         
         UIView *bottomLine = [[UIView alloc]initWithFrame:CGRectMake(0, header.frame.size.height-0.5, header.frame.size.width, 0.5)];
         bottomLine.backgroundColor = [UIColor colorWithRed:210.0/255 green:210.0/255 blue:210.0/255 alpha:1.0];
