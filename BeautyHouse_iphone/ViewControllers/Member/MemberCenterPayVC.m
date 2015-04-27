@@ -9,6 +9,8 @@
 #import "MemberCenterPayVC.h"
 #import <AlipaySDK.framework/Headers/Alipay.h>
 
+#import "DataSigner.h"
+#import "Common.h"
 
 @interface MemberCenterPayVC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -257,12 +259,12 @@
     
     if (_flagIV1.tag == 2011) {//支付宝支付
         
-        NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"会员充值\"&total_fee=\"%.2f\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",@"xxx",self.memberVO.chargeMoney.floatValue];
+        NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"会员充值\"&total_fee=\"%.2f\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",@"xxxx",self.memberVO.chargeMoney.floatValue];
         
-        //NSString *subPayInfo = @"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&subject=\"美宅宝\"&body=\"会员充值\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"&sign=\"M57EIluNFAusE%2BiI31iPZqlAAxVWthl0Cvg0Y9I5wEt0HUaUFkQgUIHWYeLLn2HLfa9oKo6adgq4AUZ2lSjvjTeqbryqB3zwKJcMDRtk%2F%2BQtv7Y3ymm8hmbFR3Ka14PitREsJmDPP3t%2Bc9Z%2FQv6PgQwZoYXJw6sX%2BB%2FtdpnwV3I%3D\"&sign_type=\"RSA\"";
-        //NSString *sign =
+        id <DataSigner> signer = CreateRSADataSigner(RSA_PRIVATE);
+        NSString *signedString = [signer signString:subPayInfo];
         
-        NSString *payInfo = [NSString stringWithFormat:@"%@",subPayInfo];
+        NSString *payInfo = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",subPayInfo,signedString,@"RSA"];
         
         
         Alipay *pay = [Alipay defaultService];
@@ -280,6 +282,8 @@
             }
             
         }];
+
+        
         
     }else if (_flagIV2.tag == 2021){//微信支付
         
