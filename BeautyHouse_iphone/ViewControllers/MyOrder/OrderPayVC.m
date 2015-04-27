@@ -148,11 +148,13 @@
                 NSDictionary *jsonQuery=[self dictFromString:resultStr];
                 NSString *resultStatus = jsonQuery [@"ResultStatus"];
                 if (9000 == [resultStatus intValue]) {//支付成功
-                    
-                    
-                    
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"支付成功" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                    alert.tag = 102;
+                    [alert show];
+
                 }else{
-                    
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"支付失败，发生未知错误！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    [alert show];
                 }
                 
             }];
@@ -224,7 +226,7 @@
                         [alert show];
                     }
                     else{
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"支付失败，发生未知错误！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                         [alert show];
                     }
                 }
@@ -274,7 +276,7 @@
 
 #pragma mark - alertView delegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (alertView.tag == 101) {
+    if (alertView.tag == 101 || alertView.tag == 102) {
         if ([self.delegate respondsToSelector:@selector(orderPayVCPaySuccess)]) {
             [self.delegate orderPayVCPaySuccess];
         }
