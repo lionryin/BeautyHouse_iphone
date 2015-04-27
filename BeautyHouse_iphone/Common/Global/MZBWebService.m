@@ -193,7 +193,7 @@
 
 //登录用户的费用明细查询
 + (AFHTTPRequestOperation *)getListRechargeInfoWithParameter:(NSString *)jsonParam{
-    NSString *params = [NSString stringWithFormat:@"<getListRechargeInfo><rechargeInfoJson>%@</rechargeInfoJson></ws:getListRechargeInfo>",jsonParam];
+    NSString *params = [NSString stringWithFormat:@"<ws:getListRechargeInfo><rechargeInfoJson>%@</rechargeInfoJson></ws:getListRechargeInfo>",jsonParam];
     
     return [MZBWebService MZBWebService:params];
 }
@@ -201,7 +201,7 @@
 
 //问题反馈或建议
 + (AFHTTPRequestOperation *)saveMenberFeedBackWithParameter:(NSString *)jsonParam{
-    NSString *params = [NSString stringWithFormat:@"<saveMenberFeedBack><menberFeedBackJson>%@</menberFeedBackJson></ws:saveMenberFeedBack>",jsonParam];
+    NSString *params = [NSString stringWithFormat:@"<ws:saveMenberFeedBack><menberFeedBackJson>%@</menberFeedBackJson></ws:saveMenberFeedBack>",jsonParam];
     
     return [MZBWebService MZBWebService:params];
 }

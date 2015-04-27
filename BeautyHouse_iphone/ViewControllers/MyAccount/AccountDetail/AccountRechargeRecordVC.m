@@ -7,10 +7,13 @@
 //
 
 #import "AccountRechargeRecordVC.h"
+#import "AccountExpenseRecordTVC.h"
+#import "MZBWebService.h"
 
 @interface AccountRechargeRecordVC ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *list;
 
 @end
 @implementation AccountRechargeRecordVC
@@ -19,34 +22,86 @@
     [super viewDidLoad];
     self.title = @"充值记录";
     [self initMainUI];
+    [self getExpenseRecord];
 }
 
 - (void)initMainUI{
     
     self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.dataSource = self;
-    
+    self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
     
 }
 
-- (void)getRechargeRecord{
+- (NSString *)getUserId{
+    NSString *userId = nil;
+    
+    
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    
+    userId = [userDic objectForKey:UserLoginId];
+    
+    return userId;
+}
+
+
+- (void)getExpenseRecord{
+    
+    NSString *param = [NSString stringWithFormat:@"{\"memberId\":\"%@\",\"sign\":\"1\"}",[self getUserId]];
+    
+    AFHTTPRequestOperation *opration = [MZBWebService getListRechargeInfoWithParameter:param];
+    
+    [opration start];
+    
+    [opration setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSData* data = [[NSData alloc] initWithBytes:[responseObject bytes] length:[responseObject length]];
+        NSString* result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        MyPaser *parser = [[MyPaser alloc] initWithContent:result];
+        [parser BeginToParse];
+        
+        
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@"%@",dic);
+        NSNumber *rst = dic[@"result"];
+        if (rst.integerValue == 0) {
+            
+            NSArray *list = dic[@"resultInfo"];
+            
+            self.list = list;
+            [self.tableView reloadData];
+            
+        }
+        
+        
+        
+        
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        
+        
+    }];
     
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.list.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *reuserIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuserIdentifier];
+    AccountExpenseRecordTVC *cell = [tableView dequeueReusableCellWithIdentifier:reuserIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuserIdentifier];
+        cell = [[AccountExpenseRecordTVC alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuserIdentifier];
         
     }
     
-    cell.textLabel.text = @"充值记录测试数据";
+    [cell updateCellWithDictionary:self.list[indexPath.row]];
     
     return cell;
 }
@@ -55,8 +110,8 @@
     return @"充值记录";
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 40;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 90;
 }
 
 @end

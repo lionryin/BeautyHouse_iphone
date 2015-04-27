@@ -30,7 +30,7 @@
     
     self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.dataSource = self;
-    
+    self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
     
 }
@@ -73,11 +73,6 @@
             
             NSArray *list = dic[@"resultInfo"];
             
-//            for (NSDictionary *dic in list) {
-//                MemberVO *memberVO = [[MemberVO alloc]init];
-//                [memberVO parseWithDic:dic];
-//                [self.memberList addObject:memberVO];
-//            }
             self.list = list;
             [self.tableView reloadData];
             
@@ -117,7 +112,7 @@
     return @"消费记录";
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 90;
 }
 
