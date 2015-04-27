@@ -14,9 +14,13 @@
 #import "HomeService.h"
 #import "OrderPaySuccessVC.h"
 
+
 #import "Constant.h"
 //#import <MBProgressHUD/MBProgressHUD.h>
 #import "WXPayClient.h"
+
+
+#import "Common.h"
 
 
 @interface OrderPayVC ()<UITextFieldDelegate,OrderPaySuccessDelegate>
@@ -124,10 +128,15 @@
     }
     else {
         if (_imageView1.highlighted) {//支付宝支付
-            NSString *subPayInfo = @"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&subject=\"美宅宝\"&body=\"订单支付\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"&sign=\"M57EIluNFAusE%2BiI31iPZqlAAxVWthl0Cvg0Y9I5wEt0HUaUFkQgUIHWYeLLn2HLfa9oKo6adgq4AUZ2lSjvjTeqbryqB3zwKJcMDRtk%2F%2BQtv7Y3ymm8hmbFR3Ka14PitREsJmDPP3t%2Bc9Z%2FQv6PgQwZoYXJw6sX%2BB%2FtdpnwV3I%3D\"&sign_type=\"RSA\"";
             
+            NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"会员充值\"&total_fee=\"%@\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",self.orderVO.orderID,self.rmbTF.text];
             
-            NSString *payInfo = [NSString stringWithFormat:@"total_fee=\"%@\"&out_trade_no=\"%@\"&%@",self.rmbTF.text,self.orderVO.orderID,subPayInfo];
+            //NSString *sign = [Alipay pk]
+            
+//            NSString *subPayInfo = @"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&subject=\"美宅宝\"&body=\"订单支付\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"&sign=\"M57EIluNFAusE%2BiI31iPZqlAAxVWthl0Cvg0Y9I5wEt0HUaUFkQgUIHWYeLLn2HLfa9oKo6adgq4AUZ2lSjvjTeqbryqB3zwKJcMDRtk%2F%2BQtv7Y3ymm8hmbFR3Ka14PitREsJmDPP3t%2Bc9Z%2FQv6PgQwZoYXJw6sX%2BB%2FtdpnwV3I%3D\"&sign_type=\"RSA\"";
+//            
+//            
+            NSString *payInfo = [NSString stringWithFormat:@"total_fee=\"%@\"&out_trade_no=\"%@\"&%@",@"xxx",subPayInfo];
             
             
             Alipay *pay = [Alipay defaultService];
