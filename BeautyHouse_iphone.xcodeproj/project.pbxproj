@@ -195,6 +195,7 @@
 		B07A96A11AEB8E7A00260C66 /* MemberCenterPayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A96A01AEB8E7A00260C66 /* MemberCenterPayVC.m */; };
 		B07FB3351AD8CAE2003C96C8 /* question.html in Resources */ = {isa = PBXBuildFile; fileRef = B07FB3331AD8CAE2003C96C8 /* question.html */; };
 		B07FB3361AD8CAE2003C96C8 /* user_agreement.html in Resources */ = {isa = PBXBuildFile; fileRef = B07FB3341AD8CAE2003C96C8 /* user_agreement.html */; };
+		B0A2C8AB1AEE83E000982368 /* AccountExpenseRecordTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A2C8AA1AEE83E000982368 /* AccountExpenseRecordTVC.m */; };
 		B0A5D3571ACBAE0F00D60958 /* GoldenIconTradeRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A5D3561ACBAE0F00D60958 /* GoldenIconTradeRecordVC.m */; };
 		B0A5D35A1ACBAE4A00D60958 /* GoldenIconExchangeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A5D3591ACBAE4A00D60958 /* GoldenIconExchangeVC.m */; };
 		B0A5D35D1ACBAEC400D60958 /* AccountRechargeRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A5D35C1ACBAEC400D60958 /* AccountRechargeRecordVC.m */; };
@@ -541,6 +542,8 @@
 		B07A96A01AEB8E7A00260C66 /* MemberCenterPayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberCenterPayVC.m; sourceTree = "<group>"; };
 		B07FB3331AD8CAE2003C96C8 /* question.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = question.html; path = BeautyHouse_iphone/Res/question.html; sourceTree = SOURCE_ROOT; };
 		B07FB3341AD8CAE2003C96C8 /* user_agreement.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = user_agreement.html; path = BeautyHouse_iphone/Res/user_agreement.html; sourceTree = SOURCE_ROOT; };
+		B0A2C8A91AEE83DF00982368 /* AccountExpenseRecordTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountExpenseRecordTVC.h; sourceTree = "<group>"; };
+		B0A2C8AA1AEE83E000982368 /* AccountExpenseRecordTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountExpenseRecordTVC.m; sourceTree = "<group>"; };
 		B0A5D3551ACBAE0F00D60958 /* GoldenIconTradeRecordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldenIconTradeRecordVC.h; sourceTree = "<group>"; };
 		B0A5D3561ACBAE0F00D60958 /* GoldenIconTradeRecordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoldenIconTradeRecordVC.m; sourceTree = "<group>"; };
 		B0A5D3581ACBAE4A00D60958 /* GoldenIconExchangeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldenIconExchangeVC.h; sourceTree = "<group>"; };
@@ -1325,6 +1328,8 @@
 				B0A5D35C1ACBAEC400D60958 /* AccountRechargeRecordVC.m */,
 				B0A5D35E1ACBAEF500D60958 /* AccountExpenseRecordVC.h */,
 				B0A5D35F1ACBAEF500D60958 /* AccountExpenseRecordVC.m */,
+				B0A2C8A91AEE83DF00982368 /* AccountExpenseRecordTVC.h */,
+				B0A2C8AA1AEE83E000982368 /* AccountExpenseRecordTVC.m */,
 				B0A5D3611ACBAF2E00D60958 /* AccountRechargeVC.h */,
 				B0A5D3621ACBAF2E00D60958 /* AccountRechargeVC.m */,
 				B0A5D3641ACBAF7D00D60958 /* AccountFamilyStewardVC.h */,
@@ -1666,6 +1671,7 @@
 				B01EC0441ACA69490049FC7D /* UserProtocolVC.m in Sources */,
 				A6694CC21AD2B41900339A2B /* MzbAddress.m in Sources */,
 				B0A5D3571ACBAE0F00D60958 /* GoldenIconTradeRecordVC.m in Sources */,
+				B0A2C8AB1AEE83E000982368 /* AccountExpenseRecordTVC.m in Sources */,
 				A6B24BCF1AEB983400C76124 /* ASINetworkQueue.m in Sources */,
 				A6FFFA1E1AD8177F00A544C5 /* UIScrollView+MJExtension.m in Sources */,
 				A696C51A1AC1A8C200A860AD /* MyPaser.m in Sources */,
