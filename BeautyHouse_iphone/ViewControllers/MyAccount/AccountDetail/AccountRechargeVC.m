@@ -75,7 +75,7 @@
     if (section == 0) {
         return 1;
     }
-    return 2;
+    return 1;//2
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
