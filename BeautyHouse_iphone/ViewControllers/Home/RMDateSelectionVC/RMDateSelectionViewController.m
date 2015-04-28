@@ -41,7 +41,10 @@
 
 @property (nonatomic, strong) UIView *backgroundView;
 
-@property (strong, nonatomic) NSString *selectedTime;
+@property (strong, nonatomic) NSString *selecteddd;
+@property (strong, nonatomic) NSString *selectedHH;
+@property (strong, nonatomic) NSString *selectedmm;
+
 @property (strong, nonatomic) NSDate *nowDate;
 
 
@@ -152,7 +155,10 @@
     self.selectButton.layer.cornerRadius = 5;
     
     _nowDate = [NSDate date];
-    self.selectedTime = [NSString stringWithFormat:@"%@ 08:00:00",[self getDateWithRow:0]];
+    //self.selectedTime = [[NSString stringWithFormat:@"%@ 08:00:00",[self getDateWithRow:0]] mutableCopy];
+    self.selecteddd = [self getDateWithRow:0];
+    self.selectedHH = [NSString stringWithFormat:@"%02d",(8+0)];
+    self.selectedmm = [NSString stringWithFormat:@"%02d",30*0];
 
 }
 
@@ -229,7 +235,8 @@
 #pragma mark - Actions
 - (IBAction)doneButtonPressed:(id)sender {
     //[self.delegate dateSelectionViewController:self didSelectDate:self.datePicker.date];
-    [self.delegate dateSelectionViewController:self didSelectDate:self.selectedTime];
+    NSString *selectedTime = [NSString stringWithFormat:@"%@ %@:%@:00",self.selecteddd,self.selectedHH,self.selectedmm];
+    [self.delegate dateSelectionViewController:self didSelectDate:selectedTime];
     [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.1];
 }
 
@@ -303,7 +310,20 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     ////
     
-    self.selectedTime = [NSString stringWithFormat:@"%@ %02ld:%02ld:00",[self getDateWithRow:row],(8+row),30*row];
+    if (component == 0) {
+        self.selecteddd = [self getDateWithRow:row];
+    }
+    else if (component == 1){
+        self.selectedHH = [NSString stringWithFormat:@"%02ld",(8+row)];
+    }
+    else{
+        self.selectedmm = [NSString stringWithFormat:@"%02ld",30*row];
+    }
+    
+    //NSLog(@"selectedStr:%@",selectedStr);
+
+    
+    //self.selectedTime = [[NSString stringWithFormat:@"%@ 08:00:00",[self getDateWithRow:0]] mutableCopy];
 }
 
 @end
