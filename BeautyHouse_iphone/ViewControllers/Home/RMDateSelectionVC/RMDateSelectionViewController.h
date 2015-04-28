@@ -19,7 +19,7 @@
  
  @param aDate The selected date.
  */
-- (void)dateSelectionViewController:(RMDateSelectionViewController *)vc didSelectDate:(NSDate *)aDate;
+- (void)dateSelectionViewController:(RMDateSelectionViewController *)vc didSelectDate:(NSString *)aDate;
 
 /**
  This delegate method is called when the user selects the cancel button.
@@ -36,7 +36,7 @@
 /**
  Will return the instance of UIDatePicker that is used. This property will be nil until -[RMDateSelectionViewController show] or -[RMDateSelectionViewController showFromViewController:] is called.
  */
-@property (weak, readonly) UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UIPickerView *datePicker;
 
 /**
  Used to set the delegate.

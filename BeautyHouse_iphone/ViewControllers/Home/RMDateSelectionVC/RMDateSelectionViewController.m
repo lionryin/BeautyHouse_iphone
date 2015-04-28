@@ -20,7 +20,7 @@
 
 #import "RMDateSelectionViewController.h"
 
-@interface RMDateSelectionViewController ()
+@interface RMDateSelectionViewController ()<UIPickerViewDataSource,UIPickerViewDelegate>
 
 @property (nonatomic, weak) UIViewController *rootViewController;
 
@@ -32,7 +32,7 @@
 @property (weak) IBOutlet UIButton *nowButton;
 
 @property (weak) IBOutlet UIView *datePickerContainer;
-@property (weak, readwrite) IBOutlet UIDatePicker *datePicker;
+//@property (weak, readwrite) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *pickerHeightConstraint;
 
 @property (weak) IBOutlet UIView *cancelAndSelectButtonContainer;
@@ -40,6 +40,9 @@
 @property (weak) IBOutlet UIButton *selectButton;
 
 @property (nonatomic, strong) UIView *backgroundView;
+
+@property (strong, nonatomic) NSString *selectedTime;
+@property (strong, nonatomic) NSDate *nowDate;
 
 
 @end
@@ -147,6 +150,9 @@
     self.cancelAndSelectButtonContainer.layer.cornerRadius = 5;
     self.cancelButton.layer.cornerRadius = 5;
     self.selectButton.layer.cornerRadius = 5;
+    
+    _nowDate = [NSDate date];
+    self.selectedTime = [NSString stringWithFormat:@"%@ 08:00:00",[self getDateWithRow:0]];
 
 }
 
@@ -222,7 +228,8 @@
 
 #pragma mark - Actions
 - (IBAction)doneButtonPressed:(id)sender {
-    [self.delegate dateSelectionViewController:self didSelectDate:self.datePicker.date];
+    //[self.delegate dateSelectionViewController:self didSelectDate:self.datePicker.date];
+    [self.delegate dateSelectionViewController:self didSelectDate:self.selectedTime];
     [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.1];
 }
 
@@ -232,7 +239,71 @@
 }
 
 - (IBAction)nowButtonPressed:(id)sender {
-    [self.datePicker setDate:[NSDate date] animated:YES];
+   // [self.datePicker setDate:[NSDate date] animated:YES];
+}
+
+
+
+#pragma mark - PickView delegate
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 3;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    if (component == 0) {
+        return 7;
+    }
+    else if (component == 1){
+        return 11;
+    }
+    else{
+        return 2;
+    }
+}
+
+- (NSString *)getDateWithRow:(NSInteger)row {
+    //NSDate *nowDate = [NSDate date];
+    
+    NSTimeInterval  oneDay = 24*60*60*1;  //1天的长度
+    NSDate *theDate = [_nowDate initWithTimeIntervalSinceNow:+oneDay*(row+1)];
+    
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    formatter.dateFormat=@"yy-MM-dd";
+    NSString *timeStr=[formatter stringFromDate:theDate];
+    
+    return timeStr;
+}
+
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    if (component == 0) {
+        return [self getDateWithRow:row];
+    }
+    else if (component == 1){
+        return [NSString stringWithFormat:@"%02ld:00",(8+row)];
+    }
+    else{
+        return [NSString stringWithFormat:@"%02ld",30*row];;
+    }
+
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component{
+    if (component == 0) {
+        return 120;
+    }
+    else if (component == 1){
+        return 80;
+    }
+    else{
+        return 80;
+    }
+
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    ////
+    
+    self.selectedTime = [NSString stringWithFormat:@"%@ %02ld:%02ld:00",[self getDateWithRow:row],(8+row),30*row];
 }
 
 @end
