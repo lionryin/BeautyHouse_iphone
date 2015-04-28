@@ -157,7 +157,7 @@
 - (void)dateSelectionViewController:(RMDateSelectionViewController *)vc didSelectDate:(NSDate *)aDate {
     
     NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
-    formatter.dateFormat=@"yy-MM-dd eee HH:mm";
+    formatter.dateFormat=@"yy-MM-dd HH:mm:ss";
     NSString *timeStr=[formatter stringFromDate:aDate];
     NSLog(@"Successfully selected date: %@", timeStr);
     

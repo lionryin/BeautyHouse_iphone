@@ -81,10 +81,10 @@ NSString *expiresInKey = @"expires_in";
     // 构造参数列表
     NSMutableDictionary *params = [NSMutableDictionary dictionary]; 
     [params setObject:@"WX" forKey:@"bank_type"];
-    [params setObject:@"美宅宝" forKey:@"body"];
+    [params setObject:@"订单支付" forKey:@"body"];
     [params setObject:@"1" forKey:@"fee_type"];
     [params setObject:@"UTF-8" forKey:@"input_charset"];
-    [params setObject:@"http://weixin.qq.com" forKey:@"notify_url"];
+    [params setObject:@"http://www.mrchabo.com" forKey:@"notify_url"];
     [params setObject:[self genOutTradNo] forKey:@"out_trade_no"]; 
     [params setObject:WXPartnerId forKey:@"partner"];
     [params setObject:[CommonUtil getIPAddress:YES] forKey:@"spbill_create_ip"];

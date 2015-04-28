@@ -42,6 +42,7 @@
     
     self.title = @"订单支付";
     _yue = 0;
+    _imageView1.highlighted = YES;
     
     NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
     NSString *userId = [userDic objectForKey:UserLoginId];
