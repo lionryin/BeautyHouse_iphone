@@ -220,6 +220,7 @@
 		B0A981E21AEDFC9C00AFA50B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A981E11AEDFC9C00AFA50B /* CoreText.framework */; };
 		B0B9EC0B1AE4930700FBE820 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0B9EC091AE4930600FBE820 /* AlipaySDK.bundle */; };
 		B0B9EC0C1AE4930700FBE820 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B9EC0A1AE4930600FBE820 /* AlipaySDK.framework */; };
+		B0DE9A0C1AF1C7A90048927C /* CountdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DE9A0B1AF1C7A90048927C /* CountdownButton.m */; };
 		B0F681EE1AC6740B008DBE63 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F681ED1AC6740B008DBE63 /* LoginVC.m */; };
 /* End PBXBuildFile section */
 
@@ -663,6 +664,8 @@
 		B0A981E11AEDFC9C00AFA50B /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B0B9EC091AE4930600FBE820 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		B0B9EC0A1AE4930600FBE820 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		B0DE9A0A1AF1C7A90048927C /* CountdownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownButton.h; sourceTree = "<group>"; };
+		B0DE9A0B1AF1C7A90048927C /* CountdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownButton.m; sourceTree = "<group>"; };
 		B0F681EC1AC6740B008DBE63 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		B0F681ED1AC6740B008DBE63 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1482,6 +1485,8 @@
 			children = (
 				B0F681EC1AC6740B008DBE63 /* LoginVC.h */,
 				B0F681ED1AC6740B008DBE63 /* LoginVC.m */,
+				B0DE9A0A1AF1C7A90048927C /* CountdownButton.h */,
+				B0DE9A0B1AF1C7A90048927C /* CountdownButton.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1731,6 +1736,7 @@
 				A6B24B9D1AEB718B00C76124 /* OrderPaySuccessVC.m in Sources */,
 				A66C50B41AC2686C003E146F /* AllServiceCell.m in Sources */,
 				A696C58E1AC1A91900A860AD /* FloorCareVC.m in Sources */,
+				B0DE9A0C1AF1C7A90048927C /* CountdownButton.m in Sources */,
 				A6BB68591AC9359800DF1723 /* XiaohaopinVC.m in Sources */,
 				A696C51B1AC1A8C200A860AD /* MZBWebService.m in Sources */,
 				A696C4D81AC1A5D900A860AD /* main.m in Sources */,

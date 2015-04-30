@@ -7,14 +7,14 @@
 //
 
 #import "LoginVC.h"
-
+#import "CountdownButton.h"
 
 @interface LoginVC ()<UITextFieldDelegate>
 
 @property (nonatomic,strong)UIScrollView *scrollView;
 @property (nonatomic,strong)UITextField *phoneTextField;
 @property (nonatomic,strong)UITextField *codeTextField;
-@property (nonatomic,strong)UIButton *getCodeBtn;
+@property (nonatomic,strong)CountdownButton *getCodeBtn;
 @property (nonatomic,strong)UIButton *loginBtn;
 
 
@@ -75,12 +75,13 @@
     [self.scrollView addSubview:self.phoneTextField];
     
     
-    self.getCodeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.getCodeBtn setFrame:CGRectMake(180, 60, 120, 40)];
-    [self.getCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+    self.getCodeBtn = [[CountdownButton alloc]initWithFrame:CGRectMake(180, 60, 120, 40) time:60 normalTitle:@"获取验证码" countingTitle:@"重新获取"];
+//    [self.getCodeBtn setFrame:CGRectMake(180, 60, 120, 40)];
+//    [self.getCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
     [self.getCodeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.getCodeBtn setBackgroundColor:[UIColor lightGrayColor]];
     self.getCodeBtn.layer.cornerRadius = 4;
+    self.getCodeBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.getCodeBtn addTarget:self action:@selector(getCodeAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:self.getCodeBtn];
     
@@ -138,6 +139,8 @@
                 [av show];
                 return;
         }else{
+            
+            [self.getCodeBtn startCounting];
             
             NSString *jsonParam = [NSString stringWithFormat:@"{\"phone\":\"%@\"}",self.phoneTextField.text];
             AFHTTPRequestOperation *opration = [MZBWebService getPhoneVerifyCode:jsonParam];

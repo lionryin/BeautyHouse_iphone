@@ -152,6 +152,12 @@
     [exitBtn addTarget:self action:@selector(exitAction:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:exitBtn];
     
+    if ([self isLoginOK]) {
+        exitBtn.hidden = NO;
+    }else{
+        exitBtn.hidden = YES;
+    }
+    
     return view;
 }
 
