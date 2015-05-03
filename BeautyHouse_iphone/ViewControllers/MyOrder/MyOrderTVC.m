@@ -274,6 +274,10 @@
 
     }
     
+    if ([orderVO.isAppraised integerValue] == 1) {
+        self.complaintBtn.hidden = YES;
+    }
+    
     self.title.text = orderVO.title;
     self.time.text = orderVO.time;
     self.address.text = orderVO.address;

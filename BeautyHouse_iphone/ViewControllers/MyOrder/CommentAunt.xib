@@ -7,54 +7,74 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentAunt">
             <connections>
+                <outlet property="backgroundTV" destination="rcP-to-dci" id="2gz-s9-x8l"/>
+                <outlet property="button1" destination="krT-ot-gnO" id="C7r-6g-FKW"/>
+                <outlet property="button2" destination="xQo-pS-PbP" id="ARp-Mi-eOT"/>
+                <outlet property="button3" destination="zuG-9G-dEK" id="MdV-1x-3wA"/>
+                <outlet property="commentTV" destination="LRM-AN-nEC" id="jbc-uT-JGT"/>
+                <outlet property="myScrollView" destination="jIK-sQ-XKi" id="E4f-rm-lsj"/>
+                <outlet property="starView1" destination="F9a-zi-Zaa" id="BOL-LA-HnY"/>
+                <outlet property="starView2" destination="l33-tj-Qe9" id="rWP-dX-ngc"/>
+                <outlet property="starView3" destination="tdD-Ug-khx" id="H6N-I9-VCS"/>
+                <outlet property="starView4" destination="qaK-7h-WBP" id="iWJ-u0-xNr"/>
+                <outlet property="starView5" destination="exK-th-bmx" id="CeC-us-xMu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="714"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="jIK-sQ-XKi">
-                    <rect key="frame" x="0.0" y="66" width="320" height="446"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="646"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="krT-ot-gnO">
-                            <rect key="frame" x="8" y="8" width="96" height="30"/>
+                            <rect key="frame" x="8" y="74" width="96" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="有待提高">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="button1Pressed:" destination="-1" eventType="touchUpInside" id="aan-aD-8pe"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xQo-pS-PbP">
-                            <rect key="frame" x="112" y="8" width="96" height="30"/>
+                            <rect key="frame" x="112" y="74" width="96" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="基本OK">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="button2Pressed:" destination="-1" eventType="touchUpInside" id="kq3-jC-dMu"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zuG-9G-dEK">
-                            <rect key="frame" x="216" y="8" width="96" height="30"/>
+                            <rect key="frame" x="216" y="74" width="96" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="非常满意">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="button3Pressed:" destination="-1" eventType="touchUpInside" id="L1m-7e-uBb"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.美宅员工的仪容仪表及文明礼貌打分；" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pAA-2v-2En">
-                            <rect key="frame" x="8" y="46" width="304" height="21"/>
+                            <rect key="frame" x="8" y="112" width="304" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" id="F9a-zi-Zaa" customClass="SelectStarView">
-                            <rect key="frame" x="8" y="75" width="304" height="46"/>
+                            <rect key="frame" x="8" y="141" width="304" height="46"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cNk-IA-Txm">
@@ -63,6 +83,9 @@
                                     <state key="normal" image="star_normal.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="F9a-zi-Zaa" eventType="touchUpInside" id="C62-MO-SDR"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5T2-Ac-nuA">
                                     <rect key="frame" x="64" y="0.0" width="46" height="46"/>
@@ -70,6 +93,9 @@
                                     <state key="normal" image="star_normal.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="F9a-zi-Zaa" eventType="touchUpInside" id="h7J-Kv-gGB"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZNz-9h-NbU">
                                     <rect key="frame" x="118" y="0.0" width="46" height="46"/>
@@ -77,6 +103,9 @@
                                     <state key="normal" image="star_normal.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="F9a-zi-Zaa" eventType="touchUpInside" id="oFA-Yz-fqE"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="q5Y-ev-5kM">
                                     <rect key="frame" x="172" y="0.0" width="46" height="46"/>
@@ -84,6 +113,9 @@
                                     <state key="normal" image="star_normal.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="F9a-zi-Zaa" eventType="touchUpInside" id="OqI-tb-BFX"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6Qb-i2-xXo">
                                     <rect key="frame" x="226" y="0.0" width="46" height="46"/>
@@ -91,9 +123,12 @@
                                     <state key="normal" image="star_normal.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="F9a-zi-Zaa" eventType="touchUpInside" id="JZc-a7-eSa"/>
+                                    </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <connections>
                                 <outlet property="button1" destination="cNk-IA-Txm" id="okq-sZ-96e"/>
                                 <outlet property="button2" destination="5T2-Ac-nuA" id="hLo-pA-lcs"/>
@@ -102,10 +137,319 @@
                                 <outlet property="button5" destination="6Qb-i2-xXo" id="oOu-Qm-KKl"/>
                             </connections>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.是否主动出示工牌及相关证件；" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xen-UV-g6Q">
+                            <rect key="frame" x="8" y="202" width="304" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" id="l33-tj-Qe9" customClass="SelectStarView">
+                            <rect key="frame" x="8" y="231" width="304" height="46"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="T5G-Jw-lxJ">
+                                    <rect key="frame" x="10" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="l33-tj-Qe9" eventType="touchUpInside" id="ofY-dZ-pJj"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kRl-O1-rkm">
+                                    <rect key="frame" x="64" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="l33-tj-Qe9" eventType="touchUpInside" id="NqX-T9-eH3"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jLB-eW-oP3">
+                                    <rect key="frame" x="118" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="l33-tj-Qe9" eventType="touchUpInside" id="wGG-Xb-t7z"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cPs-Fe-SCq">
+                                    <rect key="frame" x="172" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="l33-tj-Qe9" eventType="touchUpInside" id="T7U-Se-EKU"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vzO-67-E8U">
+                                    <rect key="frame" x="226" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="l33-tj-Qe9" eventType="touchUpInside" id="7PJ-y7-Rd8"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="button1" destination="T5G-Jw-lxJ" id="le9-kh-rEL"/>
+                                <outlet property="button2" destination="kRl-O1-rkm" id="AHh-5p-kcw"/>
+                                <outlet property="button3" destination="jLB-eW-oP3" id="SCN-Ty-zae"/>
+                                <outlet property="button4" destination="cPs-Fe-SCq" id="iRf-xz-rLd"/>
+                                <outlet property="button5" destination="vzO-67-E8U" id="uUS-ZK-u6e"/>
+                            </connections>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.是否自带工具上门；" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CfX-e5-Y0Y">
+                            <rect key="frame" x="8" y="291" width="304" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" id="tdD-Ug-khx" customClass="SelectStarView">
+                            <rect key="frame" x="8" y="320" width="304" height="46"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aAy-lo-51x">
+                                    <rect key="frame" x="10" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="tdD-Ug-khx" eventType="touchUpInside" id="WFi-1r-7eA"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nvu-Cb-3vZ">
+                                    <rect key="frame" x="64" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="tdD-Ug-khx" eventType="touchUpInside" id="9VY-wu-mhS"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="byF-UA-Lve">
+                                    <rect key="frame" x="118" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="tdD-Ug-khx" eventType="touchUpInside" id="luv-zQ-TTW"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="w7a-LZ-OON">
+                                    <rect key="frame" x="172" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="tdD-Ug-khx" eventType="touchUpInside" id="46u-tA-N6A"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="b8l-ot-8uq">
+                                    <rect key="frame" x="226" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="tdD-Ug-khx" eventType="touchUpInside" id="paz-wG-EFd"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="button1" destination="aAy-lo-51x" id="1C7-qE-WF6"/>
+                                <outlet property="button2" destination="Nvu-Cb-3vZ" id="FlT-3i-8kI"/>
+                                <outlet property="button3" destination="byF-UA-Lve" id="aTv-68-FbF"/>
+                                <outlet property="button4" destination="w7a-LZ-OON" id="2Fi-c9-Kyp"/>
+                                <outlet property="button5" destination="b8l-ot-8uq" id="NRo-rN-BEp"/>
+                            </connections>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.工作过程中是否有闲聊等影响工作效率的行为；" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PyL-2X-dKS">
+                            <rect key="frame" x="8" y="379" width="307" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" id="qaK-7h-WBP" customClass="SelectStarView">
+                            <rect key="frame" x="8" y="408" width="304" height="46"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gFH-fb-3gr">
+                                    <rect key="frame" x="10" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="qaK-7h-WBP" eventType="touchUpInside" id="hBf-er-tiP"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pF5-F6-fMf">
+                                    <rect key="frame" x="64" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="qaK-7h-WBP" eventType="touchUpInside" id="vBG-69-joV"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1yO-PV-MA2">
+                                    <rect key="frame" x="118" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="qaK-7h-WBP" eventType="touchUpInside" id="NjM-w4-gJd"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="s1f-aZ-2Ph">
+                                    <rect key="frame" x="172" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="qaK-7h-WBP" eventType="touchUpInside" id="GKQ-zl-1Lp"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j3b-gf-kh6">
+                                    <rect key="frame" x="226" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="qaK-7h-WBP" eventType="touchUpInside" id="seW-hT-kXQ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="button1" destination="gFH-fb-3gr" id="wSW-3a-6cZ"/>
+                                <outlet property="button2" destination="pF5-F6-fMf" id="hfI-Zy-Yxy"/>
+                                <outlet property="button3" destination="1yO-PV-MA2" id="hDe-OM-MdQ"/>
+                                <outlet property="button4" destination="s1f-aZ-2Ph" id="n6k-um-cEy"/>
+                                <outlet property="button5" destination="j3b-gf-kh6" id="Pxc-Lf-flS"/>
+                            </connections>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.服务质量是否满意" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xm6-Il-VZq">
+                            <rect key="frame" x="8" y="468" width="307" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" id="exK-th-bmx" customClass="SelectStarView">
+                            <rect key="frame" x="8" y="497" width="304" height="46"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xMm-5U-2CG">
+                                    <rect key="frame" x="10" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="exK-th-bmx" eventType="touchUpInside" id="Oa9-ob-ZUY"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R5r-YC-kdB">
+                                    <rect key="frame" x="64" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="exK-th-bmx" eventType="touchUpInside" id="Omr-Hg-Zww"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2eq-rh-nG7">
+                                    <rect key="frame" x="118" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="exK-th-bmx" eventType="touchUpInside" id="o12-S1-rua"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3cm-Uw-YcK">
+                                    <rect key="frame" x="172" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="exK-th-bmx" eventType="touchUpInside" id="YST-1m-uru"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vc7-dk-2Ox">
+                                    <rect key="frame" x="226" y="0.0" width="46" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="star_normal.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="buttonClicked:" destination="exK-th-bmx" eventType="touchUpInside" id="m6R-rL-8Wh"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="button1" destination="xMm-5U-2CG" id="Lv8-Ad-4aU"/>
+                                <outlet property="button2" destination="R5r-YC-kdB" id="Bmm-7X-bY9"/>
+                                <outlet property="button3" destination="2eq-rh-nG7" id="Qj1-Pi-UlP"/>
+                                <outlet property="button4" destination="3cm-Uw-YcK" id="Nbh-Gg-rzA"/>
+                                <outlet property="button5" destination="vc7-dk-2Ox" id="Xyf-VR-SOf"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" id="nbd-uj-Cig">
+                            <rect key="frame" x="8" y="551" width="304" height="87"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="还可以写点评价哦:）" selectable="NO" id="rcP-to-dci">
+                                    <rect key="frame" x="0.0" y="0.0" width="304" height="87"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="LRM-AN-nEC">
+                                    <rect key="frame" x="0.0" y="0.0" width="304" height="87"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="UR8-Dm-4u7"/>
+                                    </connections>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                     </subviews>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="syg-0s-Ygb">
-                    <rect key="frame" x="8" y="520" width="304" height="40"/>
+                    <rect key="frame" x="8" y="660" width="304" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.3167024101" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
@@ -113,11 +457,15 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="submitButtonPressed:" destination="-1" eventType="touchUpInside" id="KFB-nt-4Yu"/>
+                    </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-            <point key="canvasLocation" x="270" y="213"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="149" y="233"/>
         </view>
     </objects>
     <resources>

@@ -12,6 +12,7 @@
 #import "MJRefresh.h"
 #import "OrderDetailVC.h"
 #import "OrderPayVC.h"
+#import "CommentAunt.h"
 
 #define MyOrderCellID @"MyOrderCellID"
 
@@ -204,11 +205,14 @@
                     order.status = [[tempDic objectForKey:@"orderStatue"] objectForKey:@"keyName"];
                     order.statusID = [[tempDic objectForKey:@"orderStatue"] objectForKey:@"id"];
                     
-                    NSDictionary *auntDic = [tempDic objectForKey:@"auntInfo"];
+                    order.isAppraised = [tempDic objectForKey:@"isAppraised"];
                     
+                    NSDictionary *auntDic = [tempDic objectForKey:@"auntInfo"];
                     NSLog(@"%@",auntDic);
                     
+                    order.auntID = [tempDic objectForKey:@"auntId"];
                     if ([auntDic isKindOfClass:[NSDictionary class]]) {
+                        
                         order.auntName = [auntDic objectForKey:@"auntName"];
                         order.auntLevel = [auntDic objectForKey:@"level"];
                         order.auntPhone = [auntDic objectForKey:@"phone"];
@@ -358,7 +362,9 @@
 #pragma mark - MyOrderTVC Delegate
 
 - (void)complaintBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell{
-    
+    CommentAunt *commentAunt = [[CommentAunt alloc] initWithNibName:@"CommentAunt" bundle:nil];
+    commentAunt.orderVO = cell.myOrderVO;
+    [self.navigationController pushViewController:commentAunt animated:YES];
 }
 
 

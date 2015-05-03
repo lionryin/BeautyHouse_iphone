@@ -201,14 +201,14 @@
             
             
         }
-        else if (_imageView3.highlighted){//微信支付
+        else if (_imageView4.highlighted){//微信支付
             
             //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideHUD) name:HUDDismissNotification object:nil];
             
             [[WXPayClient shareInstance] payProduct];
             
         }
-        else if (_imageView4.highlighted){//余额支付
+        else if (_imageView3.highlighted){//余额支付
             
             if (_yue < [_rmbTF.text doubleValue]) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"余额不足" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];

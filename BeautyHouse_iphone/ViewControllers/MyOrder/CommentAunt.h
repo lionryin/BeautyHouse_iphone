@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyOrderVO.h"
 
 @interface CommentAunt : UIViewController
+
+@property (nonatomic, strong) MyOrderVO *orderVO;
 
 @end

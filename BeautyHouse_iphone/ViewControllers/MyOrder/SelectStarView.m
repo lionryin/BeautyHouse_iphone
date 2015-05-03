@@ -33,7 +33,7 @@
         if (i<tag) {
             buttoni.selected = YES;
         }
-        else{
+        else if (i>tag){
             buttoni.selected = NO;
 
         }
@@ -44,6 +44,7 @@
 
 - (IBAction)buttonClicked:(id)sender{
     UIButton *button = (UIButton *)sender;
+    button.selected = !button.selected;
     [self setButtonWithTag:button.tag];
 }
 
