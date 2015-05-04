@@ -200,8 +200,14 @@
                     MyOrderVO *order = [[MyOrderVO alloc] init];
                     order.orderID = [tempDic objectForKey:@"id"];
                     order.title = [[tempDic objectForKey:@"serviceCategory"] objectForKey:@"serviceName"];
-                    order.time = [tempDic objectForKey:@"orderDateTime"];
-                    order.address = [NSString stringWithFormat:@"%@ %@",[[tempDic objectForKey:@"serviceAddress"] objectForKey:@"cellName"],[[tempDic objectForKey:@"serviceAddress"] objectForKey:@"detailAddress"]];
+                    order.time = [tempDic objectForKey:@"serviceDate"];
+                    
+                    NSString *cellName = [[tempDic objectForKey:@"serviceAddress"] objectForKey:@"cellName"];
+                    if ([cellName isKindOfClass:[NSNull class]]) {
+                        cellName = @"";
+                    }
+                    order.address = [NSString stringWithFormat:@"%@ %@",cellName,[[tempDic objectForKey:@"serviceAddress"] objectForKey:@"detailAddress"]];
+                    
                     order.status = [[tempDic objectForKey:@"orderStatue"] objectForKey:@"keyName"];
                     order.statusID = [[tempDic objectForKey:@"orderStatue"] objectForKey:@"id"];
                     

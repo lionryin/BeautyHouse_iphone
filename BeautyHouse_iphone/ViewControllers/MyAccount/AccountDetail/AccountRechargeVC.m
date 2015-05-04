@@ -129,9 +129,9 @@
                 [cell.contentView addSubview:name];
                 
                 _flagIV1 = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 50, 13, 24, 24)];
-                [_flagIV1 setImage:[UIImage imageNamed:@"pay_unselected"]];
+                [_flagIV1 setImage:[UIImage imageNamed:@"pay_selected"]];
                 
-                _flagIV1.tag = 2010;
+                _flagIV1.tag = 2011;
                 
                 [cell.contentView addSubview:_flagIV1];
                 
@@ -275,6 +275,13 @@
 
 
 - (void)exitAction:(id)sender{
+    
+    if (_exchTF.text.length<=0) {
+        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请输入充值金额" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [av show];
+        return;
+
+    }
     
     if (_flagIV1.tag == 2011) {//支付宝支付
         

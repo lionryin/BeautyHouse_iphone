@@ -122,9 +122,9 @@
                 [cell.contentView addSubview:name];
                 
                 _flagIV1 = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 50, 13, 24, 24)];
-                [_flagIV1 setImage:[UIImage imageNamed:@"pay_unselected"]];
+                [_flagIV1 setImage:[UIImage imageNamed:@"pay_selected"]];//
 
-                _flagIV1.tag = 2010;
+                _flagIV1.tag = 2011;
                 
                 [cell.contentView addSubview:_flagIV1];
                 
