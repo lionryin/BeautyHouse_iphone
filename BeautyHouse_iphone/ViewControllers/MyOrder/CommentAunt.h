@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "MyOrderVO.h"
 
+@protocol CommentAuntDelegate <NSObject>
+
+- (void)commentAuntSuccess;
+
+@end
+
 @interface CommentAunt : UIViewController
 
 @property (nonatomic, strong) MyOrderVO *orderVO;
+@property (nonatomic, assign) id<CommentAuntDelegate>delegate;
 
 @end

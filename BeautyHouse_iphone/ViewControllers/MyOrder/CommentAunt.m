@@ -172,6 +172,9 @@
 #pragma mark - UIAlertView delegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (alertView.tag == 88) {
+        if ([self.delegate respondsToSelector:@selector(commentAuntSuccess)]) {
+            [self.delegate commentAuntSuccess];
+        }
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

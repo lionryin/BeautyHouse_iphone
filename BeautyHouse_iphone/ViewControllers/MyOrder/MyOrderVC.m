@@ -18,7 +18,7 @@
 
 
 
-@interface MyOrderVC ()<UITableViewDataSource,UITableViewDelegate,MyOrderTVCDelegate,UIAlertViewDelegate,OrderPayVCDelegate>
+@interface MyOrderVC ()<UITableViewDataSource,UITableViewDelegate,MyOrderTVCDelegate,UIAlertViewDelegate,OrderPayVCDelegate,CommentAuntDelegate>
 
 @property (nonatomic,strong)UISegmentedControl *segCtrl;
 @property (nonatomic,strong)UITableView *tableView;
@@ -370,6 +370,7 @@
 - (void)complaintBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell{
     CommentAunt *commentAunt = [[CommentAunt alloc] initWithNibName:@"CommentAunt" bundle:nil];
     commentAunt.orderVO = cell.myOrderVO;
+    commentAunt.delegate = self;
     [self.navigationController pushViewController:commentAunt animated:YES];
 }
 
@@ -388,6 +389,11 @@
 #pragma mark - orderPayVC delegate
 - (void)orderPayVCPaySuccess{
     [self setupRefresh:@"current"];
+}
+
+#pragma mark - CommentAuntDelegate
+- (void)commentAuntSuccess{
+    [self setupRefresh:@"history"];
 }
 
 @end
