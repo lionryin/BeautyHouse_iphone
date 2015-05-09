@@ -157,5 +157,7 @@
 //问题反馈或建议
 + (AFHTTPRequestOperation *)saveMenberFeedBackWithParameter:(NSString *)jsonParam;
 
+//修改用户信息
++ (AFHTTPRequestOperation *)modifyUserWithParameter:(NSString *)jsonParam;
 
 @end

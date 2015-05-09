@@ -206,4 +206,11 @@
     return [MZBWebService MZBWebService:params];
 }
 
+//修改用户信息
++ (AFHTTPRequestOperation *)modifyUserWithParameter:(NSString *)jsonParam{
+    NSString *params = [NSString stringWithFormat:@"<ws:modifyUser><registeredUserJson>%@</registeredUserJson></ws:modifyUser>",jsonParam];
+    
+    return [MZBWebService MZBWebService:params];
+}
+
 @end
