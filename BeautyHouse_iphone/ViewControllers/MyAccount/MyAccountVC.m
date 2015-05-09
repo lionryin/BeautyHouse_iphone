@@ -208,7 +208,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     if (section == 0) {
-        return 2;
+        return 1;
     }
     return 4;
 }
@@ -227,10 +227,10 @@
     
     if (indexPath.section == 0) {
         switch (indexPath.row) {
+//            case 0:
+//                str = @"金币活动";
+//                break;
             case 0:
-                str = @"金币活动";
-                break;
-            case 1:
                 str = @"账户详情";
                 break;
                 
@@ -284,14 +284,14 @@
     
     if (indexPath.section == 0) {
         switch (indexPath.row) {
+//            case 0:
+//            {
+//                GoldenIconActivityVC *goldenIcon = [GoldenIconActivityVC new];
+//                [self.navigationController pushViewController:goldenIcon animated:YES];
+//                
+//            }
+//                break;
             case 0:
-            {
-                GoldenIconActivityVC *goldenIcon = [GoldenIconActivityVC new];
-                [self.navigationController pushViewController:goldenIcon animated:YES];
-                
-            }
-                break;
-            case 1:
             {
                 AccountDetailVC *detailVC =[AccountDetailVC new];
                 [self.navigationController pushViewController:detailVC animated:YES];

@@ -282,6 +282,14 @@
     }
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    [self.phoneTF resignFirstResponder];
+    [self.nameTF resignFirstResponder];
+    [self.birthdayTF resignFirstResponder];
+    
+    return YES;
+}
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     
