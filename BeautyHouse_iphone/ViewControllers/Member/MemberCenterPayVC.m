@@ -7,7 +7,8 @@
 //
 
 #import "MemberCenterPayVC.h"
-#import <AlipaySDK.framework/Headers/Alipay.h>
+//#import <AlipaySDK.framework/Headers/Alipay.h>
+#import <AlipaySDK/AlipaySDK.h>
 
 #import "DataSigner.h"
 #import "Common.h"
@@ -266,23 +267,69 @@
     return userId;
 }
 
+//#pragma mark -
+#pragma mark   ==============产生随机订单号==============
+
+
+- (NSString *)generateTradeNO
+{
+    static int kNumber = 15;
+    
+    NSString *sourceStr = @"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    NSMutableString *resultStr = [[NSMutableString alloc] init];
+    srand((int)time(0));
+    for (int i = 0; i < kNumber; i++)
+    {
+        unsigned index = rand() % [sourceStr length];
+        NSString *oneStr = [sourceStr substringWithRange:NSMakeRange(index, 1)];
+        [resultStr appendString:oneStr];
+    }
+    return resultStr;
+}
+
 
 - (void)exitAction:(id)sender{
     
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    NSString *userIsLogin = [userDic objectForKey:UserIsLoginKey];
+    
+    if ([userIsLogin isEqualToString:@"0"]) {//未登陆
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"请先登陆" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        return;
+    }
+    
+    
     if (_flagIV1.tag == 2011) {//支付宝支付
         
-        NSString *uuidString = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        NSString *uuidString = [self generateTradeNO];//[[[UIDevice currentDevice] identifierForVendor] UUIDString];
         NSString *tradeId = [NSString stringWithFormat:@"%@-%@",[self getUserId],uuidString];
         
-        NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"会员充值\"&total_fee=\"%.2f\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",tradeId,self.memberVO.chargeMoney.floatValue];
+        NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"会员充值\"&total_fee=\"%.2f\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",tradeId,0.01];//self.memberVO.chargeMoney.floatValue];
         
         id <DataSigner> signer = CreateRSADataSigner(RSA_PRIVATE);
         NSString *signedString = [signer signString:subPayInfo];
         
         NSString *payInfo = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",subPayInfo,signedString,@"RSA"];
         
+        [[AlipaySDK defaultService] payOrder:payInfo fromScheme:@"" callback:^(NSDictionary *resultDic) {
+            
+            //NSDictionary *jsonQuery=[self dictFromString:resultStr];
+            NSString *resultStatus = resultDic [@"resultStatus"];
+            if (9000 == [resultStatus intValue]) {//支付成功
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            }else{
+                
+            }
+
+        }];
         
-        Alipay *pay = [Alipay defaultService];
+        
+     /*   Alipay *pay = [Alipay defaultService];
         
         [pay pay:payInfo from:@"" callback:^(NSString *resultStr) {
             
@@ -296,7 +343,7 @@
                 
             }
             
-        }];
+        }];*/
 
         
         

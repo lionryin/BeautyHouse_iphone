@@ -9,7 +9,8 @@
 #import "OrderPayVC.h"
 
 #import "MZBWebService.h"
-#import <AlipaySDK.framework/Headers/Alipay.h>
+//#import <AlipaySDK.framework/Headers/Alipay.h>
+#import <AlipaySDK/AlipaySDK.h>
 
 #import "HomeService.h"
 #import "OrderPaySuccessVC.h"
@@ -142,7 +143,22 @@
             NSString *payInfo = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",subPayInfo,signedString,@"RSA"];
             
             
-            Alipay *pay = [Alipay defaultService];
+            [[AlipaySDK defaultService] payOrder:payInfo fromScheme:@"" callback:^(NSDictionary *resultDic) {
+                
+                //NSDictionary *jsonQuery=[self dictFromString:resultStr];
+                NSString *resultStatus = resultDic [@"resultStatus"];
+                if (9000 == [resultStatus intValue]) {//支付成功
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }else{
+                    
+                }
+                
+            }];
+
+            
+           /* Alipay *pay = [Alipay defaultService];
             
             [pay pay:payInfo from:@"" callback:^(NSString *resultStr) {
                 
@@ -158,7 +174,7 @@
                 }else{
                 }
                 
-            }];
+            }];*/
             
         }
         else if (_imageView2.highlighted){//现金支付
