@@ -307,7 +307,7 @@
         NSString *uuidString = [self generateTradeNO];//[[[UIDevice currentDevice] identifierForVendor] UUIDString];
         NSString *tradeId = [NSString stringWithFormat:@"%@-%@",[self getUserId],uuidString];
         
-        NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"会员充值\"&total_fee=\"%.2f\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",tradeId,0.01];//self.memberVO.chargeMoney.floatValue];
+        NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"会员充值\"&total_fee=\"%.2f\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",tradeId, self.memberVO.chargeMoney.floatValue];
         
         id <DataSigner> signer = CreateRSADataSigner(RSA_PRIVATE);
         NSString *signedString = [signer signString:subPayInfo];

@@ -13,7 +13,7 @@
 #import "DataSigner.h"
 #import "Common.h"
 
-@interface AccountRechargeVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface AccountRechargeVC ()<UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic, strong)UIImageView *flagIV1;
@@ -99,6 +99,7 @@
         _exchTF = [[UITextField alloc]initWithFrame:CGRectMake(110, 0, cell.contentView.frame.size.width-120, 44)];
         _exchTF.placeholder = @"输入想充值的金额";
         _exchTF.textAlignment =  NSTextAlignmentCenter;
+        _exchTF.delegate = self;
         [cell.contentView addSubview:_exchTF];
        
         
@@ -407,6 +408,11 @@
     label.textAlignment = NSTextAlignmentLeft;
     label.backgroundColor = [UIColor clearColor];
     return label;
+}
+#pragma mark - UItextField delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
