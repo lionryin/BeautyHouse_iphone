@@ -9,7 +9,7 @@
 #import "WXPayClient.h"
 #import "Constant.h"
 #import "CommonUtil.h"
-#import "ASIHTTPRequest.h"
+//#import "ASIHTTPRequest.h"
 
 NSString *AccessTokenKey = @"access_token";
 NSString *PrePayIdKey = @"prepayid";
@@ -19,7 +19,7 @@ NSString *expiresInKey = @"expires_in";
 
 @interface WXPayClient ()
 
-@property (nonatomic, strong) ASIHTTPRequest *request;
+//@property (nonatomic, strong) ASIHTTPRequest *request;
 
 @property (nonatomic, copy) NSString *timeStamp;
 @property (nonatomic, copy) NSString *nonceStr;
@@ -185,7 +185,7 @@ NSString *expiresInKey = @"expires_in";
 
 - (void)getAccessToken
 {
-    NSString *getAccessTokenUrl = [NSString stringWithFormat:@"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%@&secret=%@", WXAppId, WXAppSecret];
+   /* NSString *getAccessTokenUrl = [NSString stringWithFormat:@"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%@&secret=%@", WXAppId, WXAppSecret];
     
     NSLog(@"--- GetAccessTokenUrl: %@", getAccessTokenUrl);
     
@@ -221,12 +221,12 @@ NSString *expiresInKey = @"expires_in";
     [self.request setFailedBlock:^{
         [weakSelf showAlertWithTitle:@"错误" msg:@"获取 AccessToken 失败"];
     }];
-    [self.request startAsynchronous];
+    [self.request startAsynchronous];*/
 }
 
 - (void)getPrepayId:(NSString *)accessToken
 {
-    NSString *getPrepayIdUrl = [NSString stringWithFormat:@"https://api.weixin.qq.com/pay/genprepay?access_token=%@", accessToken];
+    /*NSString *getPrepayIdUrl = [NSString stringWithFormat:@"https://api.weixin.qq.com/pay/genprepay?access_token=%@", accessToken];
     
     NSLog(@"--- GetPrepayIdUrl: %@", getPrepayIdUrl);
     
@@ -288,7 +288,7 @@ NSString *expiresInKey = @"expires_in";
     [self.request setFailedBlock:^{
         [weakSelf showAlertWithTitle:@"错误" msg:@"获取 PrePayId 失败"];
     }];
-    [self.request startAsynchronous];
+    [self.request startAsynchronous];*/
 }
 
 #pragma mark - Alert
