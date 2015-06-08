@@ -27,6 +27,7 @@
 
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)UIButton *loginBtn;
+@property (nonatomic, strong) UIButton *exitBtn;
 @property (nonatomic,strong)UILabel *userPhoneNumber;
 @property (strong, nonatomic) MBProgressHUD        * progresshud;
 
@@ -86,10 +87,15 @@
         
         self.userPhoneNumber.text = [self getUserPhoneNumber];
         
+        _exitBtn.hidden = NO;
+        
     }else{
         self.userPhoneNumber.hidden = YES;
         self.loginBtn.hidden = NO;
+        
+        _exitBtn.hidden = YES;
     }
+    
 }
 
 
@@ -143,19 +149,19 @@
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 60)];
     view.backgroundColor = [UIColor clearColor];
     
-    UIButton *exitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [exitBtn setFrame:CGRectMake(20, 0, 280, 40)];
-    [exitBtn setTitle:@"退出登录" forState:UIControlStateNormal];
-    [exitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [exitBtn setBackgroundColor:[UIColor orangeColor]];
-    exitBtn.layer.cornerRadius = 4;
-    [exitBtn addTarget:self action:@selector(exitAction:) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:exitBtn];
+    _exitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_exitBtn setFrame:CGRectMake(20, 0, 280, 40)];
+    [_exitBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+    [_exitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_exitBtn setBackgroundColor:[UIColor orangeColor]];
+    _exitBtn.layer.cornerRadius = 4;
+    [_exitBtn addTarget:self action:@selector(exitAction:) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:_exitBtn];
     
     if ([self isLoginOK]) {
-        exitBtn.hidden = NO;
+        _exitBtn.hidden = NO;
     }else{
-        exitBtn.hidden = YES;
+        _exitBtn.hidden = YES;
     }
     
     return view;
@@ -375,9 +381,10 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (buttonIndex) {
-        case 0:
+        case 0:{
             [self exitOperation];
             break;
+        }
         case 1:
             
             break;

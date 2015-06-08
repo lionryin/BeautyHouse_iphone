@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "MZBWebService.h"
+#import "MZBHttpService.h"
 
 @interface LoginVC : BaseViewController
 

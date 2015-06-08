@@ -275,7 +275,7 @@
     NSDate *theDate = [_nowDate initWithTimeIntervalSinceNow:+oneDay*(row+1)];
     
     NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
-    formatter.dateFormat=@"yy-MM-dd";
+    formatter.dateFormat=@"yyyy-MM-dd";
     NSString *timeStr=[formatter stringFromDate:theDate];
     
     return timeStr;

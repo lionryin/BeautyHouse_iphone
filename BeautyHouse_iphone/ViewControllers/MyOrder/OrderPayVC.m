@@ -23,6 +23,8 @@
 #import "DataSigner.h"
 #import "Common.h"
 
+#import "MZBHttpService.h"
+
 
 @interface OrderPayVC ()<UITextFieldDelegate,OrderPaySuccessDelegate,UIAlertViewDelegate>
 - (IBAction)payButtonSelecked:(id)sender;
@@ -179,7 +181,7 @@
         }
         else if (_imageView2.highlighted){//现金支付
             
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.mrchabo.com/order/Service/offlinePay.do?id=%@&deductions=%@",_orderVO.orderID,_rmbTF.text]];
+           /* NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.mrchabo.com/order/Service/offlinePay.do?id=%@&deductions=%@",_orderVO.orderID,_rmbTF.text]];
             NSURLRequest *request = [NSURLRequest requestWithURL:url];
             //
             AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -211,7 +213,29 @@
                 [alert show];
 
             }];
-            [operation start];
+            [operation start];*/
+            [[MZBHttpService shareInstance] moneyToPayWithOrderID:_orderVO.orderID andMoney:_rmbTF.text WithBlock:^(NSNumber *result, NSError *error) {
+                if (!error) {
+                    if ([result integerValue] == 0) {
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            OrderPaySuccessVC *paySuccessVC = [[OrderPaySuccessVC alloc] initWithNibName:@"OrderPaySuccessVC" bundle:nil];
+                            paySuccessVC.delegate = self;
+                            [self.navigationController pushViewController:paySuccessVC animated:YES];
+                        });
+
+                    }
+                    else {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        [alert show];
+                    }
+                }
+                else {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    [alert show];
+
+                }
+            }];
             
             
             

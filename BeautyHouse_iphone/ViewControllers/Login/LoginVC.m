@@ -142,7 +142,7 @@
             
             [self.getCodeBtn startCounting];
             
-            NSString *jsonParam = [NSString stringWithFormat:@"{\"phone\":\"%@\"}",self.phoneTextField.text];
+            /*NSString *jsonParam = [NSString stringWithFormat:@"{\"phone\":\"%@\"}",self.phoneTextField.text];
             AFHTTPRequestOperation *opration = [MZBWebService getPhoneVerifyCode:jsonParam];
             
             [opration start];
@@ -177,18 +177,26 @@
                 
                 
                 
+            }];*/
+            
+            [[MZBHttpService shareInstance] getPhoneVerifyCodeWithPhoneNumber:self.phoneTextField.text WithBlock:^(NSNumber *result, NSError *error) {
+                
+                if (!error) {
+                    if (result.boolValue) {
+                        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"发送验证码请求成功" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                        
+                        [av show];
+                    }
+                }
+                else {
+                    
+                }
+                
             }];
-            
-            
             
         }
         
-        
     }
-    
-    
-    
-    
     
 }
 
@@ -201,7 +209,7 @@
         
     }else{
         
-        NSString *jsonParam = [NSString stringWithFormat:@"{\"phone\":\"%@\",\"code\":%@}",self.phoneTextField.text,self.codeTextField.text];
+        /*NSString *jsonParam = [NSString stringWithFormat:@"{\"phone\":\"%@\",\"code\":%@}",self.phoneTextField.text,self.codeTextField.text];
         AFHTTPRequestOperation *opration = [MZBWebService login:jsonParam];
         
         [opration start];
@@ -272,6 +280,47 @@
             
             
             
+        }];*/
+        
+        [[MZBHttpService shareInstance] loginWithPhoneNumber:self.phoneTextField.text andVerifiCode:self.codeTextField.text andBlock:^(NSDictionary *result, NSError *error) {
+            
+            if (!error) {
+                NSNumber *status = result[@"status"];
+                if (status.boolValue) {
+                    NSDictionary *dataInfo = result[@"data"];
+                    
+                    NSString *userId = dataInfo[@"id"];
+                    
+                    NSUserDefaults *accountDefaults = [NSUserDefaults standardUserDefaults];
+                    NSDictionary *userDic = [accountDefaults dictionaryForKey:UserGlobalKey];
+                    NSMutableDictionary *mUserDic= [userDic mutableCopy];
+                    
+                    [mUserDic setObject:@"1" forKey:UserIsLoginKey];
+                    [mUserDic setObject:self.phoneTextField.text forKey:UserPhoneNumberKey];
+                    [mUserDic setObject:userId forKey:UserLoginId];
+                    
+                    [accountDefaults setValue:mUserDic forKey:UserGlobalKey];
+                    [accountDefaults synchronize];
+                    
+                    [self dismissViewControllerAnimated:YES completion:^{
+                        if (_isOrderFrom) {
+                            UIWindow * window = [UIApplication sharedApplication].keyWindow ;
+                            ((UITabBarController *)window.rootViewController).selectedIndex = 1;
+                        }
+                    }];
+                    
+                    [[NSNotificationCenter defaultCenter]postNotificationName:MZB_NOTE_LOGIN_OK object:nil];
+                }
+                else {
+                    UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:result[@"message"] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                    
+                    [av show];
+                }
+
+            }
+            else{
+                
+            }
         }];
         
         
