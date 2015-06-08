@@ -183,13 +183,19 @@
                 
                 if (!error) {
                     if (result.boolValue) {
-                        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"发送验证码请求成功" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                        
+                    }
+                    else{
+                        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"发送验证码失败，请重试" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
                         
                         [av show];
+
                     }
                 }
                 else {
+                    UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
                     
+                    [av show];
                 }
                 
             }];

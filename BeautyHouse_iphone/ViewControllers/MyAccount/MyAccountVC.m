@@ -21,7 +21,7 @@
 #import "MBProgressHUD.h"
 
 
-#define ShareText @"这是要分享的文字，可以在这里自定义"
+//#define ShareText @"这是要分享的文字，可以在这里自定义"
 
 @interface MyAccountVC ()<UMSocialUIDelegate,UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 
@@ -366,14 +366,31 @@
 
 
 - (void)shareAction{
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    NSString *userID = [userDic objectForKey:UserLoginId];
     
+    //分享得优惠 http://www.mrchabo.com/mz/Service/register.do?recommenderId=
+
     
-    [UMSocialSnsService presentSnsIconSheetView:self
-                                         appKey:@"54f7f5d2fd98c52b230005a4"
-                                      shareText:ShareText
-                                     shareImage:[UIImage imageNamed:@"icon.png"]
-                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToSms,UMShareToWechatTimeline,nil]
-                                       delegate:self];
+    [[MZBHttpService shareInstance] getShareContentWithShareUserID:userID andBlock:^(NSString *response, NSError *error) {
+        
+        NSString *shareText = @"分享得优惠 http://www.mrchabo.com/mz/Service/register.do?recommenderId=";
+        
+        if (!error) {
+            
+            shareText = response;
+        }
+        
+        [UMSocialSnsService presentSnsIconSheetView:self
+                                             appKey:@"54f7f5d2fd98c52b230005a4"
+                                          shareText:shareText
+                                         shareImage:[UIImage imageNamed:@"icon-60@2x.png"]
+                                    shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToSms,UMShareToWechatTimeline,nil]
+                                           delegate:self];
+
+        
+    }];
+    
     
     
 }

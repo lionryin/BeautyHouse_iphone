@@ -96,8 +96,47 @@
             block(nil, error);
         }
     }];
-   
+}
 
+///////////////////////////////////////////////
+
+- (void)getHttpRequestOperationWithURLString:(NSString *)urlStr andBlock:(void (^)(NSString *responseStr, NSDictionary *result, NSError *error))block {
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
+    //
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation start];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *html = operation.responseString;
+        //NSLog(@"html:%@",html);
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[html dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@"%@",dic);
+        
+        if (block) {
+            block(html, dic, nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (block) {
+            block(nil, nil, error);
+        }
+    }];
+    
+}
+
+- (void)getShareContentWithShareUserID:(NSString *)userID andBlock:(void (^)(NSString *response, NSError *error))block {
+    NSString *urlStr = [NSString stringWithFormat:@"%@share/Service/getShareContent.do?shareUserId=%@", MZBHttpURL, userID];
+    
+    [self getHttpRequestOperationWithURLString:urlStr andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+        
+        if (block) {
+            block(responseStr, error);
+        }
+
+    }];
 }
 
 

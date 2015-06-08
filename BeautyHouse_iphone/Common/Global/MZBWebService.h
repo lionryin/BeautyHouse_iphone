@@ -11,17 +11,15 @@
 #import "MyPaser.h"
 #import "Common.h"
 
-//#define imageURLPrefix @"http://218.244.143.58/mrchabo/"
-//#define MZBWebURL @"http://218.244.143.58/houseWs/ws/houseWs?wsdl"
-
+///发布地址
 #define imageURLPrefix @"http://www.mrchabo.com/mrchabo/"
 #define MZBWebURL @"http://www.mrchabo.com/houseWs/ws/houseWs?wsdl"
 
-//#define imageURLPrefix @"http://27.16.132.50:1250/mrchabo/"
-//#define MZBWebURL @"http://27.16.132.50:1250/houseWs/ws/houseWs?wsdl"
+///测试地址
+//#define imageURLPrefix @"http://120.25.122.11/mrchabo/"
+//#define MZBWebURL @"http://120.25.122.11/houseWs/ws/houseWs?wsdl"
 
-//#define imageURLPrefix @"http://59.174.6.165:1250/mrchabo/"
-//#define MZBWebURL @"http://59.174.6.165:1250/houseWs/ws/houseWs?wsdl"
+
 
 @interface MZBWebService : NSObject
 

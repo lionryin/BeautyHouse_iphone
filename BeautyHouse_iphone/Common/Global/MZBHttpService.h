@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-#define MZBHttpURL @"http://www.mrchabo.com/"
+///发布地址
+//#define MZBHttpURL @"http://www.mrchabo.com/"
+
+///测试地址
+#define MZBHttpURL @"http://120.25.122.11/"
 
 @interface MZBHttpService : NSObject
 
@@ -24,5 +28,10 @@
 ///现金支付
 - (void)moneyToPayWithOrderID:(NSString *)orderID andMoney:(NSString *)money WithBlock:(void (^)(NSNumber *result, NSError *error))block;
 
+///////////////////////////////////////////////////
+- (void)getHttpRequestOperationWithURLString:(NSString *)urlStr andBlock:(void (^)(NSString *responseStr, NSDictionary *result, NSError *error))block;
+
+///获取分享文本内容
+- (void)getShareContentWithShareUserID:(NSString *)userID andBlock:(void (^)(NSString *response, NSError *error))block;
 
 @end
