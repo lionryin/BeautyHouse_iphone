@@ -45,10 +45,12 @@
     
     _progresshud = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:_progresshud];
-    [_progresshud show:NO];
-    
+    [_progresshud hide:YES];
+
+
     [self initMainUI];
     [self updateHeader];
+    
 }
 
 - (BOOL)isLoginOK{
@@ -387,6 +389,7 @@
                                          shareImage:[UIImage imageNamed:@"icon-60@2x.png"]
                                     shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToSms,UMShareToWechatTimeline,nil]
                                            delegate:self];
+        [UMSocialConfig setFinishToastIsHidden:YES position:UMSocialiToastPositionCenter];
 
         
     }];
@@ -415,14 +418,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - 
+- (void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response {
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:hud];
+    
+    NSLog(@"%u",response.responseCode);
+    if (response.responseCode == UMSResponseCodeSuccess) {
+        hud.labelText = @"分享成功";
+    }
+    else{
+        hud.labelText = @"分享失败";
+    }
+    
+    
+    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+    hud.mode = MBProgressHUDModeCustomView;
+    
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [hud show:YES];
+    [hud hide:YES afterDelay:2.0];
+
+  
+
 }
-*/
 
 @end

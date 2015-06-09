@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6647CA51B26897300D2DC57 /* UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A6647CA41B26897300D2DC57 /* UIFactory.m */; };
+		A6647CB31B268DC800D2DC57 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CA71B268DC800D2DC57 /* 37x-Checkmark.png */; };
+		A6647CB41B268DC800D2DC57 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CA81B268DC800D2DC57 /* 37x-Checkmark@2x.png */; };
+		A6647CB51B268DC800D2DC57 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CA91B268DC800D2DC57 /* Default-568h@2x.png */; };
+		A6647CB61B268DC800D2DC57 /* Default-iOS7-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CAA1B268DC800D2DC57 /* Default-iOS7-568h@2x.png */; };
+		A6647CB71B268DC800D2DC57 /* Default-iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CAB1B268DC800D2DC57 /* Default-iOS7@2x.png */; };
+		A6647CB81B268DC800D2DC57 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CAC1B268DC800D2DC57 /* Default.png */; };
+		A6647CB91B268DC800D2DC57 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CAD1B268DC800D2DC57 /* Default@2x.png */; };
+		A6647CBA1B268DC800D2DC57 /* Icon-iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CAE1B268DC800D2DC57 /* Icon-iOS7@2x.png */; };
+		A6647CBB1B268DC800D2DC57 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CAF1B268DC800D2DC57 /* Icon-Small.png */; };
+		A6647CBC1B268DC800D2DC57 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CB01B268DC800D2DC57 /* Icon-Small@2x.png */; };
+		A6647CBD1B268DC800D2DC57 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CB11B268DC800D2DC57 /* Icon.png */; };
+		A6647CBE1B268DC800D2DC57 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CB21B268DC800D2DC57 /* Icon@2x.png */; };
 		A6694CBF1AD2AA0E00339A2B /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = A6694CBD1AD2AA0E00339A2B /* GTMBase64.m */; };
 		A6694CC21AD2B41900339A2B /* MzbAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = A6694CC11AD2B41900339A2B /* MzbAddress.m */; };
 		A6694CC61AD40C9D00339A2B /* timeline_green.png in Resources */ = {isa = PBXBuildFile; fileRef = A6694CC41AD40C9D00339A2B /* timeline_green.png */; };
@@ -228,6 +241,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A6647CA31B26897300D2DC57 /* UIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFactory.h; sourceTree = "<group>"; };
+		A6647CA41B26897300D2DC57 /* UIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFactory.m; sourceTree = "<group>"; };
+		A6647CA71B268DC800D2DC57 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
+		A6647CA81B268DC800D2DC57 /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark@2x.png"; sourceTree = "<group>"; };
+		A6647CA91B268DC800D2DC57 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A6647CAA1B268DC800D2DC57 /* Default-iOS7-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-iOS7-568h@2x.png"; sourceTree = "<group>"; };
+		A6647CAB1B268DC800D2DC57 /* Default-iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-iOS7@2x.png"; sourceTree = "<group>"; };
+		A6647CAC1B268DC800D2DC57 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A6647CAD1B268DC800D2DC57 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A6647CAE1B268DC800D2DC57 /* Icon-iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-iOS7@2x.png"; sourceTree = "<group>"; };
+		A6647CAF1B268DC800D2DC57 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		A6647CB01B268DC800D2DC57 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		A6647CB11B268DC800D2DC57 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		A6647CB21B268DC800D2DC57 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		A6694CBC1AD2AA0E00339A2B /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		A6694CBD1AD2AA0E00339A2B /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		A6694CBE1AD2AA0E00339A2B /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -675,6 +702,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6647CA61B268DC800D2DC57 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A6647CA71B268DC800D2DC57 /* 37x-Checkmark.png */,
+				A6647CA81B268DC800D2DC57 /* 37x-Checkmark@2x.png */,
+				A6647CA91B268DC800D2DC57 /* Default-568h@2x.png */,
+				A6647CAA1B268DC800D2DC57 /* Default-iOS7-568h@2x.png */,
+				A6647CAB1B268DC800D2DC57 /* Default-iOS7@2x.png */,
+				A6647CAC1B268DC800D2DC57 /* Default.png */,
+				A6647CAD1B268DC800D2DC57 /* Default@2x.png */,
+				A6647CAE1B268DC800D2DC57 /* Icon-iOS7@2x.png */,
+				A6647CAF1B268DC800D2DC57 /* Icon-Small.png */,
+				A6647CB01B268DC800D2DC57 /* Icon-Small@2x.png */,
+				A6647CB11B268DC800D2DC57 /* Icon.png */,
+				A6647CB21B268DC800D2DC57 /* Icon@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		A6694CBB1AD2AA0E00339A2B /* GTMBase64 */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,6 +826,8 @@
 				A696C5151AC1A8C200A860AD /* Common.h */,
 				A696C5161AC1A8C200A860AD /* MyPaser.h */,
 				A696C5171AC1A8C200A860AD /* MyPaser.m */,
+				A6647CA31B26897300D2DC57 /* UIFactory.h */,
+				A6647CA41B26897300D2DC57 /* UIFactory.m */,
 				A696C5181AC1A8C200A860AD /* MZBWebService.h */,
 				A696C5191AC1A8C200A860AD /* MZBWebService.m */,
 				A6BC6EDF1B21C3C7007FFA93 /* MZBHttpService.h */,
@@ -1288,6 +1336,7 @@
 		A6FFFA041AD7BBB700A544C5 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				A6647CA61B268DC800D2DC57 /* Images */,
 				A6FFFA051AD7BBB700A544C5 /* MBProgressHUD.h */,
 				A6FFFA061AD7BBB700A544C5 /* MBProgressHUD.m */,
 			);
@@ -1527,15 +1576,20 @@
 				B00966851ADA6908007DD934 /* UMSCommentDetailController.xib in Resources */,
 				B00966831ADA6908007DD934 /* UMSocialLocalizable.strings in Resources */,
 				A696C4E31AC1A5D900A860AD /* Images.xcassets in Resources */,
+				A6647CB61B268DC800D2DC57 /* Default-iOS7-568h@2x.png in Resources */,
 				A6CE40EB1AEA429E00A48B39 /* pay_selected.png in Resources */,
 				A6B6A89B1AC436C600B12F04 /* category.png in Resources */,
+				A6647CB31B268DC800D2DC57 /* 37x-Checkmark.png in Resources */,
 				A6B24B9E1AEB718B00C76124 /* OrderPaySuccessVC.xib in Resources */,
 				A6B6A8971AC4359500B12F04 /* AddAddressVC.xib in Resources */,
+				A6647CBE1B268DC800D2DC57 /* Icon@2x.png in Resources */,
 				A696C5951AC1A91900A860AD /* ServiceIntroductionVC.xib in Resources */,
 				A696C58B1AC1A91900A860AD /* CleanerVC.xib in Resources */,
 				A6CE40DA1AEA2FA000A48B39 /* star_select.png in Resources */,
 				A696C5BB1AC1A9BE00A860AD /* nav_back.png in Resources */,
 				A6CB3FB71AC3E43800C65C47 /* ChooseAddressCell.xib in Resources */,
+				A6647CB51B268DC800D2DC57 /* Default-568h@2x.png in Resources */,
+				A6647CBA1B268DC800D2DC57 /* Icon-iOS7@2x.png in Resources */,
 				B009665B1ADA14E2007DD934 /* accountDetail01@2x.png in Resources */,
 				A6CE40EF1AEA434A00A48B39 /* weixin.png in Resources */,
 				A696C5AC1AC1A97200A860AD /* tab_home@2x.png in Resources */,
@@ -1584,11 +1638,15 @@
 				A6BB68551AC930BA00DF1723 /* select_min.jpg in Resources */,
 				A6CB3FB21AC3E34300C65C47 /* AddAddressCell.xib in Resources */,
 				A6BB685A1AC9359800DF1723 /* XiaohaopinVC.xib in Resources */,
+				A6647CB81B268DC800D2DC57 /* Default.png in Resources */,
 				A699B96E1AEFD6E500AA453B /* CommentAunt.xib in Resources */,
 				A696C5B41AC1A98300A860AD /* ad_a_2.jpg in Resources */,
 				B0735C2C1AC273C4005A3E82 /* join_06.png in Resources */,
 				B07FB3351AD8CAE2003C96C8 /* question.html in Resources */,
+				A6647CBC1B268DC800D2DC57 /* Icon-Small@2x.png in Resources */,
 				B00966861ADA6908007DD934 /* UMSCommentInputController.xib in Resources */,
+				A6647CB71B268DC800D2DC57 /* Default-iOS7@2x.png in Resources */,
+				A6647CBD1B268DC800D2DC57 /* Icon.png in Resources */,
 				A6CE40EC1AEA429E00A48B39 /* pay_unselected.png in Resources */,
 				B009665C1ADA14E2007DD934 /* accountDetail02@2x.png in Resources */,
 				A6B24BA21AEB768300C76124 /* yue.png in Resources */,
@@ -1603,11 +1661,14 @@
 				B009668C1ADA6908007DD934 /* UMSShareListController.xib in Resources */,
 				B00966601ADA64FB007DD934 /* people_ayb.png in Resources */,
 				A696C5131AC1A73500A860AD /* Main.storyboard in Resources */,
+				A6647CBB1B268DC800D2DC57 /* Icon-Small.png in Resources */,
 				B009665E1ADA14E2007DD934 /* accountDetail04@2x.png in Resources */,
+				A6647CB41B268DC800D2DC57 /* 37x-Checkmark@2x.png in Resources */,
 				A6CE40D61AEA2F0200A48B39 /* auntPhone.png in Resources */,
 				B009668B1ADA6908007DD934 /* UMSnsAccountViewController.xib in Resources */,
 				A6B6D6A31AD6585F00163715 /* HouseSizeVC.xib in Resources */,
 				A6BB68541AC930BA00DF1723 /* select_hover_min.jpg in Resources */,
+				A6647CB91B268DC800D2DC57 /* Default@2x.png in Resources */,
 				A696C5BC1AC1A9BE00A860AD /* s_phone.png in Resources */,
 				B0735C0E1AC25350005A3E82 /* icon_time.png in Resources */,
 			);
@@ -1634,6 +1695,7 @@
 				A696C5591AC1A8F400A860AD /* AFURLConnectionOperation.m in Sources */,
 				B01EC03E1ACA68660049FC7D /* MoreSettingVC.m in Sources */,
 				B0F681EE1AC6740B008DBE63 /* LoginVC.m in Sources */,
+				A6647CA51B26897300D2DC57 /* UIFactory.m in Sources */,
 				A6FFFA1A1AD8177F00A544C5 /* MJRefreshBaseView.m in Sources */,
 				B01EC0441ACA69490049FC7D /* UserProtocolVC.m in Sources */,
 				A6694CC21AD2B41900339A2B /* MzbAddress.m in Sources */,
