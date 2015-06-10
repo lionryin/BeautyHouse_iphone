@@ -187,7 +187,7 @@
     NSString *userId = [userDic objectForKey:UserLoginId];
     NSLog(@"userId:%@",userId);
     
-    NSString *param = [NSString stringWithFormat:@"{\"proc\":{\"registeredUserId\":\"%@\",\"checkOrderInfo\":%li},\"order1\":\"orderDateTime\",\"sort1\":\"desc\",\"pageIndex\":%li,\"pageSize\":5}",userId,checkOrderInfo,index];
+    NSString *param = [NSString stringWithFormat:@"{\"proc\":{\"registeredUserId\":\"%@\",\"checkOrderInfo\":%li},\"order1\":\"orderDateTime\",\"sort1\":\"desc\",\"pageIndex\":%li,\"pageSize\":5}",userId,(long)checkOrderInfo,(long)index];
     
     HomeService *homeService = [[HomeService alloc] init];
     [homeService getPageByOrderInfoWithParam:param andWithBlock:^(NSNumber *result, NSDictionary *resultInfo, NSError *error) {

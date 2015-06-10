@@ -286,23 +286,23 @@
         return [self getDateWithRow:row];
     }
     else if (component == 1){
-        return [NSString stringWithFormat:@"%02ld:00",(8+row)];
+        return [NSString stringWithFormat:@"%02ld:00",(long)(8+row)];
     }
     else{
-        return [NSString stringWithFormat:@"%02ld",30*row];;
+        return [NSString stringWithFormat:@"%02ld",(long)(30*row)];;
     }
 
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component{
     if (component == 0) {
-        return 120;
+        return 140;
     }
     else if (component == 1){
         return 80;
     }
     else{
-        return 80;
+        return 60;
     }
 
 }
@@ -314,10 +314,10 @@
         self.selecteddd = [self getDateWithRow:row];
     }
     else if (component == 1){
-        self.selectedHH = [NSString stringWithFormat:@"%02ld",(8+row)];
+        self.selectedHH = [NSString stringWithFormat:@"%02ld",(long)(8+row)];
     }
     else{
-        self.selectedmm = [NSString stringWithFormat:@"%02ld",30*row];
+        self.selectedmm = [NSString stringWithFormat:@"%02ld",(long)(30*row)];
     }
     
     //NSLog(@"selectedStr:%@",selectedStr);

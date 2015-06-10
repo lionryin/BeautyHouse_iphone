@@ -68,7 +68,7 @@
 #pragma mark - UIAlertView delegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (alertView.tag == 99 && buttonIndex == 1) {
-        NSLog(@"%li",buttonIndex);
+        NSLog(@"%li",(long)buttonIndex);
         
         NSString *param = [NSString stringWithFormat:@"{\"id\":\"%@\"}", self.order.orderID];
         

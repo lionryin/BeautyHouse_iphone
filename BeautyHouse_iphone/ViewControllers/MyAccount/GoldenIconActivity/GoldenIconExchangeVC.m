@@ -36,7 +36,7 @@
     [containView addSubview:balanceStr];
     
     _balanceValue = [self createLabelWithFrame:CGRectMake(110, 7, containView.frame.size.width-120, 30)];
-    _balanceValue.text = [NSString stringWithFormat:@"%li",self.balance];
+    _balanceValue.text = [NSString stringWithFormat:@"%li",(long)self.balance];
     _balanceValue.textAlignment = NSTextAlignmentCenter;
     [containView addSubview:_balanceValue];
     
@@ -98,7 +98,7 @@
     
     
     if ([self getUserLoginId]) {
-        NSString *jsonParam = [NSString stringWithFormat:@"{\"registeredUserId\":\"%@\",\"number\":\"%li\",\"sign\":\"1\"}",[self getUserLoginId],exchCoins];
+        NSString *jsonParam = [NSString stringWithFormat:@"{\"registeredUserId\":\"%@\",\"number\":\"%li\",\"sign\":\"1\"}",[self getUserLoginId],(long)exchCoins];
         AFHTTPRequestOperation *opration = [MZBWebService goldCoinsExchangeWithParameter:jsonParam];
         
         [opration start];

@@ -78,13 +78,13 @@
                 
             case 1:
             {
-                cell.textLabel.text = [NSString stringWithFormat:@"充值金额:  %li",self.memberVO.chargeMoney.integerValue];
+                cell.textLabel.text = [NSString stringWithFormat:@"充值金额:  %li",(long)self.memberVO.chargeMoney.integerValue];
             }
                 break;
                 
             case 2:
             {
-                cell.textLabel.text = [NSString stringWithFormat:@"赠送金额:  %li",self.memberVO.giveMoney.integerValue];
+                cell.textLabel.text = [NSString stringWithFormat:@"赠送金额:  %li",(long)self.memberVO.giveMoney.integerValue];
             }
                 break;
                 
