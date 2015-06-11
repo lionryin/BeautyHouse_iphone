@@ -8,10 +8,11 @@
 
 #import "MemberCenterPayVC.h"
 //#import <AlipaySDK.framework/Headers/Alipay.h>
-#import <AlipaySDK/AlipaySDK.h>
+//#import <AlipaySDK/AlipaySDK.h>
 
-#import "DataSigner.h"
-#import "Common.h"
+//#import "DataSigner.h"
+//#import "Common.h"
+#import "MZBHttpService.h"
 
 @interface MemberCenterPayVC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -307,6 +308,22 @@
         NSString *uuidString = [self generateTradeNO];//[[[UIDevice currentDevice] identifierForVendor] UUIDString];
         NSString *tradeId = [NSString stringWithFormat:@"%@-%@",[self getUserId],uuidString];
         
+        
+        [[MZBHttpService shareInstance] apliyPayWithOutTradeNo:tradeId andTotalFee:[NSString stringWithFormat:@"%.2f",self.memberVO.chargeMoney.floatValue] callback:^(NSDictionary *resultDic) {
+            
+            NSString *resultStatus = resultDic [@"resultStatus"];
+            if (9000 == [resultStatus intValue]) {//支付成功
+            
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            }else{
+                
+            }
+        }];
+
+        /*
+        
+        
         NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"会员充值\"&total_fee=\"%.2f\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",tradeId, self.memberVO.chargeMoney.floatValue];
         
         id <DataSigner> signer = CreateRSADataSigner(RSA_PRIVATE);
@@ -326,25 +343,7 @@
                 
             }
 
-        }];
-        
-        
-     /*   Alipay *pay = [Alipay defaultService];
-        
-        [pay pay:payInfo from:@"" callback:^(NSString *resultStr) {
-            
-            NSDictionary *jsonQuery=[self dictFromString:resultStr];
-            NSString *resultStatus = jsonQuery [@"ResultStatus"];
-            if (9000 == [resultStatus intValue]) {//支付成功
-                
-                [self.navigationController popViewControllerAnimated:YES];
-                
-            }else{
-                
-            }
-            
         }];*/
-
         
         
     }else if (_flagIV2.tag == 2021){//微信支付

@@ -8,10 +8,12 @@
 
 #import "AccountRechargeVC.h"
 //#import <AlipaySDK.framework/Headers/Alipay.h>
-#import <AlipaySDK/AlipaySDK.h>
+//#import <AlipaySDK/AlipaySDK.h>
 
-#import "DataSigner.h"
-#import "Common.h"
+//#import "DataSigner.h"
+//#import "Common.h"
+
+#import "MZBHttpService.h"
 
 @interface AccountRechargeVC ()<UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
 
@@ -301,6 +303,8 @@
 
 
 - (void)exitAction:(id)sender{
+    [self.exchTF resignFirstResponder];
+    
     
     NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
     NSString *userIsLogin = [userDic objectForKey:UserIsLoginKey];
@@ -326,6 +330,26 @@
         NSString *uuidString = [self generateTradeNO];//[[[UIDevice currentDevice] identifierForVendor] UUIDString];
         NSString *tradeId = [NSString stringWithFormat:@"%@-%@",[self getUserId],uuidString];
         
+        [[MZBHttpService shareInstance] apliyPayWithOutTradeNo:tradeId andTotalFee:_exchTF.text callback:^(NSDictionary *resultDic) {
+            
+            NSString *resultStatus = resultDic [@"resultStatus"];
+            if (9000 == [resultStatus intValue]) {//支付成功
+                
+                if ([self.delegate respondsToSelector:@selector(accountRechargeVCApliyPaySuccess)]) {
+                    [self.delegate accountRechargeVCApliyPaySuccess];
+                }
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            }else{
+                
+            }
+        }];
+
+        
+        /*NSString *uuidString = [self generateTradeNO];//[[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        NSString *tradeId = [NSString stringWithFormat:@"%@-%@",[self getUserId],uuidString];
+        
         NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"在线充值\"&total_fee=\"%@\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",tradeId,_exchTF.text];
         
         id <DataSigner> signer = CreateRSADataSigner(RSA_PRIVATE);
@@ -345,7 +369,7 @@
                 
             }
             
-        }];
+        }];*/
         
 
         

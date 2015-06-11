@@ -15,7 +15,7 @@
 #import "MZBWebService.h"
 
 
-@interface AccountDetailVC ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UICollectionViewDataSource>
+@interface AccountDetailVC ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UICollectionViewDataSource, AccountRechargeVCDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 //@property (nonatomic, strong) NSMutableArray *list;
@@ -101,13 +101,7 @@
             }
             
             
-            
-            
-            
-            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            
-            
             
         }];
         
@@ -252,6 +246,7 @@
         {
 
            AccountRechargeVC *vc = [AccountRechargeVC new];
+            vc.delegate = self;
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
@@ -298,14 +293,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - AccountRechargeVC delegate
+- (void)accountRechargeVCApliyPaySuccess {
+    [self getCashBalance];
 }
-*/
 
 @end

@@ -10,7 +10,7 @@
 
 #import "MZBWebService.h"
 //#import <AlipaySDK.framework/Headers/Alipay.h>
-#import <AlipaySDK/AlipaySDK.h>
+//#import <AlipaySDK/AlipaySDK.h>
 
 #import "HomeService.h"
 #import "OrderPaySuccessVC.h"
@@ -20,8 +20,8 @@
 //#import <MBProgressHUD/MBProgressHUD.h>
 #import "WXPayClient.h"
 
-#import "DataSigner.h"
-#import "Common.h"
+//#import "DataSigner.h"
+//#import "Common.h"
 
 #import "MZBHttpService.h"
 
@@ -137,7 +137,23 @@
     else {
         if (_imageView1.highlighted) {//支付宝支付
             
-            NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"订单支付\"&total_fee=\"%@\"&notify_url=\"http://www.mrchabo.com/order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",self.orderVO.orderID,self.rmbTF.text];
+            [[MZBHttpService shareInstance] apliyPayWithOutTradeNo:self.orderVO.orderID andTotalFee:self.rmbTF.text callback:^(NSDictionary *resultDic) {
+                
+                NSString *resultStatus = resultDic [@"resultStatus"];
+                if (9000 == [resultStatus intValue]) {//支付成功
+                    
+                    if ([self.delegate respondsToSelector:@selector(orderPayVCPaySuccess)]) {
+                        [self.delegate orderPayVCPaySuccess];
+                    }
+
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }else{
+                    
+                }
+            }];
+            
+          /*  NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"订单支付\"&total_fee=\"%@\"&notify_url=\"%@order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",self.orderVO.orderID,self.rmbTF.text,MZBHttpURL];
             
             id <DataSigner> signer = CreateRSADataSigner(RSA_PRIVATE);
             NSString *signedString = [signer signString:subPayInfo];
@@ -145,38 +161,24 @@
             NSString *payInfo = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",subPayInfo,signedString,@"RSA"];
             
             
-            [[AlipaySDK defaultService] payOrder:payInfo fromScheme:@"" callback:^(NSDictionary *resultDic) {
+            [[AlipaySDK defaultService] payOrder:payInfo fromScheme:@"wx038e41f97fa55586" callback:^(NSDictionary *resultDic) {
                 
                 //NSDictionary *jsonQuery=[self dictFromString:resultStr];
                 NSString *resultStatus = resultDic [@"resultStatus"];
                 if (9000 == [resultStatus intValue]) {//支付成功
                     
+           if ([self.delegate respondsToSelector:@selector(orderPayVCPaySuccess)]) {
+           [self.delegate orderPayVCPaySuccess];
+           }
+
                     [self.navigationController popViewControllerAnimated:YES];
                     
                 }else{
                     
-                }
-                
-            }];
-
-            
-           /* Alipay *pay = [Alipay defaultService];
-            
-            [pay pay:payInfo from:@"" callback:^(NSString *resultStr) {
-                
-                NSDictionary *jsonQuery=[self dictFromString:resultStr];
-                NSString *resultStatus = jsonQuery [@"ResultStatus"];
-                if (9000 == [resultStatus intValue]) {//支付成功
-                    if ([self.delegate respondsToSelector:@selector(orderPayVCPaySuccess)]) {
-                        [self.delegate orderPayVCPaySuccess];
-                    }
-                    [self.navigationController popViewControllerAnimated:YES];
-
-
-                }else{
                 }
                 
             }];*/
+
             
         }
         else if (_imageView2.highlighted){//现金支付

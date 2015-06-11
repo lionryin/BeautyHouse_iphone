@@ -61,6 +61,13 @@ NSString * const WXPartnerId = @"1234641402";
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
+    
+    //跳转支付宝钱包进行支付，处理支付结果
+    [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+        NSLog(@"result = %@",resultDic);
+    }];
+
+    
     return  [UMSocialSnsService handleOpenURL:url wxApiDelegate:self];
 }
 

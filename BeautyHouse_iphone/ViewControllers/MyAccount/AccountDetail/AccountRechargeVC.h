@@ -8,6 +8,14 @@
 
 #import "BaseViewController.h"
 
+@protocol AccountRechargeVCDelegate <NSObject>
+
+- (void)accountRechargeVCApliyPaySuccess;
+
+@end
+
 @interface AccountRechargeVC : BaseViewController
+
+@property (assign, nonatomic) id<AccountRechargeVCDelegate>delegate;
 
 @end

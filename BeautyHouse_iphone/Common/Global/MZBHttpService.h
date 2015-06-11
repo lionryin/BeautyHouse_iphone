@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import "DataSigner.h"
+#import "Common.h"
+
 
 ///发布地址
 //#define MZBHttpURL @"http://www.mrchabo.com/"
@@ -33,5 +37,8 @@
 
 ///获取分享文本内容
 - (void)getShareContentWithShareUserID:(NSString *)userID andBlock:(void (^)(NSString *response, NSError *error))block;
+
+///支付宝支付
+- (void)apliyPayWithOutTradeNo:(NSString *)outTradeNo andTotalFee:(NSString *)totalFee callback:(CompletionBlock)completionBlock;
 
 @end
