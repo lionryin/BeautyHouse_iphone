@@ -8,7 +8,7 @@
 
 #import "CommentAunt.h"
 #import "SelectStarView.h"
-#import "AFNetworking.h"
+#import "MZBHttpService.h"
 
 @interface CommentAunt ()<UITextViewDelegate,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *button1;
@@ -125,13 +125,54 @@
 }
 
 - (IBAction)submitButtonPressed:(id)sender {
+    [_commentTV resignFirstResponder];
     [self submitService];
+}
+
+#pragma mark - myself
+- (NSString *)getTotalEvaluationScore {
+    if (_button1.selected) {
+        return @"1";
+    }
+    else if (_button2.selected) {
+        return @"2";
+    }
+    else {
+        return @"3";
+    }
+}
+
+- (NSString *)getEvalutionScores {
+    NSString *str = [NSString stringWithFormat:@"%@,%@,%@,%@,%@",[_starView1 getEvaluationScore],[_starView2 getEvaluationScore],[_starView3 getEvaluationScore],[_starView4 getEvaluationScore],[_starView5 getEvaluationScore]];
+    NSLog(@"EvalutionScores:%@",str);
+    return str;
 }
 
 #pragma mark - submit
 - (void)submitService{
     
-    NSString *totalScore = @"3";
+    [[MZBHttpService shareInstance] commentAuntWithAuntID:_orderVO.auntID andOrderID:_orderVO.orderID andTotalEvaluationScore:[self getTotalEvaluationScore] andEvaluationScores:[self getEvalutionScores] andRemarks:_commentTV.text andBlock:^(NSDictionary *result, NSError *error) {
+        if (!error) {
+            if ([[result objectForKey:@"result"] isEqualToString:@"true"]) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"评价成功！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    alert.tag = 88;
+                    [alert show];
+                });
+            }
+            else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"评价失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }];
+    
+   /* NSString *totalScore = @"3";
 
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.mrchabo.com/Service/Order/Evaluation/add.do?auntId=%@&orderId=%@&totalEvaluationScore=%@&evaluationIds=1,2,3,4,5&evaluationScores=%@,%@,%@,%@,%@&remarks=good",_orderVO.auntID,_orderVO.orderID,totalScore,@"1",@"2",@"3",@"4",@"5"]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -165,7 +206,7 @@
         [alert show];
         
     }];
-    [operation start];
+    [operation start];*/
 
 }
 

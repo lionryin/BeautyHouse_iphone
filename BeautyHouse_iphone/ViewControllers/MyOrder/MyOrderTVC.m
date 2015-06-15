@@ -233,6 +233,11 @@
             self.cancelBtn.hidden = YES;
             self.complaintBtn.hidden = NO;
         }
+        else {
+            self.zhifuBtn.hidden = YES;
+            self.cancelBtn.hidden = YES;
+            self.complaintBtn.hidden = YES;
+        }
         
         _auntNameLabel.text = orderVO.auntName;
         

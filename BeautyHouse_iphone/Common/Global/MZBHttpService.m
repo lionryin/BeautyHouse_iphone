@@ -139,6 +139,23 @@
     }];
 }
 
+/////评价阿姨
+- (void)commentAuntWithAuntID:(NSString *)auntID andOrderID:(NSString *)orderID andTotalEvaluationScore:(NSString *)totalEvaluationScore andEvaluationScores:(NSString *)evaluationScores andRemarks:(NSString *)remarks andBlock:(void (^)(NSDictionary *result, NSError *error))block{
+    
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@Service/Order/Evaluation/add.do?auntId=%@&orderId=%@&totalEvaluationScore=%@&evaluationIds=1,2,3,4,5&evaluationScores=%@&remarks=%@",MZBHttpURL, auntID,orderID,totalEvaluationScore,evaluationScores,remarks];
+    
+    [self getHttpRequestOperationWithURLString:urlStr andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+        
+        if (block) {
+            block(result, error);
+        }
+        
+    }];
+
+}
+
+
 ///微信支付
 - (void)apliyPayWithOutTradeNo:(NSString *)outTradeNo andTotalFee:(NSString *)totalFee callback:(CompletionBlock)completionBlock{
     

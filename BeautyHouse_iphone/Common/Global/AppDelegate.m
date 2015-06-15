@@ -75,6 +75,7 @@ NSString * const WXPartnerId = @"1234641402";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     ((UITabBarController *)self.window.rootViewController).delegate = self;
+    self.window.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1.0];
     
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     

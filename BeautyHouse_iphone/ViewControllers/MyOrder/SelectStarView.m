@@ -48,5 +48,21 @@
     [self setButtonWithTag:button.tag];
 }
 
+- (NSString *)getEvaluationScore {
+    
+    CGFloat total = 0;
+    for (int i=1; i<=5 ; i++) {
+        UIButton *buttoni = (UIButton *)[self viewWithTag:i];
+        if (buttoni.selected) {
+            total += 0.2;
+        }
+        else {
+            break;
+        }
+    }
+    
+    return [NSString stringWithFormat:@"%.1f",total];
+}
+
 
 @end

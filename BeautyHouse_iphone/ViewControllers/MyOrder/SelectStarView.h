@@ -18,4 +18,7 @@
 
 - (IBAction)buttonClicked:(id)sender;
 
+//获取得分
+- (NSString *)getEvaluationScore;
+
 @end
