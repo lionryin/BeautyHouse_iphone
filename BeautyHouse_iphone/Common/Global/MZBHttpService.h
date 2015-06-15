@@ -14,10 +14,10 @@
 
 
 ///发布地址
-//#define MZBHttpURL @"http://www.mrchabo.com/"
+#define MZBHttpURL @"http://www.mrchabo.com/"
 
 ///测试地址
-#define MZBHttpURL @"http://120.25.122.11/"
+//#define MZBHttpURL @"http://120.25.122.11/"
 
 @interface MZBHttpService : NSObject
 
