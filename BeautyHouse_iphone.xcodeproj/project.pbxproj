@@ -1917,8 +1917,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lei Cui (FA426HE8U8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lei Cui (FA426HE8U8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
@@ -1944,7 +1944,7 @@
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8778c31e-4ab9-4c0f-83a3-b05dbf39257c";
+				PROVISIONING_PROFILE = "520a8f94-7aae-46cb-ba79-7af4a0b15b65";
 			};
 			name = Debug;
 		};
@@ -1981,7 +1981,7 @@
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8778c31e-4ab9-4c0f-83a3-b05dbf39257c";
+				PROVISIONING_PROFILE = "520a8f94-7aae-46cb-ba79-7af4a0b15b65";
 			};
 			name = Release;
 		};

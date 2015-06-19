@@ -128,7 +128,7 @@
     self.userPhoneNumber = [[UILabel alloc]initWithFrame:CGRectMake(80, 50, 220, 40)];
     self.userPhoneNumber.textAlignment = NSTextAlignmentLeft;
     self.userPhoneNumber.font =[UIFont systemFontOfSize:17];
-    self.userPhoneNumber.textColor = [UIColor darkTextColor];
+    self.userPhoneNumber.textColor = [UIColor whiteColor];
     self.userPhoneNumber.hidden = YES;
     [view addSubview:self.userPhoneNumber];
     
