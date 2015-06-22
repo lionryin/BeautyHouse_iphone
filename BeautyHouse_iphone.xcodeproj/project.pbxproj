@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A63A4EC41B37EBA1008859EE /* SearchListTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A63A4EC01B37EBA1008859EE /* SearchListTableVC.m */; };
+		A63A4EC51B37EBA1008859EE /* ServiceAddressVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = A63A4EC21B37EBA1008859EE /* ServiceAddressVC.mm */; };
+		A63A4EC61B37EBA1008859EE /* ServiceAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63A4EC31B37EBA1008859EE /* ServiceAddressVC.xib */; };
+		A63A4EC81B37EC28008859EE /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63A4EC71B37EC28008859EE /* BaiduMapAPI.framework */; };
+		A63A4ECA1B37EC37008859EE /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A63A4EC91B37EC37008859EE /* mapapi.bundle */; };
+		A63A4ECC1B37EC4A008859EE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63A4ECB1B37EC4A008859EE /* CoreLocation.framework */; };
+		A63A4ECE1B37EC5A008859EE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63A4ECD1B37EC5A008859EE /* OpenGLES.framework */; };
+		A63A4ED01B37EC68008859EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63A4ECF1B37EC68008859EE /* CoreGraphics.framework */; };
 		A6647CA51B26897300D2DC57 /* UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A6647CA41B26897300D2DC57 /* UIFactory.m */; };
 		A6647CB31B268DC800D2DC57 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CA71B268DC800D2DC57 /* 37x-Checkmark.png */; };
 		A6647CB41B268DC800D2DC57 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CA81B268DC800D2DC57 /* 37x-Checkmark@2x.png */; };
@@ -241,6 +249,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A63A4EBF1B37EBA1008859EE /* SearchListTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchListTableVC.h; sourceTree = "<group>"; };
+		A63A4EC01B37EBA1008859EE /* SearchListTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchListTableVC.m; sourceTree = "<group>"; };
+		A63A4EC11B37EBA1008859EE /* ServiceAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceAddressVC.h; sourceTree = "<group>"; };
+		A63A4EC21B37EBA1008859EE /* ServiceAddressVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ServiceAddressVC.mm; sourceTree = "<group>"; };
+		A63A4EC31B37EBA1008859EE /* ServiceAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceAddressVC.xib; sourceTree = "<group>"; };
+		A63A4EC71B37EC28008859EE /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI.framework; sourceTree = "<group>"; };
+		A63A4EC91B37EC37008859EE /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
+		A63A4ECB1B37EC4A008859EE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A63A4ECD1B37EC5A008859EE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		A63A4ECF1B37EC68008859EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A6647CA31B26897300D2DC57 /* UIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFactory.h; sourceTree = "<group>"; };
 		A6647CA41B26897300D2DC57 /* UIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFactory.m; sourceTree = "<group>"; };
 		A6647CA71B268DC800D2DC57 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
@@ -676,6 +694,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A63A4ED01B37EC68008859EE /* CoreGraphics.framework in Frameworks */,
+				A63A4ECE1B37EC5A008859EE /* OpenGLES.framework in Frameworks */,
+				A63A4ECC1B37EC4A008859EE /* CoreLocation.framework in Frameworks */,
 				B0A981E21AEDFC9C00AFA50B /* CoreText.framework in Frameworks */,
 				B0A981E01AEDFC9200AFA50B /* QuartzCore.framework in Frameworks */,
 				A6CD21AE1B182305005EE26E /* libcrypto.a in Frameworks */,
@@ -686,6 +707,7 @@
 				A6CD21A11B181DAB005EE26E /* AlipaySDK.framework in Frameworks */,
 				B009668E1ADA6908007DD934 /* libSocialWechat.a in Frameworks */,
 				B00966841ADA6908007DD934 /* libUMSocial_Sdk_4.2.1.a in Frameworks */,
+				A63A4EC81B37EC28008859EE /* BaiduMapAPI.framework in Frameworks */,
 				B009668F1ADA6908007DD934 /* libWeChatSDK.a in Frameworks */,
 				A6CD21AF1B182305005EE26E /* libssl.a in Frameworks */,
 				A6B24BA81AEB82DE00C76124 /* libWeChatSDK.a in Frameworks */,
@@ -702,6 +724,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A63A4EBE1B37EB8F008859EE /* 2.0新增 */ = {
+			isa = PBXGroup;
+			children = (
+				A63A4EBF1B37EBA1008859EE /* SearchListTableVC.h */,
+				A63A4EC01B37EBA1008859EE /* SearchListTableVC.m */,
+				A63A4EC11B37EBA1008859EE /* ServiceAddressVC.h */,
+				A63A4EC21B37EBA1008859EE /* ServiceAddressVC.mm */,
+				A63A4EC31B37EBA1008859EE /* ServiceAddressVC.xib */,
+			);
+			path = "2.0新增";
+			sourceTree = "<group>";
+		};
 		A6647CA61B268DC800D2DC57 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -734,6 +768,11 @@
 		A696C4C91AC1A5D900A860AD = {
 			isa = PBXGroup;
 			children = (
+				A63A4ECF1B37EC68008859EE /* CoreGraphics.framework */,
+				A63A4ECD1B37EC5A008859EE /* OpenGLES.framework */,
+				A63A4ECB1B37EC4A008859EE /* CoreLocation.framework */,
+				A63A4EC91B37EC37008859EE /* mapapi.bundle */,
+				A63A4EC71B37EC28008859EE /* BaiduMapAPI.framework */,
 				B0A981E11AEDFC9C00AFA50B /* CoreText.framework */,
 				B0A981DF1AEDFC9200AFA50B /* QuartzCore.framework */,
 				B0A981DD1AEDF7A100AFA50B /* SystemConfiguration.framework */,
@@ -1001,6 +1040,7 @@
 		A696C50E1AC1A73500A860AD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A63A4EBE1B37EB8F008859EE /* 2.0新增 */,
 				A696C5651AC1A91900A860AD /* HomeAdCell.h */,
 				A696C5661AC1A91900A860AD /* HomeAdCell.m */,
 				A696C5671AC1A91900A860AD /* HomeBtnCell.h */,
@@ -1662,12 +1702,14 @@
 				B00966601ADA64FB007DD934 /* people_ayb.png in Resources */,
 				A696C5131AC1A73500A860AD /* Main.storyboard in Resources */,
 				A6647CBB1B268DC800D2DC57 /* Icon-Small.png in Resources */,
+				A63A4ECA1B37EC37008859EE /* mapapi.bundle in Resources */,
 				B009665E1ADA14E2007DD934 /* accountDetail04@2x.png in Resources */,
 				A6647CB41B268DC800D2DC57 /* 37x-Checkmark@2x.png in Resources */,
 				A6CE40D61AEA2F0200A48B39 /* auntPhone.png in Resources */,
 				B009668B1ADA6908007DD934 /* UMSnsAccountViewController.xib in Resources */,
 				A6B6D6A31AD6585F00163715 /* HouseSizeVC.xib in Resources */,
 				A6BB68541AC930BA00DF1723 /* select_hover_min.jpg in Resources */,
+				A63A4EC61B37EBA1008859EE /* ServiceAddressVC.xib in Resources */,
 				A6647CB91B268DC800D2DC57 /* Default@2x.png in Resources */,
 				A696C5BC1AC1A9BE00A860AD /* s_phone.png in Resources */,
 				B0735C0E1AC25350005A3E82 /* icon_time.png in Resources */,
@@ -1697,6 +1739,7 @@
 				B0F681EE1AC6740B008DBE63 /* LoginVC.m in Sources */,
 				A6647CA51B26897300D2DC57 /* UIFactory.m in Sources */,
 				A6FFFA1A1AD8177F00A544C5 /* MJRefreshBaseView.m in Sources */,
+				A63A4EC51B37EBA1008859EE /* ServiceAddressVC.mm in Sources */,
 				B01EC0441ACA69490049FC7D /* UserProtocolVC.m in Sources */,
 				A6694CC21AD2B41900339A2B /* MzbAddress.m in Sources */,
 				B0A5D3571ACBAE0F00D60958 /* GoldenIconTradeRecordVC.m in Sources */,
@@ -1747,6 +1790,7 @@
 				B0A5D35A1ACBAE4A00D60958 /* GoldenIconExchangeVC.m in Sources */,
 				B0735C161AC25BEF005A3E82 /* GoldenIconActivityVC.m in Sources */,
 				A66C50B81AC272D1003E146F /* AllServiceButton.m in Sources */,
+				A63A4EC41B37EBA1008859EE /* SearchListTableVC.m in Sources */,
 				A696C55C1AC1A8F400A860AD /* AFURLSessionManager.m in Sources */,
 				B0735C221AC25C9C005A3E82 /* AvailableCitiesVC.m in Sources */,
 				A6694CBF1AD2AA0E00339A2B /* GTMBase64.m in Sources */,
@@ -1922,6 +1966,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
+					"$(PROJECT_DIR)",
 				);
 				GCC_INPUT_FILETYPE = automatic;
 				HEADER_SEARCH_PATHS = (
@@ -1959,6 +2004,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
+					"$(PROJECT_DIR)",
 				);
 				GCC_INPUT_FILETYPE = automatic;
 				HEADER_SEARCH_PATHS = (

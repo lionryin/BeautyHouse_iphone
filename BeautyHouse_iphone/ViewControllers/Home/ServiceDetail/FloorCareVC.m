@@ -12,6 +12,7 @@
 #import "LoginVC.h"
 #import "SaveOrderSuccessVC.h"
 
+
 @interface FloorCareVC ()<UIAlertViewDelegate>
 
 @property (strong, nonatomic) MBProgressHUD *hud;
@@ -63,9 +64,11 @@
         [self presentViewController:loginNC animated:YES completion:nil];
     }
     else{
-        ChooseAddressVC *chooseAddressVC = [[ChooseAddressVC alloc] init];
-        chooseAddressVC.delegate = self;
-        [self.navigationController pushViewController:chooseAddressVC animated:YES];
+//        ChooseAddressVC *chooseAddressVC = [[ChooseAddressVC alloc] init];
+//        chooseAddressVC.delegate = self;
+//        [self.navigationController pushViewController:chooseAddressVC animated:YES];
+        ServiceAddressVC *vc = [[ServiceAddressVC alloc] initWithNibName:@"ServiceAddressVC" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
 
     }
 }
