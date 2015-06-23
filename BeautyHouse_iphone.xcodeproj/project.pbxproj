@@ -1988,6 +1988,7 @@
 					"\"$(SRCROOT)/BeautyHouse_iphone/Common/ThirdPart/Alipay\"",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "520a8f94-7aae-46cb-ba79-7af4a0b15b65";
 			};
@@ -2026,6 +2027,7 @@
 					"\"$(SRCROOT)/BeautyHouse_iphone/Common/ThirdPart/Alipay\"",
 					"$(PROJECT_DIR)/BeautyHouse_iphone/Common/ThirdPart/Alipay",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "520a8f94-7aae-46cb-ba79-7af4a0b15b65";
 			};

@@ -14,6 +14,7 @@
 #import "UMSocialWechatHandler.h"
 #import "Constant.h"
 
+#import <BaiduMapAPI/BMapKit.h>
 
 /**
  *  微信开放平台申请得到的 appid, 需要同时添加在 URL schema
@@ -46,7 +47,9 @@ NSString * const WXPartnerKey = @"4ad2595522b5ff33d82a886764a68d82";
  */
 NSString * const WXPartnerId = @"1234641402";
 
-@interface AppDelegate ()
+@interface AppDelegate ()<BMKGeneralDelegate>
+
+@property (strong, nonatomic) BMKMapManager *mapManager;
 
 @end
 
@@ -100,6 +103,15 @@ NSString * const WXPartnerId = @"1234641402";
     [UMSocialWechatHandler setWXAppId:@"wx038e41f97fa55586" appSecret:@"4ad2595522b5ff33d82a886764a68d82" url:@"http://www.mrchabo.com/"];
     //微信支付
     [WXApi registerApp:WXAppId];
+    
+    //////
+    _mapManager = [[BMKMapManager alloc] init];
+    BOOL ret = [_mapManager start:BAIDU_MAP_KEY generalDelegate:self];
+    
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
+
     
     
     return YES;
