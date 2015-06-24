@@ -171,6 +171,7 @@
 		A6CE40EF1AEA434A00A48B39 /* weixin.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CE40ED1AEA434A00A48B39 /* weixin.png */; };
 		A6CE40F01AEA434A00A48B39 /* zhifubao.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CE40EE1AEA434A00A48B39 /* zhifubao.png */; };
 		A6CE40F21AEA436D00A48B39 /* weixin2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CE40F11AEA436D00A48B39 /* weixin2.png */; };
+		A6DFF0B11B3A906B006875F7 /* icon_gcoding.png in Resources */ = {isa = PBXBuildFile; fileRef = A6DFF0B01B3A906B006875F7 /* icon_gcoding.png */; };
 		A6FFFA071AD7BBB700A544C5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FFFA061AD7BBB700A544C5 /* MBProgressHUD.m */; };
 		A6FFFA191AD8177F00A544C5 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6FFFA091AD8177F00A544C5 /* MJRefresh.bundle */; };
 		A6FFFA1A1AD8177F00A544C5 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FFFA0C1AD8177F00A544C5 /* MJRefreshBaseView.m */; };
@@ -576,6 +577,7 @@
 		A6CE40ED1AEA434A00A48B39 /* weixin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weixin.png; sourceTree = "<group>"; };
 		A6CE40EE1AEA434A00A48B39 /* zhifubao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhifubao.png; sourceTree = "<group>"; };
 		A6CE40F11AEA436D00A48B39 /* weixin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weixin2.png; sourceTree = "<group>"; };
+		A6DFF0B01B3A906B006875F7 /* icon_gcoding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_gcoding.png; sourceTree = "<group>"; };
 		A6FFFA051AD7BBB700A544C5 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		A6FFFA061AD7BBB700A544C5 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		A6FFFA091AD8177F00A544C5 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
@@ -956,6 +958,7 @@
 		A696C5091AC1A73500A860AD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A6DFF0B01B3A906B006875F7 /* icon_gcoding.png */,
 				A6694CC41AD40C9D00339A2B /* timeline_green.png */,
 				A6BB685D1ACAD1E300DF1723 /* arrow_down.png */,
 				A6BB685B1AC9376F00DF1723 /* progress_loading_image.png */,
@@ -1675,6 +1678,7 @@
 				A6CE40D41AEA2EDC00A48B39 /* auntIcon.png in Resources */,
 				A6B6A89C1AC436C600B12F04 /* adress.png in Resources */,
 				A6CB3FBF1AC3EB5000C65C47 /* add_Address.png in Resources */,
+				A6DFF0B11B3A906B006875F7 /* icon_gcoding.png in Resources */,
 				A6BB68551AC930BA00DF1723 /* select_min.jpg in Resources */,
 				A6CB3FB21AC3E34300C65C47 /* AddAddressCell.xib in Resources */,
 				A6BB685A1AC9359800DF1723 /* XiaohaopinVC.xib in Resources */,

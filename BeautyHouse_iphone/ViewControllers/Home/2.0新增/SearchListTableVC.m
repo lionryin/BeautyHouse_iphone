@@ -38,11 +38,11 @@
 }
 
 - (void)updateData {
-    [_resultList removeAllObjects];
-    [_resultList addObject:_searchText];
-    for (int i = 1; i<10; i++) {
-        [_resultList addObject:[NSString stringWithFormat:@"%@%d",_searchText,i]];
-    }
+    //[_resultList removeAllObjects];
+    //[_resultList addObject:_searchText];
+    //for (int i = 1; i<10; i++) {
+      //  [_resultList addObject:[NSString stringWithFormat:@"%@%d",_searchText,i]];
+    //}
     [self.tableView reloadData];
 }
 
@@ -75,7 +75,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 30;
+    return 44;
 }
 
 
