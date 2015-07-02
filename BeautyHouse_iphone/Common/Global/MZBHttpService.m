@@ -105,6 +105,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
     //
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    //operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation start];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -113,7 +114,7 @@
         //NSLog(@"html:%@",html);
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[html dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-        NSLog(@"%@",dic);
+        //NSLog(@"%@",dic);
         
         if (block) {
             block(html, dic, nil);
@@ -169,6 +170,34 @@
     [[AlipaySDK defaultService] payOrder:payInfo fromScheme:@"wx038e41f97fa55586" callback:completionBlock];
 
     
+}
+
+///获取主页服务
+- (void)getHomeServiceWithBlock:(void (^)(NSDictionary *result, NSError *error))block {
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/item/list/main.do",MZBHttpURL] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+        
+        NSLog(@"getHomeServiceResult:%@",result);
+        if (block) {
+            block(result,error);
+        }
+        
+    }];
+}
+
+//获取全部服务
+- (void)getAllServiceWithBlock:(void (^)(NSArray *resultArray, NSError *error))block {
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/item/category/list.do",MZBHttpURL] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+        
+        //NSLog(@"getAllServiceResult:%@",responseStr);
+        NSArray *resultArr = [NSJSONSerialization JSONObjectWithData:[responseStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        
+        NSLog(@"getAllServiceResult:%@",resultArr);
+        
+        if (block) {
+            block(resultArr,error);
+        }
+
+    }];
 }
 
 

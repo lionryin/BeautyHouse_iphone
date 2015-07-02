@@ -30,20 +30,20 @@
         <scene sceneID="zpd-De-TYZ">
             <objects>
                 <tableViewController id="96z-0y-XiZ" customClass="HomeTableVC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="284" sectionHeaderHeight="22" sectionFooterHeight="22" id="kBk-Xb-972">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="kBk-Xb-972">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeBntCell_Identifier" rowHeight="286" id="Sgg-RA-lKV" customClass="HomeBtnCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="286"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeBntCell_Identifier" rowHeight="100" id="Sgg-RA-lKV" customClass="HomeBtnCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sgg-RA-lKV" id="yOU-Pc-mcg">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="286"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FiT-CJ-OWd" userLabel="Button1" customClass="HomeButton">
-                                            <rect key="frame" x="0.0" y="14" width="106" height="90"/>
+                                            <rect key="frame" x="0.0" y="10" width="106" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,7 +53,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BIK-cz-l6x" userLabel="Button2" customClass="HomeButton">
-                                            <rect key="frame" x="107" y="14" width="106" height="90"/>
+                                            <rect key="frame" x="107" y="10" width="106" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,7 +63,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e0u-GB-hP8" userLabel="Button3" customClass="HomeButton">
-                                            <rect key="frame" x="214" y="14" width="106" height="90"/>
+                                            <rect key="frame" x="214" y="10" width="106" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,68 +72,13 @@
                                                 <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="fbT-01-vpr"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BIz-5t-hLS" userLabel="Button4" customClass="HomeButton">
-                                            <rect key="frame" x="0.0" y="105" width="106" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="Idp-Hk-REh"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DZU-A5-w1t" userLabel="Button5" customClass="HomeButton">
-                                            <rect key="frame" x="107" y="105" width="106" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="RR8-87-wlE"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wta-Cn-N93" userLabel="Button6" customClass="HomeButton">
-                                            <rect key="frame" x="214" y="105" width="106" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="pqN-UL-yL1"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fSW-du-w3n" userLabel="Button7" customClass="HomeButton">
-                                            <rect key="frame" x="0.0" y="196" width="106" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="89e-XL-QDb"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G6V-FO-Bf4" userLabel="Button8" customClass="HomeButton">
-                                            <rect key="frame" x="107" y="196" width="106" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="igs-UM-wU8"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6bi-bm-I0P" userLabel="Button9" customClass="HomeButton">
-                                            <rect key="frame" x="214" y="196" width="106" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="buttonPressed:" destination="Sgg-RA-lKV" eventType="touchUpInside" id="jIq-aG-Ab9"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="button1" destination="FiT-CJ-OWd" id="gjO-TY-qgY"/>
+                                    <outlet property="button2" destination="BIK-cz-l6x" id="oLL-cn-FTp"/>
+                                    <outlet property="button3" destination="e0u-GB-hP8" id="1H3-Lj-JtN"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

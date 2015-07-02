@@ -12,7 +12,7 @@
 
 @protocol AllServiceCellDelegate <NSObject>
 
-- (void)AllServiceCellButtonPressed:(id)sender andMzbService:(MzbService *)aService;
+- (void)AllServiceCellButtonPressed:(id)sender andMzbService:(NSDictionary *)aService;
 
 @end
 
@@ -24,8 +24,10 @@
 @property (weak, nonatomic) IBOutlet AllServiceButton *button1;
 @property (weak, nonatomic) IBOutlet AllServiceButton *button2;
 
-@property (strong, nonatomic) MzbService *childService1;
-@property (strong, nonatomic) MzbService *childService2;
+//@property (strong, nonatomic) MzbService *childService1;
+//@property (strong, nonatomic) MzbService *childService2;
+@property (strong, nonatomic) NSDictionary *childService1;
+@property (strong, nonatomic) NSDictionary *childService2;
 
 - (IBAction)buttonPressed:(id)sender;
 

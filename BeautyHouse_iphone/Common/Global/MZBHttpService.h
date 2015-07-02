@@ -14,10 +14,10 @@
 
 
 ///发布地址
-#define MZBHttpURL @"http://www.mrchabo.com/"
+//#define MZBHttpURL @"http://www.mrchabo.com/"
 
 ///测试地址
-//#define MZBHttpURL @"http://120.25.122.11/"
+#define MZBHttpURL @"http://120.25.122.11/"
 
 @interface MZBHttpService : NSObject
 
@@ -53,5 +53,11 @@
 
 ///支付宝支付
 - (void)apliyPayWithOutTradeNo:(NSString *)outTradeNo andTotalFee:(NSString *)totalFee callback:(CompletionBlock)completionBlock;
+
+///获取主页服务
+- (void)getHomeServiceWithBlock:(void (^)(NSDictionary *result, NSError *error))block;
+
+//获取全部服务
+- (void)getAllServiceWithBlock:(void (^)(NSArray *resultArray, NSError *error))block ;
 
 @end

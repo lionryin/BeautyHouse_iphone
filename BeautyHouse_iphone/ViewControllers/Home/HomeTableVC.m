@@ -16,6 +16,8 @@
 #import "NurseVC.h"
 #import "AllServiceVC.h"
 
+#import "MZBHttpService.h"
+
 
 
 @interface HomeTableVC ()
@@ -40,27 +42,51 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     _adInfos = [[NSArray alloc] init];
-    _serviceInfos = [[NSArray alloc] init];
+    _serviceInfos = [NSArray array];//[self getAllServiceInfosWithInfos:[NSArray array]];
     
-    HomeService *homeService = [[HomeService alloc] init];
-    [homeService getHomeServiceWithBlock:^(NSNumber *result, NSArray *resultInfo, NSError *error) {
-        if (error) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-        else{
-            if ([result integerValue] == 0) {
-                _serviceInfos = [resultInfo mutableCopy];
+    [[MZBHttpService shareInstance] getHomeServiceWithBlock:^(NSDictionary *result, NSError *error) {
+        
+        if (!error) {
+            
+            NSNumber *status = result[@"status"];
+            
+            if (status.boolValue) {
+                _serviceInfos = [self getAllServiceInfosWithInfos:result[@"data"]];
+                
                 [self.tableView reloadData];
             }
-            else{
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误，请重试！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                [alert show];
+            else {
+
+                [UIFactory showAlert:result[@"message"]];
             }
-            
         }
-        
+        else {
+
+            [UIFactory showAlert:@"网路错误"];
+        }
+      
     }];
+    
+    HomeService *homeService = [[HomeService alloc] init];
+//    [homeService getHomeServiceWithBlock:^(NSNumber *result, NSArray *resultInfo, NSError *error) {
+//        if (error) {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            [alert show];
+//        }
+//        else{
+//            if ([result integerValue] == 0) {
+//                _serviceInfos = [resultInfo mutableCopy];
+//                [self.tableView reloadData];
+//            }
+//            else{
+//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误，请重试！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//                [alert show];
+//            }
+//            
+//        }
+//        
+//    }];
+    
     [homeService getHomeAdWithBlock:^(NSNumber *result, NSArray *resultInfo, NSError *error) {
         if (error) {
             NSLog(@"网络错误");
@@ -88,18 +114,50 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - self
+- (NSArray *)getAllServiceInfosWithInfos:(NSArray *)infos{
+    NSMutableArray *allInfos = [infos mutableCopy];
+    NSDictionary *lastDic = @{@"id":allServiceInfoID, @"name":@"全部服务"};
+    [allInfos addObject:lastDic];
+    
+    return allInfos;
+}
+
+- (NSArray *)getBtnCellServiceInfoWithServieInfos:(NSArray *)infos andIndexPathRow:(NSInteger )row {
+    
+    NSMutableArray *result = [NSMutableArray array];
+    
+    [result addObject:infos[3*row]];
+    
+    if ((3*row+1) < infos.count) {
+        [result addObject:infos[3*row+1]];
+    }
+    
+    if ((3*row+2) < infos.count) {
+        [result addObject:infos[3*row+2]];
+    }
+    
+    return result;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 2;
+
+    if (section == 0) {
+        return 1;
+    }
+    else if (section == 1){
+        return (_serviceInfos.count + 2) / 3;
+    }
+    else {
+        return 0;
+    }
+    
 }
 
 
@@ -109,9 +167,7 @@
     
     UITableViewCell *cell = nil;
     
-    NSInteger row = indexPath.row;
-    
-    if (row == 0) {//ad
+    if (indexPath.section == 0) {//ad
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
         if (cell == nil) {
             cell = [[HomeAdCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier1];
@@ -123,11 +179,11 @@
         
         
     }
-    else if (row == 1){//bnt
+    else if (indexPath.section == 1){//bnt
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier2];
         
         
-        ((HomeBtnCell *)cell).serviceInfos = _serviceInfos;
+        ((HomeBtnCell *)cell).cellServices = [self getBtnCellServiceInfoWithServieInfos:_serviceInfos andIndexPathRow:indexPath.row];
         ((HomeBtnCell *)cell).delegate = self;
         
         return cell;
@@ -146,11 +202,11 @@
 
 - (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0){
+    if(indexPath.section == 0){
         return 160;
     }
-    else if (indexPath.row == 1){
-        return 286;
+    else if (indexPath.section == 1){
+        return 100;
     }
     else{
         return 44;
@@ -158,17 +214,17 @@
 }
 
 #pragma mark - HomeBtnCell delegate
-- (void)HomeBtnCellButtonPressed:(id)sender andServiceInfos:(NSArray *)infos
+- (void)HomeBtnCellButtonPressedWithServiceInfo:(NSDictionary *)info
 {
-    UIButton *button = (UIButton *)sender;
-    MzbService *aService = [infos objectAtIndex:button.tag-1];
+   // UIButton *button = (UIButton *)sender;
+    //MzbService *aService = [infos objectAtIndex:button.tag-1];
     
  /*   if ([aService.serviceName isEqualToString:@"地板保养"]) {
         FloorCareVC *floorCareVC = [[FloorCareVC alloc] initWithNibName:@"FloorCareVC" bundle:nil];
         floorCareVC.serviceInfo= aService;
         [self.navigationController pushViewController:floorCareVC animated:YES];
         
-    }*/
+    }
     if ([aService.serviceParentId isEqualToString:@"11690485605"]) {//家居洗护
         if ([aService.serviceId isEqualToString:@"20843422762"]) {//清洗窗帘
             CurtainCareVC *curtainCareVC = [[CurtainCareVC alloc] initWithNibName:@"CurtainCareVC" bundle:nil];
@@ -206,6 +262,14 @@
             
             [self.navigationController pushViewController:allServiceVC animated:YES];
         }
+    }*/
+    
+    NSString *serviceId = info[@"id"];
+    if ([serviceId isEqualToString:allServiceInfoID]) {//全部服务
+        AllServiceVC *allServiceVC = [[AllServiceVC alloc] initWithNibName:@"AllServiceVC" bundle:nil];
+        
+        [self.navigationController pushViewController:allServiceVC animated:YES];
+
     }
     
 }

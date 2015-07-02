@@ -35,6 +35,6 @@
 
 //#define BAIDU_MAP_KEY  @"NjqpyRfXRTSwciiWoqSkkDMf"
 
-
+#define allServiceInfoID @"80069561635"
 
 

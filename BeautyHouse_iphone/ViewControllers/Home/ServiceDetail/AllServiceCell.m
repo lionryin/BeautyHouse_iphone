@@ -34,17 +34,17 @@
 
 - (void)layoutSubviews{
     
-    [_button1 setTitle:_childService1.serviceName forState:UIControlStateNormal];
+    [_button1 setTitle:_childService1[@"name"] forState:UIControlStateNormal];
     
-    NSString *imageUrl1 = [NSString stringWithFormat:@"%@%@",imageURLPrefix,_childService1.servicePhoto];
+    NSString *imageUrl1 = [NSString stringWithFormat:@"%@%@",imageURLPrefix,_childService1[@"mini_logo_uri"]];
     
     [_button1 setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:imageUrl1] placeholderImage:[UIImage imageNamed:@""]];
     
     if (_childService2) {
         [_button2 setHidden:NO];
-        [_button2 setTitle:_childService2.serviceName forState:UIControlStateNormal];
+        [_button2 setTitle:_childService2[@"name"] forState:UIControlStateNormal];
         
-        NSString *imageUrl2 = [NSString stringWithFormat:@"%@%@",imageURLPrefix,_childService2.servicePhoto];
+        NSString *imageUrl2 = [NSString stringWithFormat:@"%@%@",imageURLPrefix,_childService2[@"mini_logo_uri"]];
         
         [_button2 setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:imageUrl2] placeholderImage:[UIImage imageNamed:@""]];
 

@@ -15,6 +15,7 @@
 		A63A4ECC1B37EC4A008859EE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63A4ECB1B37EC4A008859EE /* CoreLocation.framework */; };
 		A63A4ECE1B37EC5A008859EE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63A4ECD1B37EC5A008859EE /* OpenGLES.framework */; };
 		A63A4ED01B37EC68008859EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63A4ECF1B37EC68008859EE /* CoreGraphics.framework */; };
+		A64F3E431B43CE3800E6E99B /* logo_item_more.png in Resources */ = {isa = PBXBuildFile; fileRef = A64F3E421B43CE3800E6E99B /* logo_item_more.png */; };
 		A6647CA51B26897300D2DC57 /* UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A6647CA41B26897300D2DC57 /* UIFactory.m */; };
 		A6647CB31B268DC800D2DC57 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CA71B268DC800D2DC57 /* 37x-Checkmark.png */; };
 		A6647CB41B268DC800D2DC57 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CA81B268DC800D2DC57 /* 37x-Checkmark@2x.png */; };
@@ -260,6 +261,7 @@
 		A63A4ECB1B37EC4A008859EE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A63A4ECD1B37EC5A008859EE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A63A4ECF1B37EC68008859EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A64F3E421B43CE3800E6E99B /* logo_item_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_item_more.png; sourceTree = "<group>"; };
 		A6647CA31B26897300D2DC57 /* UIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFactory.h; sourceTree = "<group>"; };
 		A6647CA41B26897300D2DC57 /* UIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFactory.m; sourceTree = "<group>"; };
 		A6647CA71B268DC800D2DC57 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
@@ -958,6 +960,7 @@
 		A696C5091AC1A73500A860AD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A64F3E421B43CE3800E6E99B /* logo_item_more.png */,
 				A6DFF0B01B3A906B006875F7 /* icon_gcoding.png */,
 				A6694CC41AD40C9D00339A2B /* timeline_green.png */,
 				A6BB685D1ACAD1E300DF1723 /* arrow_down.png */,
@@ -1712,6 +1715,7 @@
 				A6CE40D61AEA2F0200A48B39 /* auntPhone.png in Resources */,
 				B009668B1ADA6908007DD934 /* UMSnsAccountViewController.xib in Resources */,
 				A6B6D6A31AD6585F00163715 /* HouseSizeVC.xib in Resources */,
+				A64F3E431B43CE3800E6E99B /* logo_item_more.png in Resources */,
 				A6BB68541AC930BA00DF1723 /* select_hover_min.jpg in Resources */,
 				A63A4EC61B37EBA1008859EE /* ServiceAddressVC.xib in Resources */,
 				A6647CB91B268DC800D2DC57 /* Default@2x.png in Resources */,

@@ -14,7 +14,9 @@
 #import "CurtainCareVC.h"
 #import "NurseVC.h"
 
-#define AllServiceCellID @"AllServiceCellID"
+#import "MZBHttpService.h"
+
+//#define AllServiceCellID @"AllServiceCellID"
 
 @interface AllServiceVC ()
 
@@ -31,7 +33,7 @@
     self.title = @"全部服务";
     [self initMainUI];
     
-    HomeService *homeService = [[HomeService alloc] init];
+    /*HomeService *homeService = [[HomeService alloc] init];
     [homeService getAllServiceWithBlock:^(NSNumber *result, NSArray *resultInfo, NSError *error) {
         if (error) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -47,6 +49,25 @@
                 [alert show];
             }
             
+        }
+
+    }];*/
+    [[MZBHttpService shareInstance] getAllServiceWithBlock:^(NSArray *resultArray, NSError *error) {
+        
+       if (!error) {
+            
+            if (resultArray) {
+                _tableList = [resultArray mutableCopy];
+                [self.tableView reloadData];
+            }
+            else {
+                
+                [UIFactory showAlert:@"未知错误"];
+            }
+        }
+        else {
+            
+            [UIFactory showAlert:@"网路错误"];
         }
 
     }];
@@ -77,12 +98,19 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    MzbService *aService = [_tableList objectAtIndex:section];
+    //MzbService *aService = [_tableList objectAtIndex:section];
     
-    return (aService.childServiceCategoryList.count+1)/2;
+    //return (aService.childServiceCategoryList.count+1)/2;
+    
+    NSDictionary *dic = [_tableList objectAtIndex:section];
+    NSArray *arr = dic[@"mountedItems"];
+    
+    return (arr.count+1) / 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *AllServiceCellID = @"AllServiceCellID";
     
     UINib *nib = [UINib nibWithNibName:@"AllServiceCell" bundle:nil];
     [tableView registerNib:nib forCellReuseIdentifier:AllServiceCellID];
@@ -91,8 +119,14 @@
     
     cell.delegate = self;
     
-    MzbService *ParentService = [_tableList objectAtIndex:indexPath.section];
-    NSArray *childArray = ParentService.childServiceCategoryList;
+    //MzbService *ParentService = [_tableList objectAtIndex:indexPath.section];
+    //NSArray *childArray = ParentService.childServiceCategoryList;
+    
+    NSDictionary *dic = [_tableList objectAtIndex:indexPath.section];
+    
+    NSArray *childArray = dic[@"mountedItems"];
+
+    
     
     
     cell.childService1 = [childArray objectAtIndex:2*(indexPath.row)];
@@ -115,8 +149,13 @@
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    MzbService *parentService = [_tableList objectAtIndex:section];
-    if ([parentService.serviceId isEqualToString:@"80069561635"]) {//全部服务
+    
+    NSDictionary *dic = [_tableList objectAtIndex:section];
+    
+   // MzbService *parentService = [_tableList objectAtIndex:section];
+    
+    NSString *serviceID = dic[@"id"];
+    if ([serviceID isEqualToString:allServiceInfoID]) {//全部服务
         return nil;
     }
     
@@ -132,7 +171,7 @@
     [label setBackgroundColor:[UIColor clearColor]];
     [label setFont:[UIFont systemFontOfSize:16]];
     [label setTextColor:[UIColor blackColor]];
-    label.text =parentService.serviceName;
+    label.text = dic[@"name"];//parentService.serviceName;
     [headerView addSubview:label];
     
     return headerView;
@@ -149,8 +188,8 @@
 }
 
 #pragma mark - allServiceCell delegate
-- (void)AllServiceCellButtonPressed:(id)sender andMzbService:(MzbService *)aService{
-    if ([aService.serviceParentId isEqualToString:@"11690485605"]) {//家居洗护
+- (void)AllServiceCellButtonPressed:(id)sender andMzbService:(NSDictionary *)aService{
+    /*if ([aService.serviceParentId isEqualToString:@"11690485605"]) {//家居洗护
         if ([aService.serviceId isEqualToString:@"20843422762"]) {//清洗窗帘
             CurtainCareVC *curtainCareVC = [[CurtainCareVC alloc] initWithNibName:@"CurtainCareVC" bundle:nil];
             curtainCareVC.serviceInfo = aService;
@@ -187,7 +226,7 @@
             
             [self.navigationController pushViewController:allServiceVC animated:YES];
         }
-    }
+    }*/
 
 }
 

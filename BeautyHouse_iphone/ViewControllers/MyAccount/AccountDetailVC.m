@@ -118,7 +118,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return 4;
+    return 3;//4;
 }
 
 
@@ -153,28 +153,28 @@
     [cell.contentView addSubview:rightLine];
     
     switch (indexPath.row) {
+//        case 0:
+//        {
+//            [iv setImage:[UIImage imageNamed:@"accountDetail01"]];
+//            label.text = @"家庭管家";
+//        
+//            break;
+//        }
         case 0:
-        {
-            [iv setImage:[UIImage imageNamed:@"accountDetail01"]];
-            label.text = @"家庭管家";
-        
-            break;
-        }
-        case 1:
         {
             
             [iv setImage:[UIImage imageNamed:@"accountDetail02"]];
             label.text = @"消费记录";
             break;
         }
-        case 2:
+        case 1:
         {
             [iv setImage:[UIImage imageNamed:@"accountDetail03"]];
             label.text = @"在线充值";
             
             break;
         }
-        case 3:
+        case 2:
         {
             
             [iv setImage:[UIImage imageNamed:@"accountDetail04"]];
@@ -228,21 +228,21 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     switch (indexPath.row) {
+//        case 0:
+//        {
+//            AccountFamilyStewardVC *vc = [AccountFamilyStewardVC new];
+//            [self.navigationController pushViewController:vc animated:YES];
+//
+//            break;
+//        }
         case 0:
-        {
-            AccountFamilyStewardVC *vc = [AccountFamilyStewardVC new];
-            [self.navigationController pushViewController:vc animated:YES];
-
-            break;
-        }
-        case 1:
         {
 
             AccountExpenseRecordVC *vc = [AccountExpenseRecordVC new];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
-        case 2:
+        case 1:
         {
 
            AccountRechargeVC *vc = [AccountRechargeVC new];
@@ -250,7 +250,7 @@
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
-        case 3:
+        case 2:
         {
 
             AccountRechargeRecordVC *vc = [AccountRechargeRecordVC new];

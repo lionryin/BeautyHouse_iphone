@@ -48,7 +48,7 @@
 
 - (void)getExpenseRecord{
     
-    NSString *param = [NSString stringWithFormat:@"{\"memberId\":\"%@\",\"sign\":\"1\"}",[self getUserId]];
+    NSString *param = [NSString stringWithFormat:@"{\"memberId\":\"%@\",\"sign\":1}",[self getUserId]];
     
     AFHTTPRequestOperation *opration = [MZBWebService getListRechargeInfoWithParameter:param];
     

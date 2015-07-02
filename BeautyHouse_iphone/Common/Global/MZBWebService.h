@@ -12,12 +12,12 @@
 #import "Common.h"
 
 ///发布地址
-#define imageURLPrefix @"http://www.mrchabo.com/mrchabo/"
-#define MZBWebURL @"http://www.mrchabo.com/houseWs/ws/houseWs?wsdl"
+//#define imageURLPrefix @"http://www.mrchabo.com/mrchabo/"
+//#define MZBWebURL @"http://www.mrchabo.com/houseWs/ws/houseWs?wsdl"
 
 ///测试地址
-//#define imageURLPrefix @"http://120.25.122.11/mrchabo/"
-//#define MZBWebURL @"http://120.25.122.11/houseWs/ws/houseWs?wsdl"
+#define imageURLPrefix @"http://120.25.122.11/mrchabo/"
+#define MZBWebURL @"http://120.25.122.11/houseWs/ws/houseWs?wsdl"
 
 
 

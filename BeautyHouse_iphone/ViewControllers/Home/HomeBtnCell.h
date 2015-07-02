@@ -8,27 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "HomeButton.h"
+#import "Common.h"
 
 @protocol HomeBtnCellDelegate <NSObject>
 
-- (void)HomeBtnCellButtonPressed:(id)sender andServiceInfos:(NSArray *)infos;
+- (void)HomeBtnCellButtonPressedWithServiceInfo:(NSDictionary *)info;
 
 @end
 
 @interface HomeBtnCell : UITableViewCell
 
-@property (strong, nonatomic) NSArray *serviceInfos;
+@property (strong, nonatomic) NSArray *cellServices;
 @property (assign, nonatomic) id<HomeBtnCellDelegate>delegate;
 
 @property (strong, nonatomic) IBOutlet HomeButton *button1;
 @property (strong, nonatomic) IBOutlet HomeButton *button2;
 @property (strong, nonatomic) IBOutlet HomeButton *button3;
-@property (strong, nonatomic) IBOutlet HomeButton *button4;
-@property (strong, nonatomic) IBOutlet HomeButton *button5;
-@property (strong, nonatomic) IBOutlet HomeButton *button6;
-@property (strong, nonatomic) IBOutlet HomeButton *button7;
-@property (strong, nonatomic) IBOutlet HomeButton *button8;
-@property (strong, nonatomic) IBOutlet HomeButton *button9;
 
 - (IBAction)buttonPressed:(id)sender;
 
