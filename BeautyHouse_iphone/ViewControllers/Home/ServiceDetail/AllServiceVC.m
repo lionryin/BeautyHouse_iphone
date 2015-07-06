@@ -227,6 +227,27 @@
             [self.navigationController pushViewController:allServiceVC animated:YES];
         }
     }*/
+    
+    NSString *serviceId = aService[@"id"];
+    if ([serviceId isEqualToString:allServiceInfoID]) {//全部服务
+        AllServiceVC *allServiceVC = [[AllServiceVC alloc] initWithNibName:@"AllServiceVC" bundle:nil];
+        
+        [self.navigationController pushViewController:allServiceVC animated:YES];
+        
+    }
+    else if ([serviceId isEqualToString:@"18181630679"]) {//新居开荒
+        NewHouseCareVC *newHouseCareVC = [[NewHouseCareVC alloc] initWithNibName:@"NewHouseCareVC" bundle:nil];
+        newHouseCareVC.serviceInfo = aService;
+        [self.navigationController pushViewController:newHouseCareVC animated:YES];
+        
+    }
+    else {
+        FloorCareVC *floorCareVC = [[FloorCareVC alloc] initWithNibName:@"FloorCareVC" bundle:nil];
+        floorCareVC.serviceInfo= aService;
+        [self.navigationController pushViewController:floorCareVC animated:YES];
+        
+    }
+
 
 }
 
