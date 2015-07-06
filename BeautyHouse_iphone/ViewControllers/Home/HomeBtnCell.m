@@ -35,7 +35,7 @@
 }
 
 - (void)setButtonInfoFrom:(NSArray *)infos{
-    NSLog(@"infos:%lu",(unsigned long)infos.count);
+    //NSLog(@"infos:%lu",(unsigned long)infos.count);
     
     for (int i = 0; i< infos.count; i++) {
         

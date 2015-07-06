@@ -26,6 +26,7 @@
 
 @implementation HomeTableVC
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -269,6 +270,18 @@
         AllServiceVC *allServiceVC = [[AllServiceVC alloc] initWithNibName:@"AllServiceVC" bundle:nil];
         
         [self.navigationController pushViewController:allServiceVC animated:YES];
+
+    }
+    else if ([serviceId isEqualToString:@"18181630679"]) {//新居开荒
+        NewHouseCareVC *newHouseCareVC = [[NewHouseCareVC alloc] initWithNibName:@"NewHouseCareVC" bundle:nil];
+        newHouseCareVC.serviceInfo = info;
+        [self.navigationController pushViewController:newHouseCareVC animated:YES];
+
+    }
+    else {
+        FloorCareVC *floorCareVC = [[FloorCareVC alloc] initWithNibName:@"FloorCareVC" bundle:nil];
+        floorCareVC.serviceInfo= info;
+        [self.navigationController pushViewController:floorCareVC animated:YES];
 
     }
     

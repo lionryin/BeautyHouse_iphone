@@ -24,8 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = _serviceInfo.serviceName;
-    [_topButton setTitle:_serviceInfo.servicePriceDescription forState:UIControlStateNormal];
+    self.navigationItem.title = _serviceInfo[@"name"];
+    [_topButton setTitle:_serviceInfo[@"price_decr"] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,9 +36,9 @@
 
 #pragma mark - IBAction
 - (IBAction)topButtonPressed:(id)sender{
-    ServiceIntroductionVC *introductionVC = [[ServiceIntroductionVC alloc] initWithNibName:@"ServiceIntroductionVC" bundle:nil];
+   /* ServiceIntroductionVC *introductionVC = [[ServiceIntroductionVC alloc] initWithNibName:@"ServiceIntroductionVC" bundle:nil];
     introductionVC.urlStr = [NSString stringWithFormat:@"%@%@",imageURLPrefix,_serviceInfo.serviceUrllink];
-    [self.navigationController pushViewController:introductionVC animated:YES];
+    [self.navigationController pushViewController:introductionVC animated:YES];*/
 }
 
 - (IBAction)timeButtonPressed:(id)sender{
@@ -118,7 +118,7 @@
                     if ([result integerValue] == 0) {
                         
                         MyOrderVO *myOrder = [[MyOrderVO alloc] init];
-                        myOrder.title = self.serviceInfo.serviceName;
+                        myOrder.title = self.serviceInfo[@"name"];
                         myOrder.time = self.timeTF.text;
                         myOrder.address = [NSString stringWithFormat:@"%@ %@",self.mzbAddress.cellName,self.mzbAddress.detailAddress];
                         myOrder.orderID = orderID;
@@ -152,7 +152,7 @@
     NSString *userId = [userDic objectForKey:UserLoginId];
     NSLog(@"userId:%@",userId);
     
-    return [NSString stringWithFormat:@"{\"sex\":null,\"orderDateTime\":null,\"serviceDate\":\"%@\",\"memo\":null,\"deductions\":null,\"houseSize\":null,\"ageInterval\":null,\"registeredUser\":null,\"checkOrderInfo\":null,\"auntInfo\":null,\"auntId\":null,\"orderDateTimeStart\":null,\"dictionarys\":null,\"id\":null,\"orderDateTimeEnd\":null,\"level\":null,\"serviceUser\":null,\"consumables\":null,\"otherNeed\":\"%@\",\"registeredUserId\":\"%@\",\"serviceCategory\":{\"sign\":null,\"id\":\"%@\",\"urllink\":null,\"parentId\":null,\"price\":null,\"level\":null,\"description\":null,\"priceDescription\":null,\"servicePhoto\":null,\"serviceName\":null},\"cleaningKit\":null,\"orderStatue\":null,\"completeTime\":null,\"serviceAddress\":{\"id\":\"%@\",\"registeredUserId\":null,\"cellName\":null,\"memo\":null,\"regionalInfo\":null,\"detailAddress\":null}}", self.timeTF.text,self.moreDemondTF.text,userId,self.serviceInfo.serviceId,self.mzbAddress.addressID];
+    return [NSString stringWithFormat:@"{\"sex\":null,\"orderDateTime\":null,\"serviceDate\":\"%@\",\"memo\":null,\"deductions\":null,\"houseSize\":null,\"ageInterval\":null,\"registeredUser\":null,\"checkOrderInfo\":null,\"auntInfo\":null,\"auntId\":null,\"orderDateTimeStart\":null,\"dictionarys\":null,\"id\":null,\"orderDateTimeEnd\":null,\"level\":null,\"serviceUser\":null,\"consumables\":null,\"otherNeed\":\"%@\",\"registeredUserId\":\"%@\",\"serviceCategory\":{\"sign\":null,\"id\":\"%@\",\"urllink\":null,\"parentId\":null,\"price\":null,\"level\":null,\"description\":null,\"priceDescription\":null,\"servicePhoto\":null,\"serviceName\":null},\"cleaningKit\":null,\"orderStatue\":null,\"completeTime\":null,\"serviceAddress\":{\"id\":\"%@\",\"registeredUserId\":null,\"cellName\":null,\"memo\":null,\"regionalInfo\":null,\"detailAddress\":null}}", self.timeTF.text,self.moreDemondTF.text,userId,self.serviceInfo[@"id"],self.mzbAddress.addressID];
     
 }
 

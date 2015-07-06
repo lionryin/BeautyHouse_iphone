@@ -17,7 +17,7 @@
 
 @interface FloorCareVC : UIViewController<RMDateSelectionViewControllerDelegate,ChooseAddressVCDelegate, MoreDemandVCDelegate>
 
-@property (strong, nonatomic) MzbService *serviceInfo;
+@property (strong, nonatomic) NSDictionary *serviceInfo;
 
 @property (strong, nonatomic) MzbAddress *mzbAddress;
 

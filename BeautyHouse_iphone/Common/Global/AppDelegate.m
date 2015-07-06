@@ -47,9 +47,11 @@ NSString * const WXPartnerKey = @"4ad2595522b5ff33d82a886764a68d82";
  */
 NSString * const WXPartnerId = @"1234641402";
 
-@interface AppDelegate ()<BMKGeneralDelegate>
+@interface AppDelegate ()<BMKGeneralDelegate, BMKLocationServiceDelegate>
 
 @property (strong, nonatomic) BMKMapManager *mapManager;
+///定位
+@property (strong, nonatomic) BMKLocationService *locService;
 
 @end
 
@@ -104,15 +106,27 @@ NSString * const WXPartnerId = @"1234641402";
     //微信支付
     [WXApi registerApp:WXAppId];
     
-    //////
+    //////百度地图
     _mapManager = [[BMKMapManager alloc] init];
     BOOL ret = [_mapManager start:BAIDU_MAP_KEY generalDelegate:self];
     
     if (!ret) {
         NSLog(@"manager start failed!");
     }
-
     
+    ///百度地图定位
+    //设置定位精确度，默认：kCLLocationAccuracyBest
+    //[BMKLocationService setLocationDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
+    //指定最小距离更新(米)，默认：kCLDistanceFilterNone
+    [BMKLocationService setLocationDistanceFilter:100.f];
+    
+
+    //初始化BMKLocationService
+    _locService = [[BMKLocationService alloc]init];
+    _locService.delegate = self;
+    //启动LocationService
+    [_locService startUserLocationService];
+
     
     return YES;
 }
@@ -179,5 +193,29 @@ NSString * const WXPartnerId = @"1234641402";
     }
 
 }
+
+#pragma mark - LocationService delegate
+
+//实现相关delegate 处理位置信息更新
+//处理位置坐标更新
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    [_locService stopUserLocationService];
+    //_locService.delegate = nil;
+    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    
+    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder reverseGeocodeLocation:userLocation.location completionHandler:^(NSArray *placemarks, NSError *error) {
+        //NSLog(@"placemarks:%i",placemarks.count);
+        if (placemarks.count > 0) {
+            CLPlacemark *placeMark = placemarks[0];
+            
+             NSLog(@"地址locality:%@",placeMark.locality);//市
+        }
+        
+    }];
+    
+}
+
 
 @end
