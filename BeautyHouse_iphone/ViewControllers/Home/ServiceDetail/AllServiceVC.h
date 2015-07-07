@@ -12,4 +12,6 @@
 
 @interface AllServiceVC : UIViewController<UITableViewDataSource, UITableViewDelegate, AllServiceCellDelegate>
 
+@property (strong, nonatomic) NSDictionary *currentCity;
+
 @end

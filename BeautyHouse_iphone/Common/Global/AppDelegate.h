@@ -9,9 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "WXApi.h"
 
+typedef void (^CitiesBlock)(NSArray *resultArray, NSError *error);
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate,WXApiDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) CitiesBlock citiesBlock;
+- (void)getCities:(CitiesBlock)block;
+//@property (strong, nonatomic) NSArray *cities;
 
 
 @end

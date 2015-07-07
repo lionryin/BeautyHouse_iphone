@@ -16,6 +16,11 @@
 		A63A4ECE1B37EC5A008859EE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63A4ECD1B37EC5A008859EE /* OpenGLES.framework */; };
 		A63A4ED01B37EC68008859EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63A4ECF1B37EC68008859EE /* CoreGraphics.framework */; };
 		A64F3E431B43CE3800E6E99B /* logo_item_more.png in Resources */ = {isa = PBXBuildFile; fileRef = A64F3E421B43CE3800E6E99B /* logo_item_more.png */; };
+		A6590C121B4BAE840007A283 /* CityListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6590C101B4BAE840007A283 /* CityListVC.m */; };
+		A6590C131B4BAE840007A283 /* CityListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6590C111B4BAE840007A283 /* CityListVC.xib */; };
+		A6590C171B4BAF8B0007A283 /* CityListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6590C151B4BAF8B0007A283 /* CityListCell.m */; };
+		A6590C181B4BAF8B0007A283 /* CityListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6590C161B4BAF8B0007A283 /* CityListCell.xib */; };
+		A6590C1A1B4BAFF60007A283 /* small_hook.png in Resources */ = {isa = PBXBuildFile; fileRef = A6590C191B4BAFF60007A283 /* small_hook.png */; };
 		A6647CA51B26897300D2DC57 /* UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A6647CA41B26897300D2DC57 /* UIFactory.m */; };
 		A6647CB31B268DC800D2DC57 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CA71B268DC800D2DC57 /* 37x-Checkmark.png */; };
 		A6647CB41B268DC800D2DC57 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6647CA81B268DC800D2DC57 /* 37x-Checkmark@2x.png */; };
@@ -149,6 +154,8 @@
 		A6CB3FB91AC3E7BB00C65C47 /* selected_Address.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FB81AC3E7BB00C65C47 /* selected_Address.png */; };
 		A6CB3FBD1AC3E82D00C65C47 /* unselected_Address.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FBB1AC3E82D00C65C47 /* unselected_Address.png */; };
 		A6CB3FBF1AC3EB5000C65C47 /* add_Address.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB3FBE1AC3EB5000C65C47 /* add_Address.png */; };
+		A6CB69891B4A5E8C00F77361 /* call_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CB69881B4A5E8C00F77361 /* call_normal.png */; };
+		A6CB698E1B4A6BEC00F77361 /* CityButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CB698D1B4A6BEC00F77361 /* CityButton.m */; };
 		A6CD21A01B181DAB005EE26E /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6CD213E1B181DAB005EE26E /* AlipaySDK.bundle */; };
 		A6CD21A11B181DAB005EE26E /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6CD213F1B181DAB005EE26E /* AlipaySDK.framework */; };
 		A6CD21A41B181DAB005EE26E /* base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A6CD21901B181DAB005EE26E /* base64.m */; };
@@ -263,6 +270,13 @@
 		A63A4ECD1B37EC5A008859EE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A63A4ECF1B37EC68008859EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A64F3E421B43CE3800E6E99B /* logo_item_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_item_more.png; sourceTree = "<group>"; };
+		A6590C0F1B4BAE840007A283 /* CityListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListVC.h; sourceTree = "<group>"; };
+		A6590C101B4BAE840007A283 /* CityListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityListVC.m; sourceTree = "<group>"; };
+		A6590C111B4BAE840007A283 /* CityListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityListVC.xib; sourceTree = "<group>"; };
+		A6590C141B4BAF8B0007A283 /* CityListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListCell.h; sourceTree = "<group>"; };
+		A6590C151B4BAF8B0007A283 /* CityListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityListCell.m; sourceTree = "<group>"; };
+		A6590C161B4BAF8B0007A283 /* CityListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityListCell.xib; sourceTree = "<group>"; };
+		A6590C191B4BAFF60007A283 /* small_hook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_hook.png; sourceTree = "<group>"; };
 		A6647CA31B26897300D2DC57 /* UIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFactory.h; sourceTree = "<group>"; };
 		A6647CA41B26897300D2DC57 /* UIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFactory.m; sourceTree = "<group>"; };
 		A6647CA71B268DC800D2DC57 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
@@ -472,6 +486,9 @@
 		A6CB3FB81AC3E7BB00C65C47 /* selected_Address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_Address.png; sourceTree = "<group>"; };
 		A6CB3FBB1AC3E82D00C65C47 /* unselected_Address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unselected_Address.png; sourceTree = "<group>"; };
 		A6CB3FBE1AC3EB5000C65C47 /* add_Address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_Address.png; sourceTree = "<group>"; };
+		A6CB69881B4A5E8C00F77361 /* call_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call_normal.png; sourceTree = "<group>"; };
+		A6CB698C1B4A6BEC00F77361 /* CityButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityButton.h; sourceTree = "<group>"; };
+		A6CB698D1B4A6BEC00F77361 /* CityButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityButton.m; sourceTree = "<group>"; };
 		A6CD213E1B181DAB005EE26E /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		A6CD213F1B181DAB005EE26E /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		A6CD21431B181DAB005EE26E /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
@@ -962,6 +979,8 @@
 		A696C5091AC1A73500A860AD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A6590C191B4BAFF60007A283 /* small_hook.png */,
+				A6CB69881B4A5E8C00F77361 /* call_normal.png */,
 				A6DA3E2C1B452D31005850EB /* logo_select_city.png */,
 				A64F3E421B43CE3800E6E99B /* logo_item_more.png */,
 				A6DFF0B01B3A906B006875F7 /* icon_gcoding.png */,
@@ -1058,6 +1077,14 @@
 				A696C56A1AC1A91900A860AD /* HomeButton.m */,
 				A696C56B1AC1A91900A860AD /* HomeTableVC.h */,
 				A696C56C1AC1A91900A860AD /* HomeTableVC.m */,
+				A6CB698C1B4A6BEC00F77361 /* CityButton.h */,
+				A6CB698D1B4A6BEC00F77361 /* CityButton.m */,
+				A6590C0F1B4BAE840007A283 /* CityListVC.h */,
+				A6590C101B4BAE840007A283 /* CityListVC.m */,
+				A6590C111B4BAE840007A283 /* CityListVC.xib */,
+				A6590C141B4BAF8B0007A283 /* CityListCell.h */,
+				A6590C151B4BAF8B0007A283 /* CityListCell.m */,
+				A6590C161B4BAF8B0007A283 /* CityListCell.xib */,
 				A6CB3FAB1AC3DE2500C65C47 /* Others */,
 				A696C56D1AC1A91900A860AD /* RMDateSelectionVC */,
 				A696C5711AC1A91900A860AD /* ServiceDetail */,
@@ -1638,6 +1665,7 @@
 				A696C5BB1AC1A9BE00A860AD /* nav_back.png in Resources */,
 				A6DA3E2D1B452D31005850EB /* logo_select_city.png in Resources */,
 				A6CB3FB71AC3E43800C65C47 /* ChooseAddressCell.xib in Resources */,
+				A6590C181B4BAF8B0007A283 /* CityListCell.xib in Resources */,
 				A6647CB51B268DC800D2DC57 /* Default-568h@2x.png in Resources */,
 				A6647CBA1B268DC800D2DC57 /* Icon-iOS7@2x.png in Resources */,
 				B009665B1ADA14E2007DD934 /* accountDetail01@2x.png in Resources */,
@@ -1677,9 +1705,11 @@
 				A6BB684D1AC6848000DF1723 /* MoreDemandVC.xib in Resources */,
 				A6BB685E1ACAD1E300DF1723 /* arrow_down.png in Resources */,
 				B0735C0C1AC25350005A3E82 /* icon_adress.png in Resources */,
+				A6590C131B4BAE840007A283 /* CityListVC.xib in Resources */,
 				A6CE40D91AEA2FA000A48B39 /* star_normal.png in Resources */,
 				B0735C2A1AC273C4005A3E82 /* join_04.png in Resources */,
 				A696C5B31AC1A98300A860AD /* ad_a_1.jpg in Resources */,
+				A6CB69891B4A5E8C00F77361 /* call_normal.png in Resources */,
 				B00966881ADA6908007DD934 /* UMShareEditViewController.xib in Resources */,
 				A66C50AB1AC262A0003E146F /* mybgpic.png in Resources */,
 				A6CE40D41AEA2EDC00A48B39 /* auntIcon.png in Resources */,
@@ -1691,6 +1721,7 @@
 				A6BB685A1AC9359800DF1723 /* XiaohaopinVC.xib in Resources */,
 				A6647CB81B268DC800D2DC57 /* Default.png in Resources */,
 				A699B96E1AEFD6E500AA453B /* CommentAunt.xib in Resources */,
+				A6590C1A1B4BAFF60007A283 /* small_hook.png in Resources */,
 				A696C5B41AC1A98300A860AD /* ad_a_2.jpg in Resources */,
 				B0735C2C1AC273C4005A3E82 /* join_06.png in Resources */,
 				B07FB3351AD8CAE2003C96C8 /* question.html in Resources */,
@@ -1753,6 +1784,7 @@
 				A6FFFA1A1AD8177F00A544C5 /* MJRefreshBaseView.m in Sources */,
 				A63A4EC51B37EBA1008859EE /* ServiceAddressVC.mm in Sources */,
 				B01EC0441ACA69490049FC7D /* UserProtocolVC.m in Sources */,
+				A6590C121B4BAE840007A283 /* CityListVC.m in Sources */,
 				A6694CC21AD2B41900339A2B /* MzbAddress.m in Sources */,
 				B0A5D3571ACBAE0F00D60958 /* GoldenIconTradeRecordVC.m in Sources */,
 				B0A2C8AB1AEE83E000982368 /* AccountExpenseRecordTVC.m in Sources */,
@@ -1778,6 +1810,7 @@
 				A696C55E1AC1A8F400A860AD /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				A696C58C1AC1A91900A860AD /* CurtainCareVC.m in Sources */,
 				A6B6A8961AC4359500B12F04 /* AddAddressVC.m in Sources */,
+				A6CB698E1B4A6BEC00F77361 /* CityButton.m in Sources */,
 				A6FFFA201AD8177F00A544C5 /* UIView+MJExtension.m in Sources */,
 				A696C5121AC1A73500A860AD /* AppDelegate.m in Sources */,
 				A6CD21AA1B181DAB005EE26E /* RSADataSigner.m in Sources */,
@@ -1844,6 +1877,7 @@
 				A6CD21A71B181DAB005EE26E /* MD5DataSigner.m in Sources */,
 				A696C59D1AC1A93300A860AD /* MemberCenterPrivilegeTVC.m in Sources */,
 				A66C50A91AC25313003E146F /* MzbAd.m in Sources */,
+				A6590C171B4BAF8B0007A283 /* CityListCell.m in Sources */,
 				A696C5541AC1A8F400A860AD /* AFHTTPRequestOperation.m in Sources */,
 				A696C5881AC1A91900A860AD /* RMDateSelectionViewController.m in Sources */,
 				A696C5871AC1A91900A860AD /* HomeTableVC.m in Sources */,

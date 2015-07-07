@@ -200,5 +200,54 @@
     }];
 }
 
+///获取开通城市
+- (void)getOpenCitiesWithLongitude:(CGFloat)longitude andLatitude:(CGFloat)latitude WithBlock:(void (^)(NSArray *resultArray, NSError *error))block {
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@api/citys/open.do?longitude=%f&latitude=%f",MZBHttpURL,longitude,latitude];
+    [self getHttpRequestOperationWithURLString:urlStr andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+        
+        NSArray *resultArr = [NSJSONSerialization JSONObjectWithData:[responseStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        
+        NSLog(@"getOpenCities:%@",resultArr);
+        
+        if (block) {
+            block(resultArr,error);
+        }
+
+        
+    }];
+    
+}
+
+///根据城市id获取主页服务
+- (void)getHomeServiceWithCityId:(NSString *)cityId WithBlock:(void (^)(NSDictionary *result, NSError *error))block {
+    
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/item/list/main.do?city_id=%@",MZBHttpURL,cityId] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+        
+        NSLog(@"getHomeServiceResult:%@",result);
+        if (block) {
+            block(result,error);
+        }
+        
+    }];
+}
+
+//根据城市id获取全部服务
+- (void)getAllServiceWithCityId:(NSString *)cityId WithBlock:(void (^)(NSArray *resultArray, NSError *error))block {
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/item/category/list.do?city_id=%@",MZBHttpURL,cityId] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+        
+        //NSLog(@"getAllServiceResult:%@",responseStr);
+        NSArray *resultArr = [NSJSONSerialization JSONObjectWithData:[responseStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        
+        NSLog(@"getAllServiceResult:%@",resultArr);
+        
+        if (block) {
+            block(resultArr,error);
+        }
+        
+    }];
+}
+
+
 
 @end

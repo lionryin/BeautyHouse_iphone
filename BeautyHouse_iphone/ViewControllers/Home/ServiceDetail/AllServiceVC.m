@@ -33,45 +33,14 @@
     self.title = @"全部服务";
     [self initMainUI];
     
-    /*HomeService *homeService = [[HomeService alloc] init];
-    [homeService getAllServiceWithBlock:^(NSNumber *result, NSArray *resultInfo, NSError *error) {
-        if (error) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-        else{
-            if ([result integerValue] == 0) {
-                _tableList = [resultInfo mutableCopy];
-                [self.tableView reloadData];
-            }
-            else{
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误，请重试！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                [alert show];
-            }
-            
-        }
-
-    }];*/
-    [[MZBHttpService shareInstance] getAllServiceWithBlock:^(NSArray *resultArray, NSError *error) {
-        
-       if (!error) {
-            
-            if (resultArray) {
-                _tableList = [resultArray mutableCopy];
-                [self.tableView reloadData];
-            }
-            else {
-                
-                [UIFactory showAlert:@"未知错误"];
-            }
-        }
-        else {
-            
-            [UIFactory showAlert:@"网路错误"];
-        }
-
-    }];
-
+    if (self.currentCity && self.currentCity>0) {
+        NSLog(@"getAllServiceWithCityId");
+        [self getAllServiceWithCityId:self.currentCity[@"id"]];
+    }
+    else {
+        [self getAllService];
+    }
+    
     
    
 }
@@ -89,6 +58,52 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - http
+- (void)getAllService {
+    [[MZBHttpService shareInstance] getAllServiceWithBlock:^(NSArray *resultArray, NSError *error) {
+        
+        if (!error) {
+            
+            if (resultArray) {
+                _tableList = [resultArray mutableCopy];
+                [self.tableView reloadData];
+            }
+            else {
+                
+                [UIFactory showAlert:@"未知错误"];
+            }
+        }
+        else {
+            
+            [UIFactory showAlert:@"网路错误"];
+        }
+        
+    }];
+
+}
+
+- (void)getAllServiceWithCityId:(NSString *)cityId {
+    
+    [[MZBHttpService shareInstance] getAllServiceWithCityId:cityId WithBlock:^(NSArray *resultArray, NSError *error) {
+        if (!error) {
+            
+            if (resultArray) {
+                _tableList = [resultArray mutableCopy];
+                [self.tableView reloadData];
+            }
+            else {
+                
+                [UIFactory showAlert:@"未知错误"];
+            }
+        }
+        else {
+            
+            [UIFactory showAlert:@"网路错误"];
+        }
+
+    }];
 }
 
 #pragma mark - UITableView DataSource

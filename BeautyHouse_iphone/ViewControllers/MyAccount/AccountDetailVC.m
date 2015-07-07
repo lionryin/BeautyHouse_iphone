@@ -160,21 +160,21 @@
 //        
 //            break;
 //        }
-        case 0:
+        case 2:
         {
             
             [iv setImage:[UIImage imageNamed:@"accountDetail02"]];
             label.text = @"消费记录";
             break;
         }
-        case 1:
+        case 0:
         {
             [iv setImage:[UIImage imageNamed:@"accountDetail03"]];
             label.text = @"在线充值";
             
             break;
         }
-        case 2:
+        case 1:
         {
             
             [iv setImage:[UIImage imageNamed:@"accountDetail04"]];
@@ -235,14 +235,14 @@
 //
 //            break;
 //        }
-        case 0:
+        case 2:
         {
 
             AccountExpenseRecordVC *vc = [AccountExpenseRecordVC new];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
-        case 1:
+        case 0:
         {
 
            AccountRechargeVC *vc = [AccountRechargeVC new];
@@ -250,7 +250,7 @@
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
-        case 2:
+        case 1:
         {
 
             AccountRechargeRecordVC *vc = [AccountRechargeRecordVC new];

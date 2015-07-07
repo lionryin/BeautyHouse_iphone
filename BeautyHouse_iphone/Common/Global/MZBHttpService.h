@@ -60,4 +60,13 @@
 //获取全部服务
 - (void)getAllServiceWithBlock:(void (^)(NSArray *resultArray, NSError *error))block ;
 
+///获取开通城市
+- (void)getOpenCitiesWithLongitude:(CGFloat)longitude andLatitude:(CGFloat)latitude WithBlock:(void (^)(NSArray *resultArray, NSError *error))block;
+
+///根据城市id获取主页服务
+- (void)getHomeServiceWithCityId:(NSString *)cityId WithBlock:(void (^)(NSDictionary *result, NSError *error))block;
+
+//根据城市id获取全部服务
+- (void)getAllServiceWithCityId:(NSString *)cityId WithBlock:(void (^)(NSArray *resultArray, NSError *error))block;
+
 @end

@@ -50,8 +50,11 @@
     
     /////
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightBtn setFrame:CGRectMake(self.view.frame.size.width-90, 2, 25, 25)];
-    [rightBtn setImage:[UIImage imageNamed:@"selected_Address.png"] forState:UIControlStateNormal];
+    [rightBtn setFrame:CGRectMake(self.view.frame.size.width-90, 2, 40, 25)];
+    //[rightBtn setImage:[UIImage imageNamed:@"selected_Address.png"] forState:UIControlStateNormal];
+    [rightBtn setTitle:@"确定" forState:UIControlStateNormal];
+    [rightBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(rightBtnAction) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *rightBtnItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];

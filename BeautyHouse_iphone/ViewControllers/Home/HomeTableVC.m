@@ -15,12 +15,17 @@
 #import "CurtainCareVC.h"
 #import "NurseVC.h"
 #import "AllServiceVC.h"
+#import "CityButton.h"
 
 #import "MZBHttpService.h"
+#import "AppDelegate.h"
+#import "CityListVC.h"
 
 
 
-@interface HomeTableVC ()
+@interface HomeTableVC ()<CityListVCDelegate>
+
+@property (strong, nonatomic) CityButton *servicePhoneBtn;
 
 @end
 
@@ -30,21 +35,106 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tabBarController.tabBar setTintColor:[UIColor colorWithRed:255.0/255 green:127.0/255 blue:80.0/255 alpha:1.0]];
+    [self.tabBarController.tabBar setTintColor:[UIColor colorWithRed:0 green:122/255.0 blue:255/255.0 alpha:1.0]];//[UIColor colorWithRed:255.0/255 green:127.0/255 blue:80.0/255 alpha:1.0]];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     backItem.title = @"";
     self.navigationItem.backBarButtonItem = backItem;
    
+    ////
+    _servicePhoneBtn = [CityButton buttonWithType:UIButtonTypeCustom];
+    [_servicePhoneBtn setFrame:CGRectMake(0, 0, 52, 44)];
+    [_servicePhoneBtn setTitle:@"武汉市" forState:UIControlStateNormal];
+    [_servicePhoneBtn setImage:[UIImage imageNamed:@"logo_select_city.png"] forState:UIControlStateNormal];
+    [_servicePhoneBtn addTarget:self action:@selector(cityClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    UIBarButtonItem *servicePhoneBarBtn = [[UIBarButtonItem alloc] initWithCustomView:_servicePhoneBtn];
+    self.navigationItem.leftBarButtonItem = servicePhoneBarBtn;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     _adInfos = [[NSArray alloc] init];
     _serviceInfos = [NSArray array];//[self getAllServiceInfosWithInfos:[NSArray array]];
+    _cities = [NSArray array];
+    _currentCity = [NSDictionary dictionary];
     
+    ///////////////////
+    [self getCities];
+    ////////////////////
+
+    [self getHomeAd];
+    //[self getHomeService];
+    
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 
+- (NSDictionary *)findCurrentCity:(NSArray *)arr {
+    NSDictionary *city = [NSDictionary dictionary];
+    for (NSDictionary *dic in arr) {
+        NSNumber *isCurrent = dic[@"isCurrent"];
+        if (isCurrent.boolValue) {
+            city = dic;
+        }
+    }
+    
+    return city;
+}
+
+#pragma mark - Http
+- (void)getCities {
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate] ;
+    [delegate getCities:^(NSArray *resultArray, NSError *error) {
+        
+        NSLog(@"getOpenCities2:%@",resultArray);
+        if (!error && resultArray.count>0) {
+            _cities = resultArray;
+            _currentCity = [self findCurrentCity:_cities];
+            
+            if (_currentCity.count > 0) {
+                [_servicePhoneBtn setTitle:_currentCity[@"name"] forState:UIControlStateNormal];
+                [self getHomeServiceWithCityId:_currentCity[@"id"]];
+            }
+            else {
+                [self getHomeService];
+            }
+        }
+        else {
+            NSLog(@"网络错误");
+            [self getHomeService];
+        }
+        
+    }];
+}
+
+- (void)getHomeAd {
+    HomeService *homeService = [[HomeService alloc] init];
+    
+    [homeService getHomeAdWithBlock:^(NSNumber *result, NSArray *resultInfo, NSError *error) {
+        if (error) {
+            NSLog(@"网络错误");
+            /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+             [alert show];*/
+        }
+        else{
+            if ([result integerValue] == 0) {
+                _adInfos = [resultInfo mutableCopy];
+                [self.tableView reloadData];
+            }
+            else{
+                NSLog(@"resultInfo = 1");
+            }
+            
+        }
+        
+    }];
+
+}
+
+- (void)getHomeService {
     [[MZBHttpService shareInstance] getHomeServiceWithBlock:^(NSDictionary *result, NSError *error) {
         
         if (!error) {
@@ -57,62 +147,55 @@
                 [self.tableView reloadData];
             }
             else {
-
+                
                 [UIFactory showAlert:result[@"message"]];
             }
         }
         else {
-
+            
             [UIFactory showAlert:@"网路错误"];
         }
-      
+        
     }];
-    
-    HomeService *homeService = [[HomeService alloc] init];
-//    [homeService getHomeServiceWithBlock:^(NSNumber *result, NSArray *resultInfo, NSError *error) {
-//        if (error) {
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//            [alert show];
-//        }
-//        else{
-//            if ([result integerValue] == 0) {
-//                _serviceInfos = [resultInfo mutableCopy];
-//                [self.tableView reloadData];
-//            }
-//            else{
-//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发生未知错误，请重试！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//                [alert show];
-//            }
-//            
-//        }
-//        
-//    }];
-    
-    [homeService getHomeAdWithBlock:^(NSNumber *result, NSArray *resultInfo, NSError *error) {
-        if (error) {
-            NSLog(@"网络错误");
-            /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];*/
-        }
-        else{
-            if ([result integerValue] == 0) {
-                _adInfos = [resultInfo mutableCopy];
-                [self.tableView reloadData];
-            }
-            else{
-                NSLog(@"resultInfo = 1");
-            }
-            
-        }
 
-    }];
-    
 }
 
+- (void)getHomeServiceWithCityId:(NSString *)cityId {
+    [[MZBHttpService shareInstance] getHomeServiceWithCityId:cityId WithBlock:^(NSDictionary *result, NSError *error) {
+        if (!error) {
+            
+            NSNumber *status = result[@"status"];
+            
+            if (status.boolValue) {
+                _serviceInfos = [self getAllServiceInfosWithInfos:result[@"data"]];
+                
+                [self.tableView reloadData];
+            }
+            else {
+                
+                [UIFactory showAlert:result[@"message"]];
+            }
+        }
+        else {
+            
+            [UIFactory showAlert:@"网路错误"];
+        }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    }];
+}
+
+#pragma mark - IBAction
+- (IBAction)phoneClicked:(id)sender {
+    //呼叫
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://4000870201"]];
+}
+
+- (IBAction)cityClicked:(id)sender {
+    CityListVC *cityListVC = [[CityListVC alloc] initWithNibName:@"CityListVC" bundle:nil];
+    cityListVC.cities = self.cities;
+    cityListVC.currentCity = self.currentCity;
+    cityListVC.delegate = self;
+    [self.navigationController pushViewController:cityListVC animated:YES];
 }
 
 #pragma mark - self
@@ -268,7 +351,7 @@
     NSString *serviceId = info[@"id"];
     if ([serviceId isEqualToString:allServiceInfoID]) {//全部服务
         AllServiceVC *allServiceVC = [[AllServiceVC alloc] initWithNibName:@"AllServiceVC" bundle:nil];
-        
+        allServiceVC.currentCity = self.currentCity;
         [self.navigationController pushViewController:allServiceVC animated:YES];
 
     }
@@ -285,6 +368,13 @@
 
     }
     
+}
+
+#pragma mark - CityListVC delegate
+- (void)cityListVCChangedCity:(NSDictionary *)city {
+    self.currentCity = city;
+    [_servicePhoneBtn setTitle:_currentCity[@"name"] forState:UIControlStateNormal];
+    [self getHomeServiceWithCityId:_currentCity[@"id"]];
 }
 
 @end

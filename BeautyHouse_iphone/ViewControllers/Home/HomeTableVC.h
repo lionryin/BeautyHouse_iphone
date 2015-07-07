@@ -15,4 +15,10 @@
 @property (strong, nonatomic) NSArray *serviceInfos;
 @property (strong, nonatomic) NSArray *adInfos;
 
+@property (strong, nonatomic) NSArray *cities;
+@property (strong, nonatomic) NSDictionary *currentCity;
+
+- (IBAction)phoneClicked:(id)sender;
+- (IBAction)cityClicked:(id)sender;
+
 @end

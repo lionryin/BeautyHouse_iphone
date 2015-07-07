@@ -86,7 +86,14 @@
                             <outlet property="delegate" destination="96z-0y-XiZ" id="Y1S-Xa-9UA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="美宅宝" id="Z3z-8C-IzQ"/>
+                    <navigationItem key="navigationItem" title="美宅宝" id="Z3z-8C-IzQ">
+                        <barButtonItem key="rightBarButtonItem" image="call_normal.png" id="OZJ-k7-Zhc">
+                            <inset key="imageInsets" minX="25" minY="12" maxX="0.0" maxY="10"/>
+                            <connections>
+                                <action selector="phoneClicked:" destination="96z-0y-XiZ" id="eHy-At-yIP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMH-ol-cRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,6 +214,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="call_normal.png" width="49" height="43"/>
         <image name="tab_home.png" width="20" height="19"/>
         <image name="tab_member.png" width="20" height="19"/>
         <image name="tab_orders.png" width="20" height="19"/>

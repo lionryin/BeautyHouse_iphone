@@ -204,7 +204,7 @@ NSString * const WXPartnerId = @"1234641402";
     //_locService.delegate = nil;
     NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     
-    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    /*CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
     [geoCoder reverseGeocodeLocation:userLocation.location completionHandler:^(NSArray *placemarks, NSError *error) {
         //NSLog(@"placemarks:%i",placemarks.count);
         if (placemarks.count > 0) {
@@ -213,9 +213,16 @@ NSString * const WXPartnerId = @"1234641402";
              NSLog(@"地址locality:%@",placeMark.locality);//市
         }
         
-    }];
+    }];*/
+    
+    //_cities = [NSArray array];
+    
+    [[MZBHttpService shareInstance] getOpenCitiesWithLongitude:userLocation.location.coordinate.longitude andLatitude:userLocation.location.coordinate.latitude WithBlock:_citiesBlock];
     
 }
 
+- (void)getCities:(CitiesBlock)block {
+   self.citiesBlock = block;
+}
 
 @end
