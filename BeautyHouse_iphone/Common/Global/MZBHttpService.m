@@ -248,6 +248,34 @@
     }];
 }
 
+///保存地址
+- (void)saveAddressWithUserId:(NSString *)userId andToken:(NSString *)token andBody:(NSData *)body WithBlock:(void (^)(NSDictionary *result, NSError *error))block {
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@address/add.do?user_id=%@&token=%@",MZBHttpURL,userId,token]]];
+    [request setHTTPMethod:@"POST"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    [request setHTTPBody:body];
 
+    //
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation start];
+    
+    //operation.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"html:%@",[responseObject description]);
+        if (block) {
+            block(responseObject,nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        NSLog(@"error:%@",[error description]);
+        block(nil, error);
+        
+    }];
 
+}
 @end

@@ -304,6 +304,7 @@
                     [mUserDic setObject:@"1" forKey:UserIsLoginKey];
                     [mUserDic setObject:self.phoneTextField.text forKey:UserPhoneNumberKey];
                     [mUserDic setObject:userId forKey:UserLoginId];
+                    [mUserDic setObject:dataInfo[@"token"] forKey:UserToken];
                     
                     [accountDefaults setValue:mUserDic forKey:UserGlobalKey];
                     [accountDefaults synchronize];

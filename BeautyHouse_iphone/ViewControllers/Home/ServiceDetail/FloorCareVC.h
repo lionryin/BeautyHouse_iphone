@@ -15,7 +15,7 @@
 #import "MBProgressHUD.h"
 #import "ServiceAddressVC.h"
 
-@interface FloorCareVC : UIViewController<RMDateSelectionViewControllerDelegate,ChooseAddressVCDelegate, MoreDemandVCDelegate>
+@interface FloorCareVC : UIViewController<RMDateSelectionViewControllerDelegate,ChooseAddressVCDelegate, MoreDemandVCDelegate, ServiceAddressVCDelegate>
 
 @property (strong, nonatomic) NSDictionary *serviceInfo;
 

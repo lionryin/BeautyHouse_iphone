@@ -69,4 +69,7 @@
 //根据城市id获取全部服务
 - (void)getAllServiceWithCityId:(NSString *)cityId WithBlock:(void (^)(NSArray *resultArray, NSError *error))block;
 
+///保存地址
+- (void)saveAddressWithUserId:(NSString *)userId andToken:(NSString *)token andBody:(NSData *)body WithBlock:(void (^)(NSDictionary *result, NSError *error))block;
+
 @end

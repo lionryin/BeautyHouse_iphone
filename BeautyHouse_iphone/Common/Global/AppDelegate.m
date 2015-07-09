@@ -15,6 +15,7 @@
 #import "Constant.h"
 
 #import <BaiduMapAPI/BMapKit.h>
+#import "UIFactory.h"
 
 /**
  *  微信开放平台申请得到的 appid, 需要同时添加在 URL schema
@@ -219,6 +220,12 @@ NSString * const WXPartnerId = @"1234641402";
     
     [[MZBHttpService shareInstance] getOpenCitiesWithLongitude:userLocation.location.coordinate.longitude andLatitude:userLocation.location.coordinate.latitude WithBlock:_citiesBlock];
     
+}
+
+- (void)didFailToLocateUserWithError:(NSError *)error {
+    //NSLog(@"%@",[error description]);
+    [UIFactory showAlert:@"定位失败"];
+    self.citiesBlock(nil, error);
 }
 
 - (void)getCities:(CitiesBlock)block {

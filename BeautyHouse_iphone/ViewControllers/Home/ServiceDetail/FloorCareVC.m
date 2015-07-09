@@ -68,6 +68,7 @@
 //        chooseAddressVC.delegate = self;
 //        [self.navigationController pushViewController:chooseAddressVC animated:YES];
         ServiceAddressVC *vc = [[ServiceAddressVC alloc] initWithNibName:@"ServiceAddressVC" bundle:nil];
+        vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];
 
     }
@@ -187,6 +188,11 @@
     if (alertView.tag == 999) {
         [self.navigationController popViewControllerAnimated:YES];
     }
+}
+
+#pragma mark - ServiceAddress delegate
+- (void)ServiceAddressVCSelectedServiceAddress:(NSString *)name andDetail:(NSString *)detail {
+    self.addressTF.text = [NSString stringWithFormat:@"%@ %@",name,detail];
 }
 
 @end

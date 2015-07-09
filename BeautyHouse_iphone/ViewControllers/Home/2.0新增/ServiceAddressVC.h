@@ -8,6 +8,14 @@
 
 #import "BaseViewController.h"
 
+@protocol ServiceAddressVCDelegate <NSObject>
+
+- (void)ServiceAddressVCSelectedServiceAddress:(NSString *)name andDetail:(NSString *)detail;
+
+@end
+
 @interface ServiceAddressVC : BaseViewController
+
+@property (assign, nonatomic) id<ServiceAddressVCDelegate>delegate;
 
 @end

@@ -9,6 +9,7 @@
 #define UserPhoneNumberKey   @"UserPhoneNumberKey"
 #define UserIsLoginKey       @"UserIsLoginKey"
 #define UserLoginId          @"UserLoginId"
+#define UserToken           @"UserToken"
 
 #define AddressGlobalKey     @"AddressGlobalKey"
 

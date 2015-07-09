@@ -9,6 +9,7 @@
 #import "ServiceAddressVC.h"
 #import "SearchListTableVC.h"
 #import <BaiduMapAPI/BMapKit.h>
+#import "MZBHttpService.h"
 
 @interface ServiceAddressVC ()<SearchListTableVCDelegate, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, BMKMapViewDelegate, BMKLocationServiceDelegate, BMKPoiSearchDelegate, BMKSuggestionSearchDelegate, BMKGeoCodeSearchDelegate>
 
@@ -144,8 +145,39 @@
         [UIFactory showAlert:@"详细地址不能为空"];
     }
     else {
-        
+        [self saveAddressWithName:_searchBar.text andDetail:_detailAddressField.text];
     }
+}
+
+#pragma mark - http
+- (void)saveAddressWithName:(NSString *)name andDetail:(NSString *)detail {
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    NSString *userId = [userDic objectForKey:UserLoginId];
+    NSString *token = [userDic objectForKey:UserToken];
+    
+    NSDictionary *dic = @{@"name":name,@"detail":detail,@"longitude":[NSNumber numberWithFloat:_mapView.centerCoordinate.longitude],@"latitude":[NSNumber numberWithFloat:_mapView.centerCoordinate.latitude]};
+    NSData *body = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONReadingAllowFragments error:nil];
+
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:hud];
+    hud.labelText = @"保存中...";
+    [hud show:YES];
+    [[MZBHttpService shareInstance] saveAddressWithUserId:userId andToken:token andBody:body WithBlock:^(NSDictionary *result, NSError *error) {
+        
+        [hud hide:YES];
+        
+        if ([self respondsToSelector:@selector(ServiceAddressVCSelectedServiceAddress:andDetail:)]) {
+            [self.delegate ServiceAddressVCSelectedServiceAddress:name andDetail:detail];
+        }
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        if (!error) {
+            NSNumber *status = result[@"status"];
+            if (status.boolValue) {
+                NSLog(@"保存成功");
+            }
+        }
+    }];
 }
 
 #pragma mark - myself
