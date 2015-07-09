@@ -72,4 +72,10 @@
 ///保存地址
 - (void)saveAddressWithUserId:(NSString *)userId andToken:(NSString *)token andBody:(NSData *)body WithBlock:(void (^)(NSDictionary *result, NSError *error))block;
 
+///获取地址列表
+- (void)getAddressListWithUserId:(NSString *)userId andToken:(NSString *)token WithBlock:(void (^)(NSDictionary *result, NSError *error))block;
+
+////删除地址
+- (void)deleteAddressWithUserId:(NSString *)userId andToken:(NSString *)token andAddressId:(NSInteger )addressId WithBlock:(void (^)(NSDictionary *result, NSError *error))block ;
+
 @end

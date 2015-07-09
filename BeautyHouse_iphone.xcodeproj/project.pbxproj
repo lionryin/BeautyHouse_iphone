@@ -113,6 +113,7 @@
 		A699B96E1AEFD6E500AA453B /* CommentAunt.xib in Resources */ = {isa = PBXBuildFile; fileRef = A699B96C1AEFD6E500AA453B /* CommentAunt.xib */; };
 		A699B9711AEFDB6200AA453B /* SelectStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A699B9701AEFDB6200AA453B /* SelectStarView.m */; };
 		A699B9731AF230B100AA453B /* btn_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A699B9721AF230B100AA453B /* btn_selected.png */; };
+		A69F3B7D1B4E5C7200C63C92 /* deleteAddress.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F3B7C1B4E5C7200C63C92 /* deleteAddress.png */; };
 		A6B24B9D1AEB718B00C76124 /* OrderPaySuccessVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B24B9B1AEB718B00C76124 /* OrderPaySuccessVC.m */; };
 		A6B24B9E1AEB718B00C76124 /* OrderPaySuccessVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B24B9C1AEB718B00C76124 /* OrderPaySuccessVC.xib */; };
 		A6B24BA11AEB768300C76124 /* xianjin.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B24B9F1AEB768300C76124 /* xianjin.png */; };
@@ -429,6 +430,7 @@
 		A699B96F1AEFDB6200AA453B /* SelectStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectStarView.h; sourceTree = "<group>"; };
 		A699B9701AEFDB6200AA453B /* SelectStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectStarView.m; sourceTree = "<group>"; };
 		A699B9721AF230B100AA453B /* btn_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_selected.png; sourceTree = "<group>"; };
+		A69F3B7C1B4E5C7200C63C92 /* deleteAddress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteAddress.png; sourceTree = "<group>"; };
 		A6B24B9A1AEB718B00C76124 /* OrderPaySuccessVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderPaySuccessVC.h; sourceTree = "<group>"; };
 		A6B24B9B1AEB718B00C76124 /* OrderPaySuccessVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderPaySuccessVC.m; sourceTree = "<group>"; };
 		A6B24B9C1AEB718B00C76124 /* OrderPaySuccessVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderPaySuccessVC.xib; sourceTree = "<group>"; };
@@ -979,6 +981,7 @@
 		A696C5091AC1A73500A860AD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A69F3B7C1B4E5C7200C63C92 /* deleteAddress.png */,
 				A6590C191B4BAFF60007A283 /* small_hook.png */,
 				A6CB69881B4A5E8C00F77361 /* call_normal.png */,
 				A6DA3E2C1B452D31005850EB /* logo_select_city.png */,
@@ -1682,6 +1685,7 @@
 				A6B6D6A81AD7700300163715 /* SaveOrderSuccessVC.xib in Resources */,
 				A6694CC61AD40C9D00339A2B /* timeline_green.png in Resources */,
 				B0735C2B1AC273C4005A3E82 /* join_05.png in Resources */,
+				A69F3B7D1B4E5C7200C63C92 /* deleteAddress.png in Resources */,
 				A696C5BA1AC1A9BE00A860AD /* arrow_right_gray.png in Resources */,
 				A6B24BA91AEB82DE00C76124 /* read_me.txt in Resources */,
 				A6CB3FB91AC3E7BB00C65C47 /* selected_Address.png in Resources */,

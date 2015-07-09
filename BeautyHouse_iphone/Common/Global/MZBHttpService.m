@@ -276,6 +276,57 @@
         block(nil, error);
         
     }];
+}
+
+///获取地址列表
+- (void)getAddressListWithUserId:(NSString *)userId andToken:(NSString *)token WithBlock:(void (^)(NSDictionary *result, NSError *error))block {
+    
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@address/list.do?user_id=%@&token=%@",MZBHttpURL,userId,token] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+        
+        NSLog(@"getAddressListResult:%@",result);
+        if (block) {
+            block(result,error);
+        }
+    }];
+}
+
+////删除地址
+- (void)deleteAddressWithUserId:(NSString *)userId andToken:(NSString *)token andAddressId:(NSInteger )addressId WithBlock:(void (^)(NSDictionary *result, NSError *error))block {
+    
+    /*[self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/address.do?user_id=%@&token=%@&address_id=%li",MZBHttpURL,userId,token,(long)addressId] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+        
+        NSLog(@"deleteAddressResult:%@",result);
+        if (block) {
+            block(result,error);
+        }
+    }];*/
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@api/address.do?user_id=%@&token=%@&address_id=%li",MZBHttpURL,userId,token,(long)addressId]]];
+    [request setHTTPMethod:@"DELETE"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    //
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation start];
+    
+    //operation.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"html:%@",[responseObject description]);
+        if (block) {
+            block(responseObject,nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        NSLog(@"error:%@",[error description]);
+        block(nil, error);
+        
+    }];
+
 
 }
+
+
 @end
