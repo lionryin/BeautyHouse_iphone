@@ -26,6 +26,8 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = _serviceInfo[@"name"];
     [_topButton setTitle:_serviceInfo[@"price_decr"] forState:UIControlStateNormal];
+    
+    //[self getOrderStruct];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,12 +97,12 @@
         return;
         
     }else{
-        
-        _hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+        [self submitOrder];
+        /*_hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
         _hud.labelText = @"提交中...";
         [self.navigationController.view addSubview:_hud];
         [_hud show:YES];
-       
+        
         HomeService *homeService = [[HomeService alloc] init];
         [homeService saveOrdersWithParam:[self spliceJsonParam] andWithBlock:^(NSNumber *result, NSString *orderID, NSError *error) {
             
@@ -113,9 +115,6 @@
                     [alert show];
                 }
                 else{
-                    /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"订单提交成功" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-                    alert.tag = 999;
-                    [alert show];*/
                     if ([result integerValue] == 0) {
                         
                         MyOrderVO *myOrder = [[MyOrderVO alloc] init];
@@ -142,18 +141,85 @@
                 }
 
             });
-        }];
+        }];*/
 
     }
 }
 
+- (void)getOrderStruct {
+    [[MZBHttpService shareInstance] getOrderStructWithItemId:_serviceInfo[@"id"] WithBlock:^(NSDictionary *result, NSError *error) {
+        if (!error) {
+            NSNumber *status = result[@"status"];
+            if (status.boolValue) {
+                NSString *dataStr = result[@"data"];
+            
+                NSLog(@"dataStr:%@",dataStr);
+                
+                
+            }
+            else {
+                
+            }
+        }
+        else {
+            
+        }
+    }];
+}
+
+- (void)submitOrder {
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    NSString *userId = [userDic objectForKey:UserLoginId];
+    NSString *token = [userDic objectForKey:UserToken];
+    
+    //NSString *bodyStr = [NSString stringWithFormat:@"{\"user_id\":\"%@\",\"item_id\":\"%@\",\"platform_code\":\"IOS\",\"order_parameters\":\"[%@]\"}",userId,_serviceInfo[@"id"],[self spliceJsonParam]];
+    //NSLog(@"bodyStr:%@",bodyStr);
+    //NSData *body = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSDictionary *dic = @{@"user_d":userId, @"item_id":_serviceInfo[@"id"], @"platform_code":@"IOS", @"order_parameters":[self getOrderParameters]};
+    
+    //NSData *body = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONReadingAllowFragments error:nil ];
+    
+    NSData *body = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
+    
+    NSLog(@"body:%@",[[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding]);
+    
+    _hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    _hud.labelText = @"提交中...";
+    [self.navigationController.view addSubview:_hud];
+    [_hud show:YES];
+    [[MZBHttpService shareInstance] submitOrderWithUserId:userId andToken:token andBody:body WithBlock:^(NSDictionary *result, NSError *error) {
+        [_hud hide:YES];
+        
+        
+    }];
+}
+
+- (NSArray *)getOrderParameters {
+    NSMutableArray *arr = [NSMutableArray array];
+    
+    NSDictionary *dic1 = @{@"value":self.timeTF.text, @"id":@"1"};
+    [arr addObject:dic1];
+    
+    NSDictionary *dic2 = @{@"value":self.addressTF.text, @"id":@"2"};
+    [arr addObject:dic2];
+    
+    NSDictionary *dic3 = @{@"value":self.moreDemondTF.text, @"id":@"3"};
+    [arr addObject:dic3];
+    
+    
+    
+    return arr;
+}
+
 - (NSString *)spliceJsonParam{
     
-    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    /*NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
     NSString *userId = [userDic objectForKey:UserLoginId];
     NSLog(@"userId:%@",userId);
     
-    return [NSString stringWithFormat:@"{\"sex\":null,\"orderDateTime\":null,\"serviceDate\":\"%@\",\"memo\":null,\"deductions\":null,\"houseSize\":null,\"ageInterval\":null,\"registeredUser\":null,\"checkOrderInfo\":null,\"auntInfo\":null,\"auntId\":null,\"orderDateTimeStart\":null,\"dictionarys\":null,\"id\":null,\"orderDateTimeEnd\":null,\"level\":null,\"serviceUser\":null,\"consumables\":null,\"otherNeed\":\"%@\",\"registeredUserId\":\"%@\",\"serviceCategory\":{\"sign\":null,\"id\":\"%@\",\"urllink\":null,\"parentId\":null,\"price\":null,\"level\":null,\"description\":null,\"priceDescription\":null,\"servicePhoto\":null,\"serviceName\":null},\"cleaningKit\":null,\"orderStatue\":null,\"completeTime\":null,\"serviceAddress\":{\"id\":\"%@\",\"registeredUserId\":null,\"cellName\":null,\"memo\":null,\"regionalInfo\":null,\"detailAddress\":null}}", self.timeTF.text,self.moreDemondTF.text,userId,self.serviceInfo[@"id"],self.mzbAddress.addressID];
+    return [NSString stringWithFormat:@"{\"sex\":null,\"orderDateTime\":null,\"serviceDate\":\"%@\",\"memo\":null,\"deductions\":null,\"houseSize\":null,\"ageInterval\":null,\"registeredUser\":null,\"checkOrderInfo\":null,\"auntInfo\":null,\"auntId\":null,\"orderDateTimeStart\":null,\"dictionarys\":null,\"id\":null,\"orderDateTimeEnd\":null,\"level\":null,\"serviceUser\":null,\"consumables\":null,\"otherNeed\":\"%@\",\"registeredUserId\":\"%@\",\"serviceCategory\":{\"sign\":null,\"id\":\"%@\",\"urllink\":null,\"parentId\":null,\"price\":null,\"level\":null,\"description\":null,\"priceDescription\":null,\"servicePhoto\":null,\"serviceName\":null},\"cleaningKit\":null,\"orderStatue\":null,\"completeTime\":null,\"serviceAddress\":{\"id\":\"%@\",\"registeredUserId\":null,\"cellName\":null,\"memo\":null,\"regionalInfo\":null,\"detailAddress\":null}}", self.timeTF.text,self.moreDemondTF.text,userId,self.serviceInfo[@"id"],self.mzbAddress.addressID];*/
+    return [NSString stringWithFormat:@"{\"id\":\"1\",\"value\":\"%@\"},{\"id\":\"2\",\"value\":\"%@\"},{\"id\":\"3\",\"value\":\"%@\"}",self.timeTF.text, self.addressTF.text, self.moreDemondTF.text];
     
 }
 

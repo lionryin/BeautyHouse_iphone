@@ -111,13 +111,11 @@
 }
 
 - (void)getHomeAd {
-    HomeService *homeService = [[HomeService alloc] init];
+   /* HomeService *homeService = [[HomeService alloc] init];
     
     [homeService getHomeAdWithBlock:^(NSNumber *result, NSArray *resultInfo, NSError *error) {
         if (error) {
             NSLog(@"网络错误");
-            /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-             [alert show];*/
         }
         else{
             if ([result integerValue] == 0) {
@@ -130,6 +128,23 @@
             
         }
         
+    }];*/
+    
+    [[MZBHttpService shareInstance] getHomeAdWithBlock:^(NSArray *result, NSError *error) {
+        if (error) {
+            NSLog(@"网络错误");
+        }
+        else{
+            if (result.count>0) {
+                _adInfos = [result mutableCopy];
+                [self.tableView reloadData];
+            }
+            else{
+                NSLog(@"result.count = 0");
+            }
+            
+        }
+
     }];
 
 }

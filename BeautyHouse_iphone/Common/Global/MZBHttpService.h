@@ -54,6 +54,10 @@
 ///支付宝支付
 - (void)apliyPayWithOutTradeNo:(NSString *)outTradeNo andTotalFee:(NSString *)totalFee callback:(CompletionBlock)completionBlock;
 
+//////////////////////////////////////////////////
+///获取广告列表
+- (void)getHomeAdWithBlock:(void (^)(NSArray *result, NSError *error))block;
+
 ///获取主页服务
 - (void)getHomeServiceWithBlock:(void (^)(NSDictionary *result, NSError *error))block;
 
@@ -77,5 +81,13 @@
 
 ////删除地址
 - (void)deleteAddressWithUserId:(NSString *)userId andToken:(NSString *)token andAddressId:(NSInteger )addressId WithBlock:(void (^)(NSDictionary *result, NSError *error))block ;
+
+////获取用户详情 当移动端需要获取用户详情（账户余额、金币余额等）时调用此接口
+- (void)getUserDetaiWithUserId:(NSString *)userId andToken:(NSString *)token WithBlock:(void (^)(NSDictionary *result, NSError *error))block;
+
+- (void)getOrderStructWithItemId:(NSString *)itemId WithBlock:(void (^)(NSDictionary *result, NSError *error))block;
+
+///提交订单接口
+- (void)submitOrderWithUserId:(NSString *)userId andToken:(NSString *)token andBody:(NSData *)body WithBlock:(void (^)(NSDictionary *result, NSError *error))block;
 
 @end

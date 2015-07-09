@@ -13,6 +13,7 @@
 #import "AccountExpenseRecordVC.h"
 
 #import "MZBWebService.h"
+#import "MZBHttpService.h"
 
 
 @interface AccountDetailVC ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UICollectionViewDataSource, AccountRechargeVCDelegate>
@@ -65,10 +66,37 @@
     return userId;
 }
 
+- (void)getUserDetail {
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+    NSString *userId = [userDic objectForKey:UserLoginId];
+    NSString *token = [userDic objectForKey:UserToken];
+    
+    [[MZBHttpService shareInstance] getUserDetaiWithUserId:userId andToken:token WithBlock:^(NSDictionary *result, NSError *error) {
+        if (!error) {
+            NSNumber *status = result[@"status"];
+            if (status.boolValue) {
+                NSDictionary *dataDic = result[@"data"];
+                NSNumber *balanceNumber =  dataDic[@"cash"];
+                self.balance = balanceNumber.floatValue;
+                
+                [self.collectionView reloadData];
+
+            }
+            else {
+                [UIFactory showAlert:result[@"message"]];
+            }
+        }
+        else {
+            [UIFactory showAlert:@"网络错误"];
+        }
+    }];
+}
+
 - (void)getCashBalance{
     
     if ([self getUserLoginId]) {
-        NSString *jsonParam = [NSString stringWithFormat:@"{\"id\":\"%@\"}",[self getUserLoginId]];
+        [self getUserDetail];
+       /* NSString *jsonParam = [NSString stringWithFormat:@"{\"id\":\"%@\"}",[self getUserLoginId]];
         AFHTTPRequestOperation *opration = [MZBWebService getUserBalanceWithParameter:jsonParam];
         
         [opration start];
@@ -103,7 +131,7 @@
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
-        }];
+        }];*/
         
     }else{
         
@@ -115,6 +143,7 @@
     
 }
 
+#pragma mark - collectionView delegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     

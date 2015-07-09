@@ -194,7 +194,7 @@
     NSString *token = [userDic objectForKey:UserToken];
     
     NSDictionary *dic = @{@"name":name,@"detail":detail,@"longitude":[NSNumber numberWithFloat:_mapView.centerCoordinate.longitude],@"latitude":[NSNumber numberWithFloat:_mapView.centerCoordinate.latitude]};
-    NSData *body = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONReadingAllowFragments error:nil];
+    NSData *body = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
 
     //MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
     //[self.view addSubview:hud];
@@ -204,7 +204,7 @@
         
         [_hud hide:YES];
         
-        if ([self respondsToSelector:@selector(ServiceAddressVCSelectedServiceAddress:andDetail:)]) {
+        if ([self.delegate respondsToSelector:@selector(ServiceAddressVCSelectedServiceAddress:andDetail:)]) {
             [self.delegate ServiceAddressVCSelectedServiceAddress:name andDetail:detail];
         }
         

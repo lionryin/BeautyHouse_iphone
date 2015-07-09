@@ -172,6 +172,24 @@
     
 }
 
+///获取广告列表
+- (void)getHomeAdWithBlock:(void (^)(NSArray *result, NSError *error))block {
+    
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/advertisement/list.do",MZBHttpURL] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+        
+        //NSLog(@"getHomeServiceResult:%@",result);
+        NSArray *resultArr = [NSJSONSerialization JSONObjectWithData:[responseStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        
+        NSLog(@"getAllServiceResult:%@",resultArr);
+        
+        if (block) {
+            block(resultArr,error);
+        }
+        
+    }];
+
+}
+
 ///获取主页服务
 - (void)getHomeServiceWithBlock:(void (^)(NSDictionary *result, NSError *error))block {
     [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/item/list/main.do",MZBHttpURL] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
@@ -263,7 +281,6 @@
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation start];
     
-    //operation.responseSerializer = [AFHTTPResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSLog(@"html:%@",[responseObject description]);
@@ -324,7 +341,61 @@
         block(nil, error);
         
     }];
+}
 
+////获取用户详情 当移动端需要获取用户详情（账户余额、金币余额等）时调用此接口
+- (void)getUserDetaiWithUserId:(NSString *)userId andToken:(NSString *)token WithBlock:(void (^)(NSDictionary *result, NSError *error))block {
+    
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/user/detail.do?user_id=%@&token=%@",MZBHttpURL,userId,token] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+        
+        NSLog(@"getUserDetaiResult:%@",result);
+        if (block) {
+            block(result,error);
+        }
+    }];
+}
+
+
+///获取商品下单组建 当移动端需要对单一商品进行下单操作时调用此接口
+- (void)getOrderStructWithItemId:(NSString *)itemId WithBlock:(void (^)(NSDictionary *result, NSError *error))block {
+    
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/order/item/parameter.do?item_id=%@",MZBHttpURL,itemId] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+        
+        NSLog(@"getOrderStructResult:%@",result);
+        if (block) {
+            block(result,error);
+        }
+    }];
+
+}
+
+///提交订单接口
+- (void)submitOrderWithUserId:(NSString *)userId andToken:(NSString *)token andBody:(NSData *)body WithBlock:(void (^)(NSDictionary *result, NSError *error))block {
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@api/order.do?user_id=%@&token=%@",MZBHttpURL,userId,token]]];
+    [request setHTTPMethod:@"POST"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    [request setHTTPBody:body];
+    
+    //
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation start];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"html:%@",[responseObject description]);
+        if (block) {
+            block(responseObject,nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        NSLog(@"error:%@",[error description]);
+        block(nil, error);
+        
+    }];
 
 }
 

@@ -69,9 +69,10 @@
     for (int i = 0 ; i < imageArray.count; i++,x+=320) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, 0, 320, 160)];
         //imageView.image = [UIImage imageNamed:imageArray[i]];
-        MzbAd *mzbAd = [imageArray objectAtIndex:i];
-          NSString *imageUrl = [NSString stringWithFormat:@"%@%@",imageURLPrefix,mzbAd.adImageUrl];
-        [imageView setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@""]];
+        //MzbAd *mzbAd = [imageArray objectAtIndex:i];
+        //NSString *imageUrl = [NSString stringWithFormat:@"%@%@",imageURLPrefix,mzbAd.adImageUrl];
+        NSDictionary *dic = _adArray[i];
+        [imageView setImageWithURL:[NSURL URLWithString:dic[@"mini_logo_uri"]] placeholderImage:[UIImage imageNamed:@""]];
         
         [_imageScrollView addSubview:imageView];
     }
