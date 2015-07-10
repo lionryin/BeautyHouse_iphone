@@ -10,7 +10,7 @@
 
 @protocol ServiceAddressVCDelegate <NSObject>
 
-- (void)ServiceAddressVCSelectedServiceAddress:(NSString *)name andDetail:(NSString *)detail;
+- (void)ServiceAddressVCSelectedServiceAddress:(NSDictionary *)address;
 
 @end
 

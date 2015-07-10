@@ -194,7 +194,7 @@
     NSString *token = [userDic objectForKey:UserToken];
     
     NSDictionary *dic = @{@"name":name,@"detail":detail,@"longitude":[NSNumber numberWithFloat:_mapView.centerCoordinate.longitude],@"latitude":[NSNumber numberWithFloat:_mapView.centerCoordinate.latitude]};
-    NSData *body = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
+    NSData *body = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONReadingAllowFragments error:nil];
 
     //MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
     //[self.view addSubview:hud];
@@ -204,16 +204,26 @@
         
         [_hud hide:YES];
         
-        if ([self.delegate respondsToSelector:@selector(ServiceAddressVCSelectedServiceAddress:andDetail:)]) {
-            [self.delegate ServiceAddressVCSelectedServiceAddress:name andDetail:detail];
-        }
         
-        [self.navigationController popViewControllerAnimated:YES];
+       
         if (!error) {
             NSNumber *status = result[@"status"];
             if (status.boolValue) {
                 NSLog(@"保存成功");
+                if ([self.delegate respondsToSelector:@selector(ServiceAddressVCSelectedServiceAddress:)]) {
+                    
+                    [self.delegate ServiceAddressVCSelectedServiceAddress:result[@"data"]];
+                    
+                     [self.navigationController popViewControllerAnimated:YES];
+                }
+
             }
+            else {
+                [UIFactory showAlert:@"保存地址失败"];
+            }
+        }
+        else {
+            [UIFactory showAlert:@"网络错误"];
         }
     }];
 }
@@ -430,9 +440,9 @@
     
     if (_isHaveAddressList) {
          NSDictionary *dic = _addressList[indexPath.row];
-        if ([self.delegate respondsToSelector:@selector(ServiceAddressVCSelectedServiceAddress:andDetail:)]) {
+        if ([self.delegate respondsToSelector:@selector(ServiceAddressVCSelectedServiceAddress:)]) {
             
-            [self.delegate ServiceAddressVCSelectedServiceAddress:dic[@"name"] andDetail:dic[@"detail"]];
+            [self.delegate ServiceAddressVCSelectedServiceAddress:dic];
             
             [self.navigationController popViewControllerAnimated:YES];
         }

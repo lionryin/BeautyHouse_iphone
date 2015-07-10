@@ -19,6 +19,9 @@
 ///测试地址
 #define MZBHttpURL @"http://120.25.122.11/"
 
+///测试
+//#define MZBHttpURL @"http://49.211.37.58:8082/"
+
 @interface MZBHttpService : NSObject
 
 + (instancetype)shareInstance;
@@ -52,7 +55,7 @@
 
 
 ///支付宝支付
-- (void)apliyPayWithOutTradeNo:(NSString *)outTradeNo andTotalFee:(NSString *)totalFee callback:(CompletionBlock)completionBlock;
+- (void)apliyPayWithOutTradeNo:(NSString *)outTradeNo andTotalFee:(NSString *)totalFee andType:(NSString *)type callback:(CompletionBlock)completionBlock;
 
 //////////////////////////////////////////////////
 ///获取广告列表

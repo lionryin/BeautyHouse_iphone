@@ -17,6 +17,8 @@
 
 @property (strong, nonatomic) MBProgressHUD *hud;
 
+@property (strong, nonatomic) NSDictionary *selectedAddress;
+
 @end
 
 @implementation FloorCareVC
@@ -176,7 +178,7 @@
     //NSLog(@"bodyStr:%@",bodyStr);
     //NSData *body = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSDictionary *dic = @{@"user_d":userId, @"item_id":_serviceInfo[@"id"], @"platform_code":@"IOS", @"order_parameters":[self getOrderParameters]};
+    NSDictionary *dic = @{@"user_id":userId, @"item_id":_serviceInfo[@"id"], @"platform_code":@"IOS", @"order_parameters":[self getOrderParameters]};
     
     //NSData *body = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONReadingAllowFragments error:nil ];
     
@@ -191,17 +193,38 @@
     [[MZBHttpService shareInstance] submitOrderWithUserId:userId andToken:token andBody:body WithBlock:^(NSDictionary *result, NSError *error) {
         [_hud hide:YES];
         
-        
+        if (!error) {
+            NSNumber *status = result[@"status"];
+            if (status.boolValue) {
+                
+            }
+        }
     }];
 }
 
 - (NSArray *)getOrderParameters {
     NSMutableArray *arr = [NSMutableArray array];
     
-    NSDictionary *dic1 = @{@"value":self.timeTF.text, @"id":@"1"};
+    NSString *timeStr = self.timeTF.text;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM--dd HH:mm:ss"];
+    NSDate *time = [formatter dateFromString:timeStr];
+    
+    int timeSp = [time timeIntervalSince1970];
+    
+    NSLog(@"timeSp:%i",timeSp);
+    
+    NSDictionary *dic1 = @{@"value":[NSNumber numberWithInt:timeSp], @"id":@"1"};
     [arr addObject:dic1];
     
-    NSDictionary *dic2 = @{@"value":self.addressTF.text, @"id":@"2"};
+    NSString *addressId = @"";
+    if (self.selectedAddress) {
+        if (self.selectedAddress[@"id"]) {
+            addressId = self.selectedAddress[@"id"];
+        }
+    }
+    
+    NSDictionary *dic2 = @{@"value":addressId, @"id":@"2"};
     [arr addObject:dic2];
     
     NSDictionary *dic3 = @{@"value":self.moreDemondTF.text, @"id":@"3"};
@@ -257,8 +280,10 @@
 }
 
 #pragma mark - ServiceAddress delegate
-- (void)ServiceAddressVCSelectedServiceAddress:(NSString *)name andDetail:(NSString *)detail {
-    self.addressTF.text = [NSString stringWithFormat:@"%@ %@",name,detail];
+- (void)ServiceAddressVCSelectedServiceAddress:(NSDictionary *)address {
+    
+    self.addressTF.text = [NSString stringWithFormat:@"%@ %@",address[@"name"],address[@"detail"]];
+    self.selectedAddress = address;
 }
 
 @end

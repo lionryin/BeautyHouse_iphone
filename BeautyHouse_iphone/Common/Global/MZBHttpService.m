@@ -158,9 +158,9 @@
 
 
 ///支付宝支付
-- (void)apliyPayWithOutTradeNo:(NSString *)outTradeNo andTotalFee:(NSString *)totalFee callback:(CompletionBlock)completionBlock{
+- (void)apliyPayWithOutTradeNo:(NSString *)outTradeNo andTotalFee:(NSString *)totalFee andType:(NSString *)type callback:(CompletionBlock)completionBlock{
     
-    NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"订单支付\"&total_fee=\"%@\"&notify_url=\"%@order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",outTradeNo,totalFee,MZBHttpURL];
+    NSString *subPayInfo = [NSString stringWithFormat:@"partner=\"2088711657481475\"&seller_id=\"meizhaikeji@sina.com\"&out_trade_no=\"%@\"&subject=\"美宅宝\"&body=\"%@\"&total_fee=\"%@\"&notify_url=\"%@order/Service/alipayNotify.do\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"utf-8\"&it_b_pay=\"30m\"&return_url=\"m.alipay.com\"",outTradeNo,type,totalFee,MZBHttpURL];
     
     id <DataSigner> signer = CreateRSADataSigner(RSA_PRIVATE);
     NSString *signedString = [signer signString:subPayInfo];
@@ -178,13 +178,18 @@
     [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/advertisement/list.do",MZBHttpURL] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
         
         //NSLog(@"getHomeServiceResult:%@",result);
-        NSArray *resultArr = [NSJSONSerialization JSONObjectWithData:[responseStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-        
-        NSLog(@"getAllServiceResult:%@",resultArr);
-        
-        if (block) {
-            block(resultArr,error);
+        if(responseStr) {
+            NSArray *resultArr = [NSJSONSerialization JSONObjectWithData:[responseStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+            
+            NSLog(@"getAllServiceResult:%@",resultArr);
+            
+            if (block) {
+                block(resultArr,error);
+            }
+
         }
+        
+        
         
     }];
 

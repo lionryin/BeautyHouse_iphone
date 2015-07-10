@@ -137,7 +137,7 @@
     else {
         if (_imageView1.highlighted) {//支付宝支付
             
-            [[MZBHttpService shareInstance] apliyPayWithOutTradeNo:self.orderVO.orderID andTotalFee:self.rmbTF.text callback:^(NSDictionary *resultDic) {
+            [[MZBHttpService shareInstance] apliyPayWithOutTradeNo:self.orderVO.orderID andTotalFee:self.rmbTF.text andType:@"订单支付" callback:^(NSDictionary *resultDic) {
                 
                 NSString *resultStatus = resultDic [@"resultStatus"];
                 if (9000 == [resultStatus intValue]) {//支付成功

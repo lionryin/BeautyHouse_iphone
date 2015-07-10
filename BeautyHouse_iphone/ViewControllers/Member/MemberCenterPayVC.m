@@ -306,10 +306,10 @@
     if (_flagIV1.tag == 2011) {//支付宝支付
         
         NSString *uuidString = [self generateTradeNO];//[[[UIDevice currentDevice] identifierForVendor] UUIDString];
-        NSString *tradeId = [NSString stringWithFormat:@"%@-%@",[self getUserId],uuidString];
+        NSString *tradeId = [NSString stringWithFormat:@"%@_%@",[self getUserId],uuidString];
         
         
-        [[MZBHttpService shareInstance] apliyPayWithOutTradeNo:tradeId andTotalFee:[NSString stringWithFormat:@"%.2f",self.memberVO.chargeMoney.floatValue] callback:^(NSDictionary *resultDic) {
+        [[MZBHttpService shareInstance] apliyPayWithOutTradeNo:tradeId andTotalFee:[NSString stringWithFormat:@"%.2f",self.memberVO.chargeMoney.floatValue] andType:@"会员充值" callback:^(NSDictionary *resultDic) {
             
             NSString *resultStatus = resultDic [@"resultStatus"];
             if (9000 == [resultStatus intValue]) {//支付成功
