@@ -54,7 +54,13 @@
         else {
             NSString *imageUrl = [NSString stringWithFormat:@"%@%@",imageURLPrefix,aService[@"mini_logo_uri"]];
             
-            [button setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@""]];
+            [button setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"png"]];
+            
+            /*[button setImageForState:UIControlStateNormal withURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] placeholderImage:[UIImage imageNamed:@"png"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                
+            } failure:^(NSError *error) {
+                NSLog(@"error:%@",[error description]);
+            }];*/
         }
         
     }

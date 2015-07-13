@@ -25,6 +25,41 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSArray *)getOrderParameters {
+    NSMutableArray *arr = [NSMutableArray array];
+    
+    NSString *timeStr = self.timeTF.text;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM--dd HH:mm:ss"];
+    NSDate *time = [formatter dateFromString:timeStr];
+    
+    int timeSp = [time timeIntervalSince1970];
+    
+    NSLog(@"timeSp:%i",timeSp);
+    
+    NSDictionary *dic1 = @{@"value":[NSNumber numberWithInt:timeSp], @"id":@"1"};
+    [arr addObject:dic1];
+    
+    NSString *addressId = @"";
+    if (self.selectedAddress) {
+        if (self.selectedAddress[@"id"]) {
+            addressId = self.selectedAddress[@"id"];
+        }
+    }
+    
+    NSDictionary *dic2 = @{@"value":addressId, @"id":@"2"};
+    [arr addObject:dic2];
+    
+    NSDictionary *dic3 = @{@"value":self.moreDemondTF.text, @"id":@"3"};
+    [arr addObject:dic3];
+    
+    NSDictionary *dic4 = @{@"value":self.houseSizeTF.text, @"id":@"4"};
+    [arr addObject:dic4];
+    
+    return arr;
+}
+
+
 - (NSString *)spliceJsonParam{
     NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
     NSString *userId = [userDic objectForKey:UserLoginId];
@@ -40,6 +75,29 @@
     houseSizeVC.delegate = self;
     houseSizeVC.houseSize = _houseSizeTF.text;
     [self.navigationController pushViewController:houseSizeVC animated:YES];
+}
+
+- (IBAction)submitButtonPressed:(id)sender {
+    
+    if (self.timeTF.text.length <=0) {
+        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"预约时间不能为空" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        
+        [av show];
+        return;
+        
+    }else if (self.addressTF.text.length <= 0) {
+        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"服务地址不能为空" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [av show];
+        return;
+        
+    }else if (self.houseSizeTF.text.length <= 0) {
+        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"房屋面积不能为空" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [av show];
+        return;
+    }
+    else{
+        [self submitOrder];
+    }
 }
 
 

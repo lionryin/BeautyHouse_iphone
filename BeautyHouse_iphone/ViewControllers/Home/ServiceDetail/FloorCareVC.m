@@ -17,7 +17,7 @@
 
 @property (strong, nonatomic) MBProgressHUD *hud;
 
-@property (strong, nonatomic) NSDictionary *selectedAddress;
+
 
 @end
 
@@ -191,13 +191,26 @@
     [self.navigationController.view addSubview:_hud];
     [_hud show:YES];
     [[MZBHttpService shareInstance] submitOrderWithUserId:userId andToken:token andBody:body WithBlock:^(NSDictionary *result, NSError *error) {
-        [_hud hide:YES];
+        
         
         if (!error) {
             NSNumber *status = result[@"status"];
             if (status.boolValue) {
                 
+                _hud.mode = MBProgressHUDModeCustomView;
+                _hud.labelText = @"提交成功";
+                [_hud hide:YES afterDelay:2.0];
+                
+                [self.navigationController popToRootViewControllerAnimated:YES];
             }
+            else {
+                [_hud hide:YES];
+                [UIFactory showAlert:@"发生错误"];
+            }
+        }
+        else {
+            [_hud hide:YES];
+            [UIFactory showAlert:@"网络错误"];
         }
     }];
 }

@@ -32,7 +32,9 @@
 - (IBAction)moreDemondButtonPressed:(id)sender;
 - (IBAction)submitButtonPressed:(id)sender;
 
-
+@property (strong, nonatomic) NSDictionary *selectedAddress;
+- (void)submitOrder;
+- (NSArray *)getOrderParameters ;
 - (NSString *)spliceJsonParam;
 
 @end

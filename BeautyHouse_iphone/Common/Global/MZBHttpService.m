@@ -100,7 +100,7 @@
 
 ///////////////////////////////////////////////
 
-- (void)getHttpRequestOperationWithURLString:(NSString *)urlStr andBlock:(void (^)(NSString *responseStr, NSDictionary *result, NSError *error))block {
+- (void)getHttpRequestOperationWithURLString:(NSString *)urlStr andBlock:(void (^)(NSString *responseStr, id result, NSError *error))block {
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
     //
@@ -113,11 +113,11 @@
         NSString *html = operation.responseString;
         //NSLog(@"html:%@",html);
         
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[html dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        id object = [NSJSONSerialization JSONObjectWithData:[html dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
         //NSLog(@"%@",dic);
         
         if (block) {
-            block(html, dic, nil);
+            block(html, object, nil);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -131,7 +131,7 @@
 - (void)getShareContentWithShareUserID:(NSString *)userID andBlock:(void (^)(NSString *response, NSError *error))block {
     NSString *urlStr = [NSString stringWithFormat:@"%@share/Service/getShareContent.do?shareUserId=%@", MZBHttpURL, userID];
     
-    [self getHttpRequestOperationWithURLString:urlStr andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+    [self getHttpRequestOperationWithURLString:urlStr andBlock:^(NSString *responseStr, id result, NSError *error) {
         
         if (block) {
             block(responseStr, error);
@@ -146,7 +146,7 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@Service/Order/Evaluation/add.do?auntId=%@&orderId=%@&totalEvaluationScore=%@&evaluationIds=1,2,3,4,5&evaluationScores=%@&remarks=%@",MZBHttpURL, auntID,orderID,totalEvaluationScore,evaluationScores,remarks];
     
-    [self getHttpRequestOperationWithURLString:urlStr andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+    [self getHttpRequestOperationWithURLString:urlStr andBlock:^(NSString *responseStr, id result, NSError *error) {
         
         if (block) {
             block(result, error);
@@ -175,19 +175,19 @@
 ///获取广告列表
 - (void)getHomeAdWithBlock:(void (^)(NSArray *result, NSError *error))block {
     
-    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/advertisement/list.do",MZBHttpURL] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/advertisement/list.do",MZBHttpURL] andBlock:^(NSString *responseStr, id result, NSError *error) {
         
         //NSLog(@"getHomeServiceResult:%@",result);
-        if(responseStr) {
-            NSArray *resultArr = [NSJSONSerialization JSONObjectWithData:[responseStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-            
-            NSLog(@"getAllServiceResult:%@",resultArr);
-            
-            if (block) {
-                block(resultArr,error);
-            }
-
+        
+        //NSArray *resultArr = [NSJSONSerialization JSONObjectWithData:[responseStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        
+        NSLog(@"getAllServiceResult:%@",result);
+        
+        if (block) {
+            block(result,error);
         }
+
+        
         
         
         
@@ -197,7 +197,7 @@
 
 ///获取主页服务
 - (void)getHomeServiceWithBlock:(void (^)(NSDictionary *result, NSError *error))block {
-    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/item/list/main.do",MZBHttpURL] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/item/list/main.do",MZBHttpURL] andBlock:^(NSString *responseStr, id result, NSError *error) {
         
         NSLog(@"getHomeServiceResult:%@",result);
         if (block) {
@@ -209,15 +209,15 @@
 
 //获取全部服务
 - (void)getAllServiceWithBlock:(void (^)(NSArray *resultArray, NSError *error))block {
-    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/item/category/list.do",MZBHttpURL] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/item/category/list.do",MZBHttpURL] andBlock:^(NSString *responseStr, id result, NSError *error) {
         
         //NSLog(@"getAllServiceResult:%@",responseStr);
-        NSArray *resultArr = [NSJSONSerialization JSONObjectWithData:[responseStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        //NSArray *resultArr = [NSJSONSerialization JSONObjectWithData:[responseStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
         
-        NSLog(@"getAllServiceResult:%@",resultArr);
+        NSLog(@"getAllServiceResult:%@",result);
         
         if (block) {
-            block(resultArr,error);
+            block(result,error);
         }
 
     }];
@@ -227,14 +227,14 @@
 - (void)getOpenCitiesWithLongitude:(CGFloat)longitude andLatitude:(CGFloat)latitude WithBlock:(void (^)(NSArray *resultArray, NSError *error))block {
     
     NSString *urlStr = [NSString stringWithFormat:@"%@api/citys/open.do?longitude=%f&latitude=%f",MZBHttpURL,longitude,latitude];
-    [self getHttpRequestOperationWithURLString:urlStr andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+    [self getHttpRequestOperationWithURLString:urlStr andBlock:^(NSString *responseStr, id result, NSError *error) {
         
-        NSArray *resultArr = [NSJSONSerialization JSONObjectWithData:[responseStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        //NSArray *resultArr = [NSJSONSerialization JSONObjectWithData:[responseStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
         
-        NSLog(@"getOpenCities:%@",resultArr);
+        NSLog(@"getOpenCities:%@",result);
         
         if (block) {
-            block(resultArr,error);
+            block(result,error);
         }
 
         
@@ -245,7 +245,7 @@
 ///根据城市id获取主页服务
 - (void)getHomeServiceWithCityId:(NSString *)cityId WithBlock:(void (^)(NSDictionary *result, NSError *error))block {
     
-    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/item/list/main.do?city_id=%@",MZBHttpURL,cityId] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/item/list/main.do?city_id=%@",MZBHttpURL,cityId] andBlock:^(NSString *responseStr, id result, NSError *error) {
         
         NSLog(@"getHomeServiceResult:%@",result);
         if (block) {
@@ -257,15 +257,15 @@
 
 //根据城市id获取全部服务
 - (void)getAllServiceWithCityId:(NSString *)cityId WithBlock:(void (^)(NSArray *resultArray, NSError *error))block {
-    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/item/category/list.do?city_id=%@",MZBHttpURL,cityId] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/item/category/list.do?city_id=%@",MZBHttpURL,cityId] andBlock:^(NSString *responseStr, id result, NSError *error) {
         
         //NSLog(@"getAllServiceResult:%@",responseStr);
-        NSArray *resultArr = [NSJSONSerialization JSONObjectWithData:[responseStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        //NSArray *resultArr = [NSJSONSerialization JSONObjectWithData:[responseStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
         
-        NSLog(@"getAllServiceResult:%@",resultArr);
+        NSLog(@"getAllServiceResult:%@",result);
         
         if (block) {
-            block(resultArr,error);
+            block(result,error);
         }
         
     }];
@@ -303,7 +303,7 @@
 ///获取地址列表
 - (void)getAddressListWithUserId:(NSString *)userId andToken:(NSString *)token WithBlock:(void (^)(NSDictionary *result, NSError *error))block {
     
-    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@address/list.do?user_id=%@&token=%@",MZBHttpURL,userId,token] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@address/list.do?user_id=%@&token=%@",MZBHttpURL,userId,token] andBlock:^(NSString *responseStr, id result, NSError *error) {
         
         NSLog(@"getAddressListResult:%@",result);
         if (block) {
@@ -351,7 +351,7 @@
 ////获取用户详情 当移动端需要获取用户详情（账户余额、金币余额等）时调用此接口
 - (void)getUserDetaiWithUserId:(NSString *)userId andToken:(NSString *)token WithBlock:(void (^)(NSDictionary *result, NSError *error))block {
     
-    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/user/detail.do?user_id=%@&token=%@",MZBHttpURL,userId,token] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/user/detail.do?user_id=%@&token=%@",MZBHttpURL,userId,token] andBlock:^(NSString *responseStr, id result, NSError *error) {
         
         NSLog(@"getUserDetaiResult:%@",result);
         if (block) {
@@ -364,7 +364,7 @@
 ///获取商品下单组建 当移动端需要对单一商品进行下单操作时调用此接口
 - (void)getOrderStructWithItemId:(NSString *)itemId WithBlock:(void (^)(NSDictionary *result, NSError *error))block {
     
-    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/order/item/parameter.do?item_id=%@",MZBHttpURL,itemId] andBlock:^(NSString *responseStr, NSDictionary *result, NSError *error) {
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/order/item/parameter.do?item_id=%@",MZBHttpURL,itemId] andBlock:^(NSString *responseStr, id result, NSError *error) {
         
         NSLog(@"getOrderStructResult:%@",result);
         if (block) {
