@@ -9,6 +9,7 @@
 #import "HomeBtnCell.h"
 #import "MzbService.h"
 #import "HomeButton.h"
+#import "MZBHttpService.h"
 
 
 @implementation HomeBtnCell
@@ -52,15 +53,11 @@
             [button setImage:[UIImage imageNamed:@"logo_item_more.png"] forState:UIControlStateNormal];
         }
         else {
-            NSString *imageUrl = [NSString stringWithFormat:@"%@%@",imageURLPrefix,aService[@"mini_logo_uri"]];
+            
+            NSString *imageUrl = [NSString stringWithFormat:@"%@%@",MZBHttpURL,aService[@"mini_logo_uri"]];
             
             [button setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"png"]];
             
-            /*[button setImageForState:UIControlStateNormal withURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] placeholderImage:[UIImage imageNamed:@"png"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                
-            } failure:^(NSError *error) {
-                NSLog(@"error:%@",[error description]);
-            }];*/
         }
         
     }

@@ -404,5 +404,26 @@
 
 }
 
+///获取应用配置
+- (void)getAppConfigWithBlock:(void (^)(NSDictionary *result, NSError *error))block {
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/app/config.do",MZBHttpURL] andBlock:^(NSString *responseStr, id result, NSError *error) {
+        NSLog(@"getAppConfigResult:%@",result);
+        if (block) {
+            block(result,error);
+        }
+
+    }];
+}
+
+///余额支付
+- (void)paymentByBalanceWithCustomerId:(NSString *)customerId andToken:(NSString *)token andOrderId:(NSString *)orderId andPaymentAmount:(CGFloat)amount WithBlock:(void (^)(NSDictionary *result, NSError *error))block {
+    
+    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/order/payment/balance.do?customer_id=%@&token=%@&order_id=%@&payment_amount=%f",MZBHttpURL,customerId,token,orderId,amount] andBlock:^(NSString *responseStr, id result, NSError *error) {
+        
+        if (block) {
+            block(result,error);
+        }
+    }];
+}
 
 @end

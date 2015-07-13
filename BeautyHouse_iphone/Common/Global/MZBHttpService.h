@@ -93,4 +93,10 @@
 ///提交订单接口
 - (void)submitOrderWithUserId:(NSString *)userId andToken:(NSString *)token andBody:(NSData *)body WithBlock:(void (^)(NSDictionary *result, NSError *error))block;
 
+///获取应用配置
+- (void)getAppConfigWithBlock:(void (^)(NSDictionary *result, NSError *error))block;
+
+///余额支付
+- (void)paymentByBalanceWithCustomerId:(NSString *)customerId andToken:(NSString *)token andOrderId:(NSString *)orderId andPaymentAmount:(CGFloat)amount WithBlock:(void (^)(NSDictionary *result, NSError *error))block;
+
 @end
