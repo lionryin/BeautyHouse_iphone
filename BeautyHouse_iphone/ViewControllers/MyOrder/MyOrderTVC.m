@@ -47,6 +47,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         _view1 = [[UIView alloc] initWithFrame:CGRectZero];
         [self.contentView addSubview:_view1];
         
@@ -201,17 +203,19 @@
 
 - (CGFloat )updateMyOrderTVC{
     
-    MyOrderVO *orderVO = self.myOrderVO;
+    //MyOrderVO *orderVO = self.myOrderVO;
+    NSDictionary *status = _orderItem[@"status"];
+    NSNumber *statusCode = status[@"code"];
     
     CGFloat height = 0;
     
-    if ([orderVO.statusID integerValue] == 32 || [orderVO.statusID integerValue] == 78) {
+    if ([statusCode integerValue] == 32 || [statusCode integerValue] == 78) {
         _view1.hidden = YES;
         _view2.frame = CGRectMake(0, 0, self.contentView.frame.size.width, 195);
         height = 195;
         
         self.zhifuBtn.hidden = YES;
-        self.cancelBtn.hidden = [orderVO.statusID integerValue] == 32 ? NO : YES;
+        self.cancelBtn.hidden = [statusCode integerValue] == 32 ? NO : YES;
         self.complaintBtn.hidden = YES;
         
     }
@@ -223,12 +227,12 @@
         height = 60 + 195;
         
         
-        if ([orderVO.statusID integerValue] == 33) {
+        if ([statusCode integerValue] == 33) {
             self.zhifuBtn.hidden = NO;
             self.cancelBtn.hidden = YES;
             self.complaintBtn.hidden = YES;
         }
-        else if ([orderVO.statusID integerValue] == 34){
+        else if ([statusCode integerValue] == 34){
             self.zhifuBtn.hidden = YES;
             self.cancelBtn.hidden = YES;
             self.complaintBtn.hidden = NO;
@@ -239,9 +243,14 @@
             self.complaintBtn.hidden = YES;
         }
         
-        _auntNameLabel.text = orderVO.auntName;
+        NSArray *servers = _orderItem[@"servers"];
         
-        double level = [orderVO.auntLevel doubleValue];
+        if (![servers isKindOfClass:[NSNull class]]) {
+            _auntNameLabel.text = [servers[0] objectForKey:@"name"];
+        }
+        
+        
+        /*double level = [orderVO.auntLevel doubleValue];
         
         if (level >= 0.2 && level<0.4) {
             _levelImageView1.highlighted = YES;
@@ -274,23 +283,23 @@
             _levelImageView3.highlighted = NO;
             _levelImageView4.highlighted = NO;
             _levelImageView5.highlighted = NO;
-        }
+        }*/
 
 
     }
     
-    if (![orderVO.isAppraised isKindOfClass:[NSNull class]]) {
+    /*if (![orderVO.isAppraised isKindOfClass:[NSNull class]]) {
         if ([orderVO.isAppraised integerValue] == 1) {
             self.complaintBtn.hidden = YES;
         }
-    }
+    }*/
     
     
     
-    self.title.text = orderVO.title;
-    self.time.text = orderVO.time;
-    self.address.text = orderVO.address;
-    self.status.text = orderVO.status;
+    self.title.text = [_orderItem[@"item"] objectForKey:@"name"];
+    self.time.text = _orderItem[@"service_time"];
+    self.address.text = [_orderItem[@"address"] objectForKey:@"name"];
+    self.status.text = status[@"name"];
     
    /* if (orderVO.orderType == kOrderTypeHistory) {
         self.complaintBtn.hidden = NO;

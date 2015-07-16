@@ -27,6 +27,8 @@
 @property (nonatomic,weak)id<MyOrderTVCDelegate>delegate;
 @property (strong, nonatomic) MyOrderVO *myOrderVO;
 
+@property (strong, nonatomic) NSDictionary *orderItem;
+
 - (CGFloat )updateMyOrderTVC;
 
 

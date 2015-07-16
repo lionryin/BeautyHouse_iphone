@@ -426,4 +426,19 @@
     }];
 }
 
+///获取订单列表
+- (void)getOrderListWithUserId:(NSString *)userId andToken:(NSString *)token andNextPageIndex:(NSString *)nextPageIndex andOrderStatusCode:(NSString *)statusCode WithBlock:(void (^)(NSDictionary *result, NSError *error))block {
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@api/order/page/reduced.do?user_id=%@&token=%@&next_page_index=%@&order_status_code=%@",MZBHttpURL,userId,token,nextPageIndex,statusCode];
+    
+    NSLog(@"urlStr:%@",urlStr);
+    
+    [self getHttpRequestOperationWithURLString:urlStr andBlock:^(NSString *responseStr, id result, NSError *error) {
+        
+        if (block) {
+            block(result,error);
+        }
+    }];
+}
+
 @end

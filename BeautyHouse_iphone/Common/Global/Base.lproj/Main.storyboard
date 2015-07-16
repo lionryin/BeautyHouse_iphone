@@ -116,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="-340" y="244"/>
         </scene>
-        <!--My OrderVC-->
+        <!--OrderVC-->
         <scene sceneID="Nfz-zg-mVZ">
             <objects>
-                <viewController id="IDO-9y-ZaG" customClass="MyOrderVC" sceneMemberID="viewController">
+                <viewController id="IDO-9y-ZaG" customClass="OrderVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bvh-er-bHy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

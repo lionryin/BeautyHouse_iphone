@@ -99,4 +99,7 @@
 ///余额支付
 - (void)paymentByBalanceWithCustomerId:(NSString *)customerId andToken:(NSString *)token andOrderId:(NSString *)orderId andPaymentAmount:(CGFloat)amount WithBlock:(void (^)(NSDictionary *result, NSError *error))block;
 
+///获取订单列表
+- (void)getOrderListWithUserId:(NSString *)userId andToken:(NSString *)token andNextPageIndex:(NSString *)nextPageIndex andOrderStatusCode:(NSString *)statusCode WithBlock:(void (^)(NSDictionary *result, NSError *error))block;
+
 @end

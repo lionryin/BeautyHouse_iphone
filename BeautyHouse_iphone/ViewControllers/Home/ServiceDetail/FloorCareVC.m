@@ -219,13 +219,20 @@
     NSMutableArray *arr = [NSMutableArray array];
     
     NSString *timeStr = self.timeTF.text;
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YYYY-MM--dd HH:mm:ss"];
     NSDate *time = [formatter dateFromString:timeStr];
     
-    int timeSp = [time timeIntervalSince1970];
+    NSLog(@"time:%@",time);
+    NSTimeZone *zone = [NSTimeZone systemTimeZone];
+    NSInteger interval = [zone secondsFromGMTForDate:time];
+    NSDate *localeTime= [time  dateByAddingTimeInterval: interval];
+    NSLog(@"localeTime:%@",localeTime);
     
-    NSLog(@"timeSp:%i",timeSp);
+    int timeSp = [localeTime timeIntervalSince1970]*1000;
+    
+    NSLog(@"timeSp:%d",timeSp);
     
     NSDictionary *dic1 = @{@"value":[NSNumber numberWithInt:timeSp], @"id":@"1"};
     [arr addObject:dic1];
@@ -236,6 +243,8 @@
             addressId = self.selectedAddress[@"id"];
         }
     }
+    
+    NSLog(@"addressId:%@",addressId);
     
     NSDictionary *dic2 = @{@"value":addressId, @"id":@"2"};
     [arr addObject:dic2];
