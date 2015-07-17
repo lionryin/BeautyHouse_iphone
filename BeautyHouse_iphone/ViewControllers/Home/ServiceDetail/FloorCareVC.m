@@ -225,16 +225,15 @@
     NSDate *time = [formatter dateFromString:timeStr];
     
     NSLog(@"time:%@",time);
-    NSTimeZone *zone = [NSTimeZone systemTimeZone];
-    NSInteger interval = [zone secondsFromGMTForDate:time];
-    NSDate *localeTime= [time  dateByAddingTimeInterval: interval];
-    NSLog(@"localeTime:%@",localeTime);
     
-    int timeSp = [localeTime timeIntervalSince1970]*1000;
+    CGFloat floatTimeSp = [time timeIntervalSince1970]*1000;
     
-    NSLog(@"timeSp:%d",timeSp);
+
+    NSString *timeSp = [NSString stringWithFormat:@"%.0f",floatTimeSp];
     
-    NSDictionary *dic1 = @{@"value":[NSNumber numberWithInt:timeSp], @"id":@"1"};
+    NSLog(@"floatTimeSp:%f\n timeSp:%@",floatTimeSp,timeSp);
+    
+    NSDictionary *dic1 = @{@"value":timeSp, @"id":@"1"};
     [arr addObject:dic1];
     
     NSString *addressId = @"";
