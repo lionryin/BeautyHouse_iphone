@@ -49,7 +49,7 @@
     if (section == 0) {
         return 2;
     }else{
-        return 1;
+        return 2;
     }
     
     
@@ -83,6 +83,10 @@
             case 0:
                 str = @"关于";
                 break;
+            case 1:
+                str = @"美宅宝内测版2.0.1";
+                break;
+
             default:
                 break;
         }
