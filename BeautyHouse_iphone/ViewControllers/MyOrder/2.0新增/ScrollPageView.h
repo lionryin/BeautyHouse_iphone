@@ -10,14 +10,18 @@
 #import "CustomTableView.h"
 #import "MBProgressHUD.h"
 
+#import "MyOrderTVC.h"
+
 #define StatusKey   @"StatusKey"
 #define NextPageKey @"NextPageKey"
 
 @protocol ScrollPageViewDelegate <NSObject>
 -(void)didScrollPageViewChangedPage:(NSInteger)aPage;
+- (void)commentOrder:(NSDictionary *)orderItem;
+- (void)zhifuOrder:(NSDictionary *)orderItem;
 @end
 
-@interface ScrollPageView : UIView<CustomTableViewDataSource, CustomTableViewDelegate, UIScrollViewDelegate>
+@interface ScrollPageView : UIView<CustomTableViewDataSource, CustomTableViewDelegate, UIScrollViewDelegate, MyOrderTVCDelegate>
 
 @property (nonatomic        ) NSInteger              mCurrentPage;
 @property (nonatomic, strong) NSMutableArray         *statusOfPage;

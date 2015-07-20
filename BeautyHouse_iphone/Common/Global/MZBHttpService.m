@@ -441,4 +441,22 @@
     }];
 }
 
+/**
+ *  取消订单
+ */
+- (void)cancelOrderWithUserId:(NSString *)userId andToken:(NSString *)token andOrderId:(NSString *)orderId WithBlock:(void (^)(NSDictionary *result, NSError *error))block{
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@order/cancelOrder.do?user_id=%@&token=%@&orderId=%@",MZBHttpURL,userId,token,orderId];
+    
+    //NSLog(@"urlStr:%@",urlStr);
+    
+    [self getHttpRequestOperationWithURLString:urlStr andBlock:^(NSString *responseStr, id result, NSError *error) {
+        
+        if (block) {
+            block(result,error);
+        }
+    }];
+
+}
+
 @end

@@ -150,8 +150,8 @@
 
 #pragma mark - submit
 - (void)submitService{
-    
-    [[MZBHttpService shareInstance] commentAuntWithAuntID:_orderVO.auntID andOrderID:_orderVO.orderID andTotalEvaluationScore:[self getTotalEvaluationScore] andEvaluationScores:[self getEvalutionScores] andRemarks:_commentTV.text andBlock:^(NSDictionary *result, NSError *error) {
+    NSArray *servers = _orderItem[@"servers"];
+    [[MZBHttpService shareInstance] commentAuntWithAuntID:[servers[0] objectForKey:@"id"] andOrderID:_orderItem[@"id"] andTotalEvaluationScore:[self getTotalEvaluationScore] andEvaluationScores:[self getEvalutionScores] andRemarks:_commentTV.text andBlock:^(NSDictionary *result, NSError *error) {
         if (!error) {
             if ([[result objectForKey:@"result"] isEqualToString:@"true"]) {
                 dispatch_async(dispatch_get_main_queue(), ^{

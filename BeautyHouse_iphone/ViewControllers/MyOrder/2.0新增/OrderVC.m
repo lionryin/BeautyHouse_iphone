@@ -9,8 +9,11 @@
 #import "OrderVC.h"
 #import "OrderView.h"
 
+#import "CommentAunt.h"
+#import "OrderPayVC.h"
 
-@interface OrderVC ()
+
+@interface OrderVC ()<OrderViewDelegate, CommentAuntDelegate, OrderPayVCDelegate>
 
 @property (strong, nonatomic) OrderView *mOrderView;
 
@@ -29,6 +32,7 @@
     
     if (_mOrderView == nil) {
         _mOrderView = [[OrderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-64-49)];
+        _mOrderView.delegate = self;
     }
     [self.view addSubview:_mOrderView];
 
@@ -44,6 +48,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - orderView delegate
+- (void)orderViewCommentOrder:(NSDictionary *)orderItem {
+    CommentAunt *commentAunt = [[CommentAunt alloc] initWithNibName:@"CommentAunt" bundle:nil];
+     commentAunt.orderItem= orderItem;
+     commentAunt.delegate = self;
+     [self.navigationController pushViewController:commentAunt animated:YES];
+}
+
+- (void)orderviewZhifuOrder:(NSDictionary *)orderItem {
+    OrderPayVC *orderPayVC = [[OrderPayVC alloc] initWithNibName:@"OrderPayVC" bundle:nil];
+     orderPayVC.orderItem = orderItem;
+     orderPayVC.delegate = self;
+     [self.navigationController pushViewController:orderPayVC animated:YES];
+}
+
+#pragma mark - orderPayVC delegate
+- (void)orderPayVCPaySuccess{
+    //[self setupRefresh:@"current"];
+}
+
+#pragma mark - CommentAuntDelegate
+- (void)commentAuntSuccess{
+   // [self setupRefresh:@"history"];
+}
 
 
 @end

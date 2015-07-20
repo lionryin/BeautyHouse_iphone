@@ -24,6 +24,7 @@
 //#import "Common.h"
 
 #import "MZBHttpService.h"
+#import "UIFactory.h"
 
 
 @interface OrderPayVC ()<UITextFieldDelegate,OrderPaySuccessDelegate,UIAlertViewDelegate>
@@ -51,9 +52,12 @@
     NSString *userId = [userDic objectForKey:UserLoginId];
     NSLog(@"userId:%@",userId);
     
-    NSLog(@"orderid:%@",_orderVO.orderID);
+    NSString *token = [userDic objectForKey:UserToken];
     
-    HomeService *homeService = [[HomeService alloc] init];
+    //NSLog(@"orderid:%@",_orderVO.orderID);
+    NSLog(@"orderid:%@",_orderItem[@"id"]);
+    
+    /*HomeService *homeService = [[HomeService alloc] init];
     [homeService balanceOfUserQueriesWithParam:[NSString stringWithFormat:@"{\"id\":\"%@\"}",userId] andWithBlock:^(NSNumber *result, NSNumber *resultInfo, NSError *error) {
         
         if (!error) {
@@ -72,6 +76,29 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
             
+        }
+
+        
+    }];*/
+    
+    [[MZBHttpService shareInstance] getUserDetaiWithUserId:userId andToken:token WithBlock:^(NSDictionary *result, NSError *error) {
+        
+        if (!error) {
+            NSNumber *status = result[@"status"];
+            if (status.boolValue) {
+                NSDictionary *dataDic = result[@"data"];
+                NSNumber *balanceNumber =  dataDic[@"cash"];
+                
+                _yueLabel.text = [NSString stringWithFormat:@"余额%.2f",balanceNumber.floatValue];
+                _yue = balanceNumber.floatValue;
+                
+            }
+            else {
+                [UIFactory showAlert:result[@"message"]];
+            }
+        }
+        else {
+            [UIFactory showAlert:@"网络错误"];
         }
 
         
@@ -135,9 +162,12 @@
         return;
     }
     else {
+        
+        NSString *orderId = _orderItem[@"id"];
+        
         if (_imageView1.highlighted) {//支付宝支付
             
-            [[MZBHttpService shareInstance] apliyPayWithOutTradeNo:self.orderVO.orderID andTotalFee:self.rmbTF.text andType:@"订单支付" callback:^(NSDictionary *resultDic) {
+            [[MZBHttpService shareInstance] apliyPayWithOutTradeNo:orderId andTotalFee:self.rmbTF.text andType:@"订单支付" callback:^(NSDictionary *resultDic) {
                 
                 NSString *resultStatus = resultDic [@"resultStatus"];
                 if (9000 == [resultStatus intValue]) {//支付成功
@@ -216,7 +246,7 @@
 
             }];
             [operation start];*/
-            [[MZBHttpService shareInstance] moneyToPayWithOrderID:_orderVO.orderID andMoney:_rmbTF.text WithBlock:^(NSNumber *result, NSError *error) {
+            [[MZBHttpService shareInstance] moneyToPayWithOrderID:orderId andMoney:_rmbTF.text WithBlock:^(NSNumber *result, NSError *error) {
                 if (!error) {
                     if ([result integerValue] == 0) {
                         
@@ -259,7 +289,7 @@
                 return;
             }
             
-            NSString *param = [NSString stringWithFormat:@"{\"sex\":null,\"orderDateTime\":null,\"serviceDate\":null,\"memo\":null,\"deductions\":%@,\"houseSize\":null,\"ageInterval\":null,\"registeredUser\":null,\"checkOrderInfo\":null,\"auntInfo\":null,\"auntId\":null,\"orderDateTimeStart\":null,\"dictionarys\":null,\"id\":\"%@\",\"orderDateTimeEnd\":null,\"level\":null,\"serviceUser\":null,\"consumables\":null,\"otherNeed\":null,\"registeredUserId\":null,\"serviceCategory\":null,\"cleaningKit\":null,\"orderStatue\":null,\"completeTime\":null,\"serviceAddress\":null}",_rmbTF.text,_orderVO.orderID];
+           /* NSString *param = [NSString stringWithFormat:@"{\"sex\":null,\"orderDateTime\":null,\"serviceDate\":null,\"memo\":null,\"deductions\":%@,\"houseSize\":null,\"ageInterval\":null,\"registeredUser\":null,\"checkOrderInfo\":null,\"auntInfo\":null,\"auntId\":null,\"orderDateTimeStart\":null,\"dictionarys\":null,\"id\":\"%@\",\"orderDateTimeEnd\":null,\"level\":null,\"serviceUser\":null,\"consumables\":null,\"otherNeed\":null,\"registeredUserId\":null,\"serviceCategory\":null,\"cleaningKit\":null,\"orderStatue\":null,\"completeTime\":null,\"serviceAddress\":null}",_rmbTF.text,_orderVO.orderID];
             HomeService *homeService = [[HomeService alloc] init];
             [homeService balancesPayWithParam:param andWithBlock:^(NSNumber *result, NSError *error) {
                 if (!error) {
@@ -277,6 +307,28 @@
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                     [alert show];
                 }
+            }];*/
+            NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+            NSString *userId = [userDic objectForKey:UserLoginId];
+            NSString *token = [userDic objectForKey:UserToken];
+            
+            [[MZBHttpService shareInstance] paymentByBalanceWithCustomerId:userId andToken:token andOrderId:_orderItem[@"id"] andPaymentAmount:[_rmbTF.text floatValue] WithBlock:^(NSDictionary *result, NSError *error) {
+                if (!error) {
+                    if ([result[@"status"] isEqualToString:@"Order_Payment_Online_Balance_Success"]) {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"支付成功" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                        alert.tag = 101;
+                        [alert show];
+                    }
+                    else{
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"支付失败，发生未知错误！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        [alert show];
+                    }
+                }
+                else{
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+
             }];
             
         }

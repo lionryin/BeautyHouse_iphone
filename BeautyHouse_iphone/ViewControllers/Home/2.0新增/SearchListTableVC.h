@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import <BaiduMapAPI/BMapKit.h>
+
 @protocol SearchListTableVCDelegate <NSObject>
 
-- (void)passValue:(NSString *)value;
+- (void)passValue:(NSString *)name andDetai:(NSString *)detail;
 
 @end
 
@@ -20,6 +22,8 @@
 @property (strong, nonatomic) NSString *selectedText;
 @property (strong, nonatomic) NSMutableArray *resultList;
 @property (assign, nonatomic) id<SearchListTableVCDelegate>delegate;
+
+@property (strong, nonatomic) BMKSuggestionResult *result;
 
 - (void)updateData;
 

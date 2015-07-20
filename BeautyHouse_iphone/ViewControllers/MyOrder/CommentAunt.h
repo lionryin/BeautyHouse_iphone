@@ -18,6 +18,7 @@
 @interface CommentAunt : UIViewController
 
 @property (nonatomic, strong) MyOrderVO *orderVO;
+@property (nonatomic, strong) NSDictionary *orderItem;
 @property (nonatomic, assign) id<CommentAuntDelegate>delegate;
 
 @end

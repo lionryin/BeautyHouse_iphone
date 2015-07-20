@@ -303,7 +303,7 @@
 #pragma mark - ServiceAddress delegate
 - (void)ServiceAddressVCSelectedServiceAddress:(NSDictionary *)address {
     
-    self.addressTF.text = [NSString stringWithFormat:@"%@ %@",address[@"name"],address[@"detail"]];
+    self.addressTF.text = [NSString stringWithFormat:@"%@",address[@"name"]];
     self.selectedAddress = address;
 }
 

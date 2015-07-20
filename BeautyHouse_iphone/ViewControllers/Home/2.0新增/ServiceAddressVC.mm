@@ -42,6 +42,11 @@
 
 @property (strong, nonatomic) MBProgressHUD *hud;
 
+//保存地址时的参数
+@property (strong, nonatomic) NSString *paramName;
+@property (strong, nonatomic) NSString *paramDetail;
+
+
 
 @end
 
@@ -156,7 +161,7 @@
         [UIFactory showAlert:@"详细地址不能为空"];
     }
     else {
-        [self saveAddressWithName:_searchBar.text andDetail:_detailAddressField.text];
+        [self saveAddressWithName:[NSString stringWithFormat:@"%@ %@",_searchBar.text, _detailAddressField.text] andDetail:[NSString stringWithFormat:@"%@ %@",_paramDetail,_detailAddressField.text]];
     }
 }
 
@@ -193,6 +198,17 @@
     NSString *userId = [userDic objectForKey:UserLoginId];
     NSString *token = [userDic objectForKey:UserToken];
     
+   /*  CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder reverseGeocodeLocation:[[CLLocation alloc] initWithLatitude:_mapView.centerCoordinate.latitude longitude:_mapView.centerCoordinate.longitude] completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+        CLPlacemark *placeMark = [placemarks lastObject];
+        NSLog(@"地址name:%@ ",placeMark.name);
+        NSLog(@"地址thoroughfare:%@",placeMark.thoroughfare);
+        NSLog(@"地址locality:%@",placeMark.locality);//市
+        NSLog(@"地址subLocality:%@",placeMark.subLocality);//区
+        
+    }];*/
+    
     NSDictionary *dic = @{@"name":name,@"detail":detail,@"longitude":[NSNumber numberWithFloat:_mapView.centerCoordinate.longitude],@"latitude":[NSNumber numberWithFloat:_mapView.centerCoordinate.latitude]};
     NSData *body = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONReadingAllowFragments error:nil];
 
@@ -204,8 +220,6 @@
         
         [_hud hide:YES];
         
-        
-       
         if (!error) {
             NSNumber *status = result[@"status"];
             if (status.boolValue) {
@@ -269,9 +283,13 @@
 }
 #pragma mark -
 #pragma mark SearchListTableVCDelegate
-- (void)passValue:(NSString *)value{
-    if (value) {
-        _searchBar.text = value;
+- (void)passValue:(NSString *)name andDetai:(NSString *)detail{
+    if (name) {
+        _searchBar.text = name;
+        
+        _paramName = name;
+        _paramDetail = detail;
+        
         [self searchBarSearchButtonClicked:_searchBar];
     }
     else {
@@ -451,6 +469,12 @@
         BMKPoiInfo *info = [_tableList objectAtIndex:indexPath.row];
         _searchBar.text = info.name;
         
+        _paramName = info.name;
+        _paramDetail = [NSString stringWithFormat:@"%@ %@ %@",info.city,info.address,info.name];
+
+        
+        _mapView.centerCoordinate = info.pt;
+        
         if (_detailAddressView.hidden) {
             _detailAddressView.hidden = NO;
         }
@@ -575,6 +599,7 @@
 //            NSLog(@"keyList:%@",str);
 //        }
         _ddList.resultList = [result.keyList mutableCopy];
+        _ddList.result = result;
         [_ddList updateData];
     }
     else {
@@ -590,6 +615,7 @@
         //在此处理正常结果
         
         _mapView.centerCoordinate = result.location;
+    
     }
     else {
         NSLog(@"抱歉，未找到结果");

@@ -102,7 +102,17 @@
     //    }
 }
 
+- (void)commentOrder:(NSDictionary *)orderItem {
+    if ([self.delegate respondsToSelector:@selector(orderViewCommentOrder:)]) {
+        [self.delegate orderViewCommentOrder:orderItem];
+    }
+}
 
+- (void)zhifuOrder:(NSDictionary *)orderItem {
+    if ([self.delegate respondsToSelector:@selector(orderviewZhifuOrder:)]) {
+        [self.delegate orderviewZhifuOrder:orderItem];
+    }
+}
 
 
 @end

@@ -21,6 +21,7 @@
 @property (nonatomic, assign) id<OrderPayVCDelegate>delegate;
 
 @property (strong, nonatomic) MyOrderVO *orderVO;
+@property (strong, nonatomic) NSDictionary *orderItem;
 
 - (IBAction)nextStepButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *rmbTF;

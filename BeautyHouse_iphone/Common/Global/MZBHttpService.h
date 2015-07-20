@@ -102,4 +102,9 @@
 ///获取订单列表
 - (void)getOrderListWithUserId:(NSString *)userId andToken:(NSString *)token andNextPageIndex:(NSString *)nextPageIndex andOrderStatusCode:(NSString *)statusCode WithBlock:(void (^)(NSDictionary *result, NSError *error))block;
 
+/**
+ *  取消订单
+ */
+- (void)cancelOrderWithUserId:(NSString *)userId andToken:(NSString *)token andOrderId:(NSString *)orderId WithBlock:(void (^)(NSDictionary *result, NSError *error))block;
+
 @end

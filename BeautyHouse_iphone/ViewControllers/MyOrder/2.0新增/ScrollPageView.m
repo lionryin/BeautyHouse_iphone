@@ -7,9 +7,11 @@
 //
 
 #import "ScrollPageView.h"
-#import "MyOrderTVC.h"
+
 #import "MZBHttpService.h"
 
+#import "OrderPayVC.h"
+#import "CommentAunt.h"
 
 @implementation ScrollPageView
 
@@ -109,7 +111,7 @@
     if (cell == nil) {
         cell = [[MyOrderTVC alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:vCellIdentify];
     }
-    //cell.delegate = self;
+    cell.delegate = self;
     cell.cellEdge = 10;
     cell.orderItem = aView.tableInfoArray[aIndexPath.section];
     //MyOrderVO *orderVO = [self.orderList objectAtIndex:indexPath.section];
@@ -161,6 +163,24 @@
 }
 
 - (void)reFreshFooterData:(void (^)())complete FromView:(CustomTableView *)aView {
+    
+    NSMutableDictionary *cStatus = [_statusOfPage[_mCurrentPage] mutableCopy];
+    // NSString *nextPage = cStatus[NextPageKey];
+    //NSString *statusCode = cStatus[StatusKey];
+    
+    NSNumber *nextPageIndex = cStatus[NextPageKey];
+    
+    if (nextPageIndex.doubleValue == -1) {
+         [self showHudOnlyMsg:@"已全部加载完成"];
+         
+        if (complete) {
+            complete();
+        }
+        
+         return;
+     }
+
+    
     [self getDataInfoFromHttpWithBlock:^(NSArray *items, NSError *error) {
         if (!error ) {
             if (items) {
@@ -203,9 +223,9 @@
    // NSString *nextPage = cStatus[NextPageKey];
     //NSString *statusCode = cStatus[StatusKey];
     
-    NSNumber *nextPageIndex = cStatus[NextPageKey];
+    //NSNumber *nextPageIndex = cStatus[NextPageKey];
     
-    if (nextPageIndex.doubleValue == -1) {
+    /*if (nextPageIndex.doubleValue == -1) {
         [self showHudOnlyMsg:@"已全部加载完成"];
         
         if (block) {
@@ -213,7 +233,7 @@
         }
         
         return;
-    }
+    }*/
     
     [[MZBHttpService shareInstance] getOrderListWithUserId:userId andToken:token andNextPageIndex:cStatus[NextPageKey] andOrderStatusCode:cStatus[StatusKey] WithBlock:^(NSDictionary *result, NSError *error) {
         
@@ -254,6 +274,34 @@
         }
 
     }];
+}
+
+#pragma mark - myOrderTVC delegate
+- (void)complaintBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell{
+    
+    
+    if ([self.delegate respondsToSelector:@selector(commentOrder:)]) {
+        [self.delegate commentOrder:cell.orderItem];
+    }
+}
+
+
+- (void)cancelBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell{//取消成功
+    //[self setupRefresh:@"current"];
+    CustomTableView *vTableContentView =(CustomTableView *)[_contentItems objectAtIndex:_mCurrentPage];
+    
+    [vTableContentView setupRefresh:[NSString stringWithFormat:@"%li",_mCurrentPage]];
+
+
+    
+}
+
+- (void)zhifuBtnClickedWithMyOrderTVC:(MyOrderTVC *)cell{
+   
+    
+    if ([self.delegate respondsToSelector:@selector(zhifuOrder:)]) {
+        [self.delegate zhifuOrder:cell.orderItem];
+    }
 }
 
 

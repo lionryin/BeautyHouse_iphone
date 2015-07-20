@@ -29,6 +29,7 @@
     _searchText = nil;
     _selectedText = nil;
     _resultList = [[NSMutableArray alloc] initWithCapacity:5];
+    _result = [[BMKSuggestionResult alloc] init];
 
 }
 
@@ -66,10 +67,16 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        
+        [cell.textLabel setFont:[UIFont systemFontOfSize:14]];
+        [cell.detailTextLabel setFont:[UIFont systemFontOfSize:12]];
+        [cell.detailTextLabel setTextColor:[UIColor darkGrayColor]];
     }
     
     cell.textLabel.text = [_resultList objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@",[_result.cityList objectAtIndex:indexPath.row],[_result.districtList objectAtIndex:indexPath.row]];
+    
     
     return cell;
 }
@@ -81,7 +88,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     _selectedText = [_resultList objectAtIndex:[indexPath row]];
-    [_delegate passValue:_selectedText];
+    [_delegate passValue:_selectedText andDetai:[NSString stringWithFormat:@"%@ %@ %@",[_result.cityList objectAtIndex:indexPath.row],[_result.districtList objectAtIndex:indexPath.row], [_resultList objectAtIndex:indexPath.row]]];
 }
 
 

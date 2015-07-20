@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol OrderViewDelegate <NSObject>
+
+- (void)orderViewCommentOrder:(NSDictionary *)orderItem;
+- (void)orderviewZhifuOrder:(NSDictionary *)orderItem;
+
+@end
+
 @interface OrderView : UIView
+
+@property (nonatomic, assign) id<OrderViewDelegate> delegate;
 
 @end

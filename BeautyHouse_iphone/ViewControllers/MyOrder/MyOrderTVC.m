@@ -8,6 +8,8 @@
 
 #import "MyOrderTVC.h"
 #import "HomeService.h"
+#import "MZBHttpService.h"
+#import "UIFactory.h"
 
 @interface MyOrderTVC ()<UIAlertViewDelegate>
 
@@ -349,7 +351,7 @@
     if (alertView.tag == 88 && buttonIndex == 1) {
         
         
-        NSString *param = [NSString stringWithFormat:@"{\"id\":\"%@\"}", self.myOrderVO.orderID];
+        //NSString *param = [NSString stringWithFormat:@"{\"id\":\"%@\"}", self.myOrderVO.orderID];
         
         _hud = [[MBProgressHUD alloc] initWithView:self.contentView];
         _hud.labelText = @"取消中...";
@@ -357,7 +359,7 @@
         [_hud show:YES];
         
         
-        HomeService *homeService = [HomeService alloc];
+        /*HomeService *homeService = [HomeService alloc];
         [homeService cancelOrdersWithParam:param andWithBlock:^(NSNumber *result, NSError *error) {
             [_hud hide:NO];
             
@@ -377,6 +379,32 @@
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
                 [alert show];
             }
+        }];*/
+        
+        NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
+        NSString *userId = [userDic objectForKey:UserLoginId];
+        NSString *token = [userDic objectForKey:UserToken];
+        [[MZBHttpService shareInstance] cancelOrderWithUserId:userId andToken:token andOrderId:_orderItem[@"id"] WithBlock:^(NSDictionary *result, NSError *error) {
+            [_hud hide:NO];
+            
+            NSLog(@"result:%@",result);
+            
+            if (!error) {
+                if ( [result[@"status"] isEqualToString:@"success"]) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"订单已经成功取消！" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+                    alert.tag = 888;
+                    [alert show];
+                }
+                else{
+                    [UIFactory showAlert:@"取消失败，请重试！"];
+                }
+                
+            }
+            else{
+                [UIFactory showAlert:@"网络错误"];
+            }
+
+            
         }];
     }
     else if (alertView.tag == 888){
