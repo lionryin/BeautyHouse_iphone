@@ -418,12 +418,35 @@
 ///余额支付
 - (void)paymentByBalanceWithCustomerId:(NSString *)customerId andToken:(NSString *)token andOrderId:(NSString *)orderId andPaymentAmount:(CGFloat)amount WithBlock:(void (^)(NSDictionary *result, NSError *error))block {
     
-    [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/order/payment/balance.do?customer_id=%@&token=%@&order_id=%@&payment_amount=%f",MZBHttpURL,customerId,token,orderId,amount] andBlock:^(NSString *responseStr, id result, NSError *error) {
+    /*[self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@api/order/payment/balance.do?customer_id=%@&token=%@&order_id=%@&payment_amount=%f",MZBHttpURL,customerId,token,orderId,amount] andBlock:^(NSString *responseStr, id result, NSError *error) {
         
         if (block) {
             block(result,error);
         }
+    }];*/
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@api/order/payment/balance.do?customer_id=%@&token=%@&order_id=%@&payment_amount=%f",MZBHttpURL,customerId,token,orderId,amount]]];
+    [request setHTTPMethod:@"PUT"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    //
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation start];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"html:%@",[responseObject description]);
+        if (block) {
+            block(responseObject,nil);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        NSLog(@"error:%@",[error description]);
+        block(nil, error);
+        
     }];
+
 }
 
 ///获取订单列表

@@ -34,7 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView3;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView4;
 
-@property (nonatomic) double yue;
+@property (nonatomic) CGFloat yue;
 
 @end
 
@@ -263,6 +263,7 @@
                     }
                 }
                 else {
+                    NSLog(@"error:%@",[error description]);
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络错误" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                     [alert show];
 
@@ -281,8 +282,8 @@
             
         }
         else if (_imageView3.highlighted){//余额支付
-            
-            if (_yue < [_rmbTF.text doubleValue]) {
+            NSLog(@"_yue:%.2f",_yue);
+            if (_yue < [_rmbTF.text floatValue]) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"余额不足" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
                 [alert show];
                 

@@ -258,7 +258,7 @@
             if (status.boolValue) {
                 [_addressList removeObject:address];
                 [self.tableView reloadData];
-                [UIFactory showAlert:@"删除成功"];
+                //[UIFactory showAlert:@"删除成功"];
             }
             else {
                 [UIFactory showAlert:@"删除失败"];

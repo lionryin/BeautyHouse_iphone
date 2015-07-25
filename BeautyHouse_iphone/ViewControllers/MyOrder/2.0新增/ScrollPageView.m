@@ -76,7 +76,7 @@
     }
     CustomTableView *vTableContentView =(CustomTableView *)[_contentItems objectAtIndex:aIndex];
     if (vTableContentView.tableInfoArray.count == 0) {
-        [vTableContentView setupRefresh:[NSString stringWithFormat:@"%li",aIndex]];
+        [vTableContentView setupRefresh:[NSString stringWithFormat:@"%li",(long)aIndex]];
     }
    
 }
