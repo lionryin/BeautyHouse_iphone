@@ -10,6 +10,7 @@
 
 @interface AccountExpenseRecordTVC : UITableViewCell
 
+@property (strong, nonatomic) NSDictionary *resultInfo;
 
 - (void)updateCellWithDictionary:(NSDictionary *)dic;
 @end

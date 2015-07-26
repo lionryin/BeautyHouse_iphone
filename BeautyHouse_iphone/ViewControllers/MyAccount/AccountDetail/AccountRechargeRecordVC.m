@@ -27,7 +27,7 @@
 
 - (void)initMainUI{
     
-    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
@@ -63,7 +63,6 @@
         [parser BeginToParse];
         
         
-        
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[parser.result dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
         NSLog(@"%@",dic);
         NSNumber *rst = dic[@"result"];
@@ -76,15 +75,8 @@
             
         }
         
-        
-        
-        
-        
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        
-        
+        NSLog(@"error:%@",[error description]);
     }];
     
 }
@@ -101,7 +93,8 @@
         
     }
     
-    [cell updateCellWithDictionary:self.list[indexPath.row]];
+    //[cell updateCellWithDictionary:self.list[indexPath.row]];
+    cell.resultInfo = self.list[indexPath.row];
     
     return cell;
 }
@@ -112,6 +105,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 90;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30;
 }
 
 @end

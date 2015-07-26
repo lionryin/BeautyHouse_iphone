@@ -23,6 +23,8 @@
         //
         self.typeLabel = [self createLabelWithFrame:CGRectMake(10, 5, 150, 30)];
         self.typeLabel.font = [UIFont systemFontOfSize:15];
+        [self.contentView addSubview:self.typeLabel];
+        
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 30, self.frame.size.width, 1)];
         view.backgroundColor = [UIColor grayColor];
         [self.contentView addSubview:view];
@@ -33,7 +35,7 @@
         moneyStr.text =@"交易金额";
         [self.contentView addSubview:moneyStr];
         
-        self.moneyLabel = [self createLabelWithFrame:CGRectMake(150, 40, 100, 25)];
+        self.moneyLabel = [self createLabelWithFrame:CGRectMake(100, 40, 100, 25)];
         [self.contentView addSubview:self.moneyLabel];
         
         
@@ -41,11 +43,8 @@
         timeStr.text =@"交易时间";
         [self.contentView addSubview:timeStr];
         
-        self.timeLabel = [self createLabelWithFrame:CGRectMake(150, 65, 130, 25)];
+        self.timeLabel = [self createLabelWithFrame:CGRectMake(100, 65, 160, 25)];
         [self.contentView addSubview:self.timeLabel];
-        
-        
-        
         
     }
     
@@ -53,15 +52,21 @@
     return self;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    [self updateCellWithDictionary:_resultInfo];
+}
+
 
 - (void)updateCellWithDictionary:(NSDictionary *)dic{
     
     NSDictionary *subdic = [dic objectForKey:@"cashType"];
     
-    self.typeLabel.text = subdic[@"keyName"];
+    self.typeLabel.text = [NSString stringWithFormat:@"%@",subdic[@"keyName"]];
     
-    self.moneyLabel.text = dic[@"money"];
-    self.timeLabel.text = dic[@"tradingDate"];
+    self.moneyLabel.text = [NSString stringWithFormat:@"%@",dic[@"money"]];
+    self.timeLabel.text = [NSString stringWithFormat:@"%@",dic[@"tradingDate"]];
     
 }
 
