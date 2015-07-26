@@ -19,8 +19,8 @@
 ///测试地址
 #define MZBHttpURL @"http://120.25.122.11/"
 
-///测试
-//#define MZBHttpURL @"http://49.211.37.58:8082/"
+//局域网
+//#define MZBHttpURL @"http://192.168.0.110/"
 
 @interface MZBHttpService : NSObject
 
