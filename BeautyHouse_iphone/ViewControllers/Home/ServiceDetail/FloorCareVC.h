@@ -24,7 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *topButton;
 @property (weak, nonatomic) IBOutlet UITextField *timeTF;
 @property (weak, nonatomic) IBOutlet UITextField *addressTF;
-@property (weak, nonatomic) IBOutlet UITextField *moreDemondTF;
+@property (weak, nonatomic) IBOutlet UITextView *moreDemondTF;
+@property (weak, nonatomic) IBOutlet UILabel *tsLabel;
 
 - (IBAction)topButtonPressed:(id)sender;
 - (IBAction)timeButtonPressed:(id)sender;
@@ -36,5 +37,7 @@
 - (void)submitOrder;
 - (NSArray *)getOrderParameters ;
 - (NSString *)spliceJsonParam;
+
+-(void) slideFrame:(BOOL)up;
 
 @end

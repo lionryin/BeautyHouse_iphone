@@ -9,7 +9,7 @@
 #import "NewHouseCareVC.h"
 #import "HouseSizeVC.h"
 
-@interface NewHouseCareVC ()<HouseSizeVCDelete>
+@interface NewHouseCareVC ()<HouseSizeVCDelete, UITextFieldDelegate>
 
 @end
 
@@ -105,5 +105,22 @@
 - (void)houseSizeVCGetHouseSize:(NSString *)hSize{
     _houseSizeTF.text = hSize;
 }
+
+#pragma mark - textField delegate
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self slideFrame:YES ];
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self slideFrame:NO ];
+}
+
 
 @end

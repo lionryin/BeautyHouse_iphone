@@ -13,7 +13,7 @@
 #import "SaveOrderSuccessVC.h"
 
 
-@interface FloorCareVC ()<UIAlertViewDelegate>
+@interface FloorCareVC ()<UIAlertViewDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) MBProgressHUD *hud;
 
@@ -31,6 +31,20 @@
     [_topButton setTitle:_serviceInfo[@"price_decr"] forState:UIControlStateNormal];
     
     //[self getOrderStruct];
+    
+    //在弹出的键盘上面加一个view来放置退出键盘的Done按钮
+    UIToolbar * topView = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
+    [topView setBarStyle:UIBarStyleDefault];
+    UIBarButtonItem * btnSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    UIBarButtonItem * doneButton = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(dismissKeyBoard)];
+    NSArray * buttonsArray = [NSArray arrayWithObjects:btnSpace, doneButton, nil];
+    [topView setItems:buttonsArray];
+    [_moreDemondTF setInputAccessoryView:topView];
+}
+
+//关闭键盘
+-(void) dismissKeyBoard{
+    [_moreDemondTF resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -307,5 +321,37 @@
     self.addressTF.text = [NSString stringWithFormat:@"%@",address[@"name"]];
     self.selectedAddress = address;
 }
+
+#pragma mark - UITextViewDelegate
+- (void)textViewDidChange:(UITextView *)textView {
+    if (textView.text.length == 0) {
+        _tsLabel.text = @"请填写更多需求";
+    }
+    else{
+        _tsLabel.text = @"";
+    }
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    [self slideFrame:YES ];
+}
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    [self slideFrame:NO ];
+}
+
+-(void) slideFrame:(BOOL)up
+{
+    const int movementDistance = 180; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
 
 @end

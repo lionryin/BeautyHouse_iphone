@@ -290,7 +290,7 @@
     //[self setupRefresh:@"current"];
     CustomTableView *vTableContentView =(CustomTableView *)[_contentItems objectAtIndex:_mCurrentPage];
     
-    [vTableContentView setupRefresh:[NSString stringWithFormat:@"%li",_mCurrentPage]];
+    [vTableContentView setupRefresh:[NSString stringWithFormat:@"%li",(long)_mCurrentPage]];
 
 
     
