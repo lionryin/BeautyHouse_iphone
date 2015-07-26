@@ -21,11 +21,15 @@
 #import "AppDelegate.h"
 #import "CityListVC.h"
 
+#import "UserGuidVC.h"
+#import <BaiduMapAPI/BMapKit.h>
 
-
-@interface HomeTableVC ()<CityListVCDelegate>
+@interface HomeTableVC ()<CityListVCDelegate, BMKLocationServiceDelegate>
 
 @property (strong, nonatomic) CityButton *servicePhoneBtn;
+
+///定位
+@property (strong, nonatomic) BMKLocationService *locService;
 
 @end
 
@@ -57,12 +61,28 @@
     _currentCity = [NSDictionary dictionary];
     
     ///////////////////
-    [self getCities];
+    //[self getCities];
     ////////////////////
 
     [self getHomeAd];
+    
     //[self getHomeService];
     
+    /*//////////////////////////////////*/
+    ///百度地图定位
+    //设置定位精确度，默认：kCLLocationAccuracyBest
+    //[BMKLocationService setLocationDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
+    //指定最小距离更新(米)，默认：kCLDistanceFilterNone
+    [BMKLocationService setLocationDistanceFilter:100.f];
+    
+    
+    //初始化BMKLocationService
+     _locService = [[BMKLocationService alloc]init];
+     _locService.delegate = self;
+    //启动LocationService
+    [_locService startUserLocationService];
+    
+
 }
 
 
@@ -391,5 +411,61 @@
     [_servicePhoneBtn setTitle:_currentCity[@"name"] forState:UIControlStateNormal];
     [self getHomeServiceWithCityId:_currentCity[@"id"]];
 }
+
+#pragma mark - LocationService delegate
+
+//实现相关delegate 处理位置信息更新
+//处理位置坐标更新
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    // [_locService stopUserLocationService];
+    //_locService.delegate = nil;
+    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    
+    /*CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+     [geoCoder reverseGeocodeLocation:userLocation.location completionHandler:^(NSArray *placemarks, NSError *error) {
+     //NSLog(@"placemarks:%i",placemarks.count);
+     if (placemarks.count > 0) {
+     CLPlacemark *placeMark = placemarks[0];
+     
+     NSLog(@"地址locality:%@",placeMark.locality);//市
+     }
+     
+     }];*/
+    
+    //_cities = [NSArray array];
+    
+    
+    [[MZBHttpService shareInstance] getOpenCitiesWithLongitude:userLocation.location.coordinate.longitude andLatitude:userLocation.location.coordinate.latitude WithBlock:^(NSArray *resultArray, NSError *error) {
+        
+        NSLog(@"getOpenCities2:%@",resultArray);
+        if (!error && resultArray.count>0) {
+            _cities = resultArray;
+            _currentCity = [self findCurrentCity:_cities];
+            
+            if (_currentCity.count > 0) {
+                [_servicePhoneBtn setTitle:_currentCity[@"name"] forState:UIControlStateNormal];
+                [self getHomeServiceWithCityId:_currentCity[@"id"]];
+            }
+            else {
+                [self getHomeService];
+            }
+        }
+        else {
+            NSLog(@"网络错误");
+            [self getHomeService];
+        }
+
+        
+    }];
+    
+}
+
+- (void)didFailToLocateUserWithError:(NSError *)error {
+    //NSLog(@"%@",[error description]);
+    [UIFactory showAlert:@"定位失败"];
+    [self getHomeService];
+}
+
 
 @end

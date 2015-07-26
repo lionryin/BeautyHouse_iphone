@@ -21,4 +21,7 @@
 - (IBAction)phoneClicked:(id)sender;
 - (IBAction)cityClicked:(id)sender;
 
+- (void)getCities;
+
+
 @end

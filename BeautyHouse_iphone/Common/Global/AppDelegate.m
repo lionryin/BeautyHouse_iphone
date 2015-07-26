@@ -17,6 +17,8 @@
 #import <BaiduMapAPI/BMapKit.h>
 #import "UIFactory.h"
 
+#import "UserGuidVC.h"
+
 /**
  *  微信开放平台申请得到的 appid, 需要同时添加在 URL schema
  */
@@ -52,7 +54,7 @@ NSString * const WXPartnerId = @"1234641402";
 
 @property (strong, nonatomic) BMKMapManager *mapManager;
 ///定位
-@property (strong, nonatomic) BMKLocationService *locService;
+//@property (strong, nonatomic) BMKLocationService *locService;
 
 @end
 
@@ -123,14 +125,36 @@ NSString * const WXPartnerId = @"1234641402";
     
 
     //初始化BMKLocationService
-    _locService = [[BMKLocationService alloc]init];
-    _locService.delegate = self;
+   // _locService = [[BMKLocationService alloc]init];
+   // _locService.delegate = self;
     //启动LocationService
-    [_locService startUserLocationService];
+    //[_locService startUserLocationService];
+    
+    /**
+     *  ///////////////////////////////////////////////////用户引导页
+     */
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"])
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+        NSLog(@"第一次启动");
+        //如果是第一次启动的话,使用UserGuideViewController (用户引导页面) 作为根视图
+        UserGuidVC *vc = [[UserGuidVC alloc] init];
+        
+        self.window.rootViewController = vc;
+    }
+    else
+    {
+        NSLog(@"不是第一次启动");
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UITabBarController * vc = [story instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+        self.window.rootViewController = vc;
+    }
 
     
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -201,7 +225,7 @@ NSString * const WXPartnerId = @"1234641402";
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
-    [_locService stopUserLocationService];
+   // [_locService stopUserLocationService];
     //_locService.delegate = nil;
     NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     
@@ -218,7 +242,8 @@ NSString * const WXPartnerId = @"1234641402";
     
     //_cities = [NSArray array];
     
-    [[MZBHttpService shareInstance] getOpenCitiesWithLongitude:userLocation.location.coordinate.longitude andLatitude:userLocation.location.coordinate.latitude WithBlock:_citiesBlock];
+    
+    //[[MZBHttpService shareInstance] getOpenCitiesWithLongitude:userLocation.location.coordinate.longitude andLatitude:userLocation.location.coordinate.latitude WithBlock:_citiesBlock];
     
 }
 

@@ -8,7 +8,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Kuk-mz-KIg">
             <objects>
-                <tabBarController id="vju-xh-OOy" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" id="vju-xh-OOy" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Su9-eX-hgn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -36,7 +36,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeBntCell_Identifier" rowHeight="100" id="Sgg-RA-lKV" customClass="HomeBtnCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sgg-RA-lKV" id="yOU-Pc-mcg">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
