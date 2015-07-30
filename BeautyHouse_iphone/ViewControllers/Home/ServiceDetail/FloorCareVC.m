@@ -63,7 +63,8 @@
 - (IBAction)timeButtonPressed:(id)sender{
     RMDateSelectionViewController *dateSelectionVC = [RMDateSelectionViewController dateSelectionController];
     dateSelectionVC.delegate = self;
-    [dateSelectionVC show];
+    //[dateSelectionVC show];
+    [dateSelectionVC showFromViewController:self];
     
     //After -[RMDateSelectionViewController show] or -[RMDateSelectionViewController showFromViewController:] has been called you can access the actual UIDatePicker via the datePicker property
    /* dateSelectionVC.datePicker.datePickerMode = UIDatePickerModeDateAndTime;

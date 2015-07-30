@@ -131,7 +131,6 @@
 		A6B631401B6492FA005379C3 /* guide-2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6313B1B6492FA005379C3 /* guide-2.png */; };
 		A6B631411B6492FA005379C3 /* guide-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6313C1B6492FA005379C3 /* guide-3.png */; };
 		A6B631421B6492FA005379C3 /* guide-4-button.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6313D1B6492FA005379C3 /* guide-4-button.png */; };
-		A6B631431B6492FA005379C3 /* guide-4.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6313E1B6492FA005379C3 /* guide-4.png */; };
 		A6B6A8961AC4359500B12F04 /* AddAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B6A8941AC4359500B12F04 /* AddAddressVC.m */; };
 		A6B6A8971AC4359500B12F04 /* AddAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A8951AC4359500B12F04 /* AddAddressVC.xib */; };
 		A6B6A89B1AC436C600B12F04 /* category.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B6A8981AC436C600B12F04 /* category.png */; };
@@ -258,6 +257,7 @@
 		B0A981E21AEDFC9C00AFA50B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A981E11AEDFC9C00AFA50B /* CoreText.framework */; };
 		B0DE9A0C1AF1C7A90048927C /* CountdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DE9A0B1AF1C7A90048927C /* CountdownButton.m */; };
 		B0F681EE1AC6740B008DBE63 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F681ED1AC6740B008DBE63 /* LoginVC.m */; };
+		C92189F21B687B54004595DE /* guide-4.png in Resources */ = {isa = PBXBuildFile; fileRef = C92189F11B687B54004595DE /* guide-4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -466,7 +466,6 @@
 		A6B6313B1B6492FA005379C3 /* guide-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide-2.png"; sourceTree = "<group>"; };
 		A6B6313C1B6492FA005379C3 /* guide-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide-3.png"; sourceTree = "<group>"; };
 		A6B6313D1B6492FA005379C3 /* guide-4-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide-4-button.png"; sourceTree = "<group>"; };
-		A6B6313E1B6492FA005379C3 /* guide-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide-4.png"; sourceTree = "<group>"; };
 		A6B6A8931AC4359500B12F04 /* AddAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressVC.h; sourceTree = "<group>"; };
 		A6B6A8941AC4359500B12F04 /* AddAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAddressVC.m; sourceTree = "<group>"; };
 		A6B6A8951AC4359500B12F04 /* AddAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAddressVC.xib; sourceTree = "<group>"; };
@@ -740,6 +739,7 @@
 		B0DE9A0B1AF1C7A90048927C /* CountdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownButton.m; sourceTree = "<group>"; };
 		B0F681EC1AC6740B008DBE63 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		B0F681ED1AC6740B008DBE63 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		C92189F11B687B54004595DE /* guide-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide-4.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -986,8 +986,8 @@
 				A6B6313A1B6492FA005379C3 /* guide-1.png */,
 				A6B6313B1B6492FA005379C3 /* guide-2.png */,
 				A6B6313C1B6492FA005379C3 /* guide-3.png */,
+				C92189F11B687B54004595DE /* guide-4.png */,
 				A6B6313D1B6492FA005379C3 /* guide-4-button.png */,
-				A6B6313E1B6492FA005379C3 /* guide-4.png */,
 				A696C5B61AC1A9BE00A860AD /* arrow_right_gray.png */,
 				A696C5B71AC1A9BE00A860AD /* nav_back.png */,
 				A696C5B81AC1A9BE00A860AD /* s_phone.png */,
@@ -1742,7 +1742,6 @@
 				A6647CBA1B268DC800D2DC57 /* Icon-iOS7@2x.png in Resources */,
 				B009665B1ADA14E2007DD934 /* accountDetail01@2x.png in Resources */,
 				A6CE40EF1AEA434A00A48B39 /* weixin.png in Resources */,
-				A6B631431B6492FA005379C3 /* guide-4.png in Resources */,
 				A696C5AC1AC1A97200A860AD /* tab_home@2x.png in Resources */,
 				A6CE40F21AEA436D00A48B39 /* weixin2.png in Resources */,
 				A66C50B51AC2686C003E146F /* AllServiceCell.xib in Resources */,
@@ -1760,6 +1759,7 @@
 				A6B24BA91AEB82DE00C76124 /* read_me.txt in Resources */,
 				A6CB3FB91AC3E7BB00C65C47 /* selected_Address.png in Resources */,
 				A6B6A89D1AC436C600B12F04 /* home.png in Resources */,
+				C92189F21B687B54004595DE /* guide-4.png in Resources */,
 				B0735C2D1AC273C4005A3E82 /* join_07.png in Resources */,
 				B00966871ADA6908007DD934 /* UMSCommentInputControlleriPad.xib in Resources */,
 				A696C58D1AC1A91900A860AD /* CurtainCareVC.xib in Resources */,

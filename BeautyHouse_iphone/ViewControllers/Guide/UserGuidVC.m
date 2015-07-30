@@ -41,7 +41,7 @@
     _mButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _mButton.frame = CGRectMake((SW-180)/2, SH-140, 180, 40);
     [_mButton addTarget:self action:@selector(startButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [_mButton setImage:[UIImage imageNamed:@"guide-4-button.png"] forState:UIControlStateNormal];
+    //[_mButton setImage:[UIImage imageNamed:@"guide-4-button.png"] forState:UIControlStateNormal];
     _mButton.hidden = YES;
     [self.view addSubview:_mButton];
     
