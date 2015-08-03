@@ -7,15 +7,13 @@
 //
 
 #import "OrderView.h"
-#import "MenuHrizontal.h"
-#import "ScrollPageView.h"
+
 
 #define MENUHEIHT 30
 
 @interface OrderView() <MenuHrizontalDelegate, ScrollPageViewDelegate>
 
-@property (strong, nonatomic) MenuHrizontal  *mMenuHriZontal;
-@property (strong, nonatomic) ScrollPageView *mScrollPageView;
+
 
 @end
 
@@ -73,7 +71,13 @@
         _mMenuHriZontal.delegate = self;
     }
     //初始化滑动列表
-    NSArray *status = @[@{StatusKey:@"", NextPageKey:@""}, @{StatusKey:@"32", NextPageKey:@""}, @{StatusKey:@"33", NextPageKey:@""}, @{StatusKey:@"34", NextPageKey:@""}, @{StatusKey:@"35", NextPageKey:@""}, @{StatusKey:@"78", NextPageKey:@""}];
+    NSArray *status = @[@{StatusKey:@"", NextPageKey:@""},
+                        @{StatusKey:@"32", NextPageKey:@""},
+                        @{StatusKey:@"33", NextPageKey:@""},
+                        @{StatusKey:@"34", NextPageKey:@""},
+                        @{StatusKey:@"35", NextPageKey:@""},
+                        @{StatusKey:@"78", NextPageKey:@""}
+                        ];
     if (_mScrollPageView == nil) {
         _mScrollPageView = [[ScrollPageView alloc] initWithFrame:CGRectMake(0, MENUHEIHT, self.frame.size.width, self.frame.size.height - MENUHEIHT)    statusOfPage:status];
         _mScrollPageView.delegate = self;

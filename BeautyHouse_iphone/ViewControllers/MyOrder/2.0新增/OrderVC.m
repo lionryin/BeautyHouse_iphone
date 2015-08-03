@@ -66,11 +66,19 @@
 #pragma mark - orderPayVC delegate
 - (void)orderPayVCPaySuccess{
     //[self setupRefresh:@"current"];
+    _mOrderView.mScrollPageView.freshPage0 = YES;
+    _mOrderView.mScrollPageView.freshPage2 = YES;
+    _mOrderView.mScrollPageView.freshPage3 = YES;
+    [_mOrderView.mScrollPageView freshContentTableAtIndex:_mOrderView.mScrollPageView.mCurrentPage];
 }
 
 #pragma mark - CommentAuntDelegate
 - (void)commentAuntSuccess{
    // [self setupRefresh:@"history"];
+    _mOrderView.mScrollPageView.freshPage0 = YES;
+    _mOrderView.mScrollPageView.freshPage3 = YES;
+    _mOrderView.mScrollPageView.freshPage4 = YES;
+    [_mOrderView.mScrollPageView freshContentTableAtIndex:_mOrderView.mScrollPageView.mCurrentPage];
 }
 
 

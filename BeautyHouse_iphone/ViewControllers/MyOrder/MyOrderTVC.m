@@ -300,7 +300,7 @@
     
     self.title.text = [_orderItem[@"item"] objectForKey:@"name"];
     self.time.text = _orderItem[@"service_time"];
-    self.address.text = [_orderItem[@"address"] objectForKey:@"name"];
+    self.address.text = [_orderItem[@"address"] isKindOfClass:[NSNull class]] ? @"" :  [_orderItem[@"address"] objectForKey:@"name"];
     self.status.text = status[@"name"];
     
    /* if (orderVO.orderType == kOrderTypeHistory) {

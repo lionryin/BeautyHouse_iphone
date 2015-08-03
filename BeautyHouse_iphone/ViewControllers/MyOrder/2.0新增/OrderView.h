@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuHrizontal.h"
+#import "ScrollPageView.h"
 
 @protocol OrderViewDelegate <NSObject>
 
@@ -18,5 +20,8 @@
 @interface OrderView : UIView
 
 @property (nonatomic, assign) id<OrderViewDelegate> delegate;
+
+@property (strong, nonatomic) MenuHrizontal  *mMenuHriZontal;
+@property (strong, nonatomic) ScrollPageView *mScrollPageView;
 
 @end

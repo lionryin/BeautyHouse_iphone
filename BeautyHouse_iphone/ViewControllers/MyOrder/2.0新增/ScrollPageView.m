@@ -20,6 +20,12 @@
     if (self) {
         // Initialization code
         _statusOfPage = [status mutableCopy];
+        _freshPage0 = NO;
+        _freshPage1 = NO;
+        _freshPage2 = NO;
+        _freshPage3 = NO;
+        _freshPage4 = NO;
+        _freshPage5 = NO;
         [self commInit];
     }
     return self;
@@ -70,16 +76,65 @@
 }
 
 #pragma mark 刷新某个页面
+
+
+//是否强制刷新
+- (BOOL)isFreshPageWithAIndex:(NSInteger)aIndex {
+    if (aIndex == 0 && _freshPage0) {
+        return YES;
+    }
+    else if (aIndex == 1 && _freshPage1){
+        return YES;
+    }
+    else if (aIndex == 2 && _freshPage2){
+        return YES;
+    }
+    else if (aIndex == 3 && _freshPage3){
+        return YES;
+    }
+    else if (aIndex == 4 && _freshPage4){
+        return YES;
+    }
+    else if (aIndex == 5 && _freshPage5){
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
 -(void)freshContentTableAtIndex:(NSInteger)aIndex{
+    NSLog(@"aIndex:%li",aIndex);
+    
     if (_contentItems.count < aIndex) {
         return;
     }
     CustomTableView *vTableContentView =(CustomTableView *)[_contentItems objectAtIndex:aIndex];
-    if (vTableContentView.tableInfoArray.count == 0) {
+    if (vTableContentView.tableInfoArray.count == 0 || [self isFreshPageWithAIndex:aIndex]) {
         [vTableContentView setupRefresh:[NSString stringWithFormat:@"%li",(long)aIndex]];
+        
+        if (aIndex == 0) {
+            _freshPage0 = NO;
+        }
+        else if (aIndex == 1) {
+            _freshPage1 = NO;
+        }
+        else if (aIndex == 2) {
+            _freshPage2 = NO;
+        }
+        else if (aIndex == 3) {
+            _freshPage3 = NO;
+        }
+        else if (aIndex == 4) {
+            _freshPage4 = NO;
+        }
+        else if (aIndex == 5) {
+            _freshPage5 = NO;
+        }
     }
    
 }
+
 
 #pragma mark - UIScrollView delegate
 
@@ -142,7 +197,7 @@
 
 - (void)refreshHeaderData:(void (^)())complete FromView:(CustomTableView *)aView {
     
-    [self getDataInfoFromHttpWithBlock:^(NSArray *items, NSError *error) {
+    [self getDataInfoFromHttpIsHeader:YES WithBlock:^(NSArray *items, NSError *error) {
         
         if (!error ) {
             if (items) {
@@ -181,7 +236,7 @@
      }
 
     
-    [self getDataInfoFromHttpWithBlock:^(NSArray *items, NSError *error) {
+    [self getDataInfoFromHttpIsHeader:NO WithBlock:^(NSArray *items, NSError *error) {
         if (!error ) {
             if (items) {
                 [aView.tableInfoArray addObjectsFromArray:items];
@@ -212,7 +267,7 @@
 
 
 #pragma mark - HTTP Request
-- (void)getDataInfoFromHttpWithBlock:(void (^)(NSArray *items, NSError *error))block {
+- (void)getDataInfoFromHttpIsHeader:(BOOL)isHeader WithBlock:(void (^)(NSArray *items, NSError *error))block {
     
     NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UserGlobalKey];
     NSString *userId = [userDic objectForKey:UserLoginId];
@@ -235,16 +290,20 @@
         return;
     }*/
     
-    [[MZBHttpService shareInstance] getOrderListWithUserId:userId andToken:token andNextPageIndex:cStatus[NextPageKey] andOrderStatusCode:cStatus[StatusKey] WithBlock:^(NSDictionary *result, NSError *error) {
+    NSLog(@"nextPageIndex:%@",cStatus[NextPageKey]);
+    
+    NSString *nextPage = isHeader ? @"" : cStatus[NextPageKey];
+    
+    [[MZBHttpService shareInstance] getOrderListWithUserId:userId andToken:token andNextPageIndex:nextPage andOrderStatusCode:cStatus[StatusKey] WithBlock:^(NSDictionary *result, NSError *error) {
         
-        NSLog(@"result:%@",result);
+       // NSLog(@"result:%@",result);
         
         if (!error) {
             if ( ((NSNumber *)result[@"status"]).boolValue ) {
                 NSArray *itemsArray = [result[@"data"] objectForKey:@"items"];
                 
                 NSString *nextPage = [result[@"data"] objectForKey:@"nextPageIndex"];
-                NSLog(@"result:%@\nnextPage:%@",result,nextPage);
+                NSLog(@"nextPage:%@",nextPage);
                 
         
                 [cStatus setObject:nextPage forKey:NextPageKey];

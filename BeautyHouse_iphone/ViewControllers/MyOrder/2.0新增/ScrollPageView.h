@@ -40,5 +40,13 @@
 #pragma mark 刷新某个页面
 -(void)freshContentTableAtIndex:(NSInteger)aIndex;
 
+//强制刷新标记
+@property (nonatomic) BOOL freshPage0;
+@property (nonatomic) BOOL freshPage1;
+@property (nonatomic) BOOL freshPage2;
+@property (nonatomic) BOOL freshPage3;
+@property (nonatomic) BOOL freshPage4;
+@property (nonatomic) BOOL freshPage5;
+
 
 @end
