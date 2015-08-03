@@ -177,6 +177,7 @@
         if (!error) {
             NSNumber *status = result[@"status"];
             if (status.boolValue) {
+                NSLog(@"Msg:%@",result[@"message"]);
                 _addressList = [result[@"data"] mutableCopy];
                 if (_addressList.count>0) {
                     _isHaveAddressList = YES;

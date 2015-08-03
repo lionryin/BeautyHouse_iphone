@@ -418,7 +418,7 @@
 //处理位置坐标更新
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
-    // [_locService stopUserLocationService];
+     [_locService stopUserLocationService];
     //_locService.delegate = nil;
     NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     
