@@ -305,7 +305,7 @@
     
     [self getHttpRequestOperationWithURLString:[NSString stringWithFormat:@"%@address/list.do?user_id=%@&token=%@",MZBHttpURL,userId,token] andBlock:^(NSString *responseStr, id result, NSError *error) {
         
-        NSLog(@"getAddressListResult:%@",result);
+        NSLog(@"getAddressListResult:%@",responseStr);
         if (block) {
             block(result,error);
         }
