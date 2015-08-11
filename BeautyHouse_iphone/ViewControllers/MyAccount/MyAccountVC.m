@@ -218,7 +218,7 @@
     if (section == 0) {
         return 1;
     }
-    return 4;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -253,10 +253,10 @@
             case 1:
                 str = @"意见反馈";
                 break;
+//            case 2:
+//                str = @"获取开通服务城市";
+//                break;
             case 2:
-                str = @"获取开通服务城市";
-                break;
-            case 3:
                 str = @"更多设置";
                 break;
             default:
@@ -301,8 +301,14 @@
 //                break;
             case 0:
             {
-                AccountDetailVC *detailVC =[AccountDetailVC new];
-                [self.navigationController pushViewController:detailVC animated:YES];
+                if ([self isLoginOK]) {
+                    AccountDetailVC *detailVC =[AccountDetailVC new];
+                    [self.navigationController pushViewController:detailVC animated:YES];
+                }
+                else {
+                    [UIFactory showAlert:@"请登录"];
+                }
+                
             }
                 break;
                 
@@ -324,13 +330,13 @@
                 [self.navigationController pushViewController:feedBackVC animated:YES];
             }
                 break;
+//            case 2:
+//            {
+//                AvailableCitiesVC *availableCities = [AvailableCitiesVC new];
+//                [self.navigationController pushViewController:availableCities animated:YES];
+//            }
+//                break;
             case 2:
-            {
-                AvailableCitiesVC *availableCities = [AvailableCitiesVC new];
-                [self.navigationController pushViewController:availableCities animated:YES];
-            }
-                break;
-            case 3:
             {
                 MoreSettingVC *moreSetting =[MoreSettingVC new];
                 [self.navigationController pushViewController:moreSetting animated:YES];

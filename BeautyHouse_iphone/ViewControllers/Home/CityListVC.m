@@ -8,6 +8,7 @@
 
 #import "CityListVC.h"
 #import "CityListCell.h"
+#import "Common.h"
 
 @interface CityListVC ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -68,6 +69,17 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSDictionary *city = _cities[indexPath.row];
+    
+    /////本地存储
+    NSDictionary *selectedCityDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:CityGlobalKey];
+    NSMutableDictionary *mutDic = [selectedCityDic mutableCopy];
+    
+    [mutDic setObject:city[@"id"] forKey:CityIdOfSelected];
+    [mutDic setObject:city[@"name"] forKey:CityNameOfSelected];
+    
+    [[NSUserDefaults standardUserDefaults] setValue:mutDic forKey:CityGlobalKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    ////////////
     
     if ([city[@"id"] isEqualToString:self.currentCity[@"id"]]) {
         [self.navigationController popViewControllerAnimated:YES];

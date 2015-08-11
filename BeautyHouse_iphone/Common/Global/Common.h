@@ -11,6 +11,12 @@
 #define UserLoginId          @"UserLoginId"
 #define UserToken           @"UserToken"
 
+
+
+#define CityGlobalKey         @"CityGlobalKey"
+#define CityNameOfSelected    @"CityNameOfSelected"
+#define CityIdOfSelected      @"CityIdOfSelected"
+
 #define AddressGlobalKey     @"AddressGlobalKey"
 
 #define MZB_NOTE_LOGIN_OK    @"MZB_NOTE_LOGIN_OK"//登陆成功

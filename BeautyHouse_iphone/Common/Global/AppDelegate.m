@@ -96,6 +96,13 @@ NSString * const WXPartnerId = @"1234641402";
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
+    NSDictionary *selectedCityDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:CityGlobalKey];
+    if (!selectedCityDic) {
+        selectedCityDic = @{CityNameOfSelected:@"", CityIdOfSelected:@""};
+        [[NSUserDefaults standardUserDefaults] setValue:selectedCityDic forKey:CityGlobalKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
     NSArray *addressArray = [[NSUserDefaults standardUserDefaults] arrayForKey:AddressGlobalKey];
     if (!addressArray) {
         addressArray = [[NSArray alloc] init];

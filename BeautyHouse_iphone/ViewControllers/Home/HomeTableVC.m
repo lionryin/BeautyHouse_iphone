@@ -75,10 +75,10 @@
     //指定最小距离更新(米)，默认：kCLDistanceFilterNone
     [BMKLocationService setLocationDistanceFilter:100.f];
     
-    
     //初始化BMKLocationService
      _locService = [[BMKLocationService alloc]init];
      _locService.delegate = self;
+    
     //启动LocationService
     [_locService startUserLocationService];
     
@@ -441,7 +441,15 @@
         NSLog(@"getOpenCities2:%@",resultArray);
         if (!error && resultArray.count>0) {
             _cities = resultArray;
-            _currentCity = [self findCurrentCity:_cities];
+            
+            NSDictionary *selectedCityDic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:CityGlobalKey];
+            if ([selectedCityDic[CityIdOfSelected] isEqualToString:@""]) {//没有选择城市
+                _currentCity = [self findCurrentCity:_cities];
+            }
+            else {//本地存储了选择的城市
+                _currentCity = @{@"id":selectedCityDic[CityIdOfSelected], @"name":selectedCityDic[CityNameOfSelected], @"isCurrent":[NSNumber numberWithBool:YES]};
+            }
+            
             
             if (_currentCity.count > 0) {
                 [_servicePhoneBtn setTitle:_currentCity[@"name"] forState:UIControlStateNormal];

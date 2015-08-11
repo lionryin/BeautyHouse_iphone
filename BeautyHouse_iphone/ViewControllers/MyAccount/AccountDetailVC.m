@@ -32,10 +32,23 @@
     [super viewDidLoad];
     self.title = @"账户详情";
     self.balance = 0.00;
+    
     [self initMainUI];
     
-    [self getCashBalance];
-    // Do any additional setup after loading the view.
+//    if (![self getUserLoginId]) {
+//        //[self performSelectorOnMainThread:@selector(showUnloginAlert) withObject:nil waitUntilDone:YES];
+//        [self performSelector:@selector(showUnloginAlert) withObject:nil afterDelay:1.0];
+//    }
+//    else {
+         [self getCashBalance];
+   // }
+}
+
+- (void)showUnloginAlert {
+    [UIFactory showAlert:@"请登录"];
+    
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"请登录" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//    [alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
 }
 
 - (void)initMainUI{
@@ -94,7 +107,7 @@
 
 - (void)getCashBalance{
     
-    if ([self getUserLoginId]) {
+    
         [self getUserDetail];
        /* NSString *jsonParam = [NSString stringWithFormat:@"{\"id\":\"%@\"}",[self getUserLoginId]];
         AFHTTPRequestOperation *opration = [MZBWebService getUserBalanceWithParameter:jsonParam];
@@ -132,14 +145,6 @@
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
         }];*/
-        
-    }else{
-        
-        UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请返回个人中心登录" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-        
-        [av show];
-    }
-
     
 }
 

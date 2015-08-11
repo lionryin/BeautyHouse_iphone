@@ -79,7 +79,7 @@
 //    [self.getCodeBtn setFrame:CGRectMake(180, 60, 120, 40)];
 //    [self.getCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
     [self.getCodeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.getCodeBtn setBackgroundColor:[UIColor lightGrayColor]];
+    //[self.getCodeBtn setBackgroundColor:[UIColor lightGrayColor]];
     self.getCodeBtn.layer.cornerRadius = 4;
     self.getCodeBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.getCodeBtn addTarget:self action:@selector(getCodeAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -96,7 +96,7 @@
     [self.loginBtn setFrame:CGRectMake(20, 170, 280, 40)];
     [self.loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
     [self.loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.loginBtn setBackgroundColor:[UIColor orangeColor]];
+    [self.loginBtn setBackgroundColor:[UIColor lightGrayColor]];
     self.loginBtn.layer.cornerRadius = 4;
     [self.loginBtn addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:self.loginBtn];
@@ -347,6 +347,30 @@
     textfield.delegate=self;
     
     return textfield;
+}
+
+#pragma mark - textField delegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField == self.codeTextField) {
+        if (range.location > 0 && self.phoneTextField.text.length > 0) {
+            [self.loginBtn setBackgroundColor:[UIColor orangeColor]];
+        }
+        else {
+            [self.loginBtn setBackgroundColor:[UIColor lightGrayColor]];
+        }
+    }
+    else if (textField == self.phoneTextField) {
+        if (range.location > 0 && self.codeTextField.text.length > 0) {
+            [self.loginBtn setBackgroundColor:[UIColor orangeColor]];
+        }
+        else {
+            [self.loginBtn setBackgroundColor:[UIColor lightGrayColor]];
+        }
+    }
+    
+    
+    return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
